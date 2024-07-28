@@ -175,8 +175,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.List.list_node.new_double_node">
 <span class="sig-name descname"><span class="pre">new_double_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.list_node.new_double_node" title="Link to this definition"></a></dt>
-<dd><p>Estructura que contiene la información a guardar en una lista encadenada
-doblemente</p>
+<dd><p>Estructura que contiene la información a guardar en un nodo de una lista doblemente encadenada</p>
 </dd></dl>
 
 </section>
@@ -187,18 +186,15 @@ doblemente</p>
 <span id="array-list-py"></span><h2>array_list.py<a class="headerlink" href="#module-DataStructures.List.array_list" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.List.array_list.new_list">
-<span class="sig-name descname"><span class="pre">new_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmpfunction</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.new_list" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">new_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.new_list" title="Link to this definition"></a></dt>
 <dd><p>Crea una lista implementada con un Array List vacío.</p>
-<p>Define una lista vacía, con un tamaño de cero y una función de comparación</p>
+<p>Define una lista vacía y con un tamaño de cero</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>cmpfunction</strong> (<em>function</em>) – Función de comparación para los elementos de la arraylista</p>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Lista creada</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista creada</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
@@ -228,7 +224,7 @@ doblemente</p>
 <dt class="sig sig-object py" id="DataStructures.List.array_list.add_last">
 <span class="sig-name descname"><span class="pre">add_last</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.add_last" title="Link to this definition"></a></dt>
 <dd><p>Agrega un elemento en la última posición de la lista.</p>
-<p>Al agregar un elemento en la última posición de la lista, se incrementa el tamaño de la lista en uno y se actualiza el apuntador a la última posición.</p>
+<p>Al agregar un elemento en la última posición de la lista y se incrementa el tamaño de la lista en uno.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -319,7 +315,7 @@ Esta funcion NO elimina el elemento de la lista.</p>
 <dt class="sig sig-object py" id="DataStructures.List.array_list.get_element">
 <span class="sig-name descname"><span class="pre">get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.get_element" title="Link to this definition"></a></dt>
 <dd><p>Retorna el elemento en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> de la lista.</p>
-<p>Se recorre la lista hasta el elemento <code class="docutils literal notranslate"><span class="pre">pos</span></code>, el cual  debe ser mayor
+<p>Se recorre la lista hasta el elemento <code class="docutils literal notranslate"><span class="pre">pos</span></code>, el cual  debe ser igual o mayor
 que cero y menor o igual al tamaño de la lista.
 Se retorna el elemento en dicha posición sin eliminarlo.
 La lista no puede ser vacía.</p>
@@ -344,7 +340,7 @@ La lista no puede ser vacía.</p>
 <span class="sig-name descname"><span class="pre">delete_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.delete_element" title="Link to this definition"></a></dt>
 <dd><p>Elimina el elemento en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> de la lista.</p>
 <p>Elimina el elemento que se encuentra en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> de la lista.
-<code class="docutils literal notranslate"><span class="pre">Pos</span></code> debe ser mayor que cero y menor  o igual al tamaño de la lista.
+<code class="docutils literal notranslate"><span class="pre">Pos</span></code> debe ser igual o mayor que cero y menor o igual al tamaño de la lista.
 Se decrementa en un uno el tamaño de la lista.
 La lista no puede estar vacía.</p>
 <dl class="field-list simple">
@@ -429,11 +425,11 @@ Se incrementa en 1 el tamaño de la lista.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.List.array_list.is_present">
-<span class="sig-name descname"><span class="pre">is_present</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.is_present" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">is_present</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.is_present" title="Link to this definition"></a></dt>
 <dd><p>Informa si el elemento element esta presente en la lista.</p>
 <p>Informa si un elemento está en la lista.
 Si esta presente, retorna la posición en la que se encuentra
-o cero (0) si no esta presente. Se utiliza la función de comparación
+o menos uno (-1) si no esta presente. Se utiliza la función de comparación
 utilizada durante la creación de la lista para comparar los elementos,
 la cual debe retornan cero si los elementos son iguales.</p>
 <dl class="field-list simple">
@@ -441,6 +437,7 @@ la cual debe retornan cero si los elementos son iguales.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>my_list</strong> (<em>array_list</em>) – La lista a examinar</p></li>
 <li><p><strong>element</strong> (<em>any</em>) – El elemento a buscar</p></li>
+<li><p><strong>cmp_function</strong> (<em>function</em>) – Función de comparación de elementos</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -514,7 +511,7 @@ numelem: Numero de elementos a copiar en la sublista</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.List.array_list.compare_elements">
-<span class="sig-name descname"><span class="pre">compare_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.compare_elements" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">compare_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.compare_elements" title="Link to this definition"></a></dt>
 <dd><p>Compara el elemento <code class="docutils literal notranslate"><span class="pre">element</span></code> de la lista <code class="docutils literal notranslate"><span class="pre">my_list</span></code> con el elemento <code class="docutils literal notranslate"><span class="pre">info</span></code>.</p>
 <p>Se utiliza la función de comparación por defecto si key es None o la función provista por el usuario en caso contrario</p>
 <dl class="field-list simple">
@@ -523,6 +520,7 @@ numelem: Numero de elementos a copiar en la sublista</p>
 <li><p><strong>my_list</strong> (<em>array_list</em>) – La lista con los elementos</p></li>
 <li><p><strong>element</strong> (<em>any</em>) – El elemento que se está buscando en la lista</p></li>
 <li><p><strong>info</strong> – El elemento de la lista que se está analizando        :type info: any</p></li>
+<li><p><strong>cmp_function</strong> (<em>function</em>) – Función de comparación de elementos</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
