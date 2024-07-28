@@ -1,0 +1,15 @@
+DataStructures package
+======================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   DataStructures.Graph
+   DataStructures.List
+   DataStructures.Queue
+   DataStructures.Stack
+   DataStructures.Map
+   DataStructures.PriorityQueue

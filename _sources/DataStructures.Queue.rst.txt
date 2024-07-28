@@ -1,0 +1,11 @@
+Queue - Colas
+============================
+
+queue.py
+---------------------------------
+
+.. automodule:: DataStructures.Queue.queue
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource

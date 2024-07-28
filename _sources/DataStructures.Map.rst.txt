@@ -1,0 +1,10 @@
+Map - Tablas
+==========================
+
+Module contents
+---------------
+
+.. automodule:: DataStructures.Map
+   :members:
+   :undoc-members:
+   :show-inheritance:

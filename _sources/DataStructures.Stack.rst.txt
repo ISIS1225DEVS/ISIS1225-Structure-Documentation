@@ -1,0 +1,12 @@
+Stack - Pilas
+============================
+
+
+stack.py
+---------------------------------
+
+.. automodule:: DataStructures.Stack.stack
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource

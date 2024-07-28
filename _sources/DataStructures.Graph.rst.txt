@@ -1,0 +1,10 @@
+Graph - Grafod
+============================
+
+Module contents
+---------------
+
+.. automodule:: DataStructures.Graph
+   :members:
+   :undoc-members:
+   :show-inheritance:
