@@ -74,7 +74,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.exchange"><code class="docutils literal notranslate"><span class="pre">exchange()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.sub_list"><code class="docutils literal notranslate"><span class="pre">sub_list()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.compare_elements"><code class="docutils literal notranslate"><span class="pre">compare_elements()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.defaultfunction"><code class="docutils literal notranslate"><span class="pre">defaultfunction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.default_function"><code class="docutils literal notranslate"><span class="pre">default_function()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.List.single_linked_list">single_linked_list.py</a><ul>
@@ -102,9 +102,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Stack.html">Stack - Pilas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Queue.html">Queue - Colas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DataStructures.Map.html">Map - Tablas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DataStructures.PriorityQueue.html">PriorityQueue - Colas de prioridad</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DataStructures.Graph.html">Graph - Grafod</a></li>
 </ul>
 
         </div>
@@ -315,8 +312,8 @@ Esta funcion NO elimina el elemento de la lista.</p>
 <dt class="sig sig-object py" id="DataStructures.List.array_list.get_element">
 <span class="sig-name descname"><span class="pre">get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.get_element" title="Link to this definition"></a></dt>
 <dd><p>Retorna el elemento en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> de la lista.</p>
-<p>Se recorre la lista hasta el elemento <code class="docutils literal notranslate"><span class="pre">pos</span></code>, el cual  debe ser igual o mayor
-que cero y menor o igual al tamaño de la lista.
+<p>Se recorre la lista hasta el elemento <code class="docutils literal notranslate"><span class="pre">pos</span></code>, el cual debe ser igual o mayor
+que cero y menor al tamaño de la lista.
 Se retorna el elemento en dicha posición sin eliminarlo.
 La lista no puede ser vacía.</p>
 <dl class="field-list simple">
@@ -340,7 +337,7 @@ La lista no puede ser vacía.</p>
 <span class="sig-name descname"><span class="pre">delete_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.delete_element" title="Link to this definition"></a></dt>
 <dd><p>Elimina el elemento en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> de la lista.</p>
 <p>Elimina el elemento que se encuentra en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> de la lista.
-<code class="docutils literal notranslate"><span class="pre">Pos</span></code> debe ser igual o mayor que cero y menor o igual al tamaño de la lista.
+<code class="docutils literal notranslate"><span class="pre">Pos</span></code> debe ser igual o mayor que cero y menor al tamaño de la lista.
 Se decrementa en un uno el tamaño de la lista.
 La lista no puede estar vacía.</p>
 <dl class="field-list simple">
@@ -430,7 +427,7 @@ Se incrementa en 1 el tamaño de la lista.</p>
 <p>Informa si un elemento está en la lista.
 Si esta presente, retorna la posición en la que se encuentra
 o menos uno (-1) si no esta presente. Se utiliza la función de comparación
-utilizada durante la creación de la lista para comparar los elementos,
+pasada por parámetro para comparar los elementos,
 la cual debe retornan cero si los elementos son iguales.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -527,14 +524,14 @@ numelem: Numero de elementos a copiar en la sublista</p>
 <dd class="field-even"><p>0 si los elementos son iguales, 1 si element &gt; info, -1 si element &lt; info</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
+<dd class="field-odd"><p>array_list</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.array_list.defaultfunction">
-<span class="sig-name descname"><span class="pre">defaultfunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.defaultfunction" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="DataStructures.List.array_list.default_function">
+<span class="sig-name descname"><span class="pre">default_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.default_function" title="Link to this definition"></a></dt>
 <dd><p>Función de comparación por defecto</p>
 <p>Compara dos elementos</p>
 <dl class="field-list simple">

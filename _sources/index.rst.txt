@@ -14,9 +14,9 @@ Bienvenido a la documentación de Estructura de Datos y Algoritmos!
    DataStructures.List
    DataStructures.Stack
    DataStructures.Queue
-   DataStructures.Map
-   DataStructures.PriorityQueue
-   DataStructures.Graph
+   .. DataStructures.Map
+   .. DataStructures.PriorityQueue
+   .. DataStructures.Graph
 
 Indices and tables
 ==================
