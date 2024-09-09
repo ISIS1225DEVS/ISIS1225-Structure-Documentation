@@ -75,6 +75,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.sub_list"><code class="docutils literal notranslate"><span class="pre">sub_list()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.compare_elements"><code class="docutils literal notranslate"><span class="pre">compare_elements()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.default_function"><code class="docutils literal notranslate"><span class="pre">default_function()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.selection_sort"><code class="docutils literal notranslate"><span class="pre">selection_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.insertion_sort"><code class="docutils literal notranslate"><span class="pre">insertion_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.shell_sort"><code class="docutils literal notranslate"><span class="pre">shell_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.merge_sort"><code class="docutils literal notranslate"><span class="pre">merge_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.quick_sort"><code class="docutils literal notranslate"><span class="pre">quick_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.quick_sort_recursive"><code class="docutils literal notranslate"><span class="pre">quick_sort_recursive()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.partition"><code class="docutils literal notranslate"><span class="pre">partition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.array_list.default_sort_criteria"><code class="docutils literal notranslate"><span class="pre">default_sort_criteria()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.List.single_linked_list">single_linked_list.py</a><ul>
@@ -96,6 +104,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.single_linked_list.sub_list"><code class="docutils literal notranslate"><span class="pre">sub_list()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.single_linked_list.compare_elements"><code class="docutils literal notranslate"><span class="pre">compare_elements()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.single_linked_list.defaultfunction"><code class="docutils literal notranslate"><span class="pre">defaultfunction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.single_linked_list.selection_sort"><code class="docutils literal notranslate"><span class="pre">selection_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.single_linked_list.insertion_sort"><code class="docutils literal notranslate"><span class="pre">insertion_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.single_linked_list.shell_sort"><code class="docutils literal notranslate"><span class="pre">shell_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.single_linked_list.merge_sort"><code class="docutils literal notranslate"><span class="pre">merge_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.single_linked_list.quick_sort"><code class="docutils literal notranslate"><span class="pre">quick_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.single_linked_list.quick_sort_recursive"><code class="docutils literal notranslate"><span class="pre">quick_sort_recursive()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.single_linked_list.partition"><code class="docutils literal notranslate"><span class="pre">partition()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.List.single_linked_list.default_sort_criteria"><code class="docutils literal notranslate"><span class="pre">default_sort_criteria()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -557,6 +573,191 @@ Se crea una copia de dichos elementos y se retorna una lista nueva.</p>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.array_list.selection_sort">
+<span class="sig-name descname"><span class="pre">selection_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.selection_sort" title="Link to this definition"></a></dt>
+<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Slection Sort</strong></p>
+<p>Se recorre la lista y se selecciona el elemento más pequeño
+y se intercambia con el primer elemento de la lista.
+Se repite el proceso con el segundo elemento más pequeño y así sucesivamente.</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>array_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.array_list.insertion_sort">
+<span class="sig-name descname"><span class="pre">insertion_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.insertion_sort" title="Link to this definition"></a></dt>
+<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Insertion Sort</strong></p>
+<p>Se recorre la lista y se inserta el elemento en la posición correcta
+en la lista ordenada.
+Se repite el proceso hasta que la lista esté ordenada.</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>array_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.array_list.shell_sort">
+<span class="sig-name descname"><span class="pre">shell_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.shell_sort" title="Link to this definition"></a></dt>
+<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Shell Sort</strong>
+Se recorre la lista y se ordena los elementos con un gap determinado.
+Se repite el proceso con un gap menor hasta que la lista esté ordenada.</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>array_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.array_list.merge_sort">
+<span class="sig-name descname"><span class="pre">merge_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.merge_sort" title="Link to this definition"></a></dt>
+<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Merge Sort</strong></p>
+<p>Se divide la lista en dos partes, se ordenan las partes y se combinan
+las partes ordenadas.</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>array_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.array_list.quick_sort">
+<span class="sig-name descname"><span class="pre">quick_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.quick_sort" title="Link to this definition"></a></dt>
+<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Quick Sort</strong></p>
+<p>Se selecciona un elemento como <strong>pivot</strong> y se ordenan los elementos</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>array_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>array_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.array_list.quick_sort_recursive">
+<span class="sig-name descname"><span class="pre">quick_sort_recursive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.quick_sort_recursive" title="Link to this definition"></a></dt>
+<dd><p>Función recursiva que implementa el algoritmo de <strong>quick sort</strong>, esta es llamada por la función <code class="docutils literal notranslate"><span class="pre">quick_sort()</span></code></p>
+<p>Se localiza el <strong>pivot</strong>, utilizando la funcion de particion.</p>
+<p>Luego se hace la recursión con los elementos a la izquierda del <strong>pivot</strong>
+y los elementos a la derecha del <strong>pivot</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>array_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>lo</strong> (<em>int</em>) – Posición del primer elemento</p></li>
+<li><p><strong>hi</strong> (<em>int</em>) – Posición del último elemento</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.array_list.partition">
+<span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.partition" title="Link to this definition"></a></dt>
+<dd><p>Función que implementa la partición de la lista en <strong>quick sort</strong>, esta es llamada por la función <code class="docutils literal notranslate"><span class="pre">quick_sort_recursive()</span></code></p>
+<p>Se selecciona un <strong>pivot</strong> y se ordenan los elementos menores a la izquierda del <strong>pivot</strong>
+y los elementos mayores a la derecha del <strong>pivot</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>array_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>lo</strong> (<em>int</em>) – Posición del primer elemento</p></li>
+<li><p><strong>hi</strong> (<em>int</em>) – Posición del último elemento</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Posición del <strong>pivot</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.array_list.default_sort_criteria">
+<span class="sig-name descname"><span class="pre">default_sort_criteria</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.array_list.default_sort_criteria" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación por defecto para ordenar de manera ascendente.</p>
+<p>Compara dos elementos y retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si el primer elemento es menor o igual al segundo elemento.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element1</strong> (<em>any</em>) – Elemento 1</p></li>
+<li><p><strong>element2</strong> (<em>any</em>) – Elemento 2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si el primer elemento es menor o igual al segundo elemento, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-DataStructures.List.single_linked_list">
 <span id="single-linked-list-py"></span><h2>single_linked_list.py<a class="headerlink" href="#module-DataStructures.List.single_linked_list" title="Link to this heading"></a></h2>
@@ -899,19 +1100,23 @@ Se crea una copia de dichos elementos y se retorna una lista nueva.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.List.single_linked_list.compare_elements">
-<span class="sig-name descname"><span class="pre">compare_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.compare_elements" title="Link to this definition"></a></dt>
-<dd><p>Compara dos elementos</p>
-<p>Se utiliza la función de comparación por defecto si key es None
-o la función provista por el usuario en caso contrario
-Args:</p>
-<blockquote>
-<div><p>my_list: La lista con los elementos
-element:  El elemento que se esta buscando en la lista
-info: El elemento de la lista que se está analizando</p>
-</div></blockquote>
-<p>Returns:  0 si los elementos son iguales, 1 si element &gt; info, -1 si element &lt; info</p>
-<dl class="simple">
-<dt>Raises:</dt><dd><p>Exception</p>
+<span class="sig-name descname"><span class="pre">compare_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.compare_elements" title="Link to this definition"></a></dt>
+<dd><p>Compara el elemento <code class="docutils literal notranslate"><span class="pre">element</span></code> de la lista <code class="docutils literal notranslate"><span class="pre">my_list</span></code> con el elemento <code class="docutils literal notranslate"><span class="pre">info</span></code>.</p>
+<p>Se utiliza la función de comparación por defecto si key es None o la función provista por el usuario en caso contrario</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista con los elementos</p></li>
+<li><p><strong>element</strong> (<em>any</em>) – El elemento que se está buscando en la lista</p></li>
+<li><p><strong>info</strong> – El elemento de la lista que se está analizando        :type info: any</p></li>
+<li><p><strong>cmp_function</strong> (<em>function</em>) – Función de comparación de elementos</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 si los elementos son iguales, 1 si element &gt; info, -1 si element &lt; info</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>single_linked_list</p>
 </dd>
 </dl>
 </dd></dl>
@@ -933,6 +1138,191 @@ info: El elemento de la lista que se está analizando</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.selection_sort">
+<span class="sig-name descname"><span class="pre">selection_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.selection_sort" title="Link to this definition"></a></dt>
+<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Slection Sort</strong></p>
+<p>Se recorre la lista y se selecciona el elemento más pequeño
+y se intercambia con el primer elemento de la lista.
+Se repite el proceso con el segundo elemento más pequeño y así sucesivamente.</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>single_linked_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.insertion_sort">
+<span class="sig-name descname"><span class="pre">insertion_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.insertion_sort" title="Link to this definition"></a></dt>
+<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Insertion Sort</strong></p>
+<p>Se recorre la lista y se inserta el elemento en la posición correcta
+en la lista ordenada.
+Se repite el proceso hasta que la lista esté ordenada.</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>single_linked_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.shell_sort">
+<span class="sig-name descname"><span class="pre">shell_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.shell_sort" title="Link to this definition"></a></dt>
+<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Shell Sort</strong>
+Se recorre la lista y se ordena los elementos con un gap determinado.
+Se repite el proceso con un gap menor hasta que la lista esté ordenada.</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>single_linked_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.merge_sort">
+<span class="sig-name descname"><span class="pre">merge_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.merge_sort" title="Link to this definition"></a></dt>
+<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Merge Sort</strong></p>
+<p>Se divide la lista en dos partes, se ordenan las partes y se combinan
+las partes ordenadas.</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>single_linked_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.quick_sort">
+<span class="sig-name descname"><span class="pre">quick_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.quick_sort" title="Link to this definition"></a></dt>
+<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Quick Sort</strong></p>
+<p>Se selecciona un elemento como <strong>pivot</strong> y se ordenan los elementos</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>single_linked_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.quick_sort_recursive">
+<span class="sig-name descname"><span class="pre">quick_sort_recursive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.quick_sort_recursive" title="Link to this definition"></a></dt>
+<dd><p>Función recursiva que implementa el algoritmo de <strong>quick sort</strong>, esta es llamada por la función <code class="docutils literal notranslate"><span class="pre">quick_sort()</span></code></p>
+<p>Se localiza el <strong>pivot</strong>, utilizando la funcion de particion.</p>
+<p>Luego se hace la recursión con los elementos a la izquierda del <strong>pivot</strong>
+y los elementos a la derecha del <strong>pivot</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>lo</strong> (<em>int</em>) – Posición del primer elemento</p></li>
+<li><p><strong>hi</strong> (<em>int</em>) – Posición del último elemento</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.partition">
+<span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.partition" title="Link to this definition"></a></dt>
+<dd><p>Función que implementa la partición de la lista en <strong>quick sort</strong>, esta es llamada por la función <code class="docutils literal notranslate"><span class="pre">quick_sort_recursive()</span></code></p>
+<p>Se selecciona un <strong>pivot</strong> y se ordenan los elementos menores a la izquierda del <strong>pivot</strong>
+y los elementos mayores a la derecha del <strong>pivot</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
+<li><p><strong>lo</strong> (<em>int</em>) – Posición del primer elemento</p></li>
+<li><p><strong>hi</strong> (<em>int</em>) – Posición del último elemento</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Posición del <strong>pivot</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.default_sort_criteria">
+<span class="sig-name descname"><span class="pre">default_sort_criteria</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.default_sort_criteria" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación por defecto para ordenar de manera ascendente.</p>
+<p>Compara dos elementos y retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si el primer elemento es menor o igual al segundo elemento.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element1</strong> (<em>any</em>) – Elemento 1</p></li>
+<li><p><strong>element2</strong> (<em>any</em>) – Elemento 2</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si el primer elemento es menor o igual al segundo elemento, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
