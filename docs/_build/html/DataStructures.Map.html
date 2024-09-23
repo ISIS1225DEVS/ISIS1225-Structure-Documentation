@@ -310,7 +310,7 @@ a y b enteros aleatoreos dentro del intervalo [0,p-1], con a &gt; 0</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>num_elements</strong> (<em>int</em>) – Tamaño inicial de la tabla</p></li>
+<li><p><strong>num_elements</strong> (<em>int</em>) – Número de parejas &lt;key,value&gt; que inicialmente puede almacenar la tabla</p></li>
 <li><p><strong>load_factor</strong> (<em>float</em>) – Factor de carga máximo de la tabla</p></li>
 <li><p><strong>prime</strong> (<em>int</em>) – Número primo utilizado en la función hash. Se utiliza 109345121 por defecto</p></li>
 </ul>
@@ -478,23 +478,26 @@ o False en caso contrario.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Map.map_linear_probing.find_slot">
-<span class="sig-name descname"><span class="pre">find_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hash_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_linear_probing.find_slot" title="Link to this definition"></a></dt>
-<dd><p>Encuentra una posición libre en la tabla de hash.</p>
+<span class="sig-name descname"><span class="pre">find_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hash_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_linear_probing.find_slot" title="Link to this definition"></a></dt>
+<dd><p>Busca la key a partir de una posición dada en la tabla.</p>
+<p>Utiliza la función de hash para encontrar la posición inicial de la llave.
+Si la posición está ocupada, busca la siguiente posición disponible.</p>
+<p>Usa la función de comparación (default_compare) para determinar si la llave ya existe en la tabla.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>my_map</strong> (<em>map_linear_probing</em>) – El map a examinar</p></li>
 <li><p><strong>key</strong> (<em>any</em>) – Llave a buscar</p></li>
 <li><p><strong>hash_value</strong> (<em>int</em>) – Posición inicial de la llave</p></li>
-<li><p><strong>cmp_function</strong> (<em>function</em>) – Función de comparación para la búsqueda de la llave</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Retorna una tupla con dos valores, el primero indica si la posición</p>
+<dd class="field-even"><p>Retorna una tupla con dos valores. El primero indica si la posición está ocupada, <code class="docutils literal notranslate"><span class="pre">True</span></code> si se encuentra la key de lo contrario <code class="docutils literal notranslate"><span class="pre">False</span></code>. El segundo la posición en la tabla de hash donde se encuentra o posición libre para agregarla</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool, int</p>
 </dd>
 </dl>
-<p>está ocupada, el segundo la posición encontrada
-:rtype: bool, int</p>
 </dd></dl>
 
 <dl class="py function">
@@ -502,7 +505,7 @@ o False en caso contrario.</p>
 <span class="sig-name descname"><span class="pre">is_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_linear_probing.is_available" title="Link to this definition"></a></dt>
 <dd><p>Informa si la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> está disponible en la tabla de hash.</p>
 <p>Se entiende que una posición está disponible si su contenido es igual a None (no se ha usado esa posición)
-o a __EMPTY__ (la posición fue liberada)</p>
+o a <code class="docutils literal notranslate"><span class="pre">__EMPTY__</span></code> (la posición fue liberada)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -542,16 +545,16 @@ todos los elementos de la tabla uno por uno.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Map.map_linear_probing.default_compare">
 <span class="sig-name descname"><span class="pre">default_compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_linear_probing.default_compare" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación por defecto.</p>
+<dd><p>Función de comparación por defecto. Compara una llave con la llave de un elemento llave-valor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>key</strong> (<em>any</em>) – Llave a comparar</p></li>
-<li><p><strong>element</strong> (<em>map_entry</em>) – Elemento a comparar</p></li>
+<li><p><strong>element</strong> (<em>map_entry</em>) – <code class="docutils literal notranslate"><span class="pre">entry</span></code> a comparar</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>0 si son iguales, 1 si key &gt; element, -1 si key &lt; element</p>
+<dd class="field-even"><p><strong>0</strong> si son iguales, <strong>1</strong> si <code class="docutils literal notranslate"><span class="pre">key</span></code> &gt; la llave del <code class="docutils literal notranslate"><span class="pre">element</span></code>, <strong>-1</strong> si <code class="docutils literal notranslate"><span class="pre">key</span></code> &lt; que la llave del  <code class="docutils literal notranslate"><span class="pre">element</span></code></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
@@ -583,7 +586,7 @@ todos los elementos de la tabla uno por uno.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>num_elements</strong> (<em>int</em>) – Tamaño inicial de la tabla</p></li>
+<li><p><strong>num_elements</strong> (<em>int</em>) – Número de parejas &lt;key,value&gt; que inicialmente puede almacenar la tabla</p></li>
 <li><p><strong>load_factor</strong> (<em>float</em>) – Factor de carga máximo de la tabla</p></li>
 <li><p><strong>prime</strong> (<em>int</em>) – Número primo utilizado en la función hash. Se utiliza 109345121 por defecto</p></li>
 </ul>
@@ -751,23 +754,39 @@ o False en caso contrario.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Map.map_separate_chaining.find_slot">
-<span class="sig-name descname"><span class="pre">find_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hash_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_separate_chaining.find_slot" title="Link to this definition"></a></dt>
-<dd><p>Encuentra una posición libre en la tabla de hash.</p>
+<span class="sig-name descname"><span class="pre">find_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hash_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_separate_chaining.find_slot" title="Link to this definition"></a></dt>
+<dd><p>Busca la key a partir de una posición dada en la tabla.</p>
+<blockquote>
+<div><p>Utiliza la función de hash para encontrar la posición inicial de la llave.
+Si la posición está ocupada, busca la siguiente posición disponible.</p>
+<p>Usa la función de comparación (default_compare) para determinar si la llave ya existe en la tabla.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_map</strong> (<em>map_separate_chaining</em>) – El map a examinar</p></li>
-<li><p><strong>key</strong> (<em>any</em>) – Llave a buscar</p></li>
-<li><p><strong>hash_value</strong> (<em>int</em>) – Posición inicial de la llave</p></li>
-<li><p><strong>cmp_function</strong> (<em>function</em>) – Función de comparación para la búsqueda de la llave</p></li>
-</ul>
+<dt class="field-odd">param my_map<span class="colon">:</span></dt>
+<dd class="field-odd"><p>El map a examinar</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Retorna una tupla con dos valores, el primero indica si la posición</p>
+<dt class="field-even">type my_map<span class="colon">:</span></dt>
+<dd class="field-even"><p>map_separate_chaining</p>
+</dd>
+<dt class="field-odd">param key<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Llave a buscar</p>
+</dd>
+<dt class="field-even">type key<span class="colon">:</span></dt>
+<dd class="field-even"><p>any</p>
+</dd>
+<dt class="field-odd">param hash_value<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Posición inicial de la llave</p>
+</dd>
+<dt class="field-even">type hash_value<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
 </dd>
 </dl>
-<p>está ocupada, el segundo la posición encontrada
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Retorna una tupla con dos valores. El primero indica si la posición está ocupada, <code class="docutils literal notranslate"><span class="pre">True</span></code> si se encuentra la key de lo contrario <code class="docutils literal notranslate"><span class="pre">False</span></code>. El segundo la posición en la tabla de hash donde se encuentra o posición libre para agregarla
 :rtype: bool, int</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -775,7 +794,7 @@ o False en caso contrario.</p>
 <span class="sig-name descname"><span class="pre">is_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_separate_chaining.is_available" title="Link to this definition"></a></dt>
 <dd><p>Informa si la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> está disponible en la tabla de hash.</p>
 <p>Se entiende que una posición está disponible si su contenido es igual a None (no se ha usado esa posición)
-o a __EMPTY__ (la posición fue liberada)</p>
+o a <code class="docutils literal notranslate"><span class="pre">__EMPTY__</span></code> (la posición fue liberada)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
