@@ -1,0 +1,10 @@
+PriorityQueue - Colas de prioridad
+====================================
+
+Module contents
+---------------
+
+.. automodule:: DataStructures.PriorityQueue
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,22 @@
+Set - Conjunto
+==========================
+
+.. Submodules
+.. ----------
+
+set.py
+-----------------------------
+
+.. automodule:: DataStructures.Set.set
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+.. Module contents
+.. ---------------
+
+.. .. automodule:: DataStructures.Set
+..    :members:
+..    :undoc-members:
+..    :show-inheritance:

@@ -1,0 +1,21 @@
+DataStructures.Map.Tests package
+================================
+
+Submodules
+----------
+
+DataStructures.Map.Tests.test\_map\_linear\_probing module
+----------------------------------------------------------
+
+.. automodule:: DataStructures.Map.Tests.test_map_linear_probing
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: DataStructures.Map.Tests
+   :members:
+   :undoc-members:
+   :show-inheritance:

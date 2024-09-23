@@ -1,0 +1,37 @@
+DataStructures.Utils package
+============================
+
+Submodules
+----------
+
+DataStructures.Utils.config module
+----------------------------------
+
+.. automodule:: DataStructures.Utils.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+DataStructures.Utils.error module
+---------------------------------
+
+.. automodule:: DataStructures.Utils.error
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+DataStructures.Utils.utils module
+---------------------------------
+
+.. automodule:: DataStructures.Utils.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: DataStructures.Utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
