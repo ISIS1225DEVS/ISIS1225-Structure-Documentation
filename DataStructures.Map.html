@@ -93,10 +93,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Map.map_separate_chaining.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Map.map_separate_chaining.key_set"><code class="docutils literal notranslate"><span class="pre">key_set()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Map.map_separate_chaining.value_set"><code class="docutils literal notranslate"><span class="pre">value_set()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Map.map_separate_chaining.find_slot"><code class="docutils literal notranslate"><span class="pre">find_slot()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Map.map_separate_chaining.is_available"><code class="docutils literal notranslate"><span class="pre">is_available()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Map.map_separate_chaining.rehash"><code class="docutils literal notranslate"><span class="pre">rehash()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Map.map_separate_chaining.default_compare"><code class="docutils literal notranslate"><span class="pre">default_compare()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Map.map_separate_chaining.defauarray_list_compare"><code class="docutils literal notranslate"><span class="pre">defauarray_list_compare()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -569,9 +567,7 @@ todos los elementos de la tabla uno por uno.</p>
 <dt class="sig sig-object py" id="DataStructures.Map.map_separate_chaining.new_map">
 <span class="sig-name descname"><span class="pre">new_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_elements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">109345121</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_separate_chaining.new_map" title="Link to this definition"></a></dt>
 <dd><p>Crea una tabla de simbolos (map) sin elementos</p>
-<blockquote>
-<div><p>Se crea una tabla de simbolos (map) sin elementos con los siguientes atributos:</p>
-</div></blockquote>
+<p>Se crea una tabla de simbolos (map) sin elementos con los siguientes atributos:</p>
 <ul class="simple">
 <li><p><strong>prime</strong>: Número primo utilizado en la función hash</p></li>
 <li><p><strong>capacity</strong>: Tamaño de la tabla. Siguiente número primo mayor a <code class="docutils literal notranslate"><span class="pre">num_elements</span></code>/<code class="docutils literal notranslate"><span class="pre">load_factor</span></code></p></li>
@@ -753,65 +749,6 @@ o False en caso contrario.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Map.map_separate_chaining.find_slot">
-<span class="sig-name descname"><span class="pre">find_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hash_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_separate_chaining.find_slot" title="Link to this definition"></a></dt>
-<dd><p>Busca la key a partir de una posición dada en la tabla.</p>
-<blockquote>
-<div><p>Utiliza la función de hash para encontrar la posición inicial de la llave.
-Si la posición está ocupada, busca la siguiente posición disponible.</p>
-<p>Usa la función de comparación (default_compare) para determinar si la llave ya existe en la tabla.</p>
-<dl class="field-list simple">
-<dt class="field-odd">param my_map<span class="colon">:</span></dt>
-<dd class="field-odd"><p>El map a examinar</p>
-</dd>
-<dt class="field-even">type my_map<span class="colon">:</span></dt>
-<dd class="field-even"><p>map_separate_chaining</p>
-</dd>
-<dt class="field-odd">param key<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Llave a buscar</p>
-</dd>
-<dt class="field-even">type key<span class="colon">:</span></dt>
-<dd class="field-even"><p>any</p>
-</dd>
-<dt class="field-odd">param hash_value<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Posición inicial de la llave</p>
-</dd>
-<dt class="field-even">type hash_value<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
-</div></blockquote>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Retorna una tupla con dos valores. El primero indica si la posición está ocupada, <code class="docutils literal notranslate"><span class="pre">True</span></code> si se encuentra la key de lo contrario <code class="docutils literal notranslate"><span class="pre">False</span></code>. El segundo la posición en la tabla de hash donde se encuentra o posición libre para agregarla
-:rtype: bool, int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Map.map_separate_chaining.is_available">
-<span class="sig-name descname"><span class="pre">is_available</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_separate_chaining.is_available" title="Link to this definition"></a></dt>
-<dd><p>Informa si la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> está disponible en la tabla de hash.</p>
-<p>Se entiende que una posición está disponible si su contenido es igual a None (no se ha usado esa posición)
-o a <code class="docutils literal notranslate"><span class="pre">__EMPTY__</span></code> (la posición fue liberada)</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>table</strong> (<em>array_list</em>) – Tabla de hash, implementada como una lista (array_list)</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – Posición a verificar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True si la posición está disponible, False en caso contrario</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Map.map_separate_chaining.rehash">
 <span class="sig-name descname"><span class="pre">rehash</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_separate_chaining.rehash" title="Link to this definition"></a></dt>
 <dd><p>Hace rehash de todos los elementos de la tabla de hash.</p>
@@ -832,8 +769,8 @@ todos los elementos de la tabla uno por uno.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Map.map_separate_chaining.default_compare">
-<span class="sig-name descname"><span class="pre">default_compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_separate_chaining.default_compare" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="DataStructures.Map.map_separate_chaining.defauarray_list_compare">
+<span class="sig-name descname"><span class="pre">defauarray_list_compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_separate_chaining.defauarray_list_compare" title="Link to this definition"></a></dt>
 <dd><p>Función de comparación por defecto. Compara una llave con la llave de un elemento llave-valor.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
