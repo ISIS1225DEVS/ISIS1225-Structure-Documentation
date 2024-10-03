@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Map - Árboles &mdash; DISC - Data Structures 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Map - Tablas" href="DataStructures.Map.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DISC - Data Structures
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Set.html">Set - Conjunto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.List.html">List - Listas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Stack.html">Stack - Pilas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Queue.html">Queue - Colas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Map.html">Map - Tablas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Order Map - Árboles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#elementos">Elementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Tree.bst_node">bst_node.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.bst_node.new_node"><code class="docutils literal notranslate"><span class="pre">new_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.bst_node.get_value"><code class="docutils literal notranslate"><span class="pre">get_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.bst_node.get_key"><code class="docutils literal notranslate"><span class="pre">get_key()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Tree.rbt_node">rbt_node.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.rbt_node.new_node"><code class="docutils literal notranslate"><span class="pre">new_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.rbt_node.is_red"><code class="docutils literal notranslate"><span class="pre">is_red()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.rbt_node.get_value"><code class="docutils literal notranslate"><span class="pre">get_value()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.rbt_node.get_key"><code class="docutils literal notranslate"><span class="pre">get_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.rbt_node.change_color"><code class="docutils literal notranslate"><span class="pre">change_color()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#implementaciones-de-arboles">Implementaciones de árboles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Tree.binary_search_tree">binary_search_tree.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.new_map"><code class="docutils literal notranslate"><span class="pre">new_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.insert_node"><code class="docutils literal notranslate"><span class="pre">insert_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.key_set"><code class="docutils literal notranslate"><span class="pre">key_set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.value_set"><code class="docutils literal notranslate"><span class="pre">value_set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.min_key"><code class="docutils literal notranslate"><span class="pre">min_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.max_key"><code class="docutils literal notranslate"><span class="pre">max_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_min"><code class="docutils literal notranslate"><span class="pre">delete_min()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_max"><code class="docutils literal notranslate"><span class="pre">delete_max()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.floor"><code class="docutils literal notranslate"><span class="pre">floor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.ceiling"><code class="docutils literal notranslate"><span class="pre">ceiling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.select"><code class="docutils literal notranslate"><span class="pre">select()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.rank"><code class="docutils literal notranslate"><span class="pre">rank()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.height"><code class="docutils literal notranslate"><span class="pre">height()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.keys"><code class="docutils literal notranslate"><span class="pre">keys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.values"><code class="docutils literal notranslate"><span class="pre">values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.get_node"><code class="docutils literal notranslate"><span class="pre">get_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.remove_node"><code class="docutils literal notranslate"><span class="pre">remove_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.size_tree"><code class="docutils literal notranslate"><span class="pre">size_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.value_set_tree"><code class="docutils literal notranslate"><span class="pre">value_set_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.key_set_tree"><code class="docutils literal notranslate"><span class="pre">key_set_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.min_key_node"><code class="docutils literal notranslate"><span class="pre">min_key_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.max_key_node"><code class="docutils literal notranslate"><span class="pre">max_key_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_min_tree"><code class="docutils literal notranslate"><span class="pre">delete_min_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_max_tree"><code class="docutils literal notranslate"><span class="pre">delete_max_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.floor_key"><code class="docutils literal notranslate"><span class="pre">floor_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.ceiling_key"><code class="docutils literal notranslate"><span class="pre">ceiling_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.select_key"><code class="docutils literal notranslate"><span class="pre">select_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.rank_keys"><code class="docutils literal notranslate"><span class="pre">rank_keys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.height_tree"><code class="docutils literal notranslate"><span class="pre">height_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.keys_range"><code class="docutils literal notranslate"><span class="pre">keys_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.values_range"><code class="docutils literal notranslate"><span class="pre">values_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.default_compare"><code class="docutils literal notranslate"><span class="pre">default_compare()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Tree.red_black_tree">red_black_tree.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.new_map"><code class="docutils literal notranslate"><span class="pre">new_map()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.key_set"><code class="docutils literal notranslate"><span class="pre">key_set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.value_set"><code class="docutils literal notranslate"><span class="pre">value_set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.min_key"><code class="docutils literal notranslate"><span class="pre">min_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.max_key"><code class="docutils literal notranslate"><span class="pre">max_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_min"><code class="docutils literal notranslate"><span class="pre">delete_min()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_max"><code class="docutils literal notranslate"><span class="pre">delete_max()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.floor"><code class="docutils literal notranslate"><span class="pre">floor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.ceiling"><code class="docutils literal notranslate"><span class="pre">ceiling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.select"><code class="docutils literal notranslate"><span class="pre">select()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rank"><code class="docutils literal notranslate"><span class="pre">rank()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.height"><code class="docutils literal notranslate"><span class="pre">height()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.keys"><code class="docutils literal notranslate"><span class="pre">keys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.values"><code class="docutils literal notranslate"><span class="pre">values()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.value_set_tree"><code class="docutils literal notranslate"><span class="pre">value_set_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.key_set_tree"><code class="docutils literal notranslate"><span class="pre">key_set_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rotate_left"><code class="docutils literal notranslate"><span class="pre">rotate_left()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rotate_right"><code class="docutils literal notranslate"><span class="pre">rotate_right()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.flip_node_color"><code class="docutils literal notranslate"><span class="pre">flip_node_color()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.flip_colors"><code class="docutils literal notranslate"><span class="pre">flip_colors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.is_red"><code class="docutils literal notranslate"><span class="pre">is_red()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.size_tree"><code class="docutils literal notranslate"><span class="pre">size_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.insert_node"><code class="docutils literal notranslate"><span class="pre">insert_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.height_tree"><code class="docutils literal notranslate"><span class="pre">height_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.get_node"><code class="docutils literal notranslate"><span class="pre">get_node()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.min_key_tree"><code class="docutils literal notranslate"><span class="pre">min_key_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.max_key_tree"><code class="docutils literal notranslate"><span class="pre">max_key_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.floor_key"><code class="docutils literal notranslate"><span class="pre">floor_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.ceiling_key"><code class="docutils literal notranslate"><span class="pre">ceiling_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rank_keys"><code class="docutils literal notranslate"><span class="pre">rank_keys()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.keys_range"><code class="docutils literal notranslate"><span class="pre">keys_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.values_range"><code class="docutils literal notranslate"><span class="pre">values_range()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.select_key"><code class="docutils literal notranslate"><span class="pre">select_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_min_tree"><code class="docutils literal notranslate"><span class="pre">delete_min_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_max_tree"><code class="docutils literal notranslate"><span class="pre">delete_max_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.move_red_right"><code class="docutils literal notranslate"><span class="pre">move_red_right()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.move_red_left"><code class="docutils literal notranslate"><span class="pre">move_red_left()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.balance"><code class="docutils literal notranslate"><span class="pre">balance()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.remove_key"><code class="docutils literal notranslate"><span class="pre">remove_key()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.default_function"><code class="docutils literal notranslate"><span class="pre">default_function()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#algoritmos-de-recorrido">Algoritmos de recorrido</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Tree.tree_traversal">tree_traversal.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.inorder"><code class="docutils literal notranslate"><span class="pre">inorder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.preorder"><code class="docutils literal notranslate"><span class="pre">preorder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.postorder"><code class="docutils literal notranslate"><span class="pre">postorder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.inorder_tree"><code class="docutils literal notranslate"><span class="pre">inorder_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.postorder_tree"><code class="docutils literal notranslate"><span class="pre">postorder_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.preorder_tree"><code class="docutils literal notranslate"><span class="pre">preorder_tree()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DISC - Data Structures</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Order Map - Árboles</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="order-map-arboles">
+<h1>Order Map - Árboles<a class="headerlink" href="#order-map-arboles" title="Link to this heading"></a></h1>
+<section id="elementos">
+<h2>Elementos<a class="headerlink" href="#elementos" title="Link to this heading"></a></h2>
+</section>
+<section id="module-DataStructures.Tree.bst_node">
+<span id="bst-node-py"></span><h2>bst_node.py<a class="headerlink" href="#module-DataStructures.Tree.bst_node" title="Link to this heading"></a></h2>
+<p>Estructura que contiene la información a guardar en una <code class="docutils literal notranslate"><span class="pre">nodo</span></code> de un árbol binario</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.bst_node.new_node">
+<span class="sig-name descname"><span class="pre">new_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.bst_node.new_node" title="Link to this definition"></a></dt>
+<dd><p>Estructura que contiene la información a guardar en un nodo de un árbol binario</p>
+<p>Se crea un nodo con los siguientes atributos:
+- <strong>key</strong>: Llave del nodo
+- <strong>value</strong>: Valor del nodo
+- <strong>size</strong>: Tamaño del nodo. Inicializado en 1
+- <strong>left</strong>: Hijo izquierdo del nodo. Inicializado en <code class="docutils literal notranslate"><span class="pre">None</span></code>
+- <strong>right</strong>: Hijo derecho del nodo. Inicializado en <code class="docutils literal notranslate"><span class="pre">None</span></code>
+- <strong>type</strong>: Tipo de árbol. Inicializado en “BST”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>any</em>) – Llave del nodo</p></li>
+<li><p><strong>value</strong> (<em>any</em>) – Valor del nodo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nodo creado</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bst_node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.bst_node.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.bst_node.get_value" title="Link to this definition"></a></dt>
+<dd><p>Retorna el valor asociado a un nodo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>my_node</strong> (<em>bst_node</em>) – El nodo con la iformación</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El valor almacenado en el nodo</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.bst_node.get_key">
+<span class="sig-name descname"><span class="pre">get_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.bst_node.get_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave asociada a un nodo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>my_node</strong> (<em>bst_node</em>) – El nodo con la información</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>La llave almacenada en el nodo</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-DataStructures.Tree.rbt_node">
+<span id="rbt-node-py"></span><h2>rbt_node.py<a class="headerlink" href="#module-DataStructures.Tree.rbt_node" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.rbt_node.new_node">
+<span class="sig-name descname"><span class="pre">new_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.rbt_node.new_node" title="Link to this definition"></a></dt>
+<dd><p>Crea un nuevo nodo para un árbol rojo-negro  y lo retorna.
+color:0 - rojo  color:1 - negro
+Args:</p>
+<blockquote>
+<div><p>value: El valor asociado a la llave
+key: la llave asociada a la pareja
+size: El tamaño del subarbol que cuelga de este nodo
+color: El color inicial del nodo</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Un nodo con la pareja &lt;llave, valor&gt;</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.rbt_node.is_red">
+<span class="sig-name descname"><span class="pre">is_red</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.rbt_node.is_red" title="Link to this definition"></a></dt>
+<dd><p>Informa si un nodo es rojo
+Args:</p>
+<blockquote>
+<div><p>my_node: El nodo a revisar</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>True si el nodo es rojo, False de lo contrario</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.rbt_node.get_value">
+<span class="sig-name descname"><span class="pre">get_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.rbt_node.get_value" title="Link to this definition"></a></dt>
+<dd><p>Retorna el valor asociado a una pareja llave valor
+Args:</p>
+<blockquote>
+<div><p>my_node: El nodo con la pareja llave-valor</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El valor almacenado en el nodo</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.rbt_node.get_key">
+<span class="sig-name descname"><span class="pre">get_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.rbt_node.get_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave asociado a una pareja llave valor
+Args:</p>
+<blockquote>
+<div><p>my_node: El nodo con la pareja llave-valor</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La llave almacenada en el nodo</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.rbt_node.change_color">
+<span class="sig-name descname"><span class="pre">change_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.rbt_node.change_color" title="Link to this definition"></a></dt>
+<dd><p>Cambia el color de un nodo
+Args:</p>
+<blockquote>
+<div><p>my_node: El nodo a cambiar
+color: El nuevo color del nodo</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="implementaciones-de-arboles">
+<h2>Implementaciones de árboles<a class="headerlink" href="#implementaciones-de-arboles" title="Link to this heading"></a></h2>
+</section>
+<section id="module-DataStructures.Tree.binary_search_tree">
+<span id="binary-search-tree-py"></span><h2>binary_search_tree.py<a class="headerlink" href="#module-DataStructures.Tree.binary_search_tree" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.new_map">
+<span class="sig-name descname"><span class="pre">new_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.new_map" title="Link to this definition"></a></dt>
+<dd><p>Crea una tabla de simbolos ordenada basada en un árbol binario de búsqueda (BST) vacía</p>
+<p>Se crea una tabla de símbolos ordenada con los siguientes atributos:</p>
+<ul class="simple">
+<li><p><strong>root</strong>: Raíz del árbol. Inicializado en <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+<li><p><strong>type</strong>: Tipo de árbol. Inicializado en “BST”</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>La tabla de símbolos ordenada sin elementos</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>binary_search_tree</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.put" title="Link to this definition"></a></dt>
+<dd><p>Ingresa una pareja llave,valor. Si la llave ya existe, se reemplaza el valor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_bst</strong> (<em>binary_search_tree</em>) – El BST</p></li>
+<li><p><strong>key</strong> (<em>any</em>) – La llave asociada a la pareja</p></li>
+<li><p><strong>value</strong> (<em>any</em>) – El valor asociado a la pareja</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El arbol con la nueva pareja</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>binary_search_tree</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.insert_node">
+<span class="sig-name descname"><span class="pre">insert_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.insert_node" title="Link to this definition"></a></dt>
+<dd><p>Ingresa una pareja llave,valor. Si la llave ya existe, se reemplaza el valor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<em>bst_node</em>) – La raiz del arbol</p></li>
+<li><p><strong>key</strong> (<em>any</em>) – La llave asociada a la pareja</p></li>
+<li><p><strong>value</strong> (<em>any</em>) – El valor asociado a la pareja</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El arbol con la nueva pareja</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bst_node</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.get" title="Link to this definition"></a></dt>
+<dd><p>Retorna la pareja lleve-valor con llave igual  a key
+Args:</p>
+<blockquote>
+<div><p>my_bst: El arbol de búsqueda
+key: La llave asociada a la pareja</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La pareja llave-valor en caso de que haya sido encontrada</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.remove" title="Link to this definition"></a></dt>
+<dd><p>Elimina la pareja llave,valor, donde llave == key.
+Args:</p>
+<blockquote>
+<div><p>my_bst: El arbol de búsqueda
+key: La llave asociada a la pareja</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El arbol sin la pareja key-value</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.contains" title="Link to this definition"></a></dt>
+<dd><p>Informa si la llave key se encuentra en la tabla de hash
+Args:</p>
+<blockquote>
+<div><p>my_bst: El arbol de búsqueda
+key: La llave a buscar</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>True si la llave está presente False en caso contrario</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.size" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de entradas en la tabla de simbolos
+Args:</p>
+<blockquote>
+<div><p>my_bst: El arbol de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El número de elementos en la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.is_empty" title="Link to this definition"></a></dt>
+<dd><p>Informa si la tabla de simbolos se encuentra vacia
+Args:</p>
+<blockquote>
+<div><p>my_bst: El arbol de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>True si la tabla es vacía, False en caso contrario</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.key_set">
+<span class="sig-name descname"><span class="pre">key_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.key_set" title="Link to this definition"></a></dt>
+<dd><p>Retorna una lista con todas las llaves de la tabla
+Args:</p>
+<blockquote>
+<div><p>my_bst: La tabla de simbolos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Una lista con todas las llaves de la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.value_set">
+<span class="sig-name descname"><span class="pre">value_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.value_set" title="Link to this definition"></a></dt>
+<dd><p>Construye una lista con los valores de la tabla
+Args:</p>
+<blockquote>
+<div><p>my_bst: La tabla con los elementos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Una lista con todos los valores</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.min_key">
+<span class="sig-name descname"><span class="pre">min_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.min_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la menor llave de la tabla de simbolos
+Args:</p>
+<blockquote>
+<div><p>my_bst: La tabla de simbolos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La menor llave de la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.max_key">
+<span class="sig-name descname"><span class="pre">max_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.max_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la mayor llave de la tabla de simbolos
+Args:</p>
+<blockquote>
+<div><p>my_bst: La tabla de simbolos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La mayor llave de la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.delete_min">
+<span class="sig-name descname"><span class="pre">delete_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.delete_min" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la menor llave de la tabla de simbolos
+y su valor asociado
+Args:</p>
+<blockquote>
+<div><p>my_bst: La tabla de simbolos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La tabla de simbolos sin la menor llave</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.delete_max">
+<span class="sig-name descname"><span class="pre">delete_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.delete_max" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la mayor llave de la tabla de simbolos
+y su valor asociado
+Args:</p>
+<blockquote>
+<div><p>my_bst: La tabla de simbolos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La tabla de simbolos sin la mayor llave</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.floor">
+<span class="sig-name descname"><span class="pre">floor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.floor" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas grande en la tabla de simbolos,
+menor o igual a la llave key
+Args:</p>
+<blockquote>
+<div><p>my_bst: La tabla de simbolos
+key: La llave de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La llave más grande menor o igual a key</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.ceiling">
+<span class="sig-name descname"><span class="pre">ceiling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.ceiling" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas pequeña en la tabla de simbolos,
+mayor o igual a la llave key
+Args:</p>
+<blockquote>
+<div><p>my_bst: La tabla de simbolos
+key: la llave de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.select">
+<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.select" title="Link to this definition"></a></dt>
+<dd><p>Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla
+Args:</p>
+<blockquote>
+<div><p>my_bst: La tabla de simbolos
+pos: la pos-esima llave mas pequeña</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.rank">
+<span class="sig-name descname"><span class="pre">rank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.rank" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de llaves en la tabla estrictamente menores que key
+Args:</p>
+<blockquote>
+<div><p>my_bst: La tabla de simbolos
+key: La llave de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El nuemero de llaves encontradas</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.height">
+<span class="sig-name descname"><span class="pre">height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.height" title="Link to this definition"></a></dt>
+<dd><p>Retorna la altura del arbol de busqueda
+Args:</p>
+<blockquote>
+<div><p>my_bst: La tabla de simbolos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La altura del arbol</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_hi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.keys" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas las llaves del arbol que se encuentren entre
+[key_lo, key_hi]</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>my_bst: La tabla de simbolos
+key_lo: limite inferior
+key_hi: limite superiorr</p>
+</dd>
+<dt>Returns:</dt><dd><p>Las llaves en el rago especificado</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_hi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.values" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas los valores del arbol que se encuentren entre
+[key_lo, key_hi]</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>my_bst: La tabla de simbolos
+key_lo: limite inferior
+key_hi: limite superiorr</p>
+</dd>
+<dt>Returns:</dt><dd><p>Las llaves en el rago especificado</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.get_node">
+<span class="sig-name descname"><span class="pre">get_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.get_node" title="Link to this definition"></a></dt>
+<dd><p>Retorna la pareja lleve-valor con llave igual  a key
+Args:</p>
+<blockquote>
+<div><p>root: El arbol de búsqueda
+key: La llave asociada a la pareja
+cmpfunction: Función de comparación</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El arbol con la nueva pareja</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.remove_node">
+<span class="sig-name descname"><span class="pre">remove_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.remove_node" title="Link to this definition"></a></dt>
+<dd><p>Elimina la pareja llave,valor, donde llave == key.
+Args:</p>
+<blockquote>
+<div><p>bst: El arbol de búsqueda
+key: La llave asociada a la pareja</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El arbol sin la pareja key-value</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.size_tree">
+<span class="sig-name descname"><span class="pre">size_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.size_tree" title="Link to this definition"></a></dt>
+<dd><p>Retornar el número de entradas en la a partir un punto dado
+Args:</p>
+<blockquote>
+<div><p>root: El arbol de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El número de elementos en la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.value_set_tree">
+<span class="sig-name descname"><span class="pre">value_set_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.value_set_tree" title="Link to this definition"></a></dt>
+<dd><p>Construye una lista con los valorers de la tabla
+Args:</p>
+<blockquote>
+<div><p>root: El arbol con los elementos
+value_list: La lista de respuesta</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Una lista con todos los valores</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.key_set_tree">
+<span class="sig-name descname"><span class="pre">key_set_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.key_set_tree" title="Link to this definition"></a></dt>
+<dd><p>Construye una lista con las llaves de la tabla
+Args:</p>
+<blockquote>
+<div><p>root: El arbol con los elementos
+key_list: La lista de respuesta</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Una lista con todos las llaves</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.min_key_node">
+<span class="sig-name descname"><span class="pre">min_key_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.min_key_node" title="Link to this definition"></a></dt>
+<dd><p>Retorna la menor llave de la tabla de simbolos
+Args:</p>
+<blockquote>
+<div><p>root: La raiz del arbol de busqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El elemento mas izquierdo del arbol</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.max_key_node">
+<span class="sig-name descname"><span class="pre">max_key_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.max_key_node" title="Link to this definition"></a></dt>
+<dd><p>Retorna la mayor llave de la tabla de simbolos
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El elemento mas derecho del árbol</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.delete_min_tree">
+<span class="sig-name descname"><span class="pre">delete_min_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.delete_min_tree" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la menor llave de la tabla de simbolos
+y su valor asociado
+Args:</p>
+<blockquote>
+<div><p>root: La raiz del arbol de busqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El arbol de busqueda</p>
+</dd>
+<dt>Raises:</dt><dd><p>Excep</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.delete_max_tree">
+<span class="sig-name descname"><span class="pre">delete_max_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.delete_max_tree" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la mayor llave de la tabla de simbolos
+y su valor asociado
+Args:</p>
+<blockquote>
+<div><p>root: el arbol de busqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El árbol de búsqueda sin la mayor llave</p>
+</dd>
+<dt>Raises:</dt><dd><p>Excep</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.floor_key">
+<span class="sig-name descname"><span class="pre">floor_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.floor_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas grande en la tabla de simbolos,
+menor o igual a la llave key
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La tabla de simbolos sin la mayor llave</p>
+</dd>
+<dt>Raises:</dt><dd><p>Excep</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.ceiling_key">
+<span class="sig-name descname"><span class="pre">ceiling_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.ceiling_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas pequeña en la tabla de simbolos,
+mayor o igual a la llave key
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos
+key: la llave de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt>Raises:</dt><dd><p>Excep</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.select_key">
+<span class="sig-name descname"><span class="pre">select_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.select_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la k-esima llave mas pequeña de la tabla
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos
+key: la llave de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt>Raises:</dt><dd><p>Excep</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.rank_keys">
+<span class="sig-name descname"><span class="pre">rank_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.rank_keys" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de llaves en la tabla estrictamente menores que key
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos
+key: la llave de busqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El numero de llaves</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.height_tree">
+<span class="sig-name descname"><span class="pre">height_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.height_tree" title="Link to this definition"></a></dt>
+<dd><p>Retorna la altura del arbol de busqueda
+Args:</p>
+<blockquote>
+<div><p>root: La tabla de simbolos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La altura del arbol</p>
+</dd>
+<dt>Raises:</dt><dd><p>Excep</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.keys_range">
+<span class="sig-name descname"><span class="pre">keys_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_hi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.keys_range" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas las llaves del arbol en un rango dado
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos
+key_lo: limite inferior
+key_hi: limite superiorr</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Las llaves en el rago especificado</p>
+</dd>
+<dt>Raises:</dt><dd><p>Excep</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.values_range">
+<span class="sig-name descname"><span class="pre">values_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_hi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.values_range" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas los valores del arbol en un rango dado por
+[key_lo, key_hi]
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos
+key_lo: limite inferior
+key_hi: limite superior</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Las llaves en el rago especificado</p>
+</dd>
+<dt>Raises:</dt><dd><p>Excep</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.default_compare">
+<span class="sig-name descname"><span class="pre">default_compare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.default_compare" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación por defecto. Compara una llave con la llave de un elemento llave-valor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key</strong> (<em>any</em>) – Llave a comparar</p></li>
+<li><p><strong>element</strong> (<em>map_entry</em>) – <code class="docutils literal notranslate"><span class="pre">entry</span></code> a comparar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>0</strong> si son iguales, <strong>1</strong> si <code class="docutils literal notranslate"><span class="pre">key</span></code> &gt; la llave del <code class="docutils literal notranslate"><span class="pre">element</span></code>, <strong>-1</strong> si <code class="docutils literal notranslate"><span class="pre">key</span></code> &lt; que la llave del  <code class="docutils literal notranslate"><span class="pre">element</span></code></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-DataStructures.Tree.red_black_tree">
+<span id="red-black-tree-py"></span><h2>red_black_tree.py<a class="headerlink" href="#module-DataStructures.Tree.red_black_tree" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.new_map">
+<span class="sig-name descname"><span class="pre">new_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.new_map" title="Link to this definition"></a></dt>
+<dd><p>Crea una tabla de simbolos ordenada.
+Args:</p>
+<blockquote>
+<div><p>compfunction: La funcion de comparacion</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La tabla de símbolos ordenada sin elementos</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.put">
+<span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.put" title="Link to this definition"></a></dt>
+<dd><p>Ingresa una pareja llave,valor. Si la llave ya existe,
+se reemplaza el valor.
+Args:</p>
+<blockquote>
+<div><p>map: La tabla de simbolos ordenada
+key: La llave asociada a la pareja
+value: El valor asociado a la pareja</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La tabla de simbolos</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.get" title="Link to this definition"></a></dt>
+<dd><p>Retorna la pareja llave, valor, cuya llave sea igual a key.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>my_rbt: El arbol de búsqueda
+key: La llave asociada a la pareja</p>
+</dd>
+<dt>Returns:</dt><dd><p>La pareja llave-valor en caso de que haya sido encontrada</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.remove" title="Link to this definition"></a></dt>
+<dd><p>Elimina la pareja llave,valor, donde llave == key.
+Args:</p>
+<blockquote>
+<div><p>my_rbt: El arbol de búsqueda
+key: La llave asociada a la pareja</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El arbol sin la pareja key-value</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.contains" title="Link to this definition"></a></dt>
+<dd><p>Retorna True si la llave key se encuentra en la tabla
+o False en caso contrario.
+Es necesario proveer la función de comparación entre llaves.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>my_rbt: El arbol de búsqueda
+key: La llave a buscar</p>
+</dd>
+<dt>Returns:</dt><dd><p>True si la llave se encuentra en la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.size" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de entradas en la tabla de simbolos
+Args:</p>
+<blockquote>
+<div><p>my_rbt: El arbol de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El número de elementos en la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.is_empty" title="Link to this definition"></a></dt>
+<dd><p>Informa si la tabla de simbolos se encuentra vacia
+Args:</p>
+<blockquote>
+<div><p>bst: El arbol de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>True si la tabla es vacía, False en caso contrario</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.key_set">
+<span class="sig-name descname"><span class="pre">key_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.key_set" title="Link to this definition"></a></dt>
+<dd><p>Retorna una lista con todas las llaves de la tabla
+Args:</p>
+<blockquote>
+<div><p>my_rbt: La tabla de simbolos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Una lista con todas las llaves de la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.value_set">
+<span class="sig-name descname"><span class="pre">value_set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.value_set" title="Link to this definition"></a></dt>
+<dd><p>Construye una lista con los valores de la tabla
+Args:</p>
+<blockquote>
+<div><p>my_rbt: La tabla con los elementos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Una lista con todos los valores</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.min_key">
+<span class="sig-name descname"><span class="pre">min_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.min_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la menor llave de la tabla de simbolos
+Args:</p>
+<blockquote>
+<div><p>my_rbt: El arbol de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Retorna la menor llave de la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.max_key">
+<span class="sig-name descname"><span class="pre">max_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.max_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la mayor llave de la tabla de simbolos
+Args:</p>
+<blockquote>
+<div><p>my_rbt: El arbol de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Retorna la mayor llave de la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_min">
+<span class="sig-name descname"><span class="pre">delete_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_min" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la menor  llave de la tabla de simbolos
+y su valor asociado</p>
+<p>TODO: No implementada en esta versión</p>
+<p>my_rbt: La tabla de simbolos
+Returns:</p>
+<blockquote>
+<div><p>La tabla de simbolos sin la menor llave</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_max">
+<span class="sig-name descname"><span class="pre">delete_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_max" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la mayor llave de la tabla de simbolos
+y su valor asociado</p>
+<p>TODO: No implementada en esta versión</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>my_rbt: La tabla de simbolos</p>
+</dd>
+<dt>Returns:</dt><dd><p>La tabla de simbolos sin la mayor llave</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.floor">
+<span class="sig-name descname"><span class="pre">floor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.floor" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas grande en la tabla de simbolos, menor o
+igual a la llave key</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>my_rbt: El arbol de búsqueda</p>
+</dd>
+<dt>Returns:</dt><dd><p>Retorna la mayor llave de la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.ceiling">
+<span class="sig-name descname"><span class="pre">ceiling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.ceiling" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas pequeña en la tabla de simbolos,
+mayor o igual a la llave key
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos
+key: la llave de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.select">
+<span class="sig-name descname"><span class="pre">select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rebt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.select" title="Link to this definition"></a></dt>
+<dd><p>Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla
+Args:</p>
+<blockquote>
+<div><p>my_rebt: La tabla de simbolos
+pos: la pos-esima llave mas pequeña</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.rank">
+<span class="sig-name descname"><span class="pre">rank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.rank" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de llaves en la tabla estrictamente menores que key
+Args:</p>
+<blockquote>
+<div><p>my_rbt: La tabla de simbolos
+key: La llave de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El nuemero de llaves encontradas</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.height">
+<span class="sig-name descname"><span class="pre">height</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.height" title="Link to this definition"></a></dt>
+<dd><p>Retorna la altura del arbol</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>my_rbt: El arbol con las parejas</p>
+</dd>
+<dt>Returns:</dt><dd><p>La altura del arbol</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.keys">
+<span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_hi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.keys" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas las llaves del arbol que se encuentren entre
+[key_lo, key_hi]
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos
+key_lo: limite inferior
+key_hi: limite superiorr</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Las llaves en el rago especificado</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.values">
+<span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_hi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.values" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas los valores del arbol que se encuentren entre
+[key_lo, key_hi]</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>bst: La tabla de simbolos
+key_lo: limite inferior
+key_hi: limite superiorr</p>
+</dd>
+<dt>Returns:</dt><dd><p>Las llaves en el rago especificado</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.value_set_tree">
+<span class="sig-name descname"><span class="pre">value_set_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.value_set_tree" title="Link to this definition"></a></dt>
+<dd><p>Construye una lista con los valorers de la tabla
+Args:</p>
+<blockquote>
+<div><p>root: El arbol con los elementos
+key_list: La lista de respuesta</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Una lista con todos los valores</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.key_set_tree">
+<span class="sig-name descname"><span class="pre">key_set_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.key_set_tree" title="Link to this definition"></a></dt>
+<dd><p>Construye una lista con las llaves de la tabla
+Args:</p>
+<blockquote>
+<div><p>root: El arbol con los elementos
+key_list: La lista de respuesta</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Una lista con todos las llaves</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.rotate_left">
+<span class="sig-name descname"><span class="pre">rotate_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.rotate_left" title="Link to this definition"></a></dt>
+<dd><p>rotación izquierda para compensar dos enlaces rojos consecutivos</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.rotate_right">
+<span class="sig-name descname"><span class="pre">rotate_right</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.rotate_right" title="Link to this definition"></a></dt>
+<dd><p>Rotación a la derecha para compensar un hijo rojo a la derecha
+Args:</p>
+<blockquote>
+<div><p>my_rbt: El arbol a rotar</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El arbol rotado</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.flip_node_color">
+<span class="sig-name descname"><span class="pre">flip_node_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.flip_node_color" title="Link to this definition"></a></dt>
+<dd><p>Cambia el color de un nodo
+Args:</p>
+<blockquote>
+<div><p>node_rbt: El nodo a cambiar</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El nodo con el color opuesto</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.flip_colors">
+<span class="sig-name descname"><span class="pre">flip_colors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.flip_colors" title="Link to this definition"></a></dt>
+<dd><p>Cambia el color de un nodo y de sus dos hijos
+Args:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>maptype: El tipo de map ordenado a utilizar</dt><dd><p>‘BST’ o ‘RBT’</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La tabla de símbolos ordenada sin elementos</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.is_red">
+<span class="sig-name descname"><span class="pre">is_red</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.is_red" title="Link to this definition"></a></dt>
+<dd><p>Indica si un nodo del arbol es rojo
+Args:</p>
+<blockquote>
+<div><p>node_rbt:  El nodo a examinar</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>True / False</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.size_tree">
+<span class="sig-name descname"><span class="pre">size_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.size_tree" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de entradas en la a partir un punto dado
+Args:</p>
+<blockquote>
+<div><p>root: El arbol de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El número de elementos en la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.insert_node">
+<span class="sig-name descname"><span class="pre">insert_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.insert_node" title="Link to this definition"></a></dt>
+<dd><p>Ingresa una pareja llave,valor. Si la llave ya existe,
+se reemplaza el valor.
+Args:</p>
+<blockquote>
+<div><p>root: La raiz del arbol
+key: La llave asociada a la pareja
+value: El valor asociado a la pareja
+cmp_function : Función de comparación</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El arbol con la nueva pareja</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.height_tree">
+<span class="sig-name descname"><span class="pre">height_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.height_tree" title="Link to this definition"></a></dt>
+<dd><p>Retorna la altura del arbol</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>root: El arbol con las parejas</p>
+</dd>
+<dt>Returns:</dt><dd><p>La altura del arbol</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.get_node">
+<span class="sig-name descname"><span class="pre">get_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.get_node" title="Link to this definition"></a></dt>
+<dd><p>Retorna la pareja llave, valor, cuya llave sea igual a key.
+Es necesario proveer una función de comparación para las llaves.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>root: El arbol rojo-negro
+key: La llave de busqueda
+cmp_function: funcion de comparación</p>
+</dd>
+<dt>Returns:</dt><dd><p>La pareja llave-valor</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.min_key_tree">
+<span class="sig-name descname"><span class="pre">min_key_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.min_key_tree" title="Link to this definition"></a></dt>
+<dd><p>Retorna la menor llave de la tabla de simbolos
+Args:</p>
+<blockquote>
+<div><p>root: La raiz del arbol de busqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El elemento mas izquierdo del arbol</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.max_key_tree">
+<span class="sig-name descname"><span class="pre">max_key_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.max_key_tree" title="Link to this definition"></a></dt>
+<dd><p>Retorna la mayor llave de la tabla de simbolos
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El elemento mas derecho del árbol</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.floor_key">
+<span class="sig-name descname"><span class="pre">floor_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.floor_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas grande en la tabla de simbolos, menor o
+igual a la llave key</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>rbt: El arbol de búsqueda
+key: La llave
+cmp_function: Funcion de comparacion</p>
+</dd>
+<dt>Returns:</dt><dd><p>Retorna la mayor llave de la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.ceiling_key">
+<span class="sig-name descname"><span class="pre">ceiling_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.ceiling_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la llave mas pequeña en la tabla de simbolos,
+mayor o igual a la llave key</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>rbt: El arbol de búsqueda
+key: La llave
+cmp_function: Funcion de comparacion</p>
+</dd>
+<dt>Returns:</dt><dd><p>Retorna la mayor llave de la tabla</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.rank_keys">
+<span class="sig-name descname"><span class="pre">rank_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.rank_keys" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de llaves en la tabla estrictamente menores que key
+Args:</p>
+<blockquote>
+<div><p>rbt: La tabla de simbolos
+key: La llave de busqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El numero de llaves</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.keys_range">
+<span class="sig-name descname"><span class="pre">keys_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_hi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.keys_range" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas las llaves del arbol en un rango dado
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos
+key_lo: limite inferior
+key_lohi: limite superiorr</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Las llaves en el rago especificado</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.values_range">
+<span class="sig-name descname"><span class="pre">values_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_hi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.values_range" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas los valores del arbol en un rango dado por
+[key_lo, key_hi]
+Args:</p>
+<blockquote>
+<div><p>bst: La tabla de simbolos
+key_lo: limite inferior
+key_hi: limite superior</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Las llaves en el rango especificado</p>
+</dd>
+<dt>Raises:</dt><dd><p>Excep</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.select_key">
+<span class="sig-name descname"><span class="pre">select_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.select_key" title="Link to this definition"></a></dt>
+<dd><p>Retorna la siguiente llave a la k-esima llave mas pequeña de la tabla
+Args:</p>
+<blockquote>
+<div><p>root: La tabla de simbolos
+key: la llave de búsqueda</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>La llave más pequeña mayor o igual a Key</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_min_tree">
+<span class="sig-name descname"><span class="pre">delete_min_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_min_tree" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la menor  llave de la tabla de simbolos
+y su valor asociado</p>
+<p>root: La tabla de simbolos
+Returns:</p>
+<blockquote>
+<div><p>La tabla de simbolos sin la menor llave</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_max_tree">
+<span class="sig-name descname"><span class="pre">delete_max_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_max_tree" title="Link to this definition"></a></dt>
+<dd><p>Encuentra y remueve la mayor llave de la tabla de simbolos
+y su valor asociado</p>
+<p>root: La tabla de simbolos
+Returns:</p>
+<blockquote>
+<div><p>La tabla de simbolos sin la menor llave</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.move_red_right">
+<span class="sig-name descname"><span class="pre">move_red_right</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.move_red_right" title="Link to this definition"></a></dt>
+<dd><p>Cambio de color durante el proceso de eliminacion
+root: La tabla de simbolos
+Returns:</p>
+<blockquote>
+<div><p>El arbol con un hijo iquierdo de root en negro</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.move_red_left">
+<span class="sig-name descname"><span class="pre">move_red_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.move_red_left" title="Link to this definition"></a></dt>
+<dd><p>Cambio de color durante el proceso de eliminacion
+root: La tabla de simbolos
+Returns:</p>
+<blockquote>
+<div><p>El arbol con un hijo iquierdo de root en negro</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.balance">
+<span class="sig-name descname"><span class="pre">balance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.balance" title="Link to this definition"></a></dt>
+<dd><p>Balancea el arbol
+root: Raiz del arbol a balancear
+Returns:</p>
+<blockquote>
+<div><p>El arbol balanceado</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.remove_key">
+<span class="sig-name descname"><span class="pre">remove_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.remove_key" title="Link to this definition"></a></dt>
+<dd><p>Elimina la pareja llave,valor, donde llave == key.
+Args:</p>
+<blockquote>
+<div><p>root: El arbol de búsqueda
+key: La llave asociada a la pareja
+cmp_function : La funcion de comparacion</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>El arbol sin la pareja key-value</p>
+</dd>
+<dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.default_function">
+<span class="sig-name descname"><span class="pre">default_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.default_function" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="algoritmos-de-recorrido">
+<h2>Algoritmos de recorrido<a class="headerlink" href="#algoritmos-de-recorrido" title="Link to this heading"></a></h2>
+</section>
+<section id="module-DataStructures.Tree.tree_traversal">
+<span id="tree-traversal-py"></span><h2>tree_traversal.py<a class="headerlink" href="#module-DataStructures.Tree.tree_traversal" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.inorder">
+<span class="sig-name descname"><span class="pre">inorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_order_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.inorder" title="Link to this definition"></a></dt>
+<dd><p>Implementa un recorrido inorder de un arbol binario</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.preorder">
+<span class="sig-name descname"><span class="pre">preorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_order_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.preorder" title="Link to this definition"></a></dt>
+<dd><p>Implementa un recorrido preorder de un arbol binario</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.postorder">
+<span class="sig-name descname"><span class="pre">postorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_order_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.postorder" title="Link to this definition"></a></dt>
+<dd><p>Implementa un recorrido postorder de un arbol binario</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.inorder_tree">
+<span class="sig-name descname"><span class="pre">inorder_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.inorder_tree" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.postorder_tree">
+<span class="sig-name descname"><span class="pre">postorder_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.postorder_tree" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.preorder_tree">
+<span class="sig-name descname"><span class="pre">preorder_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.preorder_tree" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="DataStructures.Map.html" class="btn btn-neutral float-left" title="Map - Tablas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Universidad de los Andes.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
