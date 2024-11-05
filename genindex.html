@@ -49,6 +49,8 @@
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Queue.html">Queue - Colas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Map.html">Map - Tablas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Tree.html">Order Map - Árboles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.PriorityQueue.html">PriorityQueue - Colas de prioridad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Graph.html">Graph - Grafos</a></li>
 </ul>
 
         </div>
@@ -91,17 +93,21 @@
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
  | <a href="#N"><strong>N</strong></a>
+ | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#Q"><strong>Q</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
  
 </div>
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.add_edge">add_edge() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
       <li><a href="DataStructures.Set.html#DataStructures.Set.set.add_element">add_element() (in module DataStructures.Set.set)</a>
 </li>
       <li><a href="DataStructures.List.html#DataStructures.List.array_list.add_first">add_first() (in module DataStructures.List.array_list)</a>
@@ -118,6 +124,10 @@
         <li><a href="DataStructures.List.html#DataStructures.List.single_linked_list.add_last">(in module DataStructures.List.single_linked_list)</a>
 </li>
       </ul></li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.adjacent_edges">adjacent_edges() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.adjacents">adjacents() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -154,6 +164,8 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.edge.compare_edges">compare_edges() (in module DataStructures.Graph.edge)</a>
+</li>
       <li><a href="DataStructures.List.html#DataStructures.List.array_list.compare_elements">compare_elements() (in module DataStructures.List.array_list)</a>
 
       <ul>
@@ -170,6 +182,8 @@
         <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.contains">(in module DataStructures.Tree.red_black_tree)</a>
 </li>
       </ul></li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.contains_vertex">contains_vertex() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -177,10 +191,17 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
-    DataStructures.Graph
+    DataStructures.Graph.adj_list_graph
 
       <ul>
-        <li><a href="DataStructures.Graph.html#module-DataStructures.Graph">module</a>
+        <li><a href="DataStructures.Graph.html#module-DataStructures.Graph.adj_list_graph">module</a>
+</li>
+      </ul></li>
+      <li>
+    DataStructures.Graph.edge
+
+      <ul>
+        <li><a href="DataStructures.Graph.html#module-DataStructures.Graph.edge">module</a>
 </li>
       </ul></li>
       <li>
@@ -317,6 +338,8 @@
       </ul></li>
       <li><a href="DataStructures.List.html#DataStructures.List.single_linked_list.defaultfunction">defaultfunction() (in module DataStructures.List.single_linked_list)</a>
 </li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.degree">degree() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
       <li><a href="DataStructures.List.html#DataStructures.List.array_list.delete_element">delete_element() (in module DataStructures.List.array_list)</a>
 
       <ul>
@@ -355,10 +378,14 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Queue.html#DataStructures.Queue.queue.enqueue">enqueue() (in module DataStructures.Queue.queue)</a>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.edges">edges() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.edge.either">either() (in module DataStructures.Graph.edge)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="DataStructures.Queue.html#DataStructures.Queue.queue.enqueue">enqueue() (in module DataStructures.Queue.queue)</a>
+</li>
       <li><a href="DataStructures.List.html#DataStructures.List.array_list.exchange">exchange() (in module DataStructures.List.array_list)</a>
 
       <ul>
@@ -413,6 +440,8 @@
         <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.get">(in module DataStructures.Tree.red_black_tree)</a>
 </li>
       </ul></li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.get_edge">get_edge() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
       <li><a href="DataStructures.List.html#DataStructures.List.array_list.get_element">get_element() (in module DataStructures.List.array_list)</a>
 
       <ul>
@@ -473,6 +502,8 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.in_degree">in_degree() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
       <li><a href="DataStructures.Tree.html#DataStructures.Tree.tree_traversal.inorder">inorder() (in module DataStructures.Tree.tree_traversal)</a>
 </li>
       <li><a href="DataStructures.Tree.html#DataStructures.Tree.tree_traversal.inorder_tree">inorder_tree() (in module DataStructures.Tree.tree_traversal)</a>
@@ -489,6 +520,8 @@
         <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.insert_node">(in module DataStructures.Tree.red_black_tree)</a>
 </li>
       </ul></li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.insert_vertex">insert_vertex() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
       <li><a href="DataStructures.List.html#DataStructures.List.array_list.insertion_sort">insertion_sort() (in module DataStructures.List.array_list)</a>
 
       <ul>
@@ -611,7 +644,9 @@
     module
 
       <ul>
-        <li><a href="DataStructures.Graph.html#module-DataStructures.Graph">DataStructures.Graph</a>
+        <li><a href="DataStructures.Graph.html#module-DataStructures.Graph.adj_list_graph">DataStructures.Graph.adj_list_graph</a>
+</li>
+        <li><a href="DataStructures.Graph.html#module-DataStructures.Graph.edge">DataStructures.Graph.edge</a>
 </li>
         <li><a href="DataStructures.List.html#module-DataStructures.List.array_list">DataStructures.List.array_list</a>
 </li>
@@ -660,6 +695,10 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="DataStructures.List.html#DataStructures.List.list_node.new_double_node">new_double_node() (in module DataStructures.List.list_node)</a>
 </li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.edge.new_edge">new_edge() (in module DataStructures.Graph.edge)</a>
+</li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.new_graph">new_graph() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
       <li><a href="DataStructures.List.html#DataStructures.List.array_list.new_list">new_list() (in module DataStructures.List.array_list)</a>
 
       <ul>
@@ -695,6 +734,22 @@
       <li><a href="DataStructures.Stack.html#DataStructures.Stack.stack.new_stack">new_stack() (in module DataStructures.Stack.stack)</a>
 </li>
       <li><a href="DataStructures.Map.html#DataStructures.Map.map_functions.next_prime">next_prime() (in module DataStructures.Map.map_functions)</a>
+</li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.num_edges">num_edges() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.num_vertices">num_vertices() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.edge.other">other() (in module DataStructures.Graph.edge)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.out_degree">out_degree() (in module DataStructures.Graph.adj_list_graph)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -790,14 +845,14 @@
       </ul></li>
       <li><a href="DataStructures.Set.html#DataStructures.Set.set.remove_element">remove_element() (in module DataStructures.Set.set)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="DataStructures.List.html#DataStructures.List.array_list.remove_first">remove_first() (in module DataStructures.List.array_list)</a>
 
       <ul>
         <li><a href="DataStructures.List.html#DataStructures.List.single_linked_list.remove_first">(in module DataStructures.List.single_linked_list)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.remove_key">remove_key() (in module DataStructures.Tree.red_black_tree)</a>
 </li>
       <li><a href="DataStructures.List.html#DataStructures.List.array_list.remove_last">remove_last() (in module DataStructures.List.array_list)</a>
@@ -807,6 +862,8 @@
 </li>
       </ul></li>
       <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.remove_node">remove_node() (in module DataStructures.Tree.binary_search_tree)</a>
+</li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.remove_vertex">remove_vertex() (in module DataStructures.Graph.adj_list_graph)</a>
 </li>
       <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.right_key">right_key() (in module DataStructures.Tree.binary_search_tree)</a>
 
@@ -849,6 +906,8 @@
       <li><a href="DataStructures.Map.html#DataStructures.Map.map_entry.set_key">set_key() (in module DataStructures.Map.map_entry)</a>
 </li>
       <li><a href="DataStructures.Map.html#DataStructures.Map.map_entry.set_value">set_value() (in module DataStructures.Map.map_entry)</a>
+</li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.edge.set_weight">set_weight() (in module DataStructures.Graph.edge)</a>
 </li>
       <li><a href="DataStructures.List.html#DataStructures.List.array_list.shell_sort">shell_sort() (in module DataStructures.List.array_list)</a>
 
@@ -934,6 +993,16 @@
         <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.values_range">(in module DataStructures.Tree.red_black_tree)</a>
 </li>
       </ul></li>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.vertices">vertices() (in module DataStructures.Graph.adj_list_graph)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.edge.weight">weight() (in module DataStructures.Graph.edge)</a>
+</li>
   </ul></td>
 </tr></table>
 

@@ -1,10 +1,26 @@
-Graph - Grafod
+Graph - Grafos
 ============================
 
-Module contents
+Elementos
 ---------------
 
-.. automodule:: DataStructures.Graph
+edge.py
+-------------------------------------
+
+.. automodule:: DataStructures.Graph.edge
    :members:
    :undoc-members:
    :show-inheritance:
+   :member-order: bysource
+
+Implementaciones de grafos
+-------------------------------------
+
+adj\_list\_graph.py
+--------------------------------------
+
+.. automodule:: DataStructures.Graph.adj_list_graph
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource

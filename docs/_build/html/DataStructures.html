@@ -49,7 +49,9 @@
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Stack.html">Stack - Pilas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Queue.html">Queue - Colas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Map.html">Map - Tablas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="DataStructures.Tree.html">DataStructures.Tree package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Tree.html">Order Map - Árboles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.PriorityQueue.html">PriorityQueue - Colas de prioridad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Graph.html">Graph - Grafos</a></li>
 </ul>
 
         </div>
@@ -81,8 +83,36 @@
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="DataStructures.Graph.html">Graph - Grafod</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="DataStructures.Graph.html#module-DataStructures.Graph">Module contents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Graph.html">Graph - Grafos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.Graph.html#elementos">Elementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.Graph.html#module-DataStructures.Graph.edge">edge.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.new_edge"><code class="docutils literal notranslate"><span class="pre">new_edge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.weight"><code class="docutils literal notranslate"><span class="pre">weight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.either"><code class="docutils literal notranslate"><span class="pre">either()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.other"><code class="docutils literal notranslate"><span class="pre">other()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.set_weight"><code class="docutils literal notranslate"><span class="pre">set_weight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.compare_edges"><code class="docutils literal notranslate"><span class="pre">compare_edges()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.Graph.html#implementaciones-de-grafos">Implementaciones de grafos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.Graph.html#module-DataStructures.Graph.adj_list_graph">adj_list_graph.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.new_graph"><code class="docutils literal notranslate"><span class="pre">new_graph()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.insert_vertex"><code class="docutils literal notranslate"><span class="pre">insert_vertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.remove_vertex"><code class="docutils literal notranslate"><span class="pre">remove_vertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.num_vertices"><code class="docutils literal notranslate"><span class="pre">num_vertices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.num_edges"><code class="docutils literal notranslate"><span class="pre">num_edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.vertices"><code class="docutils literal notranslate"><span class="pre">vertices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.edges"><code class="docutils literal notranslate"><span class="pre">edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.degree"><code class="docutils literal notranslate"><span class="pre">degree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.in_degree"><code class="docutils literal notranslate"><span class="pre">in_degree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.out_degree"><code class="docutils literal notranslate"><span class="pre">out_degree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.get_edge"><code class="docutils literal notranslate"><span class="pre">get_edge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.contains_vertex"><code class="docutils literal notranslate"><span class="pre">contains_vertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.add_edge"><code class="docutils literal notranslate"><span class="pre">add_edge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.adjacents"><code class="docutils literal notranslate"><span class="pre">adjacents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.adjacent_edges"><code class="docutils literal notranslate"><span class="pre">adjacent_edges()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.List.html">List - Listas</a><ul>
@@ -230,6 +260,38 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.PriorityQueue.html">PriorityQueue - Colas de prioridad</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="DataStructures.PriorityQueue.html#module-DataStructures.PriorityQueue">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Graph.html">Graph - Grafos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.Graph.html#elementos">Elementos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.Graph.html#module-DataStructures.Graph.edge">edge.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.new_edge"><code class="docutils literal notranslate"><span class="pre">new_edge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.weight"><code class="docutils literal notranslate"><span class="pre">weight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.either"><code class="docutils literal notranslate"><span class="pre">either()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.other"><code class="docutils literal notranslate"><span class="pre">other()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.set_weight"><code class="docutils literal notranslate"><span class="pre">set_weight()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.edge.compare_edges"><code class="docutils literal notranslate"><span class="pre">compare_edges()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.Graph.html#implementaciones-de-grafos">Implementaciones de grafos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="DataStructures.Graph.html#module-DataStructures.Graph.adj_list_graph">adj_list_graph.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.new_graph"><code class="docutils literal notranslate"><span class="pre">new_graph()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.insert_vertex"><code class="docutils literal notranslate"><span class="pre">insert_vertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.remove_vertex"><code class="docutils literal notranslate"><span class="pre">remove_vertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.num_vertices"><code class="docutils literal notranslate"><span class="pre">num_vertices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.num_edges"><code class="docutils literal notranslate"><span class="pre">num_edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.vertices"><code class="docutils literal notranslate"><span class="pre">vertices()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.edges"><code class="docutils literal notranslate"><span class="pre">edges()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.degree"><code class="docutils literal notranslate"><span class="pre">degree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.in_degree"><code class="docutils literal notranslate"><span class="pre">in_degree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.out_degree"><code class="docutils literal notranslate"><span class="pre">out_degree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.get_edge"><code class="docutils literal notranslate"><span class="pre">get_edge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.contains_vertex"><code class="docutils literal notranslate"><span class="pre">contains_vertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.add_edge"><code class="docutils literal notranslate"><span class="pre">add_edge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.adjacents"><code class="docutils literal notranslate"><span class="pre">adjacents()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.adjacent_edges"><code class="docutils literal notranslate"><span class="pre">adjacent_edges()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
