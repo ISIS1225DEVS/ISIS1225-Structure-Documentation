@@ -13,6 +13,15 @@ edge.py
    :show-inheritance:
    :member-order: bysource
 
+graph\_search.py
+-------------------------------------
+
+.. automodule:: DataStructures.Graph.graph_search
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
 Implementaciones de grafos
 -------------------------------------
 
@@ -20,6 +29,27 @@ adj\_list\_graph.py
 --------------------------------------
 
 .. automodule:: DataStructures.Graph.adj_list_graph
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+Algoritmos en grafos
+-------------------------------------
+
+dfs.py
+--------------------------------------
+
+.. automodule:: DataStructures.Graph.dfs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+bfs.py
+--------------------------------------
+
+.. automodule:: DataStructures.Graph.bfs
    :members:
    :undoc-members:
    :show-inheritance:
