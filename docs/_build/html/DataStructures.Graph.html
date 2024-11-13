@@ -63,6 +63,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.edge.compare_edges"><code class="docutils literal notranslate"><span class="pre">compare_edges()</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Graph.graph_search">graph_search.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.graph_search.new_graph_search"><code class="docutils literal notranslate"><span class="pre">new_graph_search()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#implementaciones-de-grafos">Implementaciones de grafos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Graph.adj_list_graph">adj_list_graph.py</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.adj_list_graph.new_graph"><code class="docutils literal notranslate"><span class="pre">new_graph()</span></code></a></li>
@@ -76,10 +80,26 @@
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.adj_list_graph.in_degree"><code class="docutils literal notranslate"><span class="pre">in_degree()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.adj_list_graph.out_degree"><code class="docutils literal notranslate"><span class="pre">out_degree()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.adj_list_graph.get_edge"><code class="docutils literal notranslate"><span class="pre">get_edge()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.adj_list_graph.get_vertex_information"><code class="docutils literal notranslate"><span class="pre">get_vertex_information()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.adj_list_graph.contains_vertex"><code class="docutils literal notranslate"><span class="pre">contains_vertex()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.adj_list_graph.add_edge"><code class="docutils literal notranslate"><span class="pre">add_edge()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.adj_list_graph.adjacents"><code class="docutils literal notranslate"><span class="pre">adjacents()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.adj_list_graph.adjacent_edges"><code class="docutils literal notranslate"><span class="pre">adjacent_edges()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#algoritmos-en-grafos">Algoritmos en grafos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Graph.dfs">dfs.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.dfs.depth_first_search"><code class="docutils literal notranslate"><span class="pre">depth_first_search()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.dfs.dfs_vertex"><code class="docutils literal notranslate"><span class="pre">dfs_vertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.dfs.has_path_to"><code class="docutils literal notranslate"><span class="pre">has_path_to()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.dfs.path_to"><code class="docutils literal notranslate"><span class="pre">path_to()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Graph.bfs">bfs.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.bfs.breath_first_search"><code class="docutils literal notranslate"><span class="pre">breath_first_search()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.bfs.bfs_vertex"><code class="docutils literal notranslate"><span class="pre">bfs_vertex()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.bfs.has_path_to"><code class="docutils literal notranslate"><span class="pre">has_path_to()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Graph.bfs.path_to"><code class="docutils literal notranslate"><span class="pre">path_to()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -119,7 +139,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.edge.new_edge">
 <span class="sig-name descname"><span class="pre">new_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">v_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.edge.new_edge" title="Link to this definition"></a></dt>
-<dd><p>Crea un nuevo arco entrelos vertices ‘’v_a’’ y ‘’v_b’’ con un peso ‘’weight’’</p>
+<dd><p>Crea un nuevo arco entrelos vertices <code class="docutils literal notranslate"><span class="pre">v_a</span></code> y <code class="docutils literal notranslate"><span class="pre">v_b</span></code> con un peso <code class="docutils literal notranslate"><span class="pre">weight</span></code></p>
 <p>Se crea un arco con los siguientes atributos:</p>
 <ul class="simple">
 <li><p><strong>vertex_a</strong>: Vertice A del arco</p></li>
@@ -146,7 +166,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.edge.weight">
 <span class="sig-name descname"><span class="pre">weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.edge.weight" title="Link to this definition"></a></dt>
-<dd><p>Retorna el peso del arco ‘’edge’’</p>
+<dd><p>Retorna el peso del arco <code class="docutils literal notranslate"><span class="pre">edge</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>edge</strong> (<em>edge</em>) – Arco del cual se quiere obtener el peso</p>
@@ -163,7 +183,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.edge.either">
 <span class="sig-name descname"><span class="pre">either</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.edge.either" title="Link to this definition"></a></dt>
-<dd><p>Retorna el vertice A del arco ‘’edge’’</p>
+<dd><p>Retorna el vertice A del arco <code class="docutils literal notranslate"><span class="pre">edge</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>edge</strong> (<em>edge</em>) – Arco del cual se quiere obtener el vertice A</p>
@@ -180,7 +200,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.edge.other">
 <span class="sig-name descname"><span class="pre">other</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">veither</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.edge.other" title="Link to this definition"></a></dt>
-<dd><p>Retorna el vertice B del arco</p>
+<dd><p>Retorna el vertice del arco <code class="docutils literal notranslate"><span class="pre">edge</span></code> que no es igual a <code class="docutils literal notranslate"><span class="pre">veither</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -200,7 +220,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.edge.set_weight">
 <span class="sig-name descname"><span class="pre">set_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">edge</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.edge.set_weight" title="Link to this definition"></a></dt>
-<dd><p>Cambia el peso del arco ‘’edge’’ por el valor ‘’weight’’</p>
+<dd><p>Cambia el peso del arco <code class="docutils literal notranslate"><span class="pre">edge</span></code> por el valor <code class="docutils literal notranslate"><span class="pre">weight</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -233,6 +253,31 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 </dd></dl>
 
 </section>
+<section id="module-DataStructures.Graph.graph_search">
+<span id="graph-search-py"></span><h2>graph_search.py<a class="headerlink" href="#module-DataStructures.Graph.graph_search" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Graph.graph_search.new_graph_search">
+<span class="sig-name descname"><span class="pre">new_graph_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.graph_search.new_graph_search" title="Link to this definition"></a></dt>
+<dd><p>Crea una estructura de busqueda usada en los algoritmos <strong>bfs</strong> y <strong>dfs</strong>.</p>
+<p>Se crea una estructura de busqueda con los siguientes atributos:</p>
+<ul class="simple">
+<li><p><strong>source</strong>: Vertice de inicio del recorrido. Se usa el vertice <code class="docutils literal notranslate"><span class="pre">source</span></code></p></li>
+<li><p><strong>visited</strong>: Mapa con los vertices visitados. Se inicializa en <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>source</strong> (<em>any</em>) – Vertice de inicio del recorrido</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Estructura de busqueda</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>graph_search</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
 <section id="implementaciones-de-grafos">
 <h2>Implementaciones de grafos<a class="headerlink" href="#implementaciones-de-grafos" title="Link to this heading"></a></h2>
 </section>
@@ -240,22 +285,22 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 <span id="adj-list-graph-py"></span><h2>adj_list_graph.py<a class="headerlink" href="#module-DataStructures.Graph.adj_list_graph" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.new_graph">
-<span class="sig-name descname"><span class="pre">new_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.new_graph" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">new_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">19</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.new_graph" title="Link to this definition"></a></dt>
 <dd><p>Crea un grafo vacio</p>
 <p>Se crea un grafo con los siguientes atributos:</p>
 <ul class="simple">
-<li><p><strong>vertices</strong>: Lista de vertices</p></li>
-<li><p><strong>information</strong>: Informacion asociada a los vertices</p></li>
-<li><p><strong>in_degree</strong>: Lista de grados de entrada de los vertices, inicializado en None. Solo se inicializa en caso de ser un grafo dirigido.</p></li>
-<li><p><strong>edges</strong>: Numero de arcos, inicializado en 15.</p></li>
+<li><p><strong>vertices</strong>: Mapa de vertices del grafo donde su llave es el vertice y su valor es una lista de arcos adyacentes.</p></li>
+<li><p><strong>information</strong>: Mapa de informacion asociada a los vertices donde su llave es el vertice y su valor es la informacion asociada (diccionario).</p></li>
+<li><p><strong>in_degree</strong>: Mapa de grados de entrada de los vertices del grafo, inicializado en None en caso de no ser dirigido. Donde su llave es el vertice y su valor es el grado de entrada (int).</p></li>
+<li><p><strong>edges</strong>: Numero de arcos del grafo.</p></li>
 <li><p><strong>directed</strong>: Indica si el grafo es dirigido o no.</p></li>
 <li><p><strong>type</strong>: Tipo de grafo. Inicializado en “ADJ_LIST”</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>size</strong> (<em>int</em>) – Numeor de vertices del grafo, por defecto 0 en caso de no ser especificado.</p></li>
-<li><p><strong>directed</strong> (<em>bool</em>) – Indica si el grafo es dirigido o no. Por defecto es ‘’False’’.</p></li>
+<li><p><strong>size</strong> (<em>int</em>) – Numero de vertices del grafo, por defecto 19 en caso de no ser especificado.</p></li>
+<li><p><strong>directed</strong> (<em>bool</em>) – Indica si el grafo es dirigido o no. Por defecto es <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -269,13 +314,13 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.insert_vertex">
-<span class="sig-name descname"><span class="pre">insert_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.insert_vertex" title="Link to this definition"></a></dt>
-<dd><p>Inserta un vertice al grafo ‘’graph’’.</p>
-<p>Si la llave ‘’key_vertex’’ no existe en el grafo se agrega al grafo, de lo contrario ni es agregado al grafo.</p>
+<span class="sig-name descname"><span class="pre">insert_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.insert_vertex" title="Link to this definition"></a></dt>
+<dd><p>Inserta un vertice al grafo <code class="docutils literal notranslate"><span class="pre">my_graph</span></code>.</p>
+<p>Si la llave <code class="docutils literal notranslate"><span class="pre">key_vertex</span></code> no existe en el grafo se agrega al grafo de lo contrario se actualiza la informacion asociada al vertice.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>my_graph</strong> (<em>adj_list_my_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
 <li><p><strong>key_vertex</strong> (<em>any</em>) – El vertice que se desea insertar</p></li>
 <li><p><strong>info_vertex</strong> (<em>any</em>) – Informacion asociada al vertice</p></li>
 </ul>
@@ -291,7 +336,7 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.remove_vertex">
-<span class="sig-name descname"><span class="pre">remove_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.remove_vertex" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">remove_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.remove_vertex" title="Link to this definition"></a></dt>
 <dd><p>Remueve el vertice del grafo</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -311,11 +356,11 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.num_vertices">
-<span class="sig-name descname"><span class="pre">num_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.num_vertices" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">num_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.num_vertices" title="Link to this definition"></a></dt>
 <dd><p>Retorna el numero de vertices del grafo</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p>
+<dd class="field-odd"><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>El numero de vertices del grafo</p>
@@ -328,11 +373,11 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.num_edges">
-<span class="sig-name descname"><span class="pre">num_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.num_edges" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">num_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.num_edges" title="Link to this definition"></a></dt>
 <dd><p>Retorna el numero de arcos en el grafo</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p>
+<dd class="field-odd"><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>El numero de arcos del grafo</p>
@@ -345,11 +390,11 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.vertices">
-<span class="sig-name descname"><span class="pre">vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.vertices" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.vertices" title="Link to this definition"></a></dt>
 <dd><p>Retorna una lista con todos los vertices del grafo</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p>
+<dd class="field-odd"><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>La lista con los vertices del grafo</p>
@@ -362,12 +407,13 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.edges">
-<span class="sig-name descname"><span class="pre">edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.edges" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.edges" title="Link to this definition"></a></dt>
 <dd><p>Retorna una lista con todos los arcos del grafo</p>
 <p>Para un grafo <strong>No Dirigido</strong>, un arco que conecte 2 vertices solo debe aparecer una vez en la lista.</p>
+<p><strong>Importante</strong>: Para el uso de la función de comparación, se debe utilizar la función <code class="docutils literal notranslate"><span class="pre">e.compare_edges</span></code> de la clase <code class="docutils literal notranslate"><span class="pre">edge</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p>
+<dd class="field-odd"><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>La lista con los arcos del grafo</p>
@@ -380,17 +426,17 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.degree">
-<span class="sig-name descname"><span class="pre">degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.degree" title="Link to this definition"></a></dt>
-<dd><p>Retorna el numero de arcos asociados al vertice ‘’key_vertex’’</p>
+<span class="sig-name descname"><span class="pre">degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.degree" title="Link to this definition"></a></dt>
+<dd><p>Retorna el numero de arcos asociados al vertice con llave <code class="docutils literal notranslate"><span class="pre">key_vertex</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
 <li><p><strong>key_vertex</strong> (<em>any</em>) – El vertice del que se desea conocer el grado</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El grado del vertice</p>
+<dd class="field-even"><p>El grado del vertice. Retorna <code class="docutils literal notranslate"><span class="pre">None</span></code> en caso de que el vertice no exista.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
@@ -400,17 +446,17 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.in_degree">
-<span class="sig-name descname"><span class="pre">in_degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.in_degree" title="Link to this definition"></a></dt>
-<dd><p>Retorna el numero de arcos que llegan al vertice</p>
+<span class="sig-name descname"><span class="pre">in_degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.in_degree" title="Link to this definition"></a></dt>
+<dd><p>Retorna el numero de arcos que llegan al vertice con llave <code class="docutils literal notranslate"><span class="pre">key_vertex</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
 <li><p><strong>key_vertex</strong> (<em>any</em>) – El vertice del que se desea conocer el grado</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El grado del vertice</p>
+<dd class="field-even"><p>El grado del vertice. Retorna <code class="docutils literal notranslate"><span class="pre">None</span></code> en caso de que el vertice no exista.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
@@ -420,17 +466,17 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.out_degree">
-<span class="sig-name descname"><span class="pre">out_degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.out_degree" title="Link to this definition"></a></dt>
-<dd><p>Retorna el numero de arcos que salen del grafo.</p>
+<span class="sig-name descname"><span class="pre">out_degree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.out_degree" title="Link to this definition"></a></dt>
+<dd><p>Retorna el numero de arcos que salen del vertice con llave <code class="docutils literal notranslate"><span class="pre">key_vertex</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
 <li><p><strong>key_vertex</strong> (<em>any</em>) – El vertice del que se desea conocer el grado</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El grado del vertice</p>
+<dd class="field-even"><p>El grado del vertice. Retorna <code class="docutils literal notranslate"><span class="pre">None</span></code> en caso de que el vertice no exista.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
@@ -440,14 +486,14 @@ Retorna 0 si los arcos son iguales, 1 si edge1 &gt; edge2, -1 edge1 &lt; edge2</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.get_edge">
-<span class="sig-name descname"><span class="pre">get_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.get_edge" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_b</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.get_edge" title="Link to this definition"></a></dt>
 <dd><p>Retorna el arco asociado a los vertices vertex_a —- vertex_b
 El arco debe existir en la misma direccion vertex_a -&gt; vertex_b
-en caso de grafo dirigido o grafo No dirigido</p>
+en caso de grafo sea dirigido o grafo No dirigido</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
 <li><p><strong>vertex_a</strong> (<em>any</em>) – Vertice de inicio</p></li>
 <li><p><strong>vertex_b</strong> (<em>any</em>) – Vertice destino</p></li>
 </ul>
@@ -462,18 +508,38 @@ en caso de grafo dirigido o grafo No dirigido</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.contains_vertex">
-<span class="sig-name descname"><span class="pre">contains_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.contains_vertex" title="Link to this definition"></a></dt>
-<dd><p>Retorna si el vertice ‘’vertex’’ esta presente en el grafo</p>
+<dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.get_vertex_information">
+<span class="sig-name descname"><span class="pre">get_vertex_information</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.get_vertex_information" title="Link to this definition"></a></dt>
+<dd><p>Retorna la informacion asociada al vertice con llave <code class="docutils literal notranslate"><span class="pre">key_vertex</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el cual consultar la existencia del vertice</p></li>
-<li><p><strong>vertex</strong> (<em>any</em>) – Vertice a buscar</p></li>
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>key_vertex</strong> (<em>any</em>) – Vertice del que se quiere la informacion</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>‘’True’’ si el vertice esta presente, ‘’False’’ en caso contrario</p>
+<dd class="field-even"><p>La informacion asociada al vertice. Retorna <code class="docutils literal notranslate"><span class="pre">None</span></code> en caso de que el vertice no exista.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.contains_vertex">
+<span class="sig-name descname"><span class="pre">contains_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.contains_vertex" title="Link to this definition"></a></dt>
+<dd><p>Retorna si el vertice con llave``key_vertex`` esta presente en el grafo.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el cual consultar la existencia del vertice</p></li>
+<li><p><strong>key_vertex</strong> (<em>any</em>) – Vertice a buscar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si el vertice esta presente, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -483,18 +549,20 @@ en caso de grafo dirigido o grafo No dirigido</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.add_edge">
-<span class="sig-name descname"><span class="pre">add_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.add_edge" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex_b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.add_edge" title="Link to this definition"></a></dt>
 <dd><p>Agrega un arco al grafo. Al momento de agregar un arco se deben tener en cuenta los siguientes casos:</p>
-<p>Si alguno de los vertices NO existe, NO se agrega el arco
-Si los vertices existen y el arco YA existe, Se reemplaza el peso del arco (NO se acepta arcos paralelos)
-Si los vertices existen y si el arco NO existe:
-1. Agrega el arco vertex_a-&gt;vertex_b, con peso weight, al vertice vertex_a
-2. Adicionalmente, si el grafo es NO Dirigido,
-se agrega el arco vertex_b-&gt;vertex_a, con peso weight, al vertice vertex_b.</p>
+<p>Si alguno de los vertices NO existe, NO se agrega el arco.
+Si los vertices existen y el arco YA existe, Se reemplaza el peso del arco (NO se acepta arcos paralelos).</p>
+<p>Si los vertices existen y si el arco NO existe:</p>
+<ul class="simple">
+<li><p>Agrega el arco <code class="docutils literal notranslate"><span class="pre">vertex_a</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">vertex_b</span></code>, con peso <code class="docutils literal notranslate"><span class="pre">weight</span></code>, a la lista de adyacencia del vertice <code class="docutils literal notranslate"><span class="pre">vertex_a</span></code></p></li>
+<li><p>Si el grafo es <strong>No dirigido</strong>: se agrega el arco <code class="docutils literal notranslate"><span class="pre">vertex_b</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">vertex_a</span></code>, con peso <code class="docutils literal notranslate"><span class="pre">weight</span></code>, a la lista de adyacencia del vertice  <code class="docutils literal notranslate"><span class="pre">vertex_b</span></code></p></li>
+<li><p>Si el grado es <strong>Dirigido</strong>: Se incrementa el grado de entrada (<code class="docutils literal notranslate"><span class="pre">in_degree</span></code>) del vertice <code class="docutils literal notranslate"><span class="pre">vertex_b</span></code> en 1</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
 <li><p><strong>vertex_a</strong> (<em>any</em>) – Vertice de inicio</p></li>
 <li><p><strong>vertex_b</strong> (<em>any</em>) – Vertice destino</p></li>
 <li><p><strong>weight</strong> (<em>double</em>) – Peso del arco, por defecto 0</p></li>
@@ -511,18 +579,17 @@ se agrega el arco vertex_b-&gt;vertex_a, con peso weight, al vertice vertex_b.</
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.adjacents">
-<span class="sig-name descname"><span class="pre">adjacents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.adjacents" title="Link to this definition"></a></dt>
-<dd><p>Retorna una lista con todos los vertices adyacentes al vertice vertex
-Si el vertice No existe se retorna una lista vacia.</p>
+<span class="sig-name descname"><span class="pre">adjacents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_grph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.adjacents" title="Link to this definition"></a></dt>
+<dd><p>Retorna una lista con todos los vertices adyacentes al vertice vertex con llave <code class="docutils literal notranslate"><span class="pre">key_vertex</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>my_grph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
 <li><p><strong>key_vertex</strong> (<em>any</em>) – El vertice del que se quiere la lista</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>La lista de vertices adyacencias</p>
+<dd class="field-even"><p>La lista de vertices adyacencias. Retorna una lista vacia en caso de que el vertice no exista.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>array_list</p>
@@ -532,21 +599,194 @@ Si el vertice No existe se retorna una lista vacia.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.adj_list_graph.adjacent_edges">
-<span class="sig-name descname"><span class="pre">adjacent_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.adjacent_edges" title="Link to this definition"></a></dt>
-<dd><p>Retorna una lista con todos los arcos asociados a los vértice adyacentes de vertex
-Si el vertice No existe se retorna una lista vacia.</p>
+<span class="sig-name descname"><span class="pre">adjacent_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.adj_list_graph.adjacent_edges" title="Link to this definition"></a></dt>
+<dd><p>Retorna una lista con todos los arcos asociados a los vértice adyacentes de vertex</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
 <li><p><strong>vertex</strong> (<em>any</em>) – El vertice del que se quiere la lista</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>La lista de arcos adyacentes</p>
+<dd class="field-even"><p>La lista de arcos adyacentes. Retorna una lista vacia en caso de que el vertice no exista.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>array_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="algoritmos-en-grafos">
+<h2>Algoritmos en grafos<a class="headerlink" href="#algoritmos-en-grafos" title="Link to this heading"></a></h2>
+</section>
+<section id="module-DataStructures.Graph.dfs">
+<span id="dfs-py"></span><h2>dfs.py<a class="headerlink" href="#module-DataStructures.Graph.dfs" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Graph.dfs.depth_first_search">
+<span class="sig-name descname"><span class="pre">depth_first_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.depth_first_search" title="Link to this definition"></a></dt>
+<dd><p>Inicia un recorrido Depth First Search (<strong>DFS</strong>) sobre el grafo a partir de un vertice inicial.
+Crea una estructura de busqueda <code class="docutils literal notranslate"><span class="pre">graph_search</span></code> y posteriormente llama a la funcion <code class="docutils literal notranslate"><span class="pre">dfs_vertex</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo a recorrer</p></li>
+<li><p><strong>source</strong> (<em>any</em>) – Llave del vertice de inicio del recorrido.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una estructura para determinar los vertices conectados a source</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>graph_search</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Graph.dfs.dfs_vertex">
+<span class="sig-name descname"><span class="pre">dfs_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.dfs_vertex" title="Link to this definition"></a></dt>
+<dd><p>Funcion auxiliar para calcular un recorrido DFS usada por la funcion <strong>depth_first_search</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search</strong> (<em>graph_search</em>) – Estructura para almacenar el recorrido</p></li>
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo a recorrer</p></li>
+<li><p><strong>vertex</strong> (<em>any</em>) – Vertice de inicio del recorrido.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una estructura para determinar los vertices conectados a source</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>graph_search</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Graph.dfs.has_path_to">
+<span class="sig-name descname"><span class="pre">has_path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.has_path_to" title="Link to this definition"></a></dt>
+<dd><p>Indica si existe un camino entre el vertice source y el vertice vertex a partir de una estructura <code class="docutils literal notranslate"><span class="pre">search</span></code>.</p>
+<p><strong>Precondicion</strong>: Se debe haber ejecutado previamente la funcion <strong>depth_first_search</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search</strong> (<em>graph_search</em>) – Estructura de recorrido DFS</p></li>
+<li><p><strong>vertex</strong> (<em>any</em>) – Vertice destino</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si existe un camino entre <strong>source</strong> y <strong>vertex</strong>, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Graph.dfs.path_to">
+<span class="sig-name descname"><span class="pre">path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.path_to" title="Link to this definition"></a></dt>
+<dd><p>Retorna el camino entre el vertices <code class="docutils literal notranslate"><span class="pre">source</span></code> y el vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code> a partir de una estructura <code class="docutils literal notranslate"><span class="pre">search</span></code>.</p>
+<p><strong>Precondicion</strong>: Se debe haber ejecutado previamente la funcion <strong>depth_first_search</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search</strong> (<em>graph_search</em>) – La estructura con el recorrido</p></li>
+<li><p><strong>vertex</strong> (<em>any</em>) – Vertice de destingo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una pila con el camino entre el vertices source y el vertice vertex</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>stack</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-DataStructures.Graph.bfs">
+<span id="bfs-py"></span><h2>bfs.py<a class="headerlink" href="#module-DataStructures.Graph.bfs" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Graph.bfs.breath_first_search">
+<span class="sig-name descname"><span class="pre">breath_first_search</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.bfs.breath_first_search" title="Link to this definition"></a></dt>
+<dd><p>Inicia un recorrido Breath First Seacrh (<strong>BFS</strong>) sobre el grafo a partir de un vertice inicial.
+Crea una estructura de busqueda <code class="docutils literal notranslate"><span class="pre">graph_search</span></code> y posteriormente llama a la funcion <code class="docutils literal notranslate"><span class="pre">bfs_vertex</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo a recorrer</p></li>
+<li><p><strong>source</strong> (<em>any</em>) – Llave del vertice de inicio del recorrido.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una estructura para determinar los vertices conectados a source</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>graph_search</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Graph.bfs.bfs_vertex">
+<span class="sig-name descname"><span class="pre">bfs_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.bfs.bfs_vertex" title="Link to this definition"></a></dt>
+<dd><p>Función auxiliar para calcular un recorrido BFS usada por la función <strong>breath_first_search</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search</strong> (<em>graph_search</em>) – Estructura para almacenar el recorrido</p></li>
+<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo a recorrer</p></li>
+<li><p><strong>source</strong> (<em>any</em>) – Vertice de inicio del recorrido.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una estructura para determinar los vertices conectados a source</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>graph_search</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Graph.bfs.has_path_to">
+<span class="sig-name descname"><span class="pre">has_path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.bfs.has_path_to" title="Link to this definition"></a></dt>
+<dd><p>Indica si existe un camino entre el vertice source y el vertice vertex a partir de una estructura <code class="docutils literal notranslate"><span class="pre">search</span></code>.</p>
+<p><strong>Precondición</strong>: Se debe haber ejecutado la función <strong>breath_first_search</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search</strong> (<em>graph_search</em>) – Estructura de recorrido BFS</p></li>
+<li><p><strong>vertex</strong> (<em>any</em>) – Vertice destino</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si existe un camino entre <strong>source</strong> y <strong>vertex</strong>, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Graph.bfs.path_to">
+<span class="sig-name descname"><span class="pre">path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.bfs.path_to" title="Link to this definition"></a></dt>
+<dd><p>Retorna el camino entre el vertices <code class="docutils literal notranslate"><span class="pre">source</span></code> y el vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code> a partir de una estructura de busqueda <code class="docutils literal notranslate"><span class="pre">search</span></code>.</p>
+<p><strong>Precondición</strong>: Se debe haber ejecutado la función <strong>breath_first_search</strong>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search</strong> (<em>graph_search</em>) – Estructura de recorrido BFS</p></li>
+<li><p><strong>vertex</strong> (<em>any</em>) – Vertice destino</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una pila con el camino entre <strong>source</strong> y <strong>vertex</strong>. Si no existe camino retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>stack</p>
 </dd>
 </dl>
 </dd></dl>
