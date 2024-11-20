@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="PriorityQueue - Colas de prioridad" href="DataStructures.PriorityQueue.html" />
+    <link rel="next" title="Priority Queue - Colas de prioridad" href="DataStructures.Priority_queue.html" />
     <link rel="prev" title="Map - Tablas" href="DataStructures.Map.html" /> 
 </head>
 
@@ -52,125 +52,131 @@
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Queue.html">Queue - Colas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Map.html">Map - Tablas</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Order Map - Árboles</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#elementos">Elementos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Tree.bst_node">bst_node.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.bst_node.new_node"><code class="docutils literal notranslate"><span class="pre">new_node()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.bst_node.get_value"><code class="docutils literal notranslate"><span class="pre">get_value()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.bst_node.get_key"><code class="docutils literal notranslate"><span class="pre">get_key()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#elementos">Elementos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-DataStructures.Tree.bst_node">bst_node.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.bst_node.new_node"><code class="docutils literal notranslate"><span class="pre">new_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.bst_node.get_value"><code class="docutils literal notranslate"><span class="pre">get_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.bst_node.get_key"><code class="docutils literal notranslate"><span class="pre">get_key()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Tree.rbt_node">rbt_node.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.rbt_node.new_node"><code class="docutils literal notranslate"><span class="pre">new_node()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.rbt_node.is_red"><code class="docutils literal notranslate"><span class="pre">is_red()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.rbt_node.get_value"><code class="docutils literal notranslate"><span class="pre">get_value()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.rbt_node.get_key"><code class="docutils literal notranslate"><span class="pre">get_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.rbt_node.change_color"><code class="docutils literal notranslate"><span class="pre">change_color()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#implementaciones-de-arboles">Implementaciones de árboles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Tree.binary_search_tree">binary_search_tree.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.new_map"><code class="docutils literal notranslate"><span class="pre">new_map()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.insert_node"><code class="docutils literal notranslate"><span class="pre">insert_node()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.key_set"><code class="docutils literal notranslate"><span class="pre">key_set()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.value_set"><code class="docutils literal notranslate"><span class="pre">value_set()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.left_key"><code class="docutils literal notranslate"><span class="pre">left_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.right_key"><code class="docutils literal notranslate"><span class="pre">right_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_left"><code class="docutils literal notranslate"><span class="pre">delete_left()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_right"><code class="docutils literal notranslate"><span class="pre">delete_right()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.floor"><code class="docutils literal notranslate"><span class="pre">floor()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.ceiling"><code class="docutils literal notranslate"><span class="pre">ceiling()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.select"><code class="docutils literal notranslate"><span class="pre">select()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.rank"><code class="docutils literal notranslate"><span class="pre">rank()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.height"><code class="docutils literal notranslate"><span class="pre">height()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.keys"><code class="docutils literal notranslate"><span class="pre">keys()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.values"><code class="docutils literal notranslate"><span class="pre">values()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.get_node"><code class="docutils literal notranslate"><span class="pre">get_node()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.remove_node"><code class="docutils literal notranslate"><span class="pre">remove_node()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.size_tree"><code class="docutils literal notranslate"><span class="pre">size_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.value_set_tree"><code class="docutils literal notranslate"><span class="pre">value_set_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.key_set_tree"><code class="docutils literal notranslate"><span class="pre">key_set_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.left_key_node"><code class="docutils literal notranslate"><span class="pre">left_key_node()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.right_key_node"><code class="docutils literal notranslate"><span class="pre">right_key_node()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_left_tree"><code class="docutils literal notranslate"><span class="pre">delete_left_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_right_tree"><code class="docutils literal notranslate"><span class="pre">delete_right_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.floor_key"><code class="docutils literal notranslate"><span class="pre">floor_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.ceiling_key"><code class="docutils literal notranslate"><span class="pre">ceiling_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.select_key"><code class="docutils literal notranslate"><span class="pre">select_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.rank_keys"><code class="docutils literal notranslate"><span class="pre">rank_keys()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.height_tree"><code class="docutils literal notranslate"><span class="pre">height_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.keys_range"><code class="docutils literal notranslate"><span class="pre">keys_range()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.values_range"><code class="docutils literal notranslate"><span class="pre">values_range()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.default_compare"><code class="docutils literal notranslate"><span class="pre">default_compare()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Tree.red_black_tree">red_black_tree.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.new_map"><code class="docutils literal notranslate"><span class="pre">new_map()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.key_set"><code class="docutils literal notranslate"><span class="pre">key_set()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.value_set"><code class="docutils literal notranslate"><span class="pre">value_set()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.left_key"><code class="docutils literal notranslate"><span class="pre">left_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.right_key"><code class="docutils literal notranslate"><span class="pre">right_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_left"><code class="docutils literal notranslate"><span class="pre">delete_left()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_right"><code class="docutils literal notranslate"><span class="pre">delete_right()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.floor"><code class="docutils literal notranslate"><span class="pre">floor()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.ceiling"><code class="docutils literal notranslate"><span class="pre">ceiling()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.select"><code class="docutils literal notranslate"><span class="pre">select()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rank"><code class="docutils literal notranslate"><span class="pre">rank()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.height"><code class="docutils literal notranslate"><span class="pre">height()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.keys"><code class="docutils literal notranslate"><span class="pre">keys()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.values"><code class="docutils literal notranslate"><span class="pre">values()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.value_set_tree"><code class="docutils literal notranslate"><span class="pre">value_set_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.key_set_tree"><code class="docutils literal notranslate"><span class="pre">key_set_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rotate_left"><code class="docutils literal notranslate"><span class="pre">rotate_left()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rotate_right"><code class="docutils literal notranslate"><span class="pre">rotate_right()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.flip_node_color"><code class="docutils literal notranslate"><span class="pre">flip_node_color()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.flip_colors"><code class="docutils literal notranslate"><span class="pre">flip_colors()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.is_red"><code class="docutils literal notranslate"><span class="pre">is_red()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.size_tree"><code class="docutils literal notranslate"><span class="pre">size_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.insert_node"><code class="docutils literal notranslate"><span class="pre">insert_node()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.height_tree"><code class="docutils literal notranslate"><span class="pre">height_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.get_node"><code class="docutils literal notranslate"><span class="pre">get_node()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.left_key_tree"><code class="docutils literal notranslate"><span class="pre">left_key_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.right_key_tree"><code class="docutils literal notranslate"><span class="pre">right_key_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.floor_key"><code class="docutils literal notranslate"><span class="pre">floor_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.ceiling_key"><code class="docutils literal notranslate"><span class="pre">ceiling_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rank_keys"><code class="docutils literal notranslate"><span class="pre">rank_keys()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.keys_range"><code class="docutils literal notranslate"><span class="pre">keys_range()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.values_range"><code class="docutils literal notranslate"><span class="pre">values_range()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.select_key"><code class="docutils literal notranslate"><span class="pre">select_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_left_tree"><code class="docutils literal notranslate"><span class="pre">delete_left_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_right_tree"><code class="docutils literal notranslate"><span class="pre">delete_right_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.move_red_right"><code class="docutils literal notranslate"><span class="pre">move_red_right()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.move_red_left"><code class="docutils literal notranslate"><span class="pre">move_red_left()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.balance"><code class="docutils literal notranslate"><span class="pre">balance()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.remove_key"><code class="docutils literal notranslate"><span class="pre">remove_key()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.default_compare"><code class="docutils literal notranslate"><span class="pre">default_compare()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#algoritmos-de-recorrido">Algoritmos de recorrido</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Tree.tree_traversal">tree_traversal.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.inorder"><code class="docutils literal notranslate"><span class="pre">inorder()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.preorder"><code class="docutils literal notranslate"><span class="pre">preorder()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.postorder"><code class="docutils literal notranslate"><span class="pre">postorder()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.inorder_tree"><code class="docutils literal notranslate"><span class="pre">inorder_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.postorder_tree"><code class="docutils literal notranslate"><span class="pre">postorder_tree()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.preorder_tree"><code class="docutils literal notranslate"><span class="pre">preorder_tree()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-DataStructures.Tree.rbt_node">rbt_node.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.rbt_node.new_node"><code class="docutils literal notranslate"><span class="pre">new_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.rbt_node.is_red"><code class="docutils literal notranslate"><span class="pre">is_red()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.rbt_node.get_value"><code class="docutils literal notranslate"><span class="pre">get_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.rbt_node.get_key"><code class="docutils literal notranslate"><span class="pre">get_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.rbt_node.change_color"><code class="docutils literal notranslate"><span class="pre">change_color()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="DataStructures.PriorityQueue.html">PriorityQueue - Colas de prioridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementaciones-de-arboles">Implementaciones de árboles</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-DataStructures.Tree.binary_search_tree">binary_search_tree.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.new_map"><code class="docutils literal notranslate"><span class="pre">new_map()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.insert_node"><code class="docutils literal notranslate"><span class="pre">insert_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.key_set"><code class="docutils literal notranslate"><span class="pre">key_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.value_set"><code class="docutils literal notranslate"><span class="pre">value_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.left_key"><code class="docutils literal notranslate"><span class="pre">left_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.right_key"><code class="docutils literal notranslate"><span class="pre">right_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_left"><code class="docutils literal notranslate"><span class="pre">delete_left()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_right"><code class="docutils literal notranslate"><span class="pre">delete_right()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.floor"><code class="docutils literal notranslate"><span class="pre">floor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.ceiling"><code class="docutils literal notranslate"><span class="pre">ceiling()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.select"><code class="docutils literal notranslate"><span class="pre">select()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.rank"><code class="docutils literal notranslate"><span class="pre">rank()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.height"><code class="docutils literal notranslate"><span class="pre">height()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.keys"><code class="docutils literal notranslate"><span class="pre">keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.values"><code class="docutils literal notranslate"><span class="pre">values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.get_node"><code class="docutils literal notranslate"><span class="pre">get_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.remove_node"><code class="docutils literal notranslate"><span class="pre">remove_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.size_tree"><code class="docutils literal notranslate"><span class="pre">size_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.value_set_tree"><code class="docutils literal notranslate"><span class="pre">value_set_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.key_set_tree"><code class="docutils literal notranslate"><span class="pre">key_set_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.left_key_node"><code class="docutils literal notranslate"><span class="pre">left_key_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.right_key_node"><code class="docutils literal notranslate"><span class="pre">right_key_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_left_tree"><code class="docutils literal notranslate"><span class="pre">delete_left_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.delete_right_tree"><code class="docutils literal notranslate"><span class="pre">delete_right_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.floor_key"><code class="docutils literal notranslate"><span class="pre">floor_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.ceiling_key"><code class="docutils literal notranslate"><span class="pre">ceiling_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.select_key"><code class="docutils literal notranslate"><span class="pre">select_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.rank_keys"><code class="docutils literal notranslate"><span class="pre">rank_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.height_tree"><code class="docutils literal notranslate"><span class="pre">height_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.keys_range"><code class="docutils literal notranslate"><span class="pre">keys_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.values_range"><code class="docutils literal notranslate"><span class="pre">values_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.binary_search_tree.default_compare"><code class="docutils literal notranslate"><span class="pre">default_compare()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-DataStructures.Tree.red_black_tree">red_black_tree.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.new_map"><code class="docutils literal notranslate"><span class="pre">new_map()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.key_set"><code class="docutils literal notranslate"><span class="pre">key_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.value_set"><code class="docutils literal notranslate"><span class="pre">value_set()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.left_key"><code class="docutils literal notranslate"><span class="pre">left_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.right_key"><code class="docutils literal notranslate"><span class="pre">right_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_left"><code class="docutils literal notranslate"><span class="pre">delete_left()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_right"><code class="docutils literal notranslate"><span class="pre">delete_right()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.floor"><code class="docutils literal notranslate"><span class="pre">floor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.ceiling"><code class="docutils literal notranslate"><span class="pre">ceiling()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.select"><code class="docutils literal notranslate"><span class="pre">select()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rank"><code class="docutils literal notranslate"><span class="pre">rank()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.height"><code class="docutils literal notranslate"><span class="pre">height()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.keys"><code class="docutils literal notranslate"><span class="pre">keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.values"><code class="docutils literal notranslate"><span class="pre">values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.value_set_tree"><code class="docutils literal notranslate"><span class="pre">value_set_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.key_set_tree"><code class="docutils literal notranslate"><span class="pre">key_set_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rotate_left"><code class="docutils literal notranslate"><span class="pre">rotate_left()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rotate_right"><code class="docutils literal notranslate"><span class="pre">rotate_right()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.flip_node_color"><code class="docutils literal notranslate"><span class="pre">flip_node_color()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.flip_colors"><code class="docutils literal notranslate"><span class="pre">flip_colors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.is_red"><code class="docutils literal notranslate"><span class="pre">is_red()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.size_tree"><code class="docutils literal notranslate"><span class="pre">size_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.insert_node"><code class="docutils literal notranslate"><span class="pre">insert_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.height_tree"><code class="docutils literal notranslate"><span class="pre">height_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.get_node"><code class="docutils literal notranslate"><span class="pre">get_node()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.left_key_tree"><code class="docutils literal notranslate"><span class="pre">left_key_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.right_key_tree"><code class="docutils literal notranslate"><span class="pre">right_key_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.floor_key"><code class="docutils literal notranslate"><span class="pre">floor_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.ceiling_key"><code class="docutils literal notranslate"><span class="pre">ceiling_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.rank_keys"><code class="docutils literal notranslate"><span class="pre">rank_keys()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.keys_range"><code class="docutils literal notranslate"><span class="pre">keys_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.values_range"><code class="docutils literal notranslate"><span class="pre">values_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.select_key"><code class="docutils literal notranslate"><span class="pre">select_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_left_tree"><code class="docutils literal notranslate"><span class="pre">delete_left_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.delete_right_tree"><code class="docutils literal notranslate"><span class="pre">delete_right_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.move_red_right"><code class="docutils literal notranslate"><span class="pre">move_red_right()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.move_red_left"><code class="docutils literal notranslate"><span class="pre">move_red_left()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.balance"><code class="docutils literal notranslate"><span class="pre">balance()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.remove_key"><code class="docutils literal notranslate"><span class="pre">remove_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.red_black_tree.default_compare"><code class="docutils literal notranslate"><span class="pre">default_compare()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#algoritmos-de-recorrido">Algoritmos de recorrido</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-DataStructures.Tree.tree_traversal">tree_traversal.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.inorder"><code class="docutils literal notranslate"><span class="pre">inorder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.preorder"><code class="docutils literal notranslate"><span class="pre">preorder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.postorder"><code class="docutils literal notranslate"><span class="pre">postorder()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.inorder_tree"><code class="docutils literal notranslate"><span class="pre">inorder_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.postorder_tree"><code class="docutils literal notranslate"><span class="pre">postorder_tree()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Tree.tree_traversal.preorder_tree"><code class="docutils literal notranslate"><span class="pre">preorder_tree()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Priority_queue.html">Priority Queue - Colas de prioridad</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Graph.html">Graph - Grafos</a></li>
 </ul>
 
@@ -201,9 +207,8 @@
 <h1>Order Map - Árboles<a class="headerlink" href="#order-map-arboles" title="Link to this heading"></a></h1>
 <section id="elementos">
 <h2>Elementos<a class="headerlink" href="#elementos" title="Link to this heading"></a></h2>
-</section>
 <section id="module-DataStructures.Tree.bst_node">
-<span id="bst-node-py"></span><h2>bst_node.py<a class="headerlink" href="#module-DataStructures.Tree.bst_node" title="Link to this heading"></a></h2>
+<span id="bst-node-py"></span><h3>bst_node.py<a class="headerlink" href="#module-DataStructures.Tree.bst_node" title="Link to this heading"></a></h3>
 <p>Estructura que contiene la información a guardar en una <code class="docutils literal notranslate"><span class="pre">nodo</span></code> de un árbol binario</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.bst_node.new_node">
@@ -268,7 +273,7 @@
 
 </section>
 <section id="module-DataStructures.Tree.rbt_node">
-<span id="rbt-node-py"></span><h2>rbt_node.py<a class="headerlink" href="#module-DataStructures.Tree.rbt_node" title="Link to this heading"></a></h2>
+<span id="rbt-node-py"></span><h3>rbt_node.py<a class="headerlink" href="#module-DataStructures.Tree.rbt_node" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.rbt_node.new_node">
 <span class="sig-name descname"><span class="pre">new_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.rbt_node.new_node" title="Link to this definition"></a></dt>
@@ -355,11 +360,11 @@ color: El nuevo color del nodo</p>
 </dd></dl>
 
 </section>
+</section>
 <section id="implementaciones-de-arboles">
 <h2>Implementaciones de árboles<a class="headerlink" href="#implementaciones-de-arboles" title="Link to this heading"></a></h2>
-</section>
 <section id="module-DataStructures.Tree.binary_search_tree">
-<span id="binary-search-tree-py"></span><h2>binary_search_tree.py<a class="headerlink" href="#module-DataStructures.Tree.binary_search_tree" title="Link to this heading"></a></h2>
+<span id="binary-search-tree-py"></span><h3>binary_search_tree.py<a class="headerlink" href="#module-DataStructures.Tree.binary_search_tree" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.new_map">
 <span class="sig-name descname"><span class="pre">new_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.new_map" title="Link to this definition"></a></dt>
@@ -560,7 +565,10 @@ color: El nuevo color del nodo</p>
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.left_key">
 <span class="sig-name descname"><span class="pre">left_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.left_key" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la izquierda de la tabla de simbolos</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">left_key_node()</span></code> para encontrar la llave más a la izquierda</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -579,7 +587,10 @@ color: El nuevo color del nodo</p>
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.right_key">
 <span class="sig-name descname"><span class="pre">right_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.right_key" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la derecha de la tabla de simbolos</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">right_key_node()</span></code> para encontrar la llave más a la derecha del arbol</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -598,7 +609,10 @@ color: El nuevo color del nodo</p>
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.delete_left">
 <span class="sig-name descname"><span class="pre">delete_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.delete_left" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la izauierda de la tabla de simbolos y su valor asociado.</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">delete_left_tree()</span></code> para eliminar la llave más a la izquierda</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -617,7 +631,10 @@ color: El nuevo color del nodo</p>
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.delete_right">
 <span class="sig-name descname"><span class="pre">delete_right</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.delete_right" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la derecha de la tabla de simbolos y su valor asociado.</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">delete_right_tree()</span></code> para eliminar la llave más a la derecha</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -743,8 +760,11 @@ Por ejemplo, si la tabla contiene las llaves [1, 3, 5, 7, 9] y se busca la llave
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.keys">
 <span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.keys" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas las llaves del arbol que se encuentren entre [key_initial, key_final].</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].
-Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
+</div>
+<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
 Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">keys_range()</span></code> para encontrar las llaves en el rango especificado</p>
 <dl class="field-list simple">
@@ -768,8 +788,11 @@ Si la función de comparación es la función inversa, el rango es [key_final, k
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.values">
 <span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.values" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas los valores del arbol que se encuentren entre [key_initial, key_final]</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].
-Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
+</div>
+<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
 Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">values_range()</span></code> para encontrar los valores en el rango especificado</p>
 <dl class="field-list simple">
@@ -893,7 +916,10 @@ Si la función de comparación es la función inversa, el rango es [key_final, k
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.left_key_node">
 <span class="sig-name descname"><span class="pre">left_key_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.left_key_node" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la izquierda de la tabla de simbolos</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">left_key()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">left_key_node()</span></code> para encontrar la llave más a la izquierda</p>
 <dl class="field-list simple">
@@ -913,7 +939,10 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">lef
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.right_key_node">
 <span class="sig-name descname"><span class="pre">right_key_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.right_key_node" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la derecha de la tabla de simbolos</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">right_key()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">right_key_node()</span></code> para encontrar la llave más a la derecha</p>
 <dl class="field-list simple">
@@ -933,7 +962,10 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">rig
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.delete_left_tree">
 <span class="sig-name descname"><span class="pre">delete_left_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.delete_left_tree" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la izquierda de la tabla de simbolos y su valor asociado</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">delete_left()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">delete_left_tree()</span></code> para eliminar la llave más a la izquierda</p>
 <dl class="field-list simple">
@@ -953,7 +985,10 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">del
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.delete_right_tree">
 <span class="sig-name descname"><span class="pre">delete_right_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.delete_right_tree" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la derecha de la tabla de simbolos y su valor asociado.</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">delete_right()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">delete_right_tree()</span></code> para eliminar la llave más a la derecha</p>
 <dl class="field-list simple">
@@ -1084,8 +1119,11 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">hei
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.keys_range">
 <span class="sig-name descname"><span class="pre">keys_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.keys_range" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas las llaves del arbol que se encuentren entre [key_initial, key_final].</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].
-Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
+</div>
+<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
 Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">keys()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">keys_range()</span></code> para encontrar las llaves en el rango especificado</p>
@@ -1111,8 +1149,11 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">key
 <dt class="sig sig-object py" id="DataStructures.Tree.binary_search_tree.values_range">
 <span class="sig-name descname"><span class="pre">values_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_hi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.binary_search_tree.values_range" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas los valores del arbol que se encuentren entre [key_initial, key_final]</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].
-Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
+</div>
+<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
 Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">values()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">values_range()</span></code> para encontrar los valores en el rango especificado</p>
@@ -1156,7 +1197,7 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">val
 
 </section>
 <section id="module-DataStructures.Tree.red_black_tree">
-<span id="red-black-tree-py"></span><h2>red_black_tree.py<a class="headerlink" href="#module-DataStructures.Tree.red_black_tree" title="Link to this heading"></a></h2>
+<span id="red-black-tree-py"></span><h3>red_black_tree.py<a class="headerlink" href="#module-DataStructures.Tree.red_black_tree" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.new_map">
 <span class="sig-name descname"><span class="pre">new_map</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.new_map" title="Link to this definition"></a></dt>
@@ -1336,7 +1377,10 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">val
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.left_key">
 <span class="sig-name descname"><span class="pre">left_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.left_key" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la izquierda de la tabla de simbolos</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">left_key_node()</span></code> para encontrar la llave más a la izquierda</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1355,7 +1399,10 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">val
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.right_key">
 <span class="sig-name descname"><span class="pre">right_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.right_key" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la derecha de la tabla de simbolos</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">right_key_node()</span></code> para encontrar la llave más a la derecha del arbol</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1374,7 +1421,10 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">val
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_left">
 <span class="sig-name descname"><span class="pre">delete_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_left" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la izauierda de la tabla de simbolos y su valor asociado.</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">delete_left_tree()</span></code> para eliminar la llave más a la izquierda</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1393,7 +1443,10 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">val
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_right">
 <span class="sig-name descname"><span class="pre">delete_right</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_right" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la derecha de la tabla de simbolos y su valor asociado.</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">delete_right_tree()</span></code> para eliminar la llave más a la derecha</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1519,8 +1572,11 @@ Por ejemplo, si la tabla contiene las llaves [1, 3, 5, 7, 9] y se busca la llave
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.keys">
 <span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.keys" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas las llaves del arbol que se encuentren entre [key_initial, key_final].</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].
-Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
+</div>
+<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
 Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">keys_range()</span></code> para encontrar las llaves en el rango especificado</p>
 <dl class="field-list simple">
@@ -1544,8 +1600,11 @@ Si la función de comparación es la función inversa, el rango es [key_final, k
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.values">
 <span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.values" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas los valores del arbol que se encuentren entre [key_initial, key_final]</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].
-Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
+</div>
+<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
 Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">values_range()</span></code> para encontrar los valores en el rango especificado</p>
 <dl class="field-list simple">
@@ -1774,7 +1833,10 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">hei
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.left_key_tree">
 <span class="sig-name descname"><span class="pre">left_key_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.left_key_tree" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la izquierda de la tabla de simbolos</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">left_key()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">left_key_tree()</span></code> para encontrar la llave más a la izquierda</p>
 <dl class="field-list simple">
@@ -1794,7 +1856,10 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">lef
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.right_key_tree">
 <span class="sig-name descname"><span class="pre">right_key_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.right_key_tree" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la derecha de la tabla de simbolos</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">right_key()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">right_key_tree()</span></code> para encontrar la llave más a la derecha</p>
 <dl class="field-list simple">
@@ -1884,8 +1949,11 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">ran
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.keys_range">
 <span class="sig-name descname"><span class="pre">keys_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.keys_range" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas las llaves del arbol que se encuentren entre [key_initial, key_final].</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].
-Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
+</div>
+<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
 Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">keys()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">keys_range()</span></code> para encontrar las llaves en el rango especificado</p>
@@ -1911,8 +1979,11 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">key
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.values_range">
 <span class="sig-name descname"><span class="pre">values_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.values_range" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas los valores del arbol que se encuentren entre [key_initial, key_final]</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].
-Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
+</div>
+<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
 Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">values()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">values_range()</span></code> para encontrar los valores en el rango especificado</p>
@@ -1960,7 +2031,10 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">sel
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_left_tree">
 <span class="sig-name descname"><span class="pre">delete_left_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_left_tree" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la izquierda de la tabla de simbolos y su valor asociado</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
+</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">delete_left()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">delete_left_tree()</span></code> para eliminar la llave más a la izquierda</p>
 <dl class="field-list simple">
@@ -1980,7 +2054,10 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">del
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_right_tree">
 <span class="sig-name descname"><span class="pre">delete_right_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_right_tree" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la derecha de la tabla de simbolos y su valor asociado.</p>
-<p><strong>Importante</strong>: Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
+</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">delete_right()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">delete_right_tree()</span></code> para eliminar la llave más a la derecha</p>
 <dl class="field-list simple">
@@ -2087,11 +2164,11 @@ Usa la funcion <code class="docutils literal notranslate"><span class="pre">remo
 </dd></dl>
 
 </section>
+</section>
 <section id="algoritmos-de-recorrido">
 <h2>Algoritmos de recorrido<a class="headerlink" href="#algoritmos-de-recorrido" title="Link to this heading"></a></h2>
-</section>
 <section id="module-DataStructures.Tree.tree_traversal">
-<span id="tree-traversal-py"></span><h2>tree_traversal.py<a class="headerlink" href="#module-DataStructures.Tree.tree_traversal" title="Link to this heading"></a></h2>
+<span id="tree-traversal-py"></span><h3>tree_traversal.py<a class="headerlink" href="#module-DataStructures.Tree.tree_traversal" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.inorder">
 <span class="sig-name descname"><span class="pre">inorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_order_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.inorder" title="Link to this definition"></a></dt>
@@ -2211,13 +2288,14 @@ Usa la funcion <code class="docutils literal notranslate"><span class="pre">remo
 
 </section>
 </section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="DataStructures.Map.html" class="btn btn-neutral float-left" title="Map - Tablas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="DataStructures.PriorityQueue.html" class="btn btn-neutral float-right" title="PriorityQueue - Colas de prioridad" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="DataStructures.Priority_queue.html" class="btn btn-neutral float-right" title="Priority Queue - Colas de prioridad" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

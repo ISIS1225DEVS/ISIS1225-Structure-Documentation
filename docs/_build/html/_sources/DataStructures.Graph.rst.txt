@@ -1,8 +1,10 @@
+####################################
 Graph - Grafos
-============================
+####################################
 
+***************************************
 Elementos
----------------
+***************************************
 
 edge.py
 -------------------------------------
@@ -13,6 +15,10 @@ edge.py
    :show-inheritance:
    :member-order: bysource
 
+***************************************
+Elementos de busqueda
+***************************************
+
 graph\_search.py
 -------------------------------------
 
@@ -22,8 +28,36 @@ graph\_search.py
    :show-inheritance:
    :member-order: bysource
 
-Implementaciones de grafos
+dfo\_search.py
 -------------------------------------
+
+.. automodule:: DataStructures.Graph.dfo_search
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+prim\_search.py
+-------------------------------------
+
+.. automodule:: DataStructures.Graph.prim_search
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+dijsktra\_search.py
+-------------------------------------
+
+.. automodule:: DataStructures.Graph.dijsktra_search
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+***************************************
+Implementaciones de grafos
+***************************************
 
 adj\_list\_graph.py
 --------------------------------------
@@ -34,8 +68,9 @@ adj\_list\_graph.py
    :show-inheritance:
    :member-order: bysource
 
+***************************************
 Algoritmos en grafos
--------------------------------------
+***************************************
 
 dfs.py
 --------------------------------------
@@ -50,6 +85,33 @@ bfs.py
 --------------------------------------
 
 .. automodule:: DataStructures.Graph.bfs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+dfo.py
+--------------------------------------
+
+.. automodule:: DataStructures.Graph.dfo
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+prim.py
+--------------------------------------
+
+.. automodule:: DataStructures.Graph.prim
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+dijsktra.py
+--------------------------------------
+
+.. automodule:: DataStructures.Graph.dijsktra
    :members:
    :undoc-members:
    :show-inheritance:

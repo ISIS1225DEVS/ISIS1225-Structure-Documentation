@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Priority Queue - Colas de prioridad &mdash; DISC - Data Structures 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Graph - Grafos" href="DataStructures.Graph.html" />
+    <link rel="prev" title="Order Map - Árboles" href="DataStructures.Tree.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DISC - Data Structures
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Set.html">Set - Conjunto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.List.html">List - Listas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Stack.html">Stack - Pilas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Queue.html">Queue - Colas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Map.html">Map - Tablas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Tree.html">Order Map - Árboles</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Priority Queue - Colas de prioridad</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#implementaciones-de-colas-de-prioridad">Implementaciones de Colas de prioridad</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-DataStructures.Priority_queue.priority_queue">priority_queue.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.new_heap"><code class="docutils literal notranslate"><span class="pre">new_heap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.cmp_function_higher_value"><code class="docutils literal notranslate"><span class="pre">cmp_function_higher_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.cmp_function_lower_value"><code class="docutils literal notranslate"><span class="pre">cmp_function_lower_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.get_first_priority"><code class="docutils literal notranslate"><span class="pre">get_first_priority()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.insert"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.swim"><code class="docutils literal notranslate"><span class="pre">swim()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.sink"><code class="docutils literal notranslate"><span class="pre">sink()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.priority"><code class="docutils literal notranslate"><span class="pre">priority()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.exchange"><code class="docutils literal notranslate"><span class="pre">exchange()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-DataStructures.Priority_queue.index_priority_queue">index_priority_queue.py</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.new_index_heap"><code class="docutils literal notranslate"><span class="pre">new_index_heap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.cmp_function_higher_value"><code class="docutils literal notranslate"><span class="pre">cmp_function_higher_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.cmp_function_lower_value"><code class="docutils literal notranslate"><span class="pre">cmp_function_lower_value()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.insert"><code class="docutils literal notranslate"><span class="pre">insert()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.get_first_priority"><code class="docutils literal notranslate"><span class="pre">get_first_priority()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.decrease_key"><code class="docutils literal notranslate"><span class="pre">decrease_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.increase_key"><code class="docutils literal notranslate"><span class="pre">increase_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.exchange"><code class="docutils literal notranslate"><span class="pre">exchange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.priority"><code class="docutils literal notranslate"><span class="pre">priority()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.swim"><code class="docutils literal notranslate"><span class="pre">swim()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.index_priority_queue.sink"><code class="docutils literal notranslate"><span class="pre">sink()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Graph.html">Graph - Grafos</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DISC - Data Structures</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Priority Queue - Colas de prioridad</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="priority-queue-colas-de-prioridad">
+<h1>Priority Queue - Colas de prioridad<a class="headerlink" href="#priority-queue-colas-de-prioridad" title="Link to this heading"></a></h1>
+<section id="implementaciones-de-colas-de-prioridad">
+<h2>Implementaciones de Colas de prioridad<a class="headerlink" href="#implementaciones-de-colas-de-prioridad" title="Link to this heading"></a></h2>
+<section id="module-DataStructures.Priority_queue.priority_queue">
+<span id="priority-queue-py"></span><h3>priority_queue.py<a class="headerlink" href="#module-DataStructures.Priority_queue.priority_queue" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.new_heap">
+<span class="sig-name descname"><span class="pre">new_heap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_min_pq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.new_heap" title="Link to this definition"></a></dt>
+<dd><p>Crea un cola de prioridad indexada orientada a menor o mayor dependiendo del valor de <code class="docutils literal notranslate"><span class="pre">is_min_pq</span></code></p>
+<p>Se crea una cola de prioridad con los siguientes atributos:</p>
+<ul class="simple">
+<li><p><strong>elements</strong>: Lista de elementos. Se inicializa como una lista vacia.</p></li>
+<li><p><strong>cmp_function</strong>: La funcion de comparacion. Si es una cola de prioridad orientada a menor <code class="docutils literal notranslate"><span class="pre">is_min_pq</span> <span class="pre">=</span> <span class="pre">True</span></code>, se inicializa con la funcion <code class="docutils literal notranslate"><span class="pre">cmp_function_lower_value</span></code>. Si es una cola de prioridad orientada a mayor <code class="docutils literal notranslate"><span class="pre">is_min_pq</span> <span class="pre">=</span> <span class="pre">False</span></code>, se inicializa con la funcion <code class="docutils literal notranslate"><span class="pre">cmp_function_higher_value</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>is_min_pq</strong> (<em>bool</em>) – Indica si la cola de prioridad es orientada a menor o mayor. Por defecto es <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una nueva cola de prioridad indexada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>priority_queue</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.cmp_function_higher_value">
+<span class="sig-name descname"><span class="pre">cmp_function_higher_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">father_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.cmp_function_higher_value" title="Link to this definition"></a></dt>
+<dd><p>Valida si el nodo padre tiene mayor prioridad que el nodo hijo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>father_node</strong> (<em>dict</em>) – El nodo padre</p></li>
+<li><p><strong>child_node</strong> (<em>dict</em>) – El nodo hijo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si el nodo padre tiene mayor prioridad que el nodo hijo. <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.cmp_function_lower_value">
+<span class="sig-name descname"><span class="pre">cmp_function_lower_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">father_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.cmp_function_lower_value" title="Link to this definition"></a></dt>
+<dd><p>Valida si el nodo padre tiene menor prioridad que el nodo hijo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>father_node</strong> (<em>dict</em>) – El nodo padre</p></li>
+<li><p><strong>child_node</strong> (<em>dict</em>) – El nodo hijo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si el nodo padre tiene menor prioridad que el nodo hijo. <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.size" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de elementos en el heap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>my_heap</strong> (<em>priority_queue</em>) – El heap a revisar</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El número de elementos</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.is_empty" title="Link to this definition"></a></dt>
+<dd><p>Informa si una cola de prioridad es vacia.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>my_heap</strong> (<em>priority_queue</em>) – El heap indexado a revisar</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si esta vacia. <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.get_first_priority">
+<span class="sig-name descname"><span class="pre">get_first_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.get_first_priority" title="Link to this definition"></a></dt>
+<dd><p>Retorna el primer elemento del heap, es decir el elemento con mayor prioridad sin eliminarlo.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Si el heap es orientado a menor, el primer elemento es el de menor valor. Si el heap es orientado a mayor,</p>
+</div>
+<p>el primer elemento es el de mayor valor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>my_heap</strong> (<em>priority_queue</em>) – El heap a revisar</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El valor asociada al mayor indice</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.insert" title="Link to this definition"></a></dt>
+<dd><p>Inserta la llave <code class="docutils literal notranslate"><span class="pre">key</span></code> con prioridad <code class="docutils literal notranslate"><span class="pre">value</span></code> en el heap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>priority_queue</em>) – El heap indexado</p></li>
+<li><p><strong>element</strong> (<em>int</em>) – El valor de la llave</p></li>
+<li><p><strong>key</strong> (<em>any</em>) – La llave a insertar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El heap con la nueva paraja insertada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>priority_queue</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.remove" title="Link to this definition"></a></dt>
+<dd><p>Retorna el elemento del heap de mayor prioridad y lo elimina.
+Se reemplaza con el último elemento y se hace <strong>sink</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Si el heap es orientado a menor, el primer elemento es el de menor valor.
+Si el heap es orientado a mayor, el primer elemento es el de mayor valor.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>my_heap</strong> (<em>priority_queue</em>) – El heap a revisar</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Valor asociado a la key con mayor prioridad</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.swim">
+<span class="sig-name descname"><span class="pre">swim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.swim" title="Link to this definition"></a></dt>
+<dd><p>Deja en el lugar indicado un elemento adicionado en la última posición</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>priority_queue</em>) – El heap sobre el cual se realiza la operación</p></li>
+<li><p><strong>pos</strong> (<em>int</em>) – La posición del elemento a revisar</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.sink">
+<span class="sig-name descname"><span class="pre">sink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.sink" title="Link to this definition"></a></dt>
+<dd><p>Deja en la posición correcta un elemento ubicado en la raíz del heap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>priority_queue</em>) – El heap sobre el cual se realiza la operación</p></li>
+<li><p><strong>pos</strong> (<em>int</em>) – La posición del elemento a revisar</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.priority">
+<span class="sig-name descname"><span class="pre">priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.priority" title="Link to this definition"></a></dt>
+<dd><p>Indica si el <code class="docutils literal notranslate"><span class="pre">parent</span></code> tiene mayor prioridad que <code class="docutils literal notranslate"><span class="pre">child</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>La prioridad se define por la función de comparación del heap. Si es un heap orientado a menor,
+la prioridad es menor si el <code class="docutils literal notranslate"><span class="pre">parent</span></code> es menor que el <code class="docutils literal notranslate"><span class="pre">child</span></code>. Si es un heap orientado a mayor, la prioridad es mayor
+si el <code class="docutils literal notranslate"><span class="pre">parent</span></code> es mayor que el <code class="docutils literal notranslate"><span class="pre">child</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>priority_queue</em>) – El heap a revisar</p></li>
+<li><p><strong>parent</strong> (<em>any</em>) – El elemento padre</p></li>
+<li><p><strong>child</strong> (<em>any</em>) – El elemento hijo a comparar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si el <code class="docutils literal notranslate"><span class="pre">parent</span></code> tiene mayor prioridad que el <code class="docutils literal notranslate"><span class="pre">child</span></code>. <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.exchange">
+<span class="sig-name descname"><span class="pre">exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.exchange" title="Link to this definition"></a></dt>
+<dd><p>Intercambia los elementos en las posiciones <code class="docutils literal notranslate"><span class="pre">pos_i</span></code> y <code class="docutils literal notranslate"><span class="pre">pos_j</span></code> del heap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>priority_queue</em>) – El heap a revisar</p></li>
+<li><p><strong>pos_i</strong> (<em>int</em>) – La posición del primer elemento</p></li>
+<li><p><strong>pos_j</strong> (<em>int</em>) – La posición del segundo elemento</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-DataStructures.Priority_queue.index_priority_queue">
+<span id="index-priority-queue-py"></span><h3>index_priority_queue.py<a class="headerlink" href="#module-DataStructures.Priority_queue.index_priority_queue" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.new_index_heap">
+<span class="sig-name descname"><span class="pre">new_index_heap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_min_pq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.new_index_heap" title="Link to this definition"></a></dt>
+<dd><p>Crea un cola de prioridad indexada orientada a menor o mayor dependiendo del valor de <code class="docutils literal notranslate"><span class="pre">is_min_pq</span></code></p>
+<p>Se crea una cola de prioridad con los siguientes atributos:</p>
+<ul class="simple">
+<li><p><strong>elements</strong>: Lista de elementos. Se inicializa como una lista vacia.</p></li>
+<li><p><strong>qp_map</strong>: Mapa de llave a indice. Se inicializa como un mapa vacio con un <code class="docutils literal notranslate"><span class="pre">num_elements</span></code> de 100 inicial.</p></li>
+<li><p><strong>size</strong>: El numero de elementos. Se inicializa en 0.</p></li>
+<li><p><strong>cmp_function</strong>: La funcion de comparacion. Si es una cola de prioridad orientada a menor <code class="docutils literal notranslate"><span class="pre">is_min_pq</span> <span class="pre">=</span> <span class="pre">True</span></code>, se inicializa con la funcion <code class="docutils literal notranslate"><span class="pre">cmp_function_lower_value</span></code>. Si es una cola de prioridad orientada a mayor <code class="docutils literal notranslate"><span class="pre">is_min_pq</span> <span class="pre">=</span> <span class="pre">False</span></code>, se inicializa con la funcion <code class="docutils literal notranslate"><span class="pre">cmp_function_higher_value</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>is_min_pq</strong> (<em>bool</em>) – Indica si la cola de prioridad es orientada a menor o mayor. Por defecto es <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una nueva cola de prioridad indexada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>index_priority_queue</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.cmp_function_higher_value">
+<span class="sig-name descname"><span class="pre">cmp_function_higher_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">father_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.cmp_function_higher_value" title="Link to this definition"></a></dt>
+<dd><p>Valida si el nodo padre tiene mayor prioridad que el nodo hijo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>father_node</strong> (<em>dict</em>) – El nodo padre</p></li>
+<li><p><strong>child_node</strong> (<em>dict</em>) – El nodo hijo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si el nodo padre tiene mayor prioridad que el nodo hijo. <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.cmp_function_lower_value">
+<span class="sig-name descname"><span class="pre">cmp_function_lower_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">father_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.cmp_function_lower_value" title="Link to this definition"></a></dt>
+<dd><p>Valida si el nodo padre tiene menor prioridad que el nodo hijo</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>father_node</strong> (<em>dict</em>) – El nodo padre</p></li>
+<li><p><strong>child_node</strong> (<em>dict</em>) – El nodo hijo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si el nodo padre tiene menor prioridad que el nodo hijo. <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.insert">
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.insert" title="Link to this definition"></a></dt>
+<dd><p>Inserta la llave <code class="docutils literal notranslate"><span class="pre">key</span></code> con prioridad <code class="docutils literal notranslate"><span class="pre">index</span></code> en el heap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap indexado</p></li>
+<li><p><strong>index</strong> (<em>int</em>) – La prioridad de la llave</p></li>
+<li><p><strong>key</strong> (<em>any</em>) – La llave a insertar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El heap con la nueva paraja indexada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>index_priority_queue</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.is_empty" title="Link to this definition"></a></dt>
+<dd><p>Informa si una cola de prioridad indexada es vacia.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap indexado a revisar</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si esta vacia. <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.size" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de elementos en el heap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap a revisar</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El número de elementos</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.contains" title="Link to this definition"></a></dt>
+<dd><p>Indica si la llave key se encuentra en el heap.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap a revisar</p></li>
+<li><p><strong>key</strong> (<em>any</em>) – La llave a buscar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si la llave se encuentra en el heap. <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.get_first_priority">
+<span class="sig-name descname"><span class="pre">get_first_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.get_first_priority" title="Link to this definition"></a></dt>
+<dd><p>Retorna el primer elemento del heap, es decir el elemento con mayor prioridad sin eliminarlo.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Si el heap es orientado a menor, el primer elemento es el de menor valor. Si el heap es orientado a mayor,</p>
+</div>
+<p>el primer elemento es el de mayor valor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap a revisar</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>La llave asociada al mayor indice</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.remove">
+<span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.remove" title="Link to this definition"></a></dt>
+<dd><p>Retorna el elemento del heap de mayor prioridad y lo elimina.
+Se reemplaza con el último elemento y se hace <strong>sink</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Si el heap es orientado a menor, el primer elemento es el de menor valor.
+Si el heap es orientado a mayor, el primer elemento es el de mayor valor.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap a revisar</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>La llave asociada al indice con mayor prioridad</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.decrease_key">
+<span class="sig-name descname"><span class="pre">decrease_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.decrease_key" title="Link to this definition"></a></dt>
+<dd><p>Decrementa el indice de un llave</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap a revisar</p></li>
+<li><p><strong>key</strong> (<em>any</em>) – la llave a decrementar</p></li>
+<li><p><strong>new_index</strong> (<em>int</em>) – El nuevo indice de la llave</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El heap con la llave decrementada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>index_priority_queue</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.increase_key">
+<span class="sig-name descname"><span class="pre">increase_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.increase_key" title="Link to this definition"></a></dt>
+<dd><p>Incrementa el indice de un llave</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap a revisar</p></li>
+<li><p><strong>key</strong> (<em>any</em>) – la llave a incrementar</p></li>
+<li><p><strong>new_index</strong> (<em>int</em>) – El nuevo indice de la llave</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El heap con la llave incrementada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>index_priority_queue</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.exchange">
+<span class="sig-name descname"><span class="pre">exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_i</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_j</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.exchange" title="Link to this definition"></a></dt>
+<dd><p>Intercambia los elementos en las posiciones <code class="docutils literal notranslate"><span class="pre">pos_i</span></code> y <code class="docutils literal notranslate"><span class="pre">pos_j</span></code> del heap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap a revisar</p></li>
+<li><p><strong>pos_i</strong> (<em>int</em>) – La posición del primer elemento</p></li>
+<li><p><strong>pos_j</strong> (<em>int</em>) – La posición del segundo elemento</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.priority">
+<span class="sig-name descname"><span class="pre">priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.priority" title="Link to this definition"></a></dt>
+<dd><p>Indica si el <code class="docutils literal notranslate"><span class="pre">parent</span></code> tiene mayor prioridad que <code class="docutils literal notranslate"><span class="pre">child</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>La prioridad se define por la función de comparación del heap. Si es un heap orientado a menor,
+la prioridad es menor si el <code class="docutils literal notranslate"><span class="pre">parent</span></code> es menor que el <code class="docutils literal notranslate"><span class="pre">child</span></code>. Si es un heap orientado a mayor, la prioridad es mayor
+si el <code class="docutils literal notranslate"><span class="pre">parent</span></code> es mayor que el <code class="docutils literal notranslate"><span class="pre">child</span></code>.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap a revisar</p></li>
+<li><p><strong>parent</strong> (<em>any</em>) – El elemento padre</p></li>
+<li><p><strong>child</strong> (<em>any</em>) – El elemento hijo a comparar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si el <code class="docutils literal notranslate"><span class="pre">parent</span></code> tiene mayor prioridad que el <code class="docutils literal notranslate"><span class="pre">child</span></code>. <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.swim">
+<span class="sig-name descname"><span class="pre">swim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.swim" title="Link to this definition"></a></dt>
+<dd><p>Deja en el lugar indicado un elemento adicionado en la última posición</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap sobre el cual se realiza la operación</p></li>
+<li><p><strong>pos</strong> (<em>int</em>) – La posición del elemento a revisar</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.index_priority_queue.sink">
+<span class="sig-name descname"><span class="pre">sink</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.index_priority_queue.sink" title="Link to this definition"></a></dt>
+<dd><p>Deja en la posición correcta un elemento ubicado en la raíz del heap</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<em>index_priority_queue</em>) – El heap sobre el cual se realiza la operación</p></li>
+<li><p><strong>pos</strong> (<em>int</em>) – La posición del elemento a revisar</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="DataStructures.Tree.html" class="btn btn-neutral float-left" title="Order Map - Árboles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="DataStructures.Graph.html" class="btn btn-neutral float-right" title="Graph - Grafos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Universidad de los Andes.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

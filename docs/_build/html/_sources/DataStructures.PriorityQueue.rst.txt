@@ -1,10 +1,14 @@
-PriorityQueue - Colas de prioridad
+Priority Queue - Colas de prioridad
 ====================================
 
-Module contents
----------------
+Implementaciones de listas
+-------------------------------------
 
-.. automodule:: DataStructures.PriorityQueue
+index\_priority_queue.py
+--------------------------------------
+
+.. automodule:: DataStructures.Priority_queue.index_priority_queue
    :members:
    :undoc-members:
    :show-inheritance:
+   :member-order: bysource

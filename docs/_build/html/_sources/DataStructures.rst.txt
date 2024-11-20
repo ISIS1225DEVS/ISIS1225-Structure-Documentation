@@ -12,5 +12,5 @@ Subpackages
    DataStructures.Queue
    DataStructures.Stack
    DataStructures.Map
-   DataStructures.PriorityQueue
+   DataStructures.Priority_queue
    DataStructures.Graph

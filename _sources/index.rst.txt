@@ -16,5 +16,5 @@ Bienvenido a la documentación de Estructura de Datos y Algoritmos!
    DataStructures.Queue
    DataStructures.Map
    DataStructures.Tree
-   DataStructures.PriorityQueue
+   DataStructures.Priority_queue
    DataStructures.Graph
