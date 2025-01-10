@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guía de documentación &mdash; DISC - Data Structures 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/68409575?s=200&v=4"/>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Set - Conjunto" href="DataStructures.Set.html" />
+    <link rel="prev" title="Bienvenido a la documentación de Estructura de Datos y Algoritmos!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            DISC - Data Structures
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Guía de documentación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#como-usar-la-documentacion">Como usar la documentación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#estructura-de-la-documentacion">Estructura de la documentación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ejemplo-practicos-de-implementacion">Ejemplo prácticos de implementación</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ejemplo-practico-implementar-new-set">Ejemplo práctico: implementar <code class="xref py py-meth docutils literal notranslate"><span class="pre">new_set()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ejemplo-practico-implementar-add-element">Ejemplo práctico: implementar <code class="xref py py-func docutils literal notranslate"><span class="pre">add_element()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#consejos-generales-para-usar-la-documentacion">Consejos generales para usar la documentación</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Set.html">Set - Conjunto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.List.html">List - Listas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Stack.html">Stack - Pilas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Queue.html">Queue - Colas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Map.html">Map - Tablas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Tree.html">Order Map - Árboles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Priority_queue.html">Priority Queue - Colas de prioridad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.Graph.html">Graph - Grafos</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DISC - Data Structures</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Guía de documentación</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="guia-de-documentacion">
+<h1>Guía de documentación<a class="headerlink" href="#guia-de-documentacion" title="Link to this heading"></a></h1>
+<section id="como-usar-la-documentacion">
+<span id="guia-doc"></span><h2>Como usar la documentación<a class="headerlink" href="#como-usar-la-documentacion" title="Link to this heading"></a></h2>
+<p>La documentación del curso está diseñada para guiarlo en la implementación de archivos, funciones y elementos que serán usados en actividades a lo largo del semestre. Cada sección de la documentación contiene una descripción detallada de la función o estructura de datos que se debe implementar, incluyendo su propósito, parámetros y comportamiento esperado.</p>
+<p>Al seguir las instrucciones de la documentación, podrá implementar las funciones de manera efectiva y asegurarse de que cumplen con los requisitos del curso convirtiendo la descripción en código funcional.</p>
+</section>
+<section id="estructura-de-la-documentacion">
+<h2>Estructura de la documentación<a class="headerlink" href="#estructura-de-la-documentacion" title="Link to this heading"></a></h2>
+<p>La documentación de cada función o estructura de datos sigue una estructura común que incluye los siguientes elementos:</p>
+<figure class="align-center" id="id1">
+<img alt="_images/documentation_parts.png" src="_images/documentation_parts.png" />
+<figcaption>
+<p><span class="caption-text">Partes de una función en la documentación</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple">
+<li><p><strong>Nombre de la función:</strong> Nombre de la función o estructura de datos que se debe implementar.</p></li>
+<li><p><strong>Parametros de la función:</strong> Parámetros que recibe la función.</p></li>
+<li><p><strong>Descripción:</strong> Propósito y comportamiento esperado de la función o estructura de datos.</p></li>
+<li><p><strong>Parámetros:</strong> Entradas que debe recibir la función.</p></li>
+<li><p><strong>Retorno:</strong> Tipo y contenido de la salida de la función.</p></li>
+<li><p><strong>Ejemplo:</strong> Ejemplo de uso de la función.</p></li>
+<li><p><strong>Escenarios de prueba:</strong> Casos de prueba que se deben considerar al implementar la función.</p></li>
+</ol>
+</section>
+<section id="ejemplo-practicos-de-implementacion">
+<h2>Ejemplo prácticos de implementación<a class="headerlink" href="#ejemplo-practicos-de-implementacion" title="Link to this heading"></a></h2>
+<section id="ejemplo-practico-implementar-new-set">
+<h3>Ejemplo práctico: implementar <a class="reference internal" href="DataStructures.Set.html#new_set" title="new_set"><code class="xref py py-meth docutils literal notranslate"><span class="pre">new_set()</span></code></a><a class="headerlink" href="#ejemplo-practico-implementar-new-set" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Valide que en la carpeta <code class="file docutils literal notranslate"><span class="pre">./DataStructures/</span></code> de su proyecto exista la carpeta <code class="docutils literal notranslate"><span class="pre">Set/</span></code>. Si no existe la carpeta <code class="docutils literal notranslate"><span class="pre">Set/</span></code> y cree el archivo <a class="reference internal" href="DataStructures.Set.html#set-py"><span class="std std-ref">set.py</span></a>.</p></li>
+<li><p>Adicionalmente en la carpeta <code class="docutils literal notranslate"><span class="pre">Set/</span></code> cree el archivo <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>. El cual debe estar vacío y es necesario para que Python reconozca la carpeta como un paquete.</p>
+<figure class="align-center" id="id2">
+<img alt="_images/set_example.png" class="with-border" src="_images/set_example.png" />
+<figcaption>
+<p><span class="caption-text">Carpeta <code class="docutils literal notranslate"><span class="pre">Set/</span></code> en <code class="docutils literal notranslate"><span class="pre">DataStructures/</span></code></span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Siempre que esté iniciando el desarrollo de una nueva estructura de datos, deberá asegurarse de crear la carpeta de la estrcutura correspondiente dentro de la carpeta <code class="docutils literal notranslate"><span class="pre">DataStructures/</span></code> de su proyecto. Además, deberá crear el archivo <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> dentro de la carpeta de la estructura de datos.</p>
+</div>
+</li>
+<li><p>Una vez creado el archivo <a class="reference internal" href="DataStructures.Set.html#set-py"><span class="std std-ref">set.py</span></a>, lea la descripción de la función <a class="reference internal" href="DataStructures.Set.html#new_set" title="new_set"><code class="xref py py-func docutils literal notranslate"><span class="pre">new_set()</span></code></a>. La descripción de la función dice lo siguiente:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Crea</span> <span class="n">un</span> <span class="n">conjunto</span> <span class="p">(</span><span class="nb">set</span><span class="p">)</span> <span class="n">vacio</span> <span class="n">el</span> <span class="n">cuál</span> <span class="n">permite</span> <span class="n">almacenar</span> <span class="n">elementos</span> <span class="n">únicos</span> <span class="n">sin</span> <span class="n">un</span> <span class="n">orden</span> <span class="n">específico</span><span class="o">.</span>
+
+<span class="n">El</span> <span class="n">conjunto</span> <span class="p">(</span><span class="nb">set</span><span class="p">)</span> <span class="n">es</span> <span class="n">creado</span> <span class="n">con</span> <span class="n">los</span> <span class="n">siguientes</span> <span class="n">atributos</span> <span class="n">inicializados</span><span class="p">:</span>
+
+<span class="hll"><span class="o">-</span> <span class="n">size</span><span class="p">:</span> <span class="n">Tamaño</span> <span class="k">del</span> <span class="n">conjunto</span><span class="p">,</span> <span class="n">inicializado</span> <span class="n">en</span> <span class="mf">0.</span>
+</span><span class="hll"><span class="o">-</span> <span class="n">elements</span><span class="p">:</span> <span class="n">Lista</span> <span class="n">de</span> <span class="n">elementos</span> <span class="k">del</span> <span class="n">conjunto</span><span class="o">.</span> <span class="n">Inicializada</span> <span class="n">como</span> <span class="n">array</span> <span class="n">vacio</span><span class="o">.</span>
+</span>
+<span class="n">Returns</span><span class="p">:</span>       <span class="n">Conjuto</span> <span class="n">vacío</span> <span class="n">creado</span> <span class="n">recien</span> <span class="n">inicializado</span>
+<span class="n">Return</span> <span class="nb">type</span><span class="p">:</span>   <span class="nb">set</span>
+</pre></div>
+</div>
+</li>
+<li><p>Basado en la descripción de la función, identifique la estructura del conjunto que se debe implementar. En este caso, el conjunto debe tener los siguientes atributos:</p>
+<ul class="simple">
+<li><p>Un atributo <code class="docutils literal notranslate"><span class="pre">size</span></code> que indica el número de elementos.</p></li>
+<li><p>Un array <code class="docutils literal notranslate"><span class="pre">elements</span></code> que almacena los elementos del conjunto.</p></li>
+</ul>
+</li>
+<li><p>Implemente la función <a class="reference internal" href="DataStructures.Set.html#new_set" title="new_set"><code class="xref py py-func docutils literal notranslate"><span class="pre">new_set()</span></code></a> en el archivo <a class="reference internal" href="DataStructures.Set.html#set-py"><span class="std std-ref">set.py</span></a> basándose en la descripción y la estructura identificada. Para esto siga los siguientes pasos:</p>
+<ol class="arabic simple">
+<li><p>Cree un diccionario que represente la estructura del conjunto.</p></li>
+<li><p>Defina <code class="docutils literal notranslate"><span class="pre">size</span></code> como 0, ya que el conjunto está vacío al inicio.</p></li>
+<li><p>Defina <code class="docutils literal notranslate"><span class="pre">elements</span></code> como una lista vacía.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span> <span class="nf">new_set</span><span class="p">():</span>
+<span class="linenos">2</span>   <span class="n">my_new_set</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">3</span>      <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">4</span>      <span class="s1">&#39;elements&#39;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="linenos">5</span>   <span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Al revisar nuevamente la descripción de la función, observe que la función debe devolver un “Conjuto vacio recien inicializado” de tipo <code class="docutils literal notranslate"><span class="pre">set</span></code>. Por lo tanto, la función debe retornar el conjunto creado.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span> <span class="nf">new_set</span><span class="p">():</span>
+<span class="linenos">2</span>   <span class="n">my_new_set</span> <span class="o">=</span> <span class="p">{</span>
+<span class="linenos">3</span>      <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+<span class="linenos">4</span>      <span class="s1">&#39;elements&#39;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="linenos">5</span>   <span class="p">}</span>
+<span class="hll"><span class="linenos">6</span>   <span class="k">return</span> <span class="n">my_new_set</span>
+</span></pre></div>
+</div>
+</li>
+<li><p>Para verificar que la función <a class="reference internal" href="DataStructures.Set.html#new_set" title="new_set"><code class="xref py py-func docutils literal notranslate"><span class="pre">new_set()</span></code></a> cumple con su propósito, pruébela con un caso simple.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span> <span class="nn">DataStructures</span> <span class="kn">import</span> <span class="n">Set</span> <span class="k">as</span> <span class="nb">set</span>
+
+<span class="c1"># Crear un conjunto vacío</span>
+<span class="n">my_set</span> <span class="o">=</span> <span class="nb">set</span><span class="o">.</span><span class="n">new_set</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_set</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 0, &#39;elements&#39;: []}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Si la salida es la esperada, la función <span class="xref std std-ref">new_set()</span> ha sido implementada correctamente.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;elements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="ejemplo-practico-implementar-add-element">
+<h3>Ejemplo práctico: implementar <a class="reference internal" href="DataStructures.Set.html#add_element" title="add_element"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_element()</span></code></a><a class="headerlink" href="#ejemplo-practico-implementar-add-element" title="Link to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Valide que en la carpeta <code class="docutils literal notranslate"><span class="pre">DataStructures/</span></code> de su proyecto exista la carpeta <code class="docutils literal notranslate"><span class="pre">Set/</span></code>. Si no existe la carpeta <code class="docutils literal notranslate"><span class="pre">Set/</span></code> y cree el archivo <a class="reference internal" href="DataStructures.Set.html#set-py"><span class="std std-ref">set.py</span></a>.</p></li>
+<li><p>Adicionalmente en la carpeta <code class="docutils literal notranslate"><span class="pre">Set/</span></code> cree el archivo <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code>. El cual debe estar vacío y es necesario para que Python reconozca la carpeta como un paquete.</p>
+<figure class="align-center" id="id3">
+<img alt="_images/set_example.png" class="with-border" src="_images/set_example.png" />
+<figcaption>
+<p><span class="caption-text">Carpeta <code class="docutils literal notranslate"><span class="pre">Set/</span></code> en <code class="docutils literal notranslate"><span class="pre">DataStructures/</span></code></span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Siempre que esté iniciando el desarrollo de una nueva estructura de datos, deberá asegurarse de crear la carpeta de la estrcutura correspondiente dentro de la carpeta <code class="docutils literal notranslate"><span class="pre">DataStructures/</span></code> de su proyecto. Además, deberá crear el archivo <code class="docutils literal notranslate"><span class="pre">__init__.py</span></code> dentro de la carpeta de la estructura de datos.</p>
+</div>
+</li>
+<li><p>Una vez creado el archivo <a class="reference internal" href="DataStructures.Set.html#set-py"><span class="std std-ref">set.py</span></a>, lea la descripción de la función <a class="reference internal" href="DataStructures.Set.html#add_element" title="add_element"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_element()</span></code></a>. La descripción de la función dice lo siguiente:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Añade</span> <span class="n">un</span> <span class="n">elemento</span> <span class="n">no</span> <span class="n">existente</span> <span class="n">al</span> <span class="n">conjunto</span><span class="o">.</span>
+
+<span class="n">Si</span> <span class="n">el</span> <span class="n">elemento</span> <span class="n">ya</span> <span class="n">existe</span> <span class="n">en</span> <span class="n">el</span> <span class="n">conjunto</span><span class="p">,</span> <span class="n">no</span> <span class="n">se</span> <span class="n">añadirá</span><span class="o">.</span> <span class="n">De</span> <span class="n">lo</span> <span class="n">contrario</span><span class="p">,</span> <span class="n">se</span> <span class="n">añadirá</span> <span class="n">al</span> <span class="n">conjunto</span> <span class="p">(</span><span class="n">se</span> <span class="n">inserta</span> <span class="n">al</span> <span class="n">array</span><span class="p">)</span> <span class="n">y</span> <span class="n">se</span> <span class="n">incrementará</span> <span class="n">el</span> <span class="n">tamaño</span> <span class="k">del</span> <span class="n">conjunto</span><span class="o">.</span>
+
+<span class="n">Parameters</span><span class="p">:</span>
+<span class="hll">   <span class="n">my_set</span> <span class="p">(</span><span class="nb">set</span><span class="p">):</span> <span class="n">Conjunto</span> <span class="n">al</span> <span class="n">que</span> <span class="n">se</span> <span class="n">le</span> <span class="n">añadirá</span> <span class="n">un</span> <span class="n">elemento</span><span class="o">.</span>
+</span><span class="hll">   <span class="n">element</span> <span class="p">(</span><span class="nb">any</span><span class="p">):</span> <span class="n">Elemento</span> <span class="n">que</span> <span class="n">se</span> <span class="n">añadirá</span> <span class="n">al</span> <span class="n">conjunto</span><span class="o">.</span>
+</span>
+<span class="n">Returns</span><span class="p">:</span>       <span class="n">El</span> <span class="n">conjunto</span> <span class="n">actualizado</span> <span class="n">que</span> <span class="n">incluye</span> <span class="n">el</span> <span class="n">nuevo</span> <span class="n">elemento</span><span class="o">.</span>
+<span class="n">Return</span> <span class="nb">type</span><span class="p">:</span>   <span class="nb">set</span>
+</pre></div>
+</div>
+</li>
+<li><p>Basado en la descripción de la función, identifique los componentes del conjunto que se deben modificar. En este caso, la función debe centrarse en modificar la lista de elementos y el tamaño del conjunto.
+De acuerdo a la descipción, el comportariomiento esperado es:</p>
+<ul class="simple">
+<li><p>Si el element ya existe en <code class="code highlight python docutils literal highlight-python"><span class="n">my_set</span><span class="p">[</span><span class="s2">&quot;elements&quot;</span><span class="p">]</span></code>, no hacemos nada.</p></li>
+<li><p>Si no existe, lo agregamos a <code class="code highlight python docutils literal highlight-python"><span class="n">my_set</span><span class="p">[</span><span class="s2">&quot;elements&quot;</span><span class="p">]</span></code> y actualizamos <code class="code highlight python docutils literal highlight-python"><span class="n">my_set</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Implemente la función <a class="reference internal" href="DataStructures.Set.html#add_element" title="add_element"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_element()</span></code></a> en el archivo <a class="reference internal" href="DataStructures.Set.html#set-py"><span class="std std-ref">set.py</span></a> basándose en la descripción y los componentes identificados. Para esto siga los siguientes pasos:</p>
+<ol class="arabic simple">
+<li><p>Verifique si el elemento ya está en la lista de elementos del parámetro <code class="docutils literal notranslate"><span class="pre">my_set</span></code>.</p></li>
+<li><p>Si está presente, simplemente regrese el conjunto sin cambios.</p></li>
+<li><p>Si no está presente:</p>
+<ul class="simple">
+<li><p>Agregue el elemento a la lista de elementos de <code class="docutils literal notranslate"><span class="pre">my_set</span></code>.</p></li>
+<li><p>Incremente el valor de <code class="code highlight python docutils literal highlight-python"><span class="n">my_set</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">]</span></code> en 1.</p></li>
+</ul>
+</li>
+</ol>
+<ol class="arabic simple" start="5">
+<li><p>Devuelva el conjunto modificado.</p></li>
+</ol>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="k">def</span> <span class="nf">add_element</span><span class="p">(</span><span class="n">my_set</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+<span class="linenos">2</span>   <span class="c1"># Verificar si el elemento ya está en el conjunto</span>
+<span class="linenos">3</span>   <span class="k">if</span> <span class="n">element</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">my_set</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">]:</span>
+<span class="linenos">4</span>      <span class="c1"># Agregar el elemento a la lista</span>
+<span class="linenos">5</span>      <span class="n">my_set</span><span class="p">[</span><span class="s1">&#39;elements&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+<span class="linenos">6</span>      <span class="c1"># Incrementar el tamaño del conjunto</span>
+<span class="linenos">7</span>      <span class="n">my_set</span><span class="p">[</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="linenos">8</span>   <span class="k">return</span> <span class="n">my_set</span>
+</pre></div>
+</div>
+</li>
+<li><p>Para verificar que la función <a class="reference internal" href="DataStructures.Set.html#add_element" title="add_element"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_element()</span></code></a> cumple con su propósito, pruébela con un par de casos simples.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Crear un conjunto vacío</span>
+<span class="n">my_set</span> <span class="o">=</span> <span class="n">new_set</span><span class="p">()</span>
+
+<span class="c1"># Caso 1: Agregar un elemento único</span>
+<span class="n">my_set</span> <span class="o">=</span> <span class="n">add_element</span><span class="p">(</span><span class="n">my_set</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_set</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 1, &#39;elements&#39;: [&#39;apple&#39;]}</span>
+
+<span class="c1"># Caso 2: Agregar un elemento duplicado</span>
+<span class="n">my_set</span> <span class="o">=</span> <span class="n">add_element</span><span class="p">(</span><span class="n">my_set</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_set</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 1, &#39;elements&#39;: [&#39;apple&#39;]}</span>
+
+<span class="c1"># Caso 3: Agregar otro elemento único</span>
+<span class="n">my_set</span> <span class="o">=</span> <span class="n">add_element</span><span class="p">(</span><span class="n">my_set</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_set</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 2, &#39;elements&#39;: [&#39;apple&#39;, &#39;banana&#39;]}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Si la salida es la esperada, la función <span class="xref std std-ref">add_element()</span> ha sido implementada correctamente.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;elements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;elements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;elements&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;banana&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="consejos-generales-para-usar-la-documentacion">
+<h2>Consejos generales para usar la documentación<a class="headerlink" href="#consejos-generales-para-usar-la-documentacion" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Identifique la entrada y salida:</p>
+<ul class="simple">
+<li><p>La sección <code class="docutils literal notranslate"><span class="pre">Parameters</span></code> describe las entradas que debe recibir la función.</p></li>
+<li><p>La sección <code class="docutils literal notranslate"><span class="pre">Returns</span></code> detalla el tipo y contenido de la salida.</p></li>
+</ul>
+</li>
+<li><p>Lea la descripción de la función para entender su propósito y comportamiento esperado.</p></li>
+<li><p>Implemente la función basándose en la descripción y la estructura identificada.</p></li>
+<li><p>Pruebe la función con casos simples para verificar su correcto funcionamiento.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Bienvenido a la documentación de Estructura de Datos y Algoritmos!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="DataStructures.Set.html" class="btn btn-neutral float-right" title="Set - Conjunto" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Universidad de los Andes.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

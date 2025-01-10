@@ -1,0 +1,236 @@
+####################################
+Guía de documentación
+####################################
+
+.. _guia-doc:
+
+Como usar la documentación
+####################################
+
+La documentación del curso está diseñada para guiarlo en la implementación de archivos, funciones y elementos que serán usados en actividades a lo largo del semestre. Cada sección de la documentación contiene una descripción detallada de la función o estructura de datos que se debe implementar, incluyendo su propósito, parámetros y comportamiento esperado.
+
+Al seguir las instrucciones de la documentación, podrá implementar las funciones de manera efectiva y asegurarse de que cumplen con los requisitos del curso convirtiendo la descripción en código funcional.
+
+Estructura de la documentación
+####################################
+
+La documentación de cada función o estructura de datos sigue una estructura común que incluye los siguientes elementos:
+
+.. figure:: static/documentation_parts.png
+      :align: center
+
+      Partes de una función en la documentación
+
+1. **Nombre de la función:** Nombre de la función o estructura de datos que se debe implementar.
+2. **Parametros de la función:** Parámetros que recibe la función.
+3. **Descripción:** Propósito y comportamiento esperado de la función o estructura de datos.
+4. **Parámetros:** Entradas que debe recibir la función.
+5. **Retorno:** Tipo y contenido de la salida de la función.
+6. **Ejemplo:** Ejemplo de uso de la función.
+7. **Escenarios de prueba:** Casos de prueba que se deben considerar al implementar la función.
+
+Ejemplo prácticos de implementación
+####################################
+
+.. role:: python(code)
+  :language: python
+  :class: highlight
+
+Ejemplo práctico: implementar :py:meth:`new_set()`
+****************************************************
+
+#. Valide que en la carpeta :file:`./DataStructures/` de su proyecto exista la carpeta ``Set/``. Si no existe la carpeta ``Set/`` y cree el archivo :ref:`set.py`.
+#. Adicionalmente en la carpeta ``Set/`` cree el archivo ``__init__.py``. El cual debe estar vacío y es necesario para que Python reconozca la carpeta como un paquete.
+
+   .. figure:: static/set_example.png
+      :class: with-border
+      :align: center
+
+      Carpeta ``Set/`` en ``DataStructures/``
+
+   .. important:: Siempre que esté iniciando el desarrollo de una nueva estructura de datos, deberá asegurarse de crear la carpeta de la estrcutura correspondiente dentro de la carpeta ``DataStructures/`` de su proyecto. Además, deberá crear el archivo ``__init__.py`` dentro de la carpeta de la estructura de datos.
+
+#. Una vez creado el archivo :ref:`set.py`, lea la descripción de la función :func:`new_set()`. La descripción de la función dice lo siguiente:
+
+   .. code-block::
+      :emphasize-lines: 5,6
+
+      Crea un conjunto (set) vacio el cuál permite almacenar elementos únicos sin un orden específico.
+
+      El conjunto (set) es creado con los siguientes atributos inicializados:
+
+      - size: Tamaño del conjunto, inicializado en 0.
+      - elements: Lista de elementos del conjunto. Inicializada como array vacio.
+      
+      Returns:       Conjuto vacío creado recien inicializado
+      Return type:   set
+
+#. Basado en la descripción de la función, identifique la estructura del conjunto que se debe implementar. En este caso, el conjunto debe tener los siguientes atributos:
+
+   - Un atributo ``size`` que indica el número de elementos.
+   - Un array ``elements`` que almacena los elementos del conjunto.
+
+#. Implemente la función :func:`new_set()` en el archivo :ref:`set.py` basándose en la descripción y la estructura identificada. Para esto siga los siguientes pasos:
+
+   1. Cree un diccionario que represente la estructura del conjunto.
+   2. Defina ``size`` como 0, ya que el conjunto está vacío al inicio.
+   3. Defina ``elements`` como una lista vacía.
+
+   .. code-block:: python
+      :linenos:
+
+      def new_set():
+         my_new_set = {
+            'size': 0,
+            'elements': []
+         }
+
+#. Al revisar nuevamente la descripción de la función, observe que la función debe devolver un "Conjuto vacio recien inicializado" de tipo ``set``. Por lo tanto, la función debe retornar el conjunto creado.
+
+   .. code-block:: python
+      :linenos:
+      :emphasize-lines: 6
+
+      def new_set():
+         my_new_set = {
+            'size': 0,
+            'elements': []
+         }
+         return my_new_set
+
+#. Para verificar que la función :func:`new_set()` cumple con su propósito, pruébela con un caso simple.
+
+   .. code-block:: python
+
+      # App/logic.py
+      from DataStructures import Set as set
+
+      # Crear un conjunto vacío
+      my_set = set.new_set()
+      print(my_set) # Salida esperada: {'size': 0, 'elements': []}
+
+#. Si la salida es la esperada, la función :ref:`new_set()` ha sido implementada correctamente. 
+   
+   .. code-block:: json
+
+      {
+         "size": 0,
+         "elements": []
+      }
+
+
+Ejemplo práctico: implementar :func:`add_element()`
+****************************************************
+
+#. Valide que en la carpeta ``DataStructures/`` de su proyecto exista la carpeta ``Set/``. Si no existe la carpeta ``Set/`` y cree el archivo :ref:`set.py`.
+#. Adicionalmente en la carpeta ``Set/`` cree el archivo ``__init__.py``. El cual debe estar vacío y es necesario para que Python reconozca la carpeta como un paquete.
+
+   .. figure:: static/set_example.png
+      :class: with-border
+      :align: center
+
+      Carpeta ``Set/`` en ``DataStructures/``
+
+   .. important:: Siempre que esté iniciando el desarrollo de una nueva estructura de datos, deberá asegurarse de crear la carpeta de la estrcutura correspondiente dentro de la carpeta ``DataStructures/`` de su proyecto. Además, deberá crear el archivo ``__init__.py`` dentro de la carpeta de la estructura de datos.
+
+#. Una vez creado el archivo :ref:`set.py`, lea la descripción de la función :func:`add_element()`. La descripción de la función dice lo siguiente:
+
+   .. code-block::
+      :emphasize-lines: 6,7
+
+      Añade un elemento no existente al conjunto.
+
+      Si el elemento ya existe en el conjunto, no se añadirá. De lo contrario, se añadirá al conjunto (se inserta al array) y se incrementará el tamaño del conjunto.
+
+      Parameters:
+         my_set (set): Conjunto al que se le añadirá un elemento.
+         element (any): Elemento que se añadirá al conjunto.
+
+      Returns:       El conjunto actualizado que incluye el nuevo elemento.
+      Return type:   set
+
+#. Basado en la descripción de la función, identifique los componentes del conjunto que se deben modificar. En este caso, la función debe centrarse en modificar la lista de elementos y el tamaño del conjunto.
+   De acuerdo a la descipción, el comportariomiento esperado es:
+
+   - Si el element ya existe en :python:`my_set["elements"]`, no hacemos nada.
+   - Si no existe, lo agregamos a :python:`my_set["elements"]` y actualizamos :python:`my_set["size"]`.
+
+#. Implemente la función :func:`add_element()` en el archivo :ref:`set.py` basándose en la descripción y los componentes identificados. Para esto siga los siguientes pasos:
+
+   1. Verifique si el elemento ya está en la lista de elementos del parámetro ``my_set``.
+   2. Si está presente, simplemente regrese el conjunto sin cambios.
+   3. Si no está presente:
+
+      - Agregue el elemento a la lista de elementos de ``my_set``.
+      - Incremente el valor de :python:`my_set["size"]` en 1.
+
+   5. Devuelva el conjunto modificado. 
+
+   .. code-block:: python
+      :linenos:
+
+      def add_element(my_set, element):
+         # Verificar si el elemento ya está en el conjunto
+         if element not in my_set['elements']:
+            # Agregar el elemento a la lista
+            my_set['elements'].append(element)
+            # Incrementar el tamaño del conjunto
+            my_set['size'] += 1
+         return my_set
+
+#. Para verificar que la función :func:`add_element()` cumple con su propósito, pruébela con un par de casos simples.
+
+   .. code-block:: python
+
+      # Crear un conjunto vacío
+      my_set = new_set()
+
+      # Caso 1: Agregar un elemento único
+      my_set = add_element(my_set, 'apple')
+      print(my_set) # Salida esperada: {'size': 1, 'elements': ['apple']}
+
+      # Caso 2: Agregar un elemento duplicado
+      my_set = add_element(my_set, 'apple')
+      print(my_set) # Salida esperada: {'size': 1, 'elements': ['apple']}
+
+      # Caso 3: Agregar otro elemento único
+      my_set = add_element(my_set, 'banana')
+      print(my_set) # Salida esperada: {'size': 2, 'elements': ['apple', 'banana']}
+
+#. Si la salida es la esperada, la función :ref:`add_element()` ha sido implementada correctamente.
+
+   .. code-block:: json
+
+      {
+         "size": 1,
+         "elements": ["apple"]
+      }
+
+   .. code-block:: json
+
+      {
+         "size": 1,
+         "elements": ["apple"]
+      }
+
+   .. code-block:: json
+
+      {
+         "size": 2,
+         "elements": ["apple", "banana"]
+      }
+      
+
+Consejos generales para usar la documentación
+#################################################
+
+#. Identifique la entrada y salida:
+
+   - La sección ``Parameters`` describe las entradas que debe recibir la función.
+   - La sección ``Returns`` detalla el tipo y contenido de la salida.
+
+#. Lea la descripción de la función para entender su propósito y comportamiento esperado.
+
+#. Implemente la función basándose en la descripción y la estructura identificada.
+
+#. Pruebe la función con casos simples para verificar su correcto funcionamiento.

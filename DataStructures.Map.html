@@ -5,10 +5,11 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Map - Tablas &mdash; DISC - Data Structures 0.0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
   
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/68409575?s=200&v=4"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -44,7 +45,11 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contenido auxiliar:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="documentation-guide.html">Guía de documentación</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contenido del curso:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Set.html">Set - Conjunto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.List.html">List - Listas</a></li>
@@ -73,7 +78,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#implementaciones-de-tablas">Implementaciones de tablas</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#module-DataStructures.Map.map_linear_probing">map_linear_probing.py</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Map.map_linear_probing.new_map"><code class="docutils literal notranslate"><span class="pre">new_map()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Map.map_linear_probing.put"><code class="docutils literal notranslate"><span class="pre">put()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Map.map_linear_probing.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Map.map_linear_probing.get"><code class="docutils literal notranslate"><span class="pre">get()</span></code></a></li>
@@ -298,39 +302,6 @@ a y b enteros aleatoreos dentro del intervalo [0,p-1], con a &gt; 0</p>
 <h2>Implementaciones de tablas<a class="headerlink" href="#implementaciones-de-tablas" title="Link to this heading"></a></h2>
 <section id="module-DataStructures.Map.map_linear_probing">
 <span id="map-linear-probing-py"></span><h3>map_linear_probing.py<a class="headerlink" href="#module-DataStructures.Map.map_linear_probing" title="Link to this heading"></a></h3>
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Map.map_linear_probing.new_map">
-<span class="sig-name descname"><span class="pre">new_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_elements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">109345121</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_linear_probing.new_map" title="Link to this definition"></a></dt>
-<dd><p>Crea una tabla de simbolos (map) sin elementos</p>
-<p>Se crea una tabla de simbolos (map) sin elementos con los siguientes atributos:</p>
-<ul class="simple">
-<li><p><strong>prime</strong>: Número primo utilizado en la función hash</p></li>
-<li><p><strong>capacity</strong>: Tamaño de la tabla. Siguiente número primo mayor a <code class="docutils literal notranslate"><span class="pre">num_elements</span></code>/<code class="docutils literal notranslate"><span class="pre">load_factor</span></code></p></li>
-<li><p><strong>scale</strong>: Número aleatorio entre 1 y <code class="docutils literal notranslate"><span class="pre">prime</span></code>-1</p></li>
-<li><p><strong>shift</strong>: Número aleatorio entre 0 y <code class="docutils literal notranslate"><span class="pre">prime</span></code>-1</p></li>
-<li><p><strong>table</strong>: Lista de tamaño <code class="docutils literal notranslate"><span class="pre">capacity</span></code> con las entradas de la tabla</p></li>
-<li><p><strong>current_factor</strong>: Factor de carga actual de la tabla, inicializado en 0</p></li>
-<li><p><strong>limit_factor</strong>: Factor de carga máximo de la tabla (<code class="docutils literal notranslate"><span class="pre">load_factor</span></code>)</p></li>
-<li><p><strong>size</strong>: Número de elementos en la tabla</p></li>
-<li><p><strong>type</strong>: Tipo de tabla (PROBING)</p></li>
-</ul>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>num_elements</strong> (<em>int</em>) – Número de parejas &lt;key,value&gt; que inicialmente puede almacenar la tabla</p></li>
-<li><p><strong>load_factor</strong> (<em>float</em>) – Factor de carga máximo de la tabla</p></li>
-<li><p><strong>prime</strong> (<em>int</em>) – Número primo utilizado en la función hash. Se utiliza 109345121 por defecto</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Un nuevo map</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>map_linear_probing</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Map.map_linear_probing.put">
 <span class="sig-name descname"><span class="pre">put</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Map.map_linear_probing.put" title="Link to this definition"></a></dt>

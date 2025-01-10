@@ -1,14 +1,30 @@
-.. a documentation master file, created by
-   sphinx-quickstart on Wed Jul  3 16:32:37 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Bienvenido a la documentación de Estructura de Datos y Algoritmos!
 ==========================================================================
 
+.. image:: static/favicon.png
+   :align: center
+
+¡Bienvenidos a la documentación oficial del curso de **Estructuras de Datos y Algoritmos - ISIS 1225**! Esta página ha sido creada para ser su principal referencia durante el desarrollo de sus proyectos y prácticas. Aquí encontrarán descripciones detalladas de las funciones y métodos que forman parte de las estructuras de datos que deben implementar. El objetivo de esta documentación es guiarlos en la comprensión de las funcionalidades requeridas, promoviendo el análisis y diseño autónomo mientras aplican lo aprendido en clase.
+
+Para navegar por la documentación, utilicen el índice ubicado en el lado izquierdo de la página o las categorías en la parte superior, donde encontrarán cada estructura de datos organizada en secciones. Cada sección contiene una lista de funciones asociadas a esa estructura, acompañada de explicaciones sobre su propósito, parámetros y comportamiento esperado.
+
+Como usar la documentación
+----------------------
+
+Para leer la guía de uso de la documentación, por favor diríjase a la sección :ref:`Guía de documentación`. Aquí encontrarán información detallada sobre cómo utilizar la documentación, la estructura de cada función y ejemplos prácticos de implementación. **¡No olviden revisar esta sección antes de comenzar a trabajar en sus proyectos!**
+
+.. important:: Recuerden que esta documentación no incluye el código fuente; su tarea es traducir estas descripciones en implementaciones funcionales, aplicando los conceptos aprendidos durante el curso. ¡Buena suerte y mucho éxito en sus proyectos! 🚀
+
+
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contenido auxiliar:
+
+   documentation-guide
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contenido del curso:
 
    DataStructures.Set
    DataStructures.List

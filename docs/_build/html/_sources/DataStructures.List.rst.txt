@@ -16,7 +16,7 @@ list\_node.py
    :member-order: bysource
 
 ***************************************
-Implementaciones de listas
+Implementaciones
 ***************************************
 
 array\_list.py
