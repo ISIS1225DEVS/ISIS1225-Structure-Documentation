@@ -2,9 +2,7 @@
 Set - Conjunto
 ####################################
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi eu molestie velit, vel fringilla urna. Nunc lobortis eros nec commodo ornare. Duis pellentesque finibus eleifend. Nullam quis fringilla quam, eu molestie nisl. Aliquam euismod leo venenatis mi ullamcorper, quis luctus tortor blandit. Praesent posuere felis nec arcu iaculis, non lacinia nisi feugiat. Sed et mauris ac dui blandit mattis et a urna. Proin scelerisque magna at sem interdum, et euismod lacus vehicula. Proin tellus libero, blandit sit amet dolor non, porta posuere magna. Vivamus sagittis, tellus et euismod pretium, lectus urna sollicitudin urna, vel accumsan massa est at ex. Praesent vitae neque pellentesque, finibus ex sit amet, rhoncus elit. Sed lobortis viverra arcu quis volutpat.
-
-Mauris in massa in nunc malesuada condimentum. Nullam non ligula ex. Donec justo orci, commodo sed augue a, iaculis elementum libero. Nulla facilisi. Quisque sollicitudin ex orci, sodales sodales tellus congue quis. Phasellus ornare ac nisl eu rhoncus. Donec pharetra, ipsum ut dapibus fringilla, ipsum est finibus ante, vel consequat leo libero nec felis. Nulla dolor urna, mollis vel fermentum ut, elementum id nulla. Maecenas malesuada accumsan malesuada. Nunc malesuada, risus ac venenatis pulvinar, lorem ex iaculis massa, a elementum ipsum elit in orci. Fusce fringilla aliquet odio. Phasellus ullamcorper maximus dui, nec ultricies erat molestie at. Donec fermentum dapibus felis, a cursus ante scelerisque quis. Suspendisse potenti.
+El conjunto (set) es una estructura de datos que permite almacenar elementos únicos sin un orden específico. Esta estructura de datos es muy útil para almacenar elementos únicos y realizar operaciones de conjuntos como unión, intersección, diferencia y diferencia simétrica.
 
 Como usar la documentación
 #################################################

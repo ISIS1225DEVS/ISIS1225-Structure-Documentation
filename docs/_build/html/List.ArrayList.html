@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>List - Listas &mdash; DISC - Data Structures 0.0.1 documentation</title>
+  <title>&lt;no title&gt; &mdash; DISC - Data Structures 0.0.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -21,9 +21,7 @@
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Stack - Pilas" href="DataStructures.Stack.html" />
-    <link rel="prev" title="Set - Conjunto" href="DataStructures.Set.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -50,75 +48,9 @@
 <li class="toctree-l1"><a class="reference internal" href="documentation-guide.html">Guía de documentación</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contenido del curso:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Set.html">Set - Conjunto</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">List - Listas</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#como-usar-la-documentacion">Como usar la documentación</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#elementos">Elementos</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#list-node-py">list_node.py</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#new_single_node"><code class="docutils literal notranslate"><span class="pre">new_single_node()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get_element"><code class="docutils literal notranslate"><span class="pre">get_element()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#get_next"><code class="docutils literal notranslate"><span class="pre">get_next()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#implementaciones">Implementaciones</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#array-list-py">array_list.py</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#new_list"><code class="docutils literal notranslate"><span class="pre">new_list()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add_first"><code class="docutils literal notranslate"><span class="pre">add_first()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add_last"><code class="docutils literal notranslate"><span class="pre">add_last()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#first_element"><code class="docutils literal notranslate"><span class="pre">first_element()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#last_element"><code class="docutils literal notranslate"><span class="pre">last_element()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">get_element()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#delete_element"><code class="docutils literal notranslate"><span class="pre">delete_element()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#remove_first"><code class="docutils literal notranslate"><span class="pre">remove_first()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#remove_last"><code class="docutils literal notranslate"><span class="pre">remove_last()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#insert_element"><code class="docutils literal notranslate"><span class="pre">insert_element()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#default_function"><code class="docutils literal notranslate"><span class="pre">default_function()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#is_present"><code class="docutils literal notranslate"><span class="pre">is_present()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#change_info"><code class="docutils literal notranslate"><span class="pre">change_info()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#exchange"><code class="docutils literal notranslate"><span class="pre">exchange()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#sub_list"><code class="docutils literal notranslate"><span class="pre">sub_list()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#compare_elements"><code class="docutils literal notranslate"><span class="pre">compare_elements()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#module-DataStructures.List.single_linked_list">single_linked_list.py</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.new_list"><code class="docutils literal notranslate"><span class="pre">new_list()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.add_first"><code class="docutils literal notranslate"><span class="pre">add_first()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.add_last"><code class="docutils literal notranslate"><span class="pre">add_last()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.first_element"><code class="docutils literal notranslate"><span class="pre">first_element()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.last_element"><code class="docutils literal notranslate"><span class="pre">last_element()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.get_element"><code class="docutils literal notranslate"><span class="pre">get_element()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.delete_element"><code class="docutils literal notranslate"><span class="pre">delete_element()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.remove_first"><code class="docutils literal notranslate"><span class="pre">remove_first()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.remove_last"><code class="docutils literal notranslate"><span class="pre">remove_last()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.insert_element"><code class="docutils literal notranslate"><span class="pre">insert_element()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.is_present"><code class="docutils literal notranslate"><span class="pre">is_present()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.change_info"><code class="docutils literal notranslate"><span class="pre">change_info()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.exchange"><code class="docutils literal notranslate"><span class="pre">exchange()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.sub_list"><code class="docutils literal notranslate"><span class="pre">sub_list()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.compare_elements"><code class="docutils literal notranslate"><span class="pre">compare_elements()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.defaultfunction"><code class="docutils literal notranslate"><span class="pre">defaultfunction()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.selection_sort"><code class="docutils literal notranslate"><span class="pre">selection_sort()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.insertion_sort"><code class="docutils literal notranslate"><span class="pre">insertion_sort()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.shell_sort"><code class="docutils literal notranslate"><span class="pre">shell_sort()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.merge_sort"><code class="docutils literal notranslate"><span class="pre">merge_sort()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.quick_sort"><code class="docutils literal notranslate"><span class="pre">quick_sort()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.quick_sort_recursive"><code class="docutils literal notranslate"><span class="pre">quick_sort_recursive()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.partition"><code class="docutils literal notranslate"><span class="pre">partition()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.List.single_linked_list.default_sort_criteria"><code class="docutils literal notranslate"><span class="pre">default_sort_criteria()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#ordenamientos">Ordenamientos</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="DataStructures.List.html">List - Listas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Stack.html">Stack - Pilas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Queue.html">Queue - Colas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Map.html">Map - Tablas</a></li>
@@ -141,7 +73,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">List - Listas</li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -150,134 +82,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="list-listas">
-<h1>List - Listas<a class="headerlink" href="#list-listas" title="Link to this heading"></a></h1>
-<p>Las listas son estructuras de datos que permiten almacenar elementos de manera secuencial. En este módulo se encuentran implementaciones de listas, así como funciones para manipularlas.</p>
-<section id="como-usar-la-documentacion">
-<h2>Como usar la documentación<a class="headerlink" href="#como-usar-la-documentacion" title="Link to this heading"></a></h2>
-<p>Para leer la guía de uso de la documentación, por favor diríjase a la sección <a class="reference internal" href="documentation-guide.html#guia-doc"><span class="std std-ref">Guía de documentación</span></a>.</p>
-</section>
-<section id="elementos">
-<h2>Elementos<a class="headerlink" href="#elementos" title="Link to this heading"></a></h2>
-<section id="list-node-py">
-<span id="list-node"></span><h3>list_node.py<a class="headerlink" href="#list-node-py" title="Link to this heading"></a></h3>
-<p>Estructura de un nodo de lista encadenada. Un nodo de lista encadenada es un elemento que contiene un valor y una referencia al siguiente nodo.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="new_single_node">
-<span class="sig-name descname"><span class="pre">new_single_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#new_single_node" title="Link to this definition"></a></dt>
-<dd><p>Crea un nodo simple (de tipo <a class="reference internal" href="#list-node"><span class="std std-ref">list_node</span></a>) con un elemento dado.</p>
-<p>El nodo es creado con los siguientes atributos:</p>
-<ul class="simple">
-<li><p><strong>info</strong>: información del nodo, inicializada con el elemento dado.</p></li>
-<li><p><strong>next</strong>: Referencia al siguiente nodo, inicializada en None.</p></li>
-</ul>
-<dl class="field-list">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>element</strong> (<em>any</em>) – Elemento del nodo.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Nodo recien creado.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#list-node"><span class="std std-ref">list_node</span></a></p>
-</dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
-<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
-<span class="kn">from</span> <span class="nn">DataStructures.List</span> <span class="kn">import</span> <span class="n">list_node</span> <span class="k">as</span> <span class="n">ln</span>
-
-<span class="c1"># Crea un nodo con el elemento 1</span>
-<span class="n">nodo</span> <span class="o">=</span> <span class="n">ln</span><span class="o">.</span><span class="n">new_single_node</span><span class="p">({</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Juan&quot;</span><span class="p">,</span> <span class="s2">&quot;edad&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">nodo</span><span class="p">)</span>
-<span class="c1"># Salida esperada: {&#39;info&#39;: {&quot;nombre&quot;: &quot;Juan&quot;, &quot;edad&quot;: 20}, &#39;next&#39;: None}</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="get_element">
-<span class="sig-name descname"><span class="pre">get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_element" title="Link to this definition"></a></dt>
-<dd><p>Retorna la información del nodo.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="#list-node"><span class="std std-ref">list_node</span></a>) – Nodo del cual se obtendrá la información.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Información del nodo.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>any</p>
-</dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
-<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
-<span class="kn">from</span> <span class="nn">DataStructures.List</span> <span class="kn">import</span> <span class="n">list_node</span> <span class="k">as</span> <span class="n">ln</span>
-
-<span class="c1"># Crea un nodo con el elemento 1</span>
-<span class="n">nodo</span> <span class="o">=</span> <span class="n">ln</span><span class="o">.</span><span class="n">new_single_node</span><span class="p">({</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Juan&quot;</span><span class="p">,</span> <span class="s2">&quot;edad&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">nodo</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;info&#39;: {&#39;nombre&#39;: &#39;Juan&#39;, &#39;edad&#39;: 20}, &#39;next&#39;: None}</span>
-
-<span class="c1"># Obtiene la información del nodo</span>
-<span class="n">info</span> <span class="o">=</span> <span class="n">ln</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">nodo</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;nombre&#39;: &#39;Juan&#39;, &#39;edad&#39;: 20}</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="get_next">
-<span class="sig-name descname"><span class="pre">get_next</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_next" title="Link to this definition"></a></dt>
-<dd><p>Retorna la referencia al siguiente nodo.</p>
-<dl class="field-list">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node</strong> (<a class="reference internal" href="#list-node"><span class="std std-ref">list_node</span></a>) – Nodo del cual se obtendrá la referencia al siguiente nodo.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Referencia al siguiente nodo.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#list-node"><span class="std std-ref">list_node</span></a></p>
-</dd>
-<dt class="field-even">Example<span class="colon">:</span></dt>
-<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
-<span class="kn">from</span> <span class="nn">DataStructures.List</span> <span class="kn">import</span> <span class="n">list_node</span> <span class="k">as</span> <span class="n">ln</span>
-
-<span class="c1"># Crea un nodo con el elemento información de Juan</span>
-<span class="n">nodo</span> <span class="o">=</span> <span class="n">ln</span><span class="o">.</span><span class="n">new_single_node</span><span class="p">({</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Juan&quot;</span><span class="p">,</span> <span class="s2">&quot;edad&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">nodo</span><span class="p">)</span>
-<span class="c1"># Salida esperada: {&#39;info&#39;: {&quot;nombre&quot;: &quot;Juan&quot;, &quot;edad&quot;: 20}, &#39;next&#39;: None}</span>
-
-<span class="c1"># Obtiene la referencia al siguiente nodo</span>
-<span class="n">next_node</span> <span class="o">=</span> <span class="n">ln</span><span class="o">.</span><span class="n">get_next</span><span class="p">(</span><span class="n">nodo</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">next_node</span><span class="p">)</span> <span class="c1"># Salida esperada: None</span>
-
-<span class="c1"># Crea un nodo con el elemento información de Jairo</span>
-<span class="n">nodo2</span> <span class="o">=</span> <span class="n">ln</span><span class="o">.</span><span class="n">new_single_node</span><span class="p">({</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Jairo&quot;</span><span class="p">,</span> <span class="s2">&quot;edad&quot;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
-<span class="n">nodo</span><span class="p">[</span><span class="s2">&quot;next&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">nodo2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">nodo</span><span class="p">)</span>
-<span class="c1"># Salida esperada: {&#39;info&#39;: {&quot;nombre&quot;: &quot;Juan&quot;, &quot;edad&quot;: 20}, &#39;next&#39;: {&#39;info&#39;: {&quot;nombre&quot;: &quot;Jairo&quot;, &quot;edad&quot;: 25}, &#39;next&#39;: None}}</span>
-
-<span class="c1"># Obtiene la referencia al siguiente nodo</span>
-<span class="n">next_node</span> <span class="o">=</span> <span class="n">ln</span><span class="o">.</span><span class="n">get_next</span><span class="p">(</span><span class="n">nodo</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">next_node</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;info&#39;: {&quot;nombre&quot;: &quot;Jairo&quot;, &quot;edad&quot;: 25}, &#39;next&#39;: None}</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-</section>
-<section id="implementaciones">
-<h2>Implementaciones<a class="headerlink" href="#implementaciones" title="Link to this heading"></a></h2>
-<section id="array-list-py">
-<span id="array-list"></span><h3>array_list.py<a class="headerlink" href="#array-list-py" title="Link to this heading"></a></h3>
-<dl class="py function">
+  <dl class="py function">
 <dt class="sig sig-object py" id="new_list">
 <span class="sig-name descname"><span class="pre">new_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#new_list" title="Link to this definition"></a></dt>
-<dd><p>Crea una lista (de tipo <a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) vacía.</p>
+<dd><p>Crea una lista (de tipo <a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) vacía.</p>
 <p>La lista es creada con los siguientes atributos:</p>
 <ul class="simple">
 <li><p><strong>size</strong>: Tamaño actual de la lista, inicializado en 0.</p></li>
@@ -288,7 +96,7 @@
 <dd class="field-odd"><p>Lista vacía recien creada.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-even"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -323,7 +131,7 @@
 <dd><p>Verifica si la lista está vacía.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista a verificar.</p>
+<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista a verificar.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si la lista está vacía, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
@@ -383,7 +191,7 @@
 <dd><p>Retorna el tamaño de la lista.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se obtendrá el tamaño.</p>
+<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se obtendrá el tamaño.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Tamaño de la lista.</p>
@@ -445,7 +253,7 @@
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista a la cual se le agregará el elemento.</p></li>
+<li><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista a la cual se le agregará el elemento.</p></li>
 <li><p><strong>element</strong> (<em>any</em>) – Elemento a agregar.</p></li>
 </ul>
 </dd>
@@ -453,7 +261,7 @@
 <dd class="field-even"><p>Lista con el elemento agregado al inicio.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -510,7 +318,7 @@
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista a la cual se le agregará el elemento.</p></li>
+<li><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista a la cual se le agregará el elemento.</p></li>
 <li><p><strong>element</strong> (<em>any</em>) – Elemento a agregar.</p></li>
 </ul>
 </dd>
@@ -518,7 +326,7 @@
 <dd class="field-even"><p>Lista con el elemento agregado al final.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -575,7 +383,7 @@
 Esta función no elimina el elemento de la lista.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se obtendrá el primer elemento.</p>
+<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se obtendrá el primer elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Primer elemento de la lista.</p>
@@ -638,7 +446,7 @@ Esta función no elimina el elemento de la lista.</p>
 Esta función no elimina el elemento de la lista.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se obtendrá el último elemento.</p>
+<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se obtendrá el último elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Último elemento de la lista.</p>
@@ -694,8 +502,8 @@ Esta función no elimina el elemento de la lista.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="id0">
-<span class="sig-name descname"><span class="pre">get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="get_element">
+<span class="sig-name descname"><span class="pre">get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#get_element" title="Link to this definition"></a></dt>
 <dd><p>Retorna el elemento en la posición dada.</p>
 <p>Retorna el elemento en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code>, la cual debe ser igual o mayor a cero y menor al tamaño de la lista. <code class="code docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">pos</span> <span class="pre">&lt;</span> <span class="pre">size(my_list)</span></code>.
 Si la posición no es válida, lanza un error <code class="code docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">list</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code>.
@@ -703,7 +511,7 @@ Esta función no elimina el elemento de la lista.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se obtendrá el elemento.</p></li>
+<li><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se obtendrá el elemento.</p></li>
 <li><p><strong>pos</strong> (<em>int</em>) – Posición del elemento a obtener.</p></li>
 </ul>
 </dd>
@@ -770,7 +578,7 @@ Si la posición no es válida, lanza un error <code class="code docutils literal
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se eliminará el elemento.</p></li>
+<li><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se eliminará el elemento.</p></li>
 <li><p><strong>pos</strong> (<em>int</em>) – Posición del elemento a eliminar.</p></li>
 </ul>
 </dd>
@@ -778,7 +586,7 @@ Si la posición no es válida, lanza un error <code class="code docutils literal
 <dd class="field-even"><p>Lista con el elemento eliminado.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -839,13 +647,13 @@ Si la posición no es válida, lanza un error <code class="code docutils literal
 Si la lista está vacía, lanza un error <code class="code docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">list</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code>.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se eliminará el primer elemento.</p>
+<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se eliminará el primer elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Lista con el primer elemento eliminado.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -906,13 +714,13 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 Si la lista está vacía, lanza un error <code class="code docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">list</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code>.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se eliminará el último elemento.</p>
+<dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se eliminará el último elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Lista con el último elemento eliminado.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -974,7 +782,7 @@ Se incrementa el tamaño de la lista en 1.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista en la cual se insertará el elemento.</p></li>
+<li><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista en la cual se insertará el elemento.</p></li>
 <li><p><strong>element</strong> (<em>any</em>) – Elemento a insertar.</p></li>
 <li><p><strong>pos</strong> (<em>int</em>) – Posición en la cual se insertará el elemento.</p></li>
 </ul>
@@ -983,7 +791,7 @@ Se incrementa el tamaño de la lista en 1.</p>
 <dd class="field-even"><p>Lista con el elemento insertado.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -1086,7 +894,7 @@ Use la función de comparación por defecto <a class="reference internal" href="
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista en la cual se buscará el elemento.</p></li>
+<li><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista en la cual se buscará el elemento.</p></li>
 <li><p><strong>element</strong> (<em>any</em>) – Elemento a buscar.</p></li>
 <li><p><strong>cmp_function</strong> (<em>function</em>) – Función de comparación.</p></li>
 </ul>
@@ -1166,7 +974,7 @@ Si la posición no es válida, lanza un error <code class="code docutils literal
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista en la cual se cambiará la información del elemento.</p></li>
+<li><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista en la cual se cambiará la información del elemento.</p></li>
 <li><p><strong>pos</strong> (<em>int</em>) – Posición del elemento a cambiar.</p></li>
 <li><p><strong>new_info</strong> (<em>any</em>) – Nueva información del elemento.</p></li>
 </ul>
@@ -1175,7 +983,7 @@ Si la posición no es válida, lanza un error <code class="code docutils literal
 <dd class="field-even"><p>Lista con la información del elemento cambiada.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -1237,7 +1045,7 @@ Si alguna de las posiciones no es válida, lanza un error <code class="code docu
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista en la cual se intercambiará la información de los elementos.</p></li>
+<li><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista en la cual se intercambiará la información de los elementos.</p></li>
 <li><p><strong>pos_1</strong> (<em>int</em>) – Posición del primer elemento a intercambiar.</p></li>
 <li><p><strong>pos_2</strong> (<em>int</em>) – Posición del segundo elemento a intercambiar.</p></li>
 </ul>
@@ -1246,7 +1054,7 @@ Si alguna de las posiciones no es válida, lanza un error <code class="code docu
 <dd class="field-even"><p>Lista con la información de los elementos intercambiada.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -1310,7 +1118,7 @@ Si alguna de las posiciones no es válida, lanza un error <code class="code docu
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se obtendrá la sublista.</p></li>
+<li><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se obtendrá la sublista.</p></li>
 <li><p><strong>pos_i</strong> (<em>int</em>) – Posición inicial de la sublista.</p></li>
 <li><p><strong>pos_f</strong> (<em>int</em>) – Posición final de la sublista.</p></li>
 </ul>
@@ -1319,7 +1127,7 @@ Si alguna de las posiciones no es válida, lanza un error <code class="code docu
 <dd class="field-even"><p>Sublista de la lista original.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -1388,7 +1196,7 @@ Use la función de comparación por defecto <a class="reference internal" href="
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista en la cual se comparará la información.</p></li>
+<li><p><strong>my_list</strong> (<a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>) – Lista en la cual se comparará la información.</p></li>
 <li><p><strong>element</strong> (<em>any</em>) – Elemento a comparar.</p></li>
 <li><p><strong>info</strong> (<em>any</em>) – Información de la lista a comparar.</p></li>
 <li><p><strong>cmp_function</strong> (<em>function</em>) – Función de comparación.</p></li>
@@ -1442,590 +1250,11 @@ Use la función de comparación por defecto <a class="reference internal" href="
 </dl>
 </dd></dl>
 
-</section>
-<section id="module-DataStructures.List.single_linked_list">
-<span id="single-linked-list-py"></span><span id="single-linked-list"></span><h3>single_linked_list.py<a class="headerlink" href="#module-DataStructures.List.single_linked_list" title="Link to this heading"></a></h3>
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.new_list">
-<span class="sig-name descname"><span class="pre">new_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.new_list" title="Link to this definition"></a></dt>
-<dd><p>Crea una lista implementada con una Lista Simplemente Encadenada vacía.</p>
-<p>Define <code class="docutils literal notranslate"><span class="pre">first</span></code> y <code class="docutils literal notranslate"><span class="pre">last</span></code> como None y el <code class="docutils literal notranslate"><span class="pre">size</span></code> en cero</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Lista creada</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.add_first">
-<span class="sig-name descname"><span class="pre">add_first</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.add_first" title="Link to this definition"></a></dt>
-<dd><p>Agrega un elemento en la primera posición de la lista.</p>
-<p>Al agregar un elemento en la primera posición de la lista, se incrementa el tamaño de la lista en uno.
-En caso de que la lista esté vacía, el nuevo elemento se convierte en el primer y último elemento de la lista.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – SingleLinkedList en la que se va a insertar el elemento</p></li>
-<li><p><strong>element</strong> (<em>any</em>) – Elemento a insertar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>SingleLinkedList con el elemento insertado en la primera posición</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.add_last">
-<span class="sig-name descname"><span class="pre">add_last</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.add_last" title="Link to this definition"></a></dt>
-<dd><p>Agrega un elemento en la última posición de la lista.</p>
-<p>Al agregar un elemento en la última posición de la lista y se incrementa el tamaño de la lista en uno.
-En caso de que la lista esté vacía, el nuevo elemento se convierte en el primer y último elemento de la lista.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – SingleLinkedList en la que se va a insertar el elemento</p></li>
-<li><p><strong>element</strong> (<em>any</em>) – Elemento a insertar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>SingleLinkedList con el elemento insertado en la última posición</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.is_empty">
-<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.is_empty" title="Link to this definition"></a></dt>
-<dd><p>Indica si la lista está vacía</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a examinar</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si la lista está vacía, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.size">
-<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.size" title="Link to this definition"></a></dt>
-<dd><p>Retorna el número de elementos de la lista.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista a examinar</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Número de elementos de la lista</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.first_element">
-<span class="sig-name descname"><span class="pre">first_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.first_element" title="Link to this definition"></a></dt>
-<dd><p>Retorna el primer elemento de una lista.</p>
-<p>Retorna el primer elemento de la lista, si la lista no está vacía.
-Esta funcion NO elimina el elemento de la lista.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista a examinar</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Primer elemento de la lista</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>any</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.last_element">
-<span class="sig-name descname"><span class="pre">last_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.last_element" title="Link to this definition"></a></dt>
-<dd><p>Retorna el último elemento de una lista.</p>
-<p>Retorna el último elemento de la lista, si la lista no está vacía.
-Esta funcion NO elimina el elemento de la lista.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista a examinar</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Último elemento de la lista</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>any</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.get_element">
-<span class="sig-name descname"><span class="pre">get_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.get_element" title="Link to this definition"></a></dt>
-<dd><p>Retorna el elemento en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> de la lista.</p>
-<p>Se recorre la lista hasta el elemento <code class="docutils literal notranslate"><span class="pre">pos</span></code>, el cual debe ser igual o mayor
-que cero y menor al tamaño de la lista.
-Se retorna el elemento en dicha posición sin eliminarlo.
-La lista no puede ser vacía.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista a examinar</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – Posición del elemento a retornar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Elemento en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code></p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>any</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.delete_element">
-<span class="sig-name descname"><span class="pre">delete_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.delete_element" title="Link to this definition"></a></dt>
-<dd><p>Elimina el elemento en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> de la lista.</p>
-<p>La lista no puede estar vacía.
-Elimina el elemento que se encuentra en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> de la lista.
-<code class="docutils literal notranslate"><span class="pre">Pos</span></code> debe ser igual o mayor que cero y menor al tamaño de la lista.
-Se decrementa en un uno el tamaño de la lista.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista a examinar</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – Posición del elemento a eliminar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista con el elemento eliminado</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.remove_first">
-<span class="sig-name descname"><span class="pre">remove_first</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.remove_first" title="Link to this definition"></a></dt>
-<dd><p>Remueve el primer elemento de la lista y lo retorna.</p>
-<p>Elimina y retorna el primer elemento de la lista.
-El tamaño de la lista se decrementa en uno.  Si la lista
-es vacía se retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista a examinar</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Primer elemento de la lista</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>any</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.remove_last">
-<span class="sig-name descname"><span class="pre">remove_last</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.remove_last" title="Link to this definition"></a></dt>
-<dd><p>Remueve el último elemento de la lista.</p>
-<p>Elimina el último elemento de la lista  y lo retorna en caso de existir.
-El tamaño de la lista se decrementa en 1.
-Si la lista es vacía retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista a examinar</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Último elemento de la lista</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>any</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.insert_element">
-<span class="sig-name descname"><span class="pre">insert_element</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.insert_element" title="Link to this definition"></a></dt>
-<dd><p>Inserta el elemento element en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> de la lista.</p>
-<p>Inserta el elemento en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> de la lista.
-La lista puede ser vacía.
-Se incrementa en 1 el tamaño de la lista.
-<code class="docutils literal notranslate"><span class="pre">pos</span></code> debe ser mayor o igual que cero y menor al tamaño de la lista.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista en la que se va a insertar el elemento</p></li>
-<li><p><strong>element</strong> (<em>any</em>) – El elemento a insertar</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – posición en la que se va a insertar el elemento</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista con el elemento insertado</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.is_present">
-<span class="sig-name descname"><span class="pre">is_present</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.is_present" title="Link to this definition"></a></dt>
-<dd><p>Informa si el elemento element esta presente en la lista.</p>
-<p>Informa si un elemento está en la lista.
-Si esta presente, retorna la posición en la que se encuentra
-o menos uno (-1) si no esta presente. Se utiliza la función de comparación
-pasada por parámetro para comparar los elementos,
-la cual debe retornan cero si los elementos son iguales.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista a examinar</p></li>
-<li><p><strong>element</strong> (<em>any</em>) – El elemento a buscar</p></li>
-<li><p><strong>cmp_function</strong> (<em>function</em>) – Función de comparación de elementos</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Posición del elemento en la lista</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.change_info">
-<span class="sig-name descname"><span class="pre">change_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_info</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.change_info" title="Link to this definition"></a></dt>
-<dd><p>Cambia la información contenida en el nodo de la lista
-que se encuentra en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code> por la información recibida en new_info.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista a examinar</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – posición de la lista con la información a cambiar</p></li>
-<li><p><strong>new_info</strong> (<em>any</em>) – Nueva información que se debe poner en el nodo de la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code></p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista con la información cambiada</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.exchange">
-<span class="sig-name descname"><span class="pre">exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.exchange" title="Link to this definition"></a></dt>
-<dd><p>Intercambia la información en las posiciones <code class="docutils literal notranslate"><span class="pre">pos1</span></code> y <code class="docutils literal notranslate"><span class="pre">pos2</span></code> de la lista.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista a examinar</p></li>
-<li><p><strong>pos1</strong> (<em>int</em>) – Posición del primer elemento</p></li>
-<li><p><strong>pos2</strong> (<em>int</em>) – Posición del segundo elemento</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista con la información intercambiada</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.sub_list">
-<span class="sig-name descname"><span class="pre">sub_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_elem</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.sub_list" title="Link to this definition"></a></dt>
-<dd><p>Retorna una sub-lista de la lista recibida.</p>
-<p>Retorna una lista que contiene los elementos a partir de la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code>,
-con una longitud de <code class="docutils literal notranslate"><span class="pre">num_elem</span></code> elementos.
-Se crea una copia de dichos elementos y se retorna una lista nueva.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista origen</p></li>
-<li><p><strong>pos</strong> (<em>int</em>) – Posición del primer elemento</p></li>
-<li><p><strong>num_elem</strong> – Posición del segundo elemento</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Sub-lista de la lista original</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.compare_elements">
-<span class="sig-name descname"><span class="pre">compare_elements</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cmp_function</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.compare_elements" title="Link to this definition"></a></dt>
-<dd><p>Compara el elemento <code class="docutils literal notranslate"><span class="pre">element</span></code> de la lista <code class="docutils literal notranslate"><span class="pre">my_list</span></code> con el elemento <code class="docutils literal notranslate"><span class="pre">info</span></code>.</p>
-<p>Se utiliza la función de comparación por defecto si key es None o la función provista por el usuario en caso contrario</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – La lista con los elementos</p></li>
-<li><p><strong>element</strong> (<em>any</em>) – El elemento que se está buscando en la lista</p></li>
-<li><p><strong>info</strong> – El elemento de la lista que se está analizando        :type info: any</p></li>
-<li><p><strong>cmp_function</strong> (<em>function</em>) – Función de comparación de elementos</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>0 si los elementos son iguales, 1 si element &gt; info, -1 si element &lt; info</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.defaultfunction">
-<span class="sig-name descname"><span class="pre">defaultfunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">id2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.defaultfunction" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación por defecto</p>
-<p>Compara dos elementos</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>id1</strong> (<em>any</em>) – Identificador 1</p></li>
-<li><p><strong>id2</strong> (<em>any</em>) – Identificador 2</p></li>
-</ul>
-</dd>
-<dt class="field-even">Retuns<span class="colon">:</span></dt>
-<dd class="field-even"><p>0 si los elementos son iguales, 1 si id1 &gt; id2, -1 si id1 &lt; id2</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.selection_sort">
-<span class="sig-name descname"><span class="pre">selection_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.selection_sort" title="Link to this definition"></a></dt>
-<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Slection Sort</strong></p>
-<p>Se recorre la lista y se selecciona el elemento más pequeño
-y se intercambia con el primer elemento de la lista.
-Se repite el proceso con el segundo elemento más pequeño y así sucesivamente.</p>
-<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
-<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
-<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista ordenada</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.insertion_sort">
-<span class="sig-name descname"><span class="pre">insertion_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.insertion_sort" title="Link to this definition"></a></dt>
-<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Insertion Sort</strong></p>
-<p>Se recorre la lista y se inserta el elemento en la posición correcta
-en la lista ordenada.
-Se repite el proceso hasta que la lista esté ordenada.</p>
-<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
-<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
-<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista ordenada</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.shell_sort">
-<span class="sig-name descname"><span class="pre">shell_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.shell_sort" title="Link to this definition"></a></dt>
-<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Shell Sort</strong>
-Se recorre la lista y se ordena los elementos con un gap determinado.
-Se repite el proceso con un gap menor hasta que la lista esté ordenada.</p>
-<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
-<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
-<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista ordenada</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.merge_sort">
-<span class="sig-name descname"><span class="pre">merge_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.merge_sort" title="Link to this definition"></a></dt>
-<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Merge Sort</strong></p>
-<p>Se divide la lista en dos partes, se ordenan las partes y se combinan
-las partes ordenadas.</p>
-<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
-<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
-<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista ordenada</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.quick_sort">
-<span class="sig-name descname"><span class="pre">quick_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.quick_sort" title="Link to this definition"></a></dt>
-<dd><p>Función de ordenamiento que implementa el algoritmo de <strong>Quick Sort</strong></p>
-<p>Se selecciona un elemento como <strong>pivot</strong> y se ordenan los elementos</p>
-<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
-<p>Dependiendo de la función de comparación, se ordena la lista de manera ascendente o descendente.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
-<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista ordenada</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>single_linked_list</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.quick_sort_recursive">
-<span class="sig-name descname"><span class="pre">quick_sort_recursive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.quick_sort_recursive" title="Link to this definition"></a></dt>
-<dd><p>Función recursiva que implementa el algoritmo de <strong>quick sort</strong>, esta es llamada por la función <code class="docutils literal notranslate"><span class="pre">quick_sort()</span></code></p>
-<p>Se localiza el <strong>pivot</strong>, utilizando la funcion de particion.</p>
-<p>Luego se hace la recursión con los elementos a la izquierda del <strong>pivot</strong>
-y los elementos a la derecha del <strong>pivot</strong></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
-<li><p><strong>lo</strong> (<em>int</em>) – Posición del primer elemento</p></li>
-<li><p><strong>hi</strong> (<em>int</em>) – Posición del último elemento</p></li>
-<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.partition">
-<span class="sig-name descname"><span class="pre">partition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.partition" title="Link to this definition"></a></dt>
-<dd><p>Función que implementa la partición de la lista en <strong>quick sort</strong>, esta es llamada por la función <code class="docutils literal notranslate"><span class="pre">quick_sort_recursive()</span></code></p>
-<p>Se selecciona un <strong>pivot</strong> y se ordenan los elementos menores a la izquierda del <strong>pivot</strong>
-y los elementos mayores a la derecha del <strong>pivot</strong></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_list</strong> (<em>single_linked_list</em>) – Lista a ordenar</p></li>
-<li><p><strong>lo</strong> (<em>int</em>) – Posición del primer elemento</p></li>
-<li><p><strong>hi</strong> (<em>int</em>) – Posición del último elemento</p></li>
-<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación de elementos para ordenar</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Posición del <strong>pivot</strong></p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>int</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.List.single_linked_list.default_sort_criteria">
-<span class="sig-name descname"><span class="pre">default_sort_criteria</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.List.single_linked_list.default_sort_criteria" title="Link to this definition"></a></dt>
-<dd><p>Función de comparación por defecto para ordenar de manera ascendente.</p>
-<p>Compara dos elementos y retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si el primer elemento es menor al segundo elemento.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>element1</strong> (<em>any</em>) – Elemento 1</p></li>
-<li><p><strong>element2</strong> (<em>any</em>) – Elemento 2</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si el primer elemento es menor al segundo elemento, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-</section>
-</section>
-<section id="ordenamientos">
-<h2>Ordenamientos<a class="headerlink" href="#ordenamientos" title="Link to this heading"></a></h2>
-<p>Proximamente …</p>
-</section>
-</section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="DataStructures.Set.html" class="btn btn-neutral float-left" title="Set - Conjunto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="DataStructures.Stack.html" class="btn btn-neutral float-right" title="Stack - Pilas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
