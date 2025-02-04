@@ -109,7 +109,7 @@ Ejemplo práctico: implementar :py:meth:`new_set()`
       my_set = set.new_set()
       print(my_set) # Salida esperada: {'size': 0, 'elements': []}
 
-#. Si la salida es la esperada, la función :ref:`new_set()` ha sido implementada correctamente. 
+#. Si la salida es la esperada, la función :func:`new_set()` ha sido implementada correctamente. 
    
    .. code-block:: json
 
@@ -197,7 +197,7 @@ Ejemplo práctico: implementar :func:`add_element()`
       my_set = add_element(my_set, 'banana')
       print(my_set) # Salida esperada: {'size': 2, 'elements': ['apple', 'banana']}
 
-#. Si la salida es la esperada, la función :ref:`add_element()` ha sido implementada correctamente.
+#. Si la salida es la esperada, la función :func:`add_element()` ha sido implementada correctamente.
 
    .. code-block:: json
 
