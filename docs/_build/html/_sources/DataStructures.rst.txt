@@ -6,7 +6,7 @@ Subpackages
 -----------
 
 .. toctree::
-   :maxdepth: 5
+   :maxdepth: 4
 
    documentation-guide
    DataStructures.Graph

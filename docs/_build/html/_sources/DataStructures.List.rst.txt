@@ -20,12 +20,6 @@ list\_node.py
 
 Estructura de un nodo de lista encadenada. Un nodo de lista encadenada es un elemento que contiene un valor y una referencia al siguiente nodo.
 
-.. .. automodule:: DataStructures.List.list_node
-..    :members:
-..    :undoc-members:
-..    :show-inheritance:
-..    :member-order: bysource
-
 .. py:function:: new_single_node(element)
 
    Crea un nodo simple (de tipo :ref:`list_node<list-node>`) con un elemento dado.
@@ -119,13 +113,6 @@ Implementaciones
 array\_list.py
 -----------------------------------------------
 
-.. .. automodule:: DataStructures.List.array_list
-..    :members:
-..    :undoc-members:
-..    :show-inheritance:
-..    :member-order: bysource
-
-
 .. py:function:: new_list()
 
    Crea una lista (de tipo :ref:`array_list<array-list>`) vacía.
@@ -161,6 +148,8 @@ array\_list.py
 .. py:function:: is_empty(my_list)
    
    Verifica si la lista está vacía.
+
+   Retorna ``True`` si la lista está vacía, en caso contrario retorna ``False``.
 
    :param my_list: Lista a verificar.
    :type my_list: :ref:`array_list<array-list>`
@@ -283,7 +272,7 @@ array\_list.py
          print(lista) # Salida esperada: {'size': 1, 'elements': [1]}
 
    :Test Scenarios:
-      - **Agrega un elemento al inicio**: Se agrega un elemento al inicio de la lista vacía.
+      - **Agrega en una lista vacia**: Se agrega un elemento al inicio de la lista vacía.
 
          .. code-block:: json
 
@@ -292,7 +281,7 @@ array\_list.py
                "elements": [1]
             }
 
-      - **Agrega un elemento al inicio**: Se agrega un elemento al inicio de la lista con elementos.
+      - **Agrega en una lista con elementos**: Se agrega un elemento al inicio de la lista con elementos.
 
          .. code-block:: python
             
@@ -525,7 +514,7 @@ array\_list.py
 
    Elimina el elemento en la posición dada.
 
-   Elimina el elemento en la posición ``pos``, La cual debe ser igual o mayor a cero y menor al tamaño de la lista. :code:`0 <= pos < size(my_list)`.
+   Elimina el elemento en la posición ``pos``, la cual debe ser igual o mayor a cero y menor al tamaño de la lista. :code:`0 <= pos < size(my_list)`.
    Si la posición no es válida, lanza un error :code:`IndexError: list index out of range`.
 
    :param my_list: Lista de la cual se eliminará el elemento.
@@ -791,7 +780,7 @@ array\_list.py
    Verifica si un elemento está presente en la lista.
 
    Para comparar los elementos, se utiliza la función de comparación ``cmp_function``.
-   Si el elemento está presente retorna ``True``, en caso contrario retorna ``False``.
+   Si el elemento está presente retorna su posición, en caso contrario retorna ``-1``.
 
    .. admonition:: Imporante
       :class: note
@@ -806,8 +795,8 @@ array\_list.py
    :param cmp_function: Función de comparación.
    :type cmp_function: function
 
-   :returns: ``True`` si el elemento está presente, ``False`` en caso contrario.
-   :rtype: bool
+   :returns: Posición del elemento si está presente, ``-1`` en caso contrario.
+   :rtype: int
 
    :Example:
       .. code-block:: python
@@ -824,7 +813,8 @@ array\_list.py
          # Agrega un elemento al final
          lista = al.add_last(lista, 1)
          lista = al.add_last(lista, 2)
-         print(al.is_present(lista, 2, cmp_function)) # Salida esperada: True
+         print(al.is_present(lista, 2, cmp_function))
+         # Salida esperada: 1
 
    :Test Scenarios:
       - **Elemento presente**: Se verifica si un elemento está presente en la lista.
@@ -841,8 +831,8 @@ array\_list.py
             lista = al.new_list()
             lista = al.add_last(lista, 1)
             lista = al.add_last(lista, 2)
-            print(al.is_present(lista, 2, cmp_function)) 
-            # Salida esperada: True
+            print(al.is_present(lista, 2, cmp_function))
+            # Salida esperada: 1
 
       - **Elemento no presente**: Se verifica si un elemento no está presente en la lista.
 
@@ -858,8 +848,8 @@ array\_list.py
             lista = al.new_list()
             lista = al.add_last(lista, 1)
             lista = al.add_last(lista, 2)
-            print(al.is_present(lista, 3, cmp_function)) 
-            # Salida esperada: False
+            print(al.is_present(lista, 3, cmp_function))
+            # Salida esperada: -1
 
 .. py:function:: change_info(my_list, pos, new_info)
 
@@ -983,19 +973,19 @@ array\_list.py
             lista = al.add_last(lista, 3)
             print(al.exchange(lista, 0, 2)) # Salida esperada: {'size': 3, 'elements': [3, 2, 1]}
 
-.. py:function:: sub_list(my_list, pos_i, pos_f)
+.. py:function:: sub_list(my_list, pos_i, num_elements)
 
    Retorna una sublista de la lista original.
 
-   Retorna una sublista de la lista original que contiene los elementos desde la posición ``pos_i`` hasta la posición ``pos_f``.
-   Si alguna de las posiciones no es válida, lanza un error :code:`IndexError: list index out of range`.
+   Retorna una sublista de la lista original que inicia en la posición ``pos_i`` y contiene ``num_elements`` elementos.
+   Si la posición inicial no es válida, lanza un error :code:`IndexError: list index out of range`.
 
    :param my_list: Lista de la cual se obtendrá la sublista.
    :type my_list: :ref:`array_list<array-list>`
    :param pos_i: Posición inicial de la sublista.
    :type pos_i: int
-   :param pos_f: Posición final de la sublista.
-   :type pos_f: int
+   :param num_elements: Número de elementos de la sublista.
+   :type num_elements: int
 
    :returns: Sublista de la lista original.
    :rtype: :ref:`array_list<array-list>`
@@ -1015,11 +1005,11 @@ array\_list.py
          lista = al.add_last(lista, 3)
          print(lista) # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
 
-         # Obtiene la sublista desde la posición 1 hasta la 2
+         # Obtiene la sublista de la lista original
          print(al.sub_list(lista, 1, 2)) # Salida esperada: {'size': 2, 'elements': [2, 3]}
 
    :Test Scenarios:
-      - **Posiciones inválidas**: Se obtiene una sublista de una lista con posiciones inválidas.
+      - **Posición inicial inválida**: Se obtiene una sublista de la lista original con una posición inicial inválida.
 
          .. code-block:: python
 
@@ -1031,7 +1021,7 @@ array\_list.py
             print(al.sub_list(lista, 0, 1))
             # Salida esperada: "IndexError: list index out of range"
 
-      - **Posiciones válidas**: Se obtiene una sublista de una lista con posiciones válidas.
+      - **Posición inicial válida**: Se obtiene una sublista de la lista original con una posición inicial válida.
 
          .. code-block:: python
 
@@ -1043,67 +1033,8 @@ array\_list.py
             lista = al.add_last(lista, 1)
             lista = al.add_last(lista, 2)
             lista = al.add_last(lista, 3)
-            print(al.sub_list(lista, 1, 2)) # Salida esperada: {'size': 2, 'elements': [2, 3]}
-
-.. py:function:: compare_elements(my_list, element, info, cmp_function)
-
-   Compara un elemento con la información de la lista.
-
-   Compara el elemento con la información de la lista utilizando la función de comparación ``cmp_function``.
-   Retorna ``True`` si el elemento es igual a la información de la lista, en caso contrario retorna ``False``.
-
-   .. admonition:: Imporante
-      :class: note
-
-      Una ``cmp_function`` es una función de comparación que recibe dos elementos y retorna un valor entero. Este valor entero debe ser ``0`` si los elementos son iguales, ``1`` si el primer elemento es mayor que el segundo y ``-1`` en caso contrario.
-      Use la función de comparación por defecto :ref:`default_function<default-function-array>` como referencia para crear su propia función de comparación.
-
-   :param my_list: Lista en la cual se comparará la información.
-   :type my_list: :ref:`array_list<array-list>`
-   :param element: Elemento a comparar.
-   :type element: any
-   :param info: Información de la lista a comparar.
-   :type info: any
-   :param cmp_function: Función de comparación.
-   :type cmp_function: function
-
-   :returns: ``True`` si el elemento es igual a la información de la lista, ``False`` en caso contrario.
-   :rtype: bool
-
-   :Example:
-      .. code-block:: python
-
-         # App/logic.py
-         from DataStructures.List import array_list as al
-
-         # Función de comparación por defecto
-         cmp_function = al.default_function
-
-         # Crea una lista vacía
-         lista = al.new_list()
-
-         # Agrega un elemento al final
-         lista = al.add_last(lista, 1)
-         lista = al.add_last(lista, 2)
-         print(al.compare_elements(lista, 2, 2, cmp_function)) # Salida esperada: True
-
-   :Test Scenarios:
-      - **Elemento igual a la información**: Se compara un elemento con la información de la lista.
-
-         .. code-block:: python
-
-            # App/logic.py
-            from DataStructures.List import array_list as al
-
-            # Función de comparación por defecto
-            cmp_function = al.default_function
-
-            # Lista con elementos
-            lista = al.new_list()
-            lista = al.add_last(lista, 1)
-            lista = al.add_last(lista, 2)
-            print(al.compare_elements(lista, 2, 2, cmp_function))
-            # Salida esperada: True
+            print(al.sub_list(lista, 1, 2)) 
+            # Salida esperada: {'size': 2, 'elements': [2, 3]}
 
 
 .. _single-linked-list:
@@ -1111,11 +1042,1068 @@ array\_list.py
 single\_linked\_list.py
 -----------------------------------------------
 
-.. automodule:: DataStructures.List.single_linked_list
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+.. .. automodule:: DataStructures.List.single_linked_list
+..    :members:
+..    :undoc-members:
+..    :show-inheritance:
+..    :member-order: bysource
+
+.. py:function:: new_list()
+
+   Crea una lista (de tipo :ref:`single_linked_list<single-linked-list>`) vacía.
+
+   La lista es creada con los siguientes atributos:
+
+   * **size**: Tamaño actual de la lista, inicializado en 0.
+   * **first**: Primer nodo de la lista, inicializado en ``None``.
+   * **last**: Último nodo de la lista, inicializado en ``None``.
+
+   :returns: Lista vacía recien creada.
+   :rtype: :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         print(lista) 
+         # Salida esperada: {'size': 0, 'first': None, 'last': None}
+
+   :Test Scenarios:
+      - **Crea una lista vacía**: Se crea una lista vacía.
+
+         .. code-block:: json
+
+            {
+               "size": 0,
+               "first": None,
+               "last": None
+            }
+
+.. py:function:: is_empty(my_list)
+
+   Verifica si la lista está vacía.
+
+   Retorna ``True`` si la lista está vacía, en caso contrario retorna ``False``.
+
+   :param my_list: Lista a verificar.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+
+   :returns: ``True`` si la lista está vacía, ``False`` en caso contrario.
+   :rtype: bool
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         print(sll.is_empty(lista)) # Salida esperada: True
+
+   :Test Scenarios:
+      - **Lista vacía**: Se verifica si una lista está vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.is_empty(lista))
+            # Salida esperada: True
+
+      - **Lista con elementos**: Se verifica si una lista con elementos está vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, 1)
+            print(sll.is_empty(lista))
+            # Salida esperada: False
+
+
+.. py:function:: size(my_list)
+
+   Retorna el tamaño de la lista.
+
+   :param my_list: Lista de la cual se obtendrá el tamaño.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+
+   :returns: Tamaño de la lista.
+   :rtype: int
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         print(sll.size(lista)) # Salida esperada: 0
+
+   :Test Scenarios:
+      - **Lista vacía**: Se obtiene el tamaño de una lista vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.size(lista))
+            # Salida esperada: 0
+
+      - **Lista con elementos**: Se obtiene el tamaño de una lista con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, 1)
+            print(sll.size(lista))
+            # Salida esperada: 1   
+
+
+.. py:function:: add_first(my_list, element)
+
+   Agrega un elemento al inicio de la lista.
+
+   Agrega un nuevo nodo al inicio de la lista y aumenta el tamaño de la lista en 1.
+   En caso de que la lista esté vacía, el primer y último nodo de la lista serán el nuevo nodo.
+
+   :param my_list: Lista a la cual se agregará el elemento.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+   :param element: Elemento a agregar.
+   :type element: any
+
+   :returns: Lista con el elemento agregado al inicio.
+   :rtype: :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_first(lista, 1)
+         print(lista) 
+         # Salida esperada: 
+         # {'size': 1, 
+         #  'first': {'info': 1, 'next': None}, 
+         #  'last': {'info': 1, 'next': None}
+         # }
+
+   :Test Scenarios:
+      - **Agrega en una lista vacia**: Se agrega un elemento al inicio de la lista vacía.
+
+         .. code-block:: json
+
+            {
+               "size": 1,
+               "first": {
+                  "info": 1,
+                  "next": None
+               },
+               "last": {
+                  "info": 1,
+                  "next": None
+               }
+            }
+
+      - **Agrega en una lista con elementos**: Se agrega un elemento al inicio de la lista con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_first(lista, 1)
+            lista = sll.add_first(lista, 2)
+            print(lista) 
+            # Salida esperada: 
+            # {'size': 2, 
+            #  'first': {'info': 2, 'next': {'info': 1, 'next': None}}, 
+            #  'last': {'info': 1, 'next': None}
+            #}
+
+
+.. py:function:: add_last(my_list, element)
+
+   Agrega un elemento al final de la lista.
+
+   Agrega un nuevo nodo al final de la lista y aumenta el tamaño de la lista en 1.
+   En caso de que la lista esté vacía, el primer y último nodo de la lista serán el nuevo nodo.
+
+   :param my_list: Lista a la cual se agregará el elemento.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+   :param element: Elemento a agregar.
+   :type element: any
+
+   :returns: Lista con el elemento agregado al final.
+   :rtype: :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, 1)
+         print(lista) 
+         # Salida esperada: 
+         # {'size': 1, 
+         #  'first': {'info': 1, 'next': None}, 
+         #  'last': {'info': 1, 'next': None}
+         # }
+
+   :Test Scenarios:
+      - **Agrega en una lista vacia**: Se agrega un elemento al final de la lista vacía.
+
+         .. code-block:: json
+
+            {
+               "size": 1,
+               "first": {
+                  "info": 1,
+                  "next": None
+               },
+               "last": {
+                  "info": 1,
+                  "next": None
+               }
+            }
+
+      - **Agrega en una lista con elementos**: Se agrega un elemento al final de la lista con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, 1)
+            lista = sll.add_last(lista, 2)
+            print(lista) 
+            # Salida esperada: 
+            # {'size': 2, 
+            #  'first': {'info': 1, 'next': {'info': 2, 'next': None}}, 
+            #  'last': {'info': 2, 'next': None}
+            # }
+
+
+.. py:function:: first_element(my_list)
+
+   Retorna el primer elemento de una lista no vacía.
+
+   Retorna el primer elemento de la lista. Si la lista está vacía, lanza un error :code:`IndexError: list index out of range`.
+   Esta función no elimina el elemento de la lista.
+
+   .. admonition:: Imporante
+      :class: note
+
+      Para lanzar un error si la lista está vacía, puede utilizar el siguiente código:
+
+      .. code-block:: python
+
+         if is_empty(my_list):
+            raise Exception('IndexError: list index out of range')
+
+   :param my_list: Lista de la cual se obtendrá el primer elemento.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+
+   :returns: Primer elemento de la lista.
+   :rtype: any
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         print(sll.first_element(lista)) 
+         # Salida esperada: {'name': 'Uno', 'number': 1}
+
+   :Test Scenarios:
+      - **Lista vacía**: Se obtiene el primer elemento de una lista vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.first_element(lista))
+            # Salida esperada: "IndexError: list index out of range"
+
+      - **Lista con elementos**: Se obtiene el primer elemento de una lista con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+            lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+            print(sll.first_element(lista))
+            # Salida esperada: {'name': 'Uno', 'number': 1}
+
+
+.. py:function:: last_element(my_list)
+
+   Retorna el último elemento de una lista no vacía.
+
+   Retorna el último elemento de la lista. Si la lista está vacía, lanza un error :code:`IndexError: list index out of range`.
+   Esta función no elimina el elemento de la lista.
+
+   .. admonition:: Imporante
+      :class: note
+
+      Para lanzar un error si la lista está vacía, puede utilizar el siguiente código:
+
+      .. code-block:: python
+
+         if is_empty(my_list):
+            raise Exception('IndexError: list index out of range')
+
+   :param my_list: Lista de la cual se obtendrá el último elemento.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+
+   :returns: Último elemento de la lista.
+   :rtype: any
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         print(sll.last_element(lista)) 
+         # Salida esperada: {'name': 'Dos', 'number': 2}
+
+   :Test Scenarios:
+      - **Lista vacía**: Se obtiene el último elemento de una lista vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.last_element(lista))
+            # Salida esperada: "IndexError: list index out of range"
+
+      - **Lista con elementos**: Se obtiene el último elemento de una lista con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+            lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+            print(sll.last_element(lista))
+            # Salida esperada: {'name': 'Dos', 'number': 2}
+
+
+.. py:function:: get_element(my_list, pos)
+
+   Retorna el elemento en la posición dada.
+
+   Retorna el elemento en la posición ``pos``, la cual debe ser igual o mayor a cero y menor al tamaño de la lista. :code:`0 <= pos < size(my_list)`.
+   Si la posición no es válida, lanza un error :code:`IndexError: list index out of range`.
+   Esta función no elimina el elemento de la lista.
+
+   .. admonition:: Imporante
+      :class: note
+
+      Para lanzar un error si la posición no es válida, puede utilizar el siguiente código:
+
+      .. code-block:: python
+
+         if pos < 0 or pos >= size(my_list):
+            raise Exception('IndexError: list index out of range')
+
+   :param my_list: Lista de la cual se obtendrá el elemento.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+   :param pos: Posición del elemento a obtener.
+   :type pos: int
+
+   :returns: Elemento en la posición dada.
+   :rtype: any
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         lista = sll.add_last(lista, {'name': 'Tres', 'number': 3})
+         print(sll.get_element(lista, 1)) 
+         # Salida esperada: {'name': 'Dos', 'number': 2}
+
+   :Test Scenarios:
+      - **Posición inválida**: Se obtiene un elemento en una posición inválida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.get_element(lista, 3))
+            # Salida esperada: "IndexError: list index out of range"
+
+      - **Posición válida**: Se obtiene un elemento en una posición válida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+            lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+            lista = sll.add_last(lista, {'name': 'Tres', 'number': 3})
+            print(sll.get_element(lista, 1))
+            # Salida esperada: {'name': 'Dos', 'number': 2}
+
+.. py:function:: delete_element(my_list, pos)
+
+   Elimina un elemento en la posición dada.
+
+   Elimina el elemento en la posición ``pos``, la cual debe ser igual o mayor a cero y menor al tamaño de la lista. :code:`0 <= pos < size(my_list)`
+   Si la posición no es válida, lanza un error :code:`IndexError: list index out of range`.
+
+   .. admonition:: Imporante
+      :class: note
+
+      Para lanzar un error si la posición no es válida, puede utilizar el siguiente código:
+
+      .. code-block:: python
+
+         if pos < 0 or pos >= size(my_list):
+            raise Exception('IndexError: list index out of range')
+
+   :param my_list: Lista de la cual se eliminará el elemento.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+   :param pos: Posición del elemento a eliminar.
+   :type pos: int
+
+   :returns: Lista con el elemento eliminado.
+   :rtype: :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         lista = sll.add_last(lista, {'name': 'Tres', 'number': 3})
+         print(sll.delete_element(lista, 1)) 
+         # Salida esperada: 
+         # {'size': 2, 
+         #  'first': {'info': {'name': 'Uno', 'number': 1}, 'next': {'info': {'name': 'Tres', 'number': 3}, 'next': None}}, 
+         #  'last': {'info': {'name': 'Tres', 'number': 3}, 'next': None}
+         # }
+
+   :Test Scenarios:
+      - **Posición inválida**: Se elimina un elemento en una posición inválida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.delete_element(lista, 3))
+            # Salida esperada: "IndexError: list index out of range"
+
+      - **Posición válida**: Se elimina un elemento en una posición válida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+            lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+            lista = sll.add_last(lista, {'name': 'Tres', 'number': 3})
+
+            print(sll.delete_element(lista, 1))
+            # Salida esperada:
+            # {'size': 2,
+            #  'first': {'info': {'name': 'Uno', 'number': 1}, 'next': {'info': {'name': 'Tres', 'number': 3}, 'next': None}},
+            #  'last': {'info': {'name': 'Tres', 'number': 3}, 'next': None}
+            # }
+
+.. py:function:: remove_first(my_list)
+
+   Elimina el primer elemento de la lista.
+
+   Elimina el primer elemento de la lista y disminuye el tamaño de la lista en 1.
+   Si la lista está vacía, lanza un error :code:`IndexError: list index out of range`.
+
+   :param my_list: Lista de la cual se eliminará el primer elemento.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+
+   :returns: Lista con el primer elemento eliminado.
+   :rtype: :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         print(sll.remove_first(lista)) 
+         # Salida esperada: 
+         # {'size': 1, 
+         #  'first': {'info': {'name': 'Dos', 'number': 2}, 'next': None}, 
+         #  'last': {'info': {'name': 'Dos', 'number': 2}, 'next': None}
+         # }
+
+   :Test Scenarios:
+      - **Lista vacía**: Se elimina el primer elemento de una lista vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.remove_first(lista))
+            # Salida esperada: "IndexError: list index out of range"
+
+      - **Lista con elementos**: Se elimina el primer elemento de una lista con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+            lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+            print(sll.remove_first(lista))
+            # Salida esperada:
+            # {'size': 1,
+            #  'first': {'info': {'name': 'Dos', 'number': 2}, 'next': None},
+            #  'last': {'info': {'name': 'Dos', 'number': 2}, 'next': None}
+            # }
+
+.. py:function:: remove_last(my_list)
+
+   Elimina el último elemento de la lista.
+
+   Elimina el último elemento de la lista y disminuye el tamaño de la lista en 1.
+   Si la lista está vacía, lanza un error :code:`IndexError: list index out of range`.
+
+   :param my_list: Lista de la cual se eliminará el último elemento.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+
+   :returns: Lista con el último elemento eliminado.
+   :rtype: :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         print(sll.remove_last(lista)) 
+         # Salida esperada: 
+         # {'size': 1, 
+         #  'first': {'info': {'name': 'Uno', 'number': 1}, 'next': None}, 
+         #  'last': {'info': {'name': 'Uno', 'number': 1}, 'next': None}
+         # }
+
+   :Test Scenarios:
+      - **Lista vacía**: Se elimina el último elemento de una lista vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.remove_last(lista))
+            # Salida esperada: "IndexError: list index out of range"
+
+      - **Lista con elementos**: Se elimina el último elemento de una lista con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+            lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+            print(sll.remove_last(lista))
+            # Salida esperada:
+            # {'size': 1,
+            #  'first': {'info': {'name': 'Uno', 'number': 1}, 'next': None},
+            #  'last': {'info': {'name': 'Uno', 'number': 1}, 'next': None}
+            # }
+
+.. py:function:: insert_element(my_list, element, pos)
+
+   Inserta un elemento en la posición dada.
+
+   Inserta el elemento en la posición ``pos``, la cual debe ser igual o mayor a cero y menor o igual al tamaño de la lista. :code:`0 <= pos <= size(my_list)`.
+   Se incrementa el tamaño de la lista en 1.
+
+   .. admonition:: Imporante
+      :class: note
+
+      Para lanzar un error si la posición no es válida, puede utilizar el siguiente código:
+
+      .. code-block:: python
+
+         if pos < 0 or pos > size(my_list):
+            raise Exception('IndexError: list index out of range')
+
+   :param my_list: Lista en la cual se insertará el elemento.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+   :param element: Elemento a insertar.
+   :type element: any
+   :param pos: Posición en la cual se insertará el elemento.
+   :type pos: int
+
+   :returns: Lista con el elemento insertado.
+   :rtype: :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         lista = sll.insert_element(lista, {'name': 'Tres', 'number': 3}, 1)
+         print(lista) 
+         # Salida esperada: 
+         # {'size': 3, 
+         #  'first': {'info': {'name': 'Uno', 'number': 1}, 'next': {'info': {'name': 'Tres', 'number': 3}, 'next': {'info': {'name': 'Dos', 'number': 2}, 'next': None}}}, 
+         #  'last': {'info': {'name': 'Dos', 'number': 2}, 'next': None}
+         # }
+
+   :Test Scenarios:
+      - **Posición inválida**: Se inserta un elemento en una posición inválida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.insert_element(lista, {'name': 'Uno', 'number': 1}, 3))
+            # Salida esperada: "IndexError: list index out of range"
+
+      - **Posición válida**: Se inserta un elemento en una posición válida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+            lista = sll.add_last(lista, {'name': 'Tres', 'number': 3})
+            lista = sll.insert_element(lista, {'name': 'Dos', 'number': 2}, 1)
+            print(lista)
+            # Salida esperada:
+            # {'size': 3,
+            #  'first': {'info': {'name': 'Uno', 'number': 1}, 
+            #            'next': {'info': {'name': 'Dos', 'number': 2}, 
+            #                     'next': {'info': {'name': 'Tres', 'number': 3}, 
+            #                              'next': None
+            #                             }
+            #                    }
+            #           },
+            #  'last': {'info': {'name': 'Tres', 'number': 3}, 'next': None}
+            # }
+
+.. _default-function-single-linked:
+
+.. py:function:: default_function(element_1, element_2)
+
+   Función de comparación por defecto a modo de ejemplo.
+
+   Esta función de comparación por defecto compara dos elementos y retorna ``0`` si son iguales, ``1`` si el ``element_1`` es mayor que ``element_2`` y ``-1`` si ``element_1`` es menor que ``element_2``.
+
+   .. admonition:: Imporante
+      :class: note
+
+      Una ``cmp_function`` es una función de comparación que recibe dos elementos y retorna un valor entero. 
+      Use esta función como referencia para crear su propia función de comparación donde los criterios de comparación pueden ser definidos dependiendo del tipo de elementos y su contexto. 
+
+   :param element_1: Primer elemento a comparar.
+   :type element_1: any
+   :param element_2: Segundo elemento a comparar.
+   :type element_2: any
+
+   :returns: ``0`` si los elementos son iguales, ``1`` si el primer elemento es mayor que el segundo y ``-1`` en caso contrario.
+   :rtype: int
+
+   :Code example:
+      .. code-block:: python
+
+         def default_function(elemen_1, element_2):
+  
+            if elemen_1 > element_2:
+               return 1
+            elif elemen_1 < element_2:
+               return -1
+            return 0
+
+.. py:function:: is_present(my_list, element, cmp_function)
+
+   Verifica si un elemento está presente en la lista.
+
+   Para comparar los elementos, se utiliza la función de comparación ``cmp_function``.
+   Si el elemento está presente retorna su posición, en caso contrario retorna ``-1``.
+
+   .. admonition:: Imporante
+      :class: note
+
+      Una ``cmp_function`` es una función de comparación que recibe dos elementos y retorna un valor entero. Este valor entero debe ser ``0`` si los elementos son iguales, ``1`` si el primer elemento es mayor que el segundo y ``-1`` en caso contrario.
+      Use la función de comparación por defecto :ref:`default_function<default-function-single-linked>` como referencia para crear su propia función de comparación.
+
+   :param my_list: Lista en la cual se buscará el elemento.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+   :param element: Elemento a buscar.
+   :type element: any
+   :param cmp_function: Función de comparación.
+   :type cmp_function: function
+
+   :returns: Posición del elemento si está presente, ``-1`` en caso contrario.
+   :rtype: int
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Función de comparación por defecto
+         cmp_function = sll.default_function
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, 1)
+         lista = sll.add_last(lista, 2)
+         print(sll.is_present(lista, 2, cmp_function)) # Salida esperada: 1
+
+   :Test Scenarios:
+      - **Elemento presente**: Se verifica si un elemento está presente en la lista.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Función de comparación por defecto
+            cmp_function = sll.default_function
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, 1)
+            lista = sll.add_last(lista, 2)
+            print(sll.is_present(lista, 2, cmp_function))
+            # Salida esperada: 1
+
+      - **Elemento no presente**: Se verifica si un elemento no está presente en la lista.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Función de comparación por defecto
+            cmp_function = sll.default_function
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, 1)
+            lista = sll.add_last(lista, 2)
+            print(sll.is_present(lista, 3, cmp_function))
+            # Salida esperada: -1
+
+.. py:function:: change_info(my_list, pos, new_info)
+
+   Cambia la información de un elemento en la posición dada.
+
+   Cambia la información del elemento en la posición ``pos`` por la información ``new_info``.
+   Si la posición no es válida, lanza un error :code:`IndexError: list index out of range`.
+
+   :param my_list: Lista en la cual se cambiará la información del elemento.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+   :param pos: Posición del elemento a cambiar.
+   :type pos: int
+   :param new_info: Nueva información del elemento.
+   :type new_info: any
+
+   :returns: Lista con la información del elemento cambiada.
+   :rtype: :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         print(sll.change_info(lista, 1, {'name': 'Tres', 'number': 3})) 
+         # Salida esperada: 
+         # {'size': 2, 
+         #  'first': {'info': {'name': 'Uno', 'number': 1}, 'next': {'info': {'name': 'Tres', 'number': 3}, 'next': None}}, 
+         #  'last': {'info': {'name': 'Tres', 'number': 3}, 'next': None}
+         # }
+
+   :Test Scenarios:
+      - **Posición inválida**: Se cambia la información de un elemento en una posición inválida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.change_info(lista, 3, {'name': 'Tres', 'number': 3}))
+            # Salida esperada: "IndexError: list index out of range"
+
+      - **Posición válida**: Se cambia la información de un elemento en una posición válida.
+  
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+            lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+            print(sll.change_info(lista, 1, {'name': 'Tres', 'number': 3}))
+            # Salida esperada:
+            # {'size': 2,
+            #  'first': {'info': {'name': 'Uno', 'number': 1},
+            #            'next': {'info': {'name': 'Tres', 'number': 3},
+            #                     'next': None
+            #                    }
+            #           },
+            #  'last': {'info': {'name': 'Tres', 'number': 3}, 'next': None}
+            # }
+
+.. py:function:: exchange(my_list, pos_1, pos_2)
+
+   Intercambia la posición de dos elementos.
+
+   Intercambia la posición de los elementos en las posiciones ``pos_1`` y ``pos_2``.
+   Si alguna de las posiciones no es válida, lanza un error :code:`IndexError: list index out of range`.
+
+   :param my_list: Lista en la cual se intercambiarán los elementos.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+   :param pos_1: Posición del primer elemento a intercambiar.
+   :type pos_1: int
+   :param pos_2: Posición del segundo elemento a intercambiar.
+   :type pos_2: int
+
+   :returns: Lista con los elementos intercambiados.
+   :rtype: :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         print(sll.exchange(lista, 0, 1)) 
+         # Salida esperada: 
+         # {'size': 2, 
+         #  'first': {'info': {'name': 'Dos', 'number': 2}, 'next': {'info': {'name': 'Uno', 'number': 1}, 'next': None}}, 
+         #  'last': {'info': {'name': 'Uno', 'number': 1}, 'next': None}
+         # }
+
+   :Test Scenarios:
+      - **Posiciones inválidas**: Se intercambia la posición de dos elementos en posiciones inválidas.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.exchange(lista, 3, 4))
+            # Salida esperada: "IndexError: list index out of range"
+
+      - **Posiciones válidas**: Se intercambia la posición de dos elementos en posiciones válidas.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+            lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+            print(sll.exchange(lista, 0, 1))
+            # Salida esperada:
+            # {'size': 2,
+            #  'first': {'info': {'name': 'Dos', 'number': 2},
+            #            'next': {'info': {'name': 'Uno', 'number': 1},
+            #                     'next': None
+            #                    }
+            #           },
+            #  'last': {'info': {'name': 'Uno', 'number': 1}, 'next': None}
+            # }
+
+.. py:function:: sub_list(my_list, pos, num_elements)
+
+   Retorna una sublista de la lista original.
+
+   Retorna una sublista de la lista original que contiene ``num_elements`` elementos a partir de la posición ``pos``.
+   Si la posición no es válida, lanza un error :code:`IndexError: list index out of range`.
+
+   :param my_list: Lista de la cual se obtendrá la sublista.
+   :type my_list: :ref:`single_linked_list<single-linked-list>`
+   :param pos: Posición inicial de la sublista.
+   :type pos: int
+   :param num_elements: Número de elementos de la sublista.
+   :type num_elements: int
+
+   :returns: Sublista de la lista original.
+   :rtype: :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         lista = sll.add_last(lista, {'name': 'Tres', 'number': 3})
+         print(sll.sub_list(lista, 1, 2)) 
+         # Salida esperada: 
+         # {'size': 2, 
+         #  'first': {'info': {'name': 'Dos', 'number': 2}, 'next': {'info': {'name': 'Tres', 'number': 3}, 'next': None}}, 
+         #  'last': {'info': {'name': 'Tres', 'number': 3}, 'next': None}
+         # }
+
+   :Test Scenarios:
+      - **Posición inválida**: Se obtiene una sublista de una lista en una posición inválida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Crea una lista vacía
+            lista = sll.new_list()
+            print(sll.sub_list(lista, 3, 2))
+            # Salida esperada: "IndexError: list index out of range"
+
+      - **Posición válida**: Se obtiene una sublista de una lista en una posición válida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import single_linked_list as sll
+
+            # Lista con elementos
+            lista = sll.new_list()
+            lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+            lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+            lista = sll.add_last(lista, {'name': 'Tres', 'number': 3})
+            print(sll.sub_list(lista, 1, 2))
+            # Salida esperada:
+            # {'size': 2,
+            #  'first': {'info': {'name': 'Dos', 'number': 2},
+            #            'next': {'info': {'name': 'Tres', 'number': 3},
+            #                     'next': None
+            #                    }
+            #           },
+            #  'last': {'info': {'name': 'Tres', 'number': 3}, 'next': None}
+            # }
 
 Ordenamientos
 #################################################

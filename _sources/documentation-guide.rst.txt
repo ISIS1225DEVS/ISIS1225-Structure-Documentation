@@ -39,7 +39,7 @@ Ejemplo prácticos de implementación
 Ejemplo práctico: implementar :py:meth:`new_set()`
 ****************************************************
 
-#. Valide que en la carpeta :file:`./DataStructures/` de su proyecto exista la carpeta ``Set/``. Si no existe la carpeta ``Set/`` y cree el archivo :ref:`set.py`.
+#. Valide que en la carpeta :file:`./DataStructures/` de su proyecto exista la carpeta ``Set/``. Si no existe, cree la carpeta ``Set/`` y cree el archivo :ref:`set.py` dentro de la carpeta.
 #. Adicionalmente en la carpeta ``Set/`` cree el archivo ``__init__.py``. El cual debe estar vacío y es necesario para que Python reconozca la carpeta como un paquete.
 
    .. figure:: static/set_example.png
@@ -122,7 +122,7 @@ Ejemplo práctico: implementar :py:meth:`new_set()`
 Ejemplo práctico: implementar :func:`add_element()`
 ****************************************************
 
-#. Valide que en la carpeta ``DataStructures/`` de su proyecto exista la carpeta ``Set/``. Si no existe la carpeta ``Set/`` y cree el archivo :ref:`set.py`.
+#. Valide que en la carpeta ``DataStructures/`` de su proyecto exista la carpeta ``Set/``. Si no existe, cree la carpeta ``Set/`` y cree el archivo :ref:`set.py` dentro de la carpeta.
 #. Adicionalmente en la carpeta ``Set/`` cree el archivo ``__init__.py``. El cual debe estar vacío y es necesario para que Python reconozca la carpeta como un paquete.
 
    .. figure:: static/set_example.png
