@@ -579,8 +579,8 @@ array\_list.py
    :param my_list: Lista de la cual se eliminará el primer elemento.
    :type my_list: :ref:`array_list<array-list>`
 
-   :returns: Lista con el primer elemento eliminado.
-   :rtype: :ref:`array_list<array-list>`
+   :returns: Elemento recien eliminado.
+   :rtype: any
 
    :Example:
       .. code-block:: python
@@ -597,7 +597,7 @@ array\_list.py
          print(lista) # Salida esperada: {'size': 2, 'elements': [1, 2]}
 
          # Elimina el primer elemento
-         print(al.remove_first(lista)) # Salida esperada: {'size': 1, 'elements': [2]}
+         print(al.remove_first(lista)) # Salida esperada: 1
 
    :Test Scenarios:
       - **Lista vacía**: Lanza un error al intentar eliminar el primer elemento de la lista vacía.
@@ -623,7 +623,7 @@ array\_list.py
             lista = al.new_list()
             lista = al.add_last(lista, 1)
             lista = al.add_last(lista, 2)
-            print(al.remove_first(lista)) # Salida esperada: {'size': 1, 'elements': [2]}
+            print(al.remove_first(lista)) # Salida esperada: 1
 
 .. py:function:: remove_last(my_list)
 
@@ -635,8 +635,8 @@ array\_list.py
    :param my_list: Lista de la cual se eliminará el último elemento.
    :type my_list: :ref:`array_list<array-list>`
 
-   :returns: Lista con el último elemento eliminado.
-   :rtype: :ref:`array_list<array-list>`
+   :returns: Elemento recien eliminado.
+   :rtype: any
 
    :Example:
       .. code-block:: python
@@ -653,7 +653,7 @@ array\_list.py
          print(lista) # Salida esperada: {'size': 2, 'elements': [1, 2]}
 
          # Elimina el último elemento
-         print(al.remove_last(lista)) # Salida esperada: {'size': 1, 'elements': [1]}
+         print(al.remove_last(lista)) # Salida esperada: 2
 
    :Test Scenarios:
       - **Lista vacía**: Lanza un error al intentar eliminar el último elemento de la lista vacía.
@@ -679,7 +679,7 @@ array\_list.py
             lista = al.new_list()
             lista = al.add_last(lista, 1)
             lista = al.add_last(lista, 2)
-            print(al.remove_last(lista)) # Salida esperada: {'size': 1, 'elements': [1]}
+            print(al.remove_last(lista)) # Salida esperada: 2
 
 .. py:function:: insert_element(my_list, element, pos)
 
@@ -1595,8 +1595,8 @@ single\_linked\_list.py
    :param my_list: Lista de la cual se eliminará el primer elemento.
    :type my_list: :ref:`single_linked_list<single-linked-list>`
 
-   :returns: Lista con el primer elemento eliminado.
-   :rtype: :ref:`single_linked_list<single-linked-list>`
+   :returns: Element eliminado de la lista.
+   :rtype: any
 
    :Example:
       .. code-block:: python
@@ -1610,10 +1610,7 @@ single\_linked\_list.py
          lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
          print(sll.remove_first(lista)) 
          # Salida esperada: 
-         # {'size': 1, 
-         #  'first': {'info': {'name': 'Dos', 'number': 2}, 'next': None}, 
-         #  'last': {'info': {'name': 'Dos', 'number': 2}, 'next': None}
-         # }
+         # {'name': 'Uno', 'number': 1}
 
    :Test Scenarios:
       - **Lista vacía**: Se elimina el primer elemento de una lista vacía.
@@ -1641,10 +1638,7 @@ single\_linked\_list.py
             lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
             print(sll.remove_first(lista))
             # Salida esperada:
-            # {'size': 1,
-            #  'first': {'info': {'name': 'Dos', 'number': 2}, 'next': None},
-            #  'last': {'info': {'name': 'Dos', 'number': 2}, 'next': None}
-            # }
+            # {'name': 'Uno', 'number': 1}
 
 .. py:function:: remove_last(my_list)
 
@@ -1656,8 +1650,8 @@ single\_linked\_list.py
    :param my_list: Lista de la cual se eliminará el último elemento.
    :type my_list: :ref:`single_linked_list<single-linked-list>`
 
-   :returns: Lista con el último elemento eliminado.
-   :rtype: :ref:`single_linked_list<single-linked-list>`
+   :returns: Element eliminado de la lista.
+   :rtype: any
 
    :Example:
       .. code-block:: python
@@ -1671,10 +1665,7 @@ single\_linked\_list.py
          lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
          print(sll.remove_last(lista)) 
          # Salida esperada: 
-         # {'size': 1, 
-         #  'first': {'info': {'name': 'Uno', 'number': 1}, 'next': None}, 
-         #  'last': {'info': {'name': 'Uno', 'number': 1}, 'next': None}
-         # }
+         # {'name': 'Dos', 'number': 2}
 
    :Test Scenarios:
       - **Lista vacía**: Se elimina el último elemento de una lista vacía.
@@ -1702,10 +1693,7 @@ single\_linked\_list.py
             lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
             print(sll.remove_last(lista))
             # Salida esperada:
-            # {'size': 1,
-            #  'first': {'info': {'name': 'Uno', 'number': 1}, 'next': None},
-            #  'last': {'info': {'name': 'Uno', 'number': 1}, 'next': None}
-            # }
+            # {'name': 'Dos', 'number': 2}
 
 .. py:function:: insert_element(my_list, element, pos)
 

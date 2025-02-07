@@ -833,10 +833,10 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se eliminará el primer elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista con el primer elemento eliminado.</p>
+<dd class="field-even"><p>Elemento recien eliminado.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p>any</p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -851,7 +851,7 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 2, &#39;elements&#39;: [1, 2]}</span>
 
 <span class="c1"># Elimina el primer elemento</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">remove_first</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 1, &#39;elements&#39;: [2]}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">remove_first</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Salida esperada: 1</span>
 </pre></div>
 </div>
 </dd>
@@ -879,7 +879,7 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
 <span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">remove_first</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 1, &#39;elements&#39;: [2]}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">remove_first</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Salida esperada: 1</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -900,10 +900,10 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a>) – Lista de la cual se eliminará el último elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista con el último elemento eliminado.</p>
+<dd class="field-even"><p>Elemento recien eliminado.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p>any</p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -918,7 +918,7 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 2, &#39;elements&#39;: [1, 2]}</span>
 
 <span class="c1"># Elimina el último elemento</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">remove_last</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 1, &#39;elements&#39;: [1]}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">remove_last</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Salida esperada: 2</span>
 </pre></div>
 </div>
 </dd>
@@ -946,7 +946,7 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
 <span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">remove_last</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 1, &#39;elements&#39;: [1]}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">remove_last</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Salida esperada: 2</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -2008,10 +2008,10 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a>) – Lista de la cual se eliminará el primer elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista con el primer elemento eliminado.</p>
+<dd class="field-even"><p>Element eliminado de la lista.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a></p>
+<dd class="field-odd"><p>any</p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -2023,10 +2023,7 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <span class="n">lista</span> <span class="o">=</span> <span class="n">sll</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Dos&#39;</span><span class="p">,</span> <span class="s1">&#39;number&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sll</span><span class="o">.</span><span class="n">remove_first</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
 <span class="c1"># Salida esperada:</span>
-<span class="c1"># {&#39;size&#39;: 1,</span>
-<span class="c1">#  &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Dos&#39;, &#39;number&#39;: 2}, &#39;next&#39;: None},</span>
-<span class="c1">#  &#39;last&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Dos&#39;, &#39;number&#39;: 2}, &#39;next&#39;: None}</span>
-<span class="c1"># }</span>
+<span class="c1"># {&#39;name&#39;: &#39;Uno&#39;, &#39;number&#39;: 1}</span>
 </pre></div>
 </div>
 </dd>
@@ -2056,10 +2053,7 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <span class="n">lista</span> <span class="o">=</span> <span class="n">sll</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Dos&#39;</span><span class="p">,</span> <span class="s1">&#39;number&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sll</span><span class="o">.</span><span class="n">remove_first</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
 <span class="c1"># Salida esperada:</span>
-<span class="c1"># {&#39;size&#39;: 1,</span>
-<span class="c1">#  &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Dos&#39;, &#39;number&#39;: 2}, &#39;next&#39;: None},</span>
-<span class="c1">#  &#39;last&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Dos&#39;, &#39;number&#39;: 2}, &#39;next&#39;: None}</span>
-<span class="c1"># }</span>
+<span class="c1"># {&#39;name&#39;: &#39;Uno&#39;, &#39;number&#39;: 1}</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -2080,10 +2074,10 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <dd class="field-odd"><p><strong>my_list</strong> (<a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a>) – Lista de la cual se eliminará el último elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Lista con el último elemento eliminado.</p>
+<dd class="field-even"><p>Element eliminado de la lista.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a></p>
+<dd class="field-odd"><p>any</p>
 </dd>
 <dt class="field-even">Example<span class="colon">:</span></dt>
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
@@ -2095,10 +2089,7 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <span class="n">lista</span> <span class="o">=</span> <span class="n">sll</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Dos&#39;</span><span class="p">,</span> <span class="s1">&#39;number&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sll</span><span class="o">.</span><span class="n">remove_last</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
 <span class="c1"># Salida esperada:</span>
-<span class="c1"># {&#39;size&#39;: 1,</span>
-<span class="c1">#  &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Uno&#39;, &#39;number&#39;: 1}, &#39;next&#39;: None},</span>
-<span class="c1">#  &#39;last&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Uno&#39;, &#39;number&#39;: 1}, &#39;next&#39;: None}</span>
-<span class="c1"># }</span>
+<span class="c1"># {&#39;name&#39;: &#39;Dos&#39;, &#39;number&#39;: 2}</span>
 </pre></div>
 </div>
 </dd>
@@ -2128,10 +2119,7 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <span class="n">lista</span> <span class="o">=</span> <span class="n">sll</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Dos&#39;</span><span class="p">,</span> <span class="s1">&#39;number&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sll</span><span class="o">.</span><span class="n">remove_last</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span>
 <span class="c1"># Salida esperada:</span>
-<span class="c1"># {&#39;size&#39;: 1,</span>
-<span class="c1">#  &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Uno&#39;, &#39;number&#39;: 1}, &#39;next&#39;: None},</span>
-<span class="c1">#  &#39;last&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Uno&#39;, &#39;number&#39;: 1}, &#39;next&#39;: None}</span>
-<span class="c1"># }</span>
+<span class="c1"># {&#39;name&#39;: &#39;Dos&#39;, &#39;number&#39;: 2}</span>
 </pre></div>
 </div>
 </div></blockquote>
