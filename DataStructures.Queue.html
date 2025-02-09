@@ -55,13 +55,14 @@
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.List.html">List - Listas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Stack.html">Stack - Pilas</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Queue - Colas</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Queue.queue">queue.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Queue.queue.new_queue"><code class="docutils literal notranslate"><span class="pre">new_queue()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Queue.queue.enqueue"><code class="docutils literal notranslate"><span class="pre">enqueue()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Queue.queue.dequeue"><code class="docutils literal notranslate"><span class="pre">dequeue()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Queue.queue.peek"><code class="docutils literal notranslate"><span class="pre">peek()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Queue.queue.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Queue.queue.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#como-usar-la-documentacion">Como usar la documentación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#queue-py">queue.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#new_queue"><code class="docutils literal notranslate"><span class="pre">new_queue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#enqueue"><code class="docutils literal notranslate"><span class="pre">enqueue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dequeue"><code class="docutils literal notranslate"><span class="pre">dequeue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#peek"><code class="docutils literal notranslate"><span class="pre">peek()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -97,107 +98,410 @@
              
   <section id="queue-colas">
 <h1>Queue - Colas<a class="headerlink" href="#queue-colas" title="Link to this heading"></a></h1>
-<section id="module-DataStructures.Queue.queue">
-<span id="queue-py"></span><h2>queue.py<a class="headerlink" href="#module-DataStructures.Queue.queue" title="Link to this heading"></a></h2>
+<p>Las colas son una estructura de datos que sigue el principio de FIFO (First In First Out). Es decir, el primer elemento que entra en la cola es el primero en salir. Las colas son útiles para almacenar elementos en un orden específico y recuperarlos en el mismo orden. Las colas se utilizan comúnmente en aplicaciones de procesamiento de datos, como la impresión de documentos, la gestión de tareas y la programación de tareas.</p>
+<section id="como-usar-la-documentacion">
+<h2>Como usar la documentación<a class="headerlink" href="#como-usar-la-documentacion" title="Link to this heading"></a></h2>
+<p>Para leer la guía de uso de la documentación, por favor diríjase a la sección <a class="reference internal" href="documentation-guide.html#guia-doc"><span class="std std-ref">Guía de documentación</span></a>.</p>
+</section>
+<section id="queue-py">
+<h2>queue.py<a class="headerlink" href="#queue-py" title="Link to this heading"></a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Queue.queue.new_queue">
-<span class="sig-name descname"><span class="pre">new_queue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Queue.queue.new_queue" title="Link to this definition"></a></dt>
-<dd><p>Crea una cola vacia basada en una array list.</p>
-<p>Implementa una cola sobre una alguna de las implementaciones de listas</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="new_queue">
+<span class="sig-name descname"><span class="pre">new_queue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#new_queue" title="Link to this definition"></a></dt>
+<dd><p>Crea una nueva cola vacía.</p>
+<p>Implementa una pila sobre alguna de las implementaciones de listas. Por ejemplo un <a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a> o una <a class="reference internal" href="DataStructures.List.html#single-linked-list"><span class="std std-ref">single_linked_list</span></a></p>
+<div class="warning admonition">
+<p class="admonition-title">Implementación de la pila</p>
+<p>La implementación de la cola se realiza sobre una <a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a>. La cola se implementa como una lista array, donde el último elemento de la lista es el último elemento de la cola.</p>
+</div>
+<dl class="field-list">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Una cola vacia</p>
+<dd class="field-odd"><p>Una nueva cola vacía.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>queue</p>
+<dd class="field-even"><p><a class="reference internal" href="#queue-py"><span class="std std-ref">queue</span></a></p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 0, &#39;elements&#39;: []}</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Queue.queue.enqueue">
-<span class="sig-name descname"><span class="pre">enqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Queue.queue.enqueue" title="Link to this definition"></a></dt>
-<dd><p>Agrega el elemento <code class="docutils literal notranslate"><span class="pre">element</span></code> el final de la cola.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="enqueue">
+<span class="sig-name descname"><span class="pre">enqueue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_queue</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#enqueue" title="Link to this definition"></a></dt>
+<dd><p>Agrega un elemento al final de la cola.</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_queue</strong> (<em>queue</em>) – La cola donde se insertará el elemento</p></li>
-<li><p><strong>element</strong> (<em>any</em>) – El elemento a insertar</p></li>
+<li><p><strong>my_queue</strong> (<a class="reference internal" href="#queue-py"><span class="std std-ref">queue</span></a>) – La cola a la que se le agregará el elemento.</p></li>
+<li><p><strong>element</strong> (<em>any</em>) – El elemento que se agregará a la cola.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>La cola modificada</p>
+<dd class="field-even"><p>La cola con el elemento agregado.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>queue</p>
+<dd class="field-odd"><p><a class="reference internal" href="#queue-py"><span class="std std-ref">queue</span></a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Agregar un elemento</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cola</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 1, &#39;elements&#39;: [{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}]}</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>Agrega en elemento a la cola vacía</strong>: Se agrega un elemento a una cola vacía.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/tests.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Agregar un elemento</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cola</span><span class="p">)</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 1, &#39;elements&#39;: [{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Agrega en elemento a la cola con elementos</strong>: Se agrega un elemento a una cola con elementos.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/tests.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Agregar un elemento</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cola</span><span class="p">)</span>
+<span class="c1"># Salida esperada:</span>
+<span class="c1"># {&#39;size&#39;: 2, &#39;elements&#39;: [{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Queue.queue.dequeue">
-<span class="sig-name descname"><span class="pre">dequeue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Queue.queue.dequeue" title="Link to this definition"></a></dt>
-<dd><p>Retorna el elemento en la primer posición de la cola, y lo elimina.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="dequeue">
+<span class="sig-name descname"><span class="pre">dequeue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#dequeue" title="Link to this definition"></a></dt>
+<dd><p>Elimina y retorna el primer elemento de la cola.</p>
+<p>Si la cola está vacía, lanza un error: <code class="code docutils literal notranslate"><span class="pre">EmptyStructureError:</span> <span class="pre">queue</span> <span class="pre">is</span> <span class="pre">empty</span></code>.</p>
+<div class="note admonition">
+<p class="admonition-title">Importante</p>
+<p>Para lanzar un error si la cola está vacía, puede utilizar el siguiente código:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;EmptyStructureError: queue is empty&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_queue</strong> (<em>queue</em>) – La cola de donde se retirara el elemento</p>
+<dd class="field-odd"><p><strong>my_queue</strong> (<a class="reference internal" href="#queue-py"><span class="std std-ref">queue</span></a>) – La cola de la que se eliminará el primer elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El primer elemento de la cola</p>
+<dd class="field-even"><p>Elemento retirado de la cola.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>any</p>
 </dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Agregar un elemento</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+
+<span class="c1"># Eliminar el primer elemento de la cola</span>
+<span class="n">elemento</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">dequeue</span><span class="p">(</span><span class="n">my_queue</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cola</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 0, &#39;elements&#39;: []}</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>Retornar el primer elemento de una cola vacia</strong>: Se intenta eliminar el primer elemento de una cola vacía.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/tests.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Eliminar el primer elemento</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">dequeue</span><span class="p">(</span><span class="n">cola</span><span class="p">))</span>
+<span class="c1"># Salida esperada: EmptyStructureError: queue is empty</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Eliminar el primer elemento de la cola con elementos</strong>: Se elimina el primer elemento de la cola con elementos.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/tests.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Agregar un elemento</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+
+<span class="c1"># Eliminar el primer elemento</span>
+<span class="n">elemento</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">dequeue</span><span class="p">(</span><span class="n">cola</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span><span class="c1"># Salida esperada: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cola</span><span class="p">)</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 1, &#39;elements&#39;: [{&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Queue.queue.peek">
-<span class="sig-name descname"><span class="pre">peek</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Queue.queue.peek" title="Link to this definition"></a></dt>
-<dd><p>Retorna el elemento en la primer posición de la cola sin eliminarlo.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="peek">
+<span class="sig-name descname"><span class="pre">peek</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#peek" title="Link to this definition"></a></dt>
+<dd><p>Retorna el primer elemento de la cola sin eliminarlo.</p>
+<p>Si la cola está vacía, lanza un error: <code class="code docutils literal notranslate"><span class="pre">EmptyStructureError:</span> <span class="pre">queue</span> <span class="pre">is</span> <span class="pre">empty</span></code>.</p>
+<div class="note admonition">
+<p class="admonition-title">Importante</p>
+<p>Para lanzar un error si la cola está vacía, puede utilizar el siguiente código:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;EmptyStructureError: queue is empty&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_queue</strong> (<em>queue</em>) – La cola a examinar</p>
+<dd class="field-odd"><p><strong>my_queue</strong> (<a class="reference internal" href="#queue-py"><span class="std std-ref">queue</span></a>) – La cola de la que se retornará el primer elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El primer elemento de la cola</p>
+<dd class="field-even"><p>Primer elemento de la cola.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>any</p>
 </dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Agregar un elemento</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+
+<span class="c1"># Retornar el primer elemento de la cola</span>
+<span class="n">elemento</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">peek</span><span class="p">(</span><span class="n">my_queue</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cola</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 1, &#39;elements&#39;: [{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}]}</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>Retornar el primer elemento de una cola vacia</strong>: Se intenta retornar el primer elemento de una cola vacía.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/tests.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Retornar el primer elemento</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">peek</span><span class="p">(</span><span class="n">cola</span><span class="p">))</span>
+<span class="c1"># Salida esperada: EmptyStructureError: queue is empty</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Retornar el primer elemento de la cola con elementos</strong>: Se retorna el primer elemento de la cola con elementos.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/tests.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Agregar un elemento</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+
+<span class="c1"># Retornar el primer elemento</span>
+<span class="n">elemento</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">peek</span><span class="p">(</span><span class="n">cola</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span><span class="c1"># Salida esperada: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">cola</span><span class="p">)</span>
+<span class="c1"># Salida esperada:</span>
+<span class="c1"># {&#39;size&#39;: 2, &#39;elements&#39;: [{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Queue.queue.is_empty">
-<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Queue.queue.is_empty" title="Link to this definition"></a></dt>
-<dd><p>Informa si la cola es vacía.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#is_empty" title="Link to this definition"></a></dt>
+<dd><p>Verifica si la cola está vacía.</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_queue</strong> (<em>queue</em>) – La cola a examinar</p>
+<dd class="field-odd"><p><strong>my_queue</strong> (<a class="reference internal" href="#queue-py"><span class="std std-ref">queue</span></a>) – La cola que se verificará si está vacía.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si la cola es vacia, <code class="docutils literal notranslate"><span class="pre">False</span></code> de lo contrario</p>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> si la cola está vacía, de lo contrario <code class="code docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Verificar si la cola está vacía</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">is_empty</span><span class="p">(</span><span class="n">cola</span><span class="p">))</span> <span class="c1"># Salida esperada: True</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>Validación si la cola está vacía</strong>: Se verifica si la cola está vacía.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/tests.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Verificar si la cola está vacía</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">is_empty</span><span class="p">(</span><span class="n">cola</span><span class="p">))</span> <span class="c1"># Salida esperada: True</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Validación si la no cola está vacía</strong>: Se verifica si la cola no está vacía.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/tests.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Agregar un elemento</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+
+<span class="c1"># Verificar si la cola está vacía</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">is_empty</span><span class="p">(</span><span class="n">cola</span><span class="p">))</span> <span class="c1"># Salida esperada: False</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Queue.queue.size">
-<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Queue.queue.size" title="Link to this definition"></a></dt>
-<dd><p>Informa el número de elementos en la cola</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_queue</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#size" title="Link to this definition"></a></dt>
+<dd><p>Retorna el tamaño de la cola.</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_queue</strong> (<em>queue</em>) – La cola a examinar</p>
+<dd class="field-odd"><p><strong>my_queue</strong> (<a class="reference internal" href="#queue-py"><span class="std std-ref">queue</span></a>) – La cola de la que se retornará el tamaño.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El número de elementos en la cola</p>
+<dd class="field-even"><p>Tamaño de la cola.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Agregar un elemento</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+
+<span class="c1"># Retornar el tamaño de la cola</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">cola</span><span class="p">))</span> <span class="c1"># Salida esperada: 1</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>Retornar el tamaño de la cola vacía</strong>: Se retorna el tamaño de una cola vacía.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/tests.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Retornar el tamaño de la cola</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">cola</span><span class="p">))</span> <span class="c1"># Salida esperada: 0</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Retornar el tamaño de la cola con elementos</strong>: Se retorna el tamaño de una cola con elementos.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/tests.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+
+<span class="c1"># Crear una nueva cola</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">new_queue</span><span class="p">()</span>
+
+<span class="c1"># Agregar un elemento</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">cola</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">enqueue</span><span class="p">(</span><span class="n">cola</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+
+<span class="c1"># Retornar el tamaño de la cola</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">cola</span><span class="p">))</span> <span class="c1"># Salida esperada: 2</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

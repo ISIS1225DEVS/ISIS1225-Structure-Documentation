@@ -2,12 +2,341 @@
 Stack - Pilas
 ####################################
 
+Las pilas son una estructura de datos que sigue el principio de LIFO (Last In First Out). Esto significa que el último elemento que se añade a la pila es el primero en ser eliminado. En este módulo se implementa una pila con las siguientes operaciones:
+
+Como usar la documentación
+#################################################
+
+Para leer la guía de uso de la documentación, por favor diríjase a la sección :ref:`Guía de documentación<guia-doc>`.
+
 
 stack.py
----------------------------------
+#################################################
 
-.. automodule:: DataStructures.Stack.stack
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+.. py:function:: new_stack()
+
+   Crea una nueva pila vacía.
+
+   Implementa una pila sobre alguna de las implementaciones de listas. Por ejemplo un :ref:`array_list<array-list>` o una :ref:`single_linked_list<single-linked-list>`.
+
+   .. admonition:: Implementación de la pila
+      :class: warning
+
+      La implementación de la pila se realiza sobre una :ref:`linked_list<single-linked-list>`. La pila se implementa como una lista enlazada simple, donde el último elemento de la lista es el tope de la pila.
+
+   :return: Una nueva pila vacía.
+   :rtype: :ref:`stack<stack.py>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Stack import stack as st
+
+         # Crear una nueva pila
+         stack = st.new_stack()
+
+         # En este ejemplo se crea una nueva pila vacía implementada sobre una linked list.
+         print(stack)
+         # Salida esperada: {'size': 0, 'first': None, 'last': None}
+
+.. py:function:: push(my_stack, element)
+
+   Añade el elemento ``element`` al tope de la pila ``my_stack``.
+
+   :param my_stack: La pila a la que se le añadirá el elemento.
+   :type my_stack: :ref:`stack<stack.py>`
+   :param element: El elemento que se añadirá a la pila.
+   :type element: Any
+
+   :return: La pila con el elemento añadido.
+   :rtype: :ref:`stack<stack.py>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Stack import stack as st
+
+         # Crear una nueva pila
+         stack = st.new_stack()
+         stack = st.push(stack, {'name': 'John', 'age': 25})
+         print(stack)
+         # Salida esperada: 
+         # {'size': 1, 
+         #  'first': {'info':{'name': 'John', 'age': 25}, 'next': None},
+         #  'last': {'info':{'name': 'John', 'age': 25}, 'next': None}
+         # }
+
+   :Test Scenarios:
+      - **Agrega un elemento a la pila vacía:** Se añade un elemento a una pila vacía.
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Stack import stack as st
+
+            # Crear una nueva pila
+            stack = st.new_stack()
+            stack = st.push(stack, {'name': 'John', 'age': 25})
+            print(stack)
+            # Salida esperada: 
+            # {'size': 1, 
+            #  'first': {'info':{'name': 'John', 'age': 25}, 'next': None},
+            #  'last': {'info':{'name': 'John', 'age': 25}, 'next': None}
+            # }
+
+      - **Agrega un elemento a la pila con elementos:** Se añade un elemento a una pila con elementos.
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Stack import stack as st
+
+            # Crear una nueva pila
+            stack = st.new_stack()
+            stack = st.push(stack, {'name': 'John', 'age': 25})
+            stack = st.push(stack, {'name': 'Jane', 'age': 30})
+            print(stack)
+            # Salida esperada: 
+            # {'size': 2, 
+            #  'first': {'info': {'name': 'John', 'age': 25}, 'next': {'info': {'name': 'Jane', 'age': 30}, 'next': None}},
+            #  'last': {'info': {'name': 'Jane', 'age': 30}, 'next': None}
+            # }
+
+.. py:function:: pop(my_stack)
+   
+   Elimina y retorna el elemento en el tope de la pila ``my_stack`` no vacía.
+
+   Si la pila está vacía, se lanza un error: :code:`EmptyStructureError: stack is empty`.
+
+   .. admonition:: Importante
+      :class: note
+
+      Para lanzar un error si la pila está vacía, puede utilizar el siguiente código:
+
+      .. code-block:: python
+
+         raise Exception('EmptyStructureError: stack is empty')
+
+   :param my_stack: La pila de la que se eliminará el elemento.
+   :type my_stack: :ref:`stack<stack.py>`
+
+   :return: Elemento retirado de la pila.
+   :rtype: any
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Stack import stack as st
+
+         # Crear una nueva pila
+         stack = st.new_stack()
+         stack = st.push(stack, {'name': 'John', 'age': 25})
+         stack = st.push(stack, {'name': 'Jane', 'age': 30})
+         elemento = st.pop(stack)
+         print(elemento)
+         # Salida esperada: {'name': 'Jane', 'age': 30}
+
+   :Test Scenarios:
+
+      - **Eliminar un elemento de la pila vacía:** Se intenta eliminar un elemento de una pila vacía.
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Stack import stack as st
+
+            # Crear una nueva pila
+            stack = st.new_stack()
+            print(st.pop(stack))
+            # Salida esperada: EmptyStructureError: stack is empty
+
+      - **Eliminar un elemento de la pila con un solo elemento:** Se elimina un elemento de una pila con un solo elemento.
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Stack import stack as st
+
+            # Crear una nueva pila
+            stack = st.new_stack()
+            stack = st.push(stack, {'name': 'John', 'age': 25})
+            elemento = st.pop(stack)
+            print(elemento) # Salida esperada: {'name': 'John', 'age': 25}
+            print(stack) # Salida esperada: {'size': 0, 'first': None, 'last': None}
+
+      - **Eliminar un elemento de la pila con varios elementos:** Se elimina un elemento de una pila con varios elementos.
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Stack import stack as st
+
+            # Crear una nueva pila
+            stack = st.new_stack()
+            stack = st.push(stack, {'name': 'John', 'age': 25})
+            stack = st.push(stack, {'name': 'Jane', 'age': 30})
+            elemento = st.pop(stack)
+            print(elemento) # Salida esperada: {'name': 'Jane', 'age': 30}
+            print(stack) 
+            # Salida esperada: 
+            # {'size': 1, 
+            #  'first': {'info': {'name': 'John', 'age': 25}, 'next': None}, 
+            #  'last': {'info': {'name': 'John', 'age': 25}, 'next': None}
+            # }
+
+.. py:function:: is_empty(my_stack)
+
+   Verifica si la pila ``my_stack`` está vacía.
+
+   :param my_stack: La pila a verificar.
+   :type my_stack: :ref:`stack<stack.py>`
+
+   :return: :code:`True` si la pila está vacía, de lo contrario :code:`False`.
+   :rtype: bool
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Stack import stack as st
+
+         # Crear una nueva pila
+         stack = st.new_stack()
+         print(st.is_empty(stack))
+         # Salida esperada: True
+
+   :Test Scenarios:
+      - **Pila vacía**: Se verifica si una pila vacía está vacía.
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Stack import stack as st
+
+            # Crear una nueva pila
+            stack = st.new_stack()
+            print(st.is_empty(stack))
+            # Salida esperada: True
+
+      - **Pila con elementos** Se verifica si una pila con elementos está vacía.
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Stack import stack as st
+
+            # Crear una nueva pila
+            stack = st.new_stack()
+            stack = st.push(stack, {'name': 'John', 'age': 25})
+            print(st.is_empty(stack))
+            # Salida esperada: False
+
+.. py:function:: top(my_stack)
+
+   Retorna sin eliminar el elemento en el tope de la pila ``my_stack``. 
+
+   Si la pila está vacía, se lanza un error: :code:`EmptyStructureError: stack is empty`.
+
+   .. admonition:: Importante
+      :class: note
+
+      Para lanzar un error si la pila está vacía, puede utilizar el siguiente código:
+
+      .. code-block:: python
+
+         raise Exception('EmptyStructureError: stack is empty')
+
+   :param my_stack: La pila de la que se retornará el elemento.
+   :type my_stack: :ref:`stack<stack.py>`
+
+   :return: Elemento en el tope de la pila.
+   :rtype: any
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Stack import stack as st
+
+         # Crear una nueva pila
+         stack = st.new_stack()
+         stack = st.push(stack, {'name': 'John', 'age': 25})
+         stack = st.push(stack, {'name': 'Jane', 'age': 30})
+         elemento = st.top(stack)
+         print(elemento) # Salida esperada: {'name': 'Jane', 'age': 30}
+         print(stack) # Salida esperada: {'size': 2, 'first': {'info': {'name': 'John', 'age': 25}, 'next': {'info': {'name': 'Jane', 'age': 30}, 'next': None}}, 'last': {'info': {'name': 'Jane', 'age': 30}, 'next': None}}
+
+   :Test Scenarios:
+
+      - **Obtener el tope de la pila vacía:** Se intenta obtener el tope de una pila vacía.
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Stack import stack as st
+
+            # Crear una nueva pila
+            stack = st.new_stack()
+            print(st.top(stack))
+            # Salida esperada: EmptyStructureError: stack is empty
+
+      - **Obtener el tope de la pila con un solo elemento:** Se obtiene el tope de una pila con un solo elemento.
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Stack import stack as st
+
+            # Crear una nueva pila
+            stack = st.new_stack()
+            stack = st.push(stack, {'name': 'John', 'age': 25})
+            elemento = st.top(stack)
+            print(elemento) # Salida esperada: {'name': 'John', 'age': 25}
+            print(stack) 
+            # Salida esperada: 
+            # {'size': 1, 
+            #  'first': {'info': {'name': 'John', 'age': 25}, 'next': None}, 
+            #  'last': {'info': {'name': 'John', 'age': 25}, 'next': None}
+            # }
+
+.. py:function:: size(my_stack)
+
+   Retorna el número de elementos en la pila ``my_stack``.
+
+   :param my_stack: La pila de la que se retornará el tamaño.
+   :type my_stack: :ref:`stack<stack.py>`
+
+   :return: Número de elementos en la pila.
+   :rtype: int
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Stack import stack as st
+
+         # Crear una nueva pila
+         stack = st.new_stack()
+         stack = st.push(stack, {'name': 'John', 'age': 25})
+         stack = st.push(stack, {'name': 'Jane', 'age': 30})
+         print(st.size(stack))
+         # Salida esperada: 2
+
+   :Test Scenarios:
+      - **Pila vacía:** Se obtiene el tamaño de una pila vacía.
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Stack import stack as st
+
+            # Crear una nueva pila
+            stack = st.new_stack()
+            print(st.size(stack))
+            # Salida esperada: 0
+
+      - **Pila con elementos:** Se obtiene el tamaño de una pila con elementos.
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Stack import stack as st
+
+            # Crear una nueva pila
+            stack = st.new_stack()
+            stack = st.push(stack, {'name': 'John', 'age': 25})
+            stack = st.push(stack, {'name': 'Jane', 'age': 30})
+            print(st.size(stack))
+            # Salida esperada: 2

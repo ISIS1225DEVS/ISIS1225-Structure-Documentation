@@ -54,13 +54,14 @@
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Set.html">Set - Conjunto</a></li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.List.html">List - Listas</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Stack - Pilas</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-DataStructures.Stack.stack">stack.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Stack.stack.new_stack"><code class="docutils literal notranslate"><span class="pre">new_stack()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Stack.stack.push"><code class="docutils literal notranslate"><span class="pre">push()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Stack.stack.pop"><code class="docutils literal notranslate"><span class="pre">pop()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Stack.stack.is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Stack.stack.top"><code class="docutils literal notranslate"><span class="pre">top()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#DataStructures.Stack.stack.size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#como-usar-la-documentacion">Como usar la documentación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stack-py">stack.py</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#new_stack"><code class="docutils literal notranslate"><span class="pre">new_stack()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#push"><code class="docutils literal notranslate"><span class="pre">push()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pop"><code class="docutils literal notranslate"><span class="pre">pop()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#is_empty"><code class="docutils literal notranslate"><span class="pre">is_empty()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#top"><code class="docutils literal notranslate"><span class="pre">top()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#size"><code class="docutils literal notranslate"><span class="pre">size()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -97,108 +98,407 @@
              
   <section id="stack-pilas">
 <h1>Stack - Pilas<a class="headerlink" href="#stack-pilas" title="Link to this heading"></a></h1>
-<section id="module-DataStructures.Stack.stack">
-<span id="stack-py"></span><h2>stack.py<a class="headerlink" href="#module-DataStructures.Stack.stack" title="Link to this heading"></a></h2>
+<p>Las pilas son una estructura de datos que sigue el principio de LIFO (Last In First Out). Esto significa que el último elemento que se añade a la pila es el primero en ser eliminado. En este módulo se implementa una pila con las siguientes operaciones:</p>
+<section id="como-usar-la-documentacion">
+<h2>Como usar la documentación<a class="headerlink" href="#como-usar-la-documentacion" title="Link to this heading"></a></h2>
+<p>Para leer la guía de uso de la documentación, por favor diríjase a la sección <a class="reference internal" href="documentation-guide.html#guia-doc"><span class="std std-ref">Guía de documentación</span></a>.</p>
+</section>
+<section id="stack-py">
+<h2>stack.py<a class="headerlink" href="#stack-py" title="Link to this heading"></a></h2>
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Stack.stack.new_stack">
-<span class="sig-name descname"><span class="pre">new_stack</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Stack.stack.new_stack" title="Link to this definition"></a></dt>
-<dd><p>Crea una pila vacia.</p>
-<p>Implementa una pila sobre una alguna de las implementaciones de listas</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="new_stack">
+<span class="sig-name descname"><span class="pre">new_stack</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#new_stack" title="Link to this definition"></a></dt>
+<dd><p>Crea una nueva pila vacía.</p>
+<p>Implementa una pila sobre alguna de las implementaciones de listas. Por ejemplo un <a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a> o una <a class="reference internal" href="DataStructures.List.html#single-linked-list"><span class="std std-ref">single_linked_list</span></a>.</p>
+<div class="warning admonition">
+<p class="admonition-title">Implementación de la pila</p>
+<p>La implementación de la pila se realiza sobre una <a class="reference internal" href="DataStructures.List.html#single-linked-list"><span class="std std-ref">linked_list</span></a>. La pila se implementa como una lista enlazada simple, donde el último elemento de la lista es el tope de la pila.</p>
+</div>
+<dl class="field-list">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Una pila vacia</p>
+<dd class="field-odd"><p>Una nueva pila vacía.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>stack</p>
+<dd class="field-even"><p><a class="reference internal" href="#stack-py"><span class="std std-ref">stack</span></a></p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+
+<span class="c1"># En este ejemplo se crea una nueva pila vacía implementada sobre una linked list.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 0, &#39;first&#39;: None, &#39;last&#39;: None}</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Stack.stack.push">
-<span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_stack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Stack.stack.push" title="Link to this definition"></a></dt>
-<dd><p>Agrega el elemento <code class="docutils literal notranslate"><span class="pre">element</span></code> en el tope de la pila.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="push">
+<span class="sig-name descname"><span class="pre">push</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_stack</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#push" title="Link to this definition"></a></dt>
+<dd><p>Añade el elemento <code class="docutils literal notranslate"><span class="pre">element</span></code> al tope de la pila <code class="docutils literal notranslate"><span class="pre">my_stack</span></code>.</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_stack</strong> (<em>stack</em>) – La pila donde se insetará el elemento</p></li>
-<li><p><strong>element</strong> (<em>any</em>) – El elemento a insertar</p></li>
+<li><p><strong>my_stack</strong> (<a class="reference internal" href="#stack-py"><span class="std std-ref">stack</span></a>) – La pila a la que se le añadirá el elemento.</p></li>
+<li><p><strong>element</strong> (<em>Any</em>) – El elemento que se añadirá a la pila.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>La pila modificada</p>
+<dd class="field-even"><p>La pila con el elemento añadido.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>stack</p>
+<dd class="field-odd"><p><a class="reference internal" href="#stack-py"><span class="std std-ref">stack</span></a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="c1"># Salida esperada:</span>
+<span class="c1"># {&#39;size&#39;: 1,</span>
+<span class="c1">#  &#39;first&#39;: {&#39;info&#39;:{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None},</span>
+<span class="c1">#  &#39;last&#39;: {&#39;info&#39;:{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None}</span>
+<span class="c1"># }</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><dl>
+<dt><strong>Agrega un elemento a la pila vacía:</strong> Se añade un elemento a una pila vacía.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="c1"># Salida esperada:</span>
+<span class="c1"># {&#39;size&#39;: 1,</span>
+<span class="c1">#  &#39;first&#39;: {&#39;info&#39;:{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None},</span>
+<span class="c1">#  &#39;last&#39;: {&#39;info&#39;:{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None}</span>
+<span class="c1"># }</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Agrega un elemento a la pila con elementos:</strong> Se añade un elemento a una pila con elementos.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="c1"># Salida esperada:</span>
+<span class="c1"># {&#39;size&#39;: 2,</span>
+<span class="c1">#  &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}, &#39;next&#39;: None}},</span>
+<span class="c1">#  &#39;last&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}, &#39;next&#39;: None}</span>
+<span class="c1"># }</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Stack.stack.pop">
-<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_stack</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Stack.stack.pop" title="Link to this definition"></a></dt>
-<dd><p>Retorna y elimina el elemento presente en el tope de la pila.</p>
-<p>Si la pila está vacía, retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="pop">
+<span class="sig-name descname"><span class="pre">pop</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_stack</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pop" title="Link to this definition"></a></dt>
+<dd><p>Elimina y retorna el elemento en el tope de la pila <code class="docutils literal notranslate"><span class="pre">my_stack</span></code> no vacía.</p>
+<p>Si la pila está vacía, se lanza un error: <code class="code docutils literal notranslate"><span class="pre">EmptyStructureError:</span> <span class="pre">stack</span> <span class="pre">is</span> <span class="pre">empty</span></code>.</p>
+<div class="note admonition">
+<p class="admonition-title">Importante</p>
+<p>Para lanzar un error si la pila está vacía, puede utilizar el siguiente código:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;EmptyStructureError: stack is empty&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_stack</strong> (<em>stack</em>) – La pila de donde se retirara el elemento</p>
+<dd class="field-odd"><p><strong>my_stack</strong> (<a class="reference internal" href="#stack-py"><span class="std std-ref">stack</span></a>) – La pila de la que se eliminará el elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El elemento del tope de la pila</p>
+<dd class="field-even"><p>Elemento retirado de la pila.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>any</p>
 </dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+<span class="n">elemento</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span>
+<span class="c1"># Salida esperada: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><dl>
+<dt><strong>Eliminar un elemento de la pila vacía:</strong> Se intenta eliminar un elemento de una pila vacía.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span>
+<span class="c1"># Salida esperada: EmptyStructureError: stack is empty</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Eliminar un elemento de la pila con un solo elemento:</strong> Se elimina un elemento de una pila con un solo elemento.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">elemento</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 0, &#39;first&#39;: None, &#39;last&#39;: None}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Eliminar un elemento de la pila con varios elementos:</strong> Se elimina un elemento de una pila con varios elementos.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+<span class="n">elemento</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="c1"># Salida esperada:</span>
+<span class="c1"># {&#39;size&#39;: 1,</span>
+<span class="c1">#  &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None},</span>
+<span class="c1">#  &#39;last&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None}</span>
+<span class="c1"># }</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Stack.stack.is_empty">
-<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_stack</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Stack.stack.is_empty" title="Link to this definition"></a></dt>
-<dd><p>Informa si la pila es vacía.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="is_empty">
+<span class="sig-name descname"><span class="pre">is_empty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_stack</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#is_empty" title="Link to this definition"></a></dt>
+<dd><p>Verifica si la pila <code class="docutils literal notranslate"><span class="pre">my_stack</span></code> está vacía.</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_stack</strong> (<em>stack</em>) – La pila a examinar</p>
+<dd class="field-odd"><p><strong>my_stack</strong> (<a class="reference internal" href="#stack-py"><span class="std std-ref">stack</span></a>) – La pila a verificar.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si la pila es vacia, <code class="docutils literal notranslate"><span class="pre">False</span></code> de lo contrario</p>
+<dd class="field-even"><p><code class="code docutils literal notranslate"><span class="pre">True</span></code> si la pila está vacía, de lo contrario <code class="code docutils literal notranslate"><span class="pre">False</span></code>.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
 </dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">is_empty</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span>
+<span class="c1"># Salida esperada: True</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><dl>
+<dt><strong>Pila vacía</strong>: Se verifica si una pila vacía está vacía.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">is_empty</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span>
+<span class="c1"># Salida esperada: True</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Pila con elementos</strong> Se verifica si una pila con elementos está vacía.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">is_empty</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span>
+<span class="c1"># Salida esperada: False</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Stack.stack.top">
-<span class="sig-name descname"><span class="pre">top</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_stack</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Stack.stack.top" title="Link to this definition"></a></dt>
-<dd><p>Retorna el elemento en tope de la pila, sin eliminarlo de la pila.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="top">
+<span class="sig-name descname"><span class="pre">top</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_stack</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#top" title="Link to this definition"></a></dt>
+<dd><p>Retorna sin eliminar el elemento en el tope de la pila <code class="docutils literal notranslate"><span class="pre">my_stack</span></code>.</p>
+<p>Si la pila está vacía, se lanza un error: <code class="code docutils literal notranslate"><span class="pre">EmptyStructureError:</span> <span class="pre">stack</span> <span class="pre">is</span> <span class="pre">empty</span></code>.</p>
+<div class="note admonition">
+<p class="admonition-title">Importante</p>
+<p>Para lanzar un error si la pila está vacía, puede utilizar el siguiente código:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;EmptyStructureError: stack is empty&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_stack</strong> (<em>stack</em>) – La pila a examinar</p>
+<dd class="field-odd"><p><strong>my_stack</strong> (<a class="reference internal" href="#stack-py"><span class="std std-ref">stack</span></a>) – La pila de la que se retornará el elemento.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El elemento en el tope de la pila</p>
+<dd class="field-even"><p>Elemento en el tope de la pila.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>any</p>
 </dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+<span class="n">elemento</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">top</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 2, &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}, &#39;next&#39;: None}}, &#39;last&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}, &#39;next&#39;: None}}</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><dl>
+<dt><strong>Obtener el tope de la pila vacía:</strong> Se intenta obtener el tope de una pila vacía.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">top</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span>
+<span class="c1"># Salida esperada: EmptyStructureError: stack is empty</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Obtener el tope de la pila con un solo elemento:</strong> Se obtiene el tope de una pila con un solo elemento.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">elemento</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">top</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
+<span class="c1"># Salida esperada:</span>
+<span class="c1"># {&#39;size&#39;: 1,</span>
+<span class="c1">#  &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None},</span>
+<span class="c1">#  &#39;last&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None}</span>
+<span class="c1"># }</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Stack.stack.size">
-<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_stack</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Stack.stack.size" title="Link to this definition"></a></dt>
-<dd><p>Informa el número de elementos en la pila.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="size">
+<span class="sig-name descname"><span class="pre">size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_stack</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#size" title="Link to this definition"></a></dt>
+<dd><p>Retorna el número de elementos en la pila <code class="docutils literal notranslate"><span class="pre">my_stack</span></code>.</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>my_stack</strong> (<em>stack</em>) – La pila a examinar</p>
+<dd class="field-odd"><p><strong>my_stack</strong> (<a class="reference internal" href="#stack-py"><span class="std std-ref">stack</span></a>) – La pila de la que se retornará el tamaño.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El número de elementos en la pila</p>
+<dd class="field-even"><p>Número de elementos en la pila.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span>
+<span class="c1"># Salida esperada: 2</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><dl>
+<dt><strong>Pila vacía:</strong> Se obtiene el tamaño de una pila vacía.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span>
+<span class="c1"># Salida esperada: 0</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>Pila con elementos:</strong> Se obtiene el tamaño de una pila con elementos.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
+
+<span class="c1"># Crear una nueva pila</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">stack</span><span class="p">))</span>
+<span class="c1"># Salida esperada: 2</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

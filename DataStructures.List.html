@@ -1032,7 +1032,7 @@ Se incrementa el tamaño de la lista en 1.</p>
 <dd><p>Función de comparación por defecto a modo de ejemplo.</p>
 <p>Esta función de comparación por defecto compara dos elementos y retorna <code class="docutils literal notranslate"><span class="pre">0</span></code> si son iguales, <code class="docutils literal notranslate"><span class="pre">1</span></code> si el <code class="docutils literal notranslate"><span class="pre">element_1</span></code> es mayor que <code class="docutils literal notranslate"><span class="pre">element_2</span></code> y <code class="docutils literal notranslate"><span class="pre">-1</span></code> si <code class="docutils literal notranslate"><span class="pre">element_1</span></code> es menor que <code class="docutils literal notranslate"><span class="pre">element_2</span></code>.</p>
 <div class="note admonition">
-<p class="admonition-title">Imporante</p>
+<p class="admonition-title">Importante</p>
 <p>Una <code class="docutils literal notranslate"><span class="pre">cmp_function</span></code> es una función de comparación que recibe dos elementos y retorna un valor entero.
 Use esta función como referencia para crear su propia función de comparación donde los criterios de comparación pueden ser definidos dependiendo del tipo de elementos y su contexto.</p>
 </div>
@@ -1070,7 +1070,7 @@ Use esta función como referencia para crear su propia función de comparación 
 <p>Para comparar los elementos, se utiliza la función de comparación <code class="docutils literal notranslate"><span class="pre">cmp_function</span></code>.
 Si el elemento está presente retorna su posición, en caso contrario retorna <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p>
 <div class="note admonition">
-<p class="admonition-title">Imporante</p>
+<p class="admonition-title">Importante</p>
 <p>Una <code class="docutils literal notranslate"><span class="pre">cmp_function</span></code> es una función de comparación que recibe dos elementos y retorna un valor entero. Este valor entero debe ser <code class="docutils literal notranslate"><span class="pre">0</span></code> si los elementos son iguales, <code class="docutils literal notranslate"><span class="pre">1</span></code> si el primer elemento es mayor que el segundo y <code class="docutils literal notranslate"><span class="pre">-1</span></code> en caso contrario.
 Use la función de comparación por defecto <a class="reference internal" href="#default-function-array"><span class="std std-ref">default_function</span></a> como referencia para crear su propia función de comparación.</p>
 </div>
@@ -1696,7 +1696,7 @@ En caso de que la lista esté vacía, el primer y último nodo de la lista será
 <p>Retorna el primer elemento de la lista. Si la lista está vacía, lanza un error <code class="code docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">list</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code>.
 Esta función no elimina el elemento de la lista.</p>
 <div class="note admonition">
-<p class="admonition-title">Imporante</p>
+<p class="admonition-title">Importante</p>
 <p>Para lanzar un error si la lista está vacía, puede utilizar el siguiente código:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">is_empty</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;IndexError: list index out of range&#39;</span><span class="p">)</span>
@@ -1768,7 +1768,7 @@ Esta función no elimina el elemento de la lista.</p>
 <p>Retorna el último elemento de la lista. Si la lista está vacía, lanza un error <code class="code docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">list</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code>.
 Esta función no elimina el elemento de la lista.</p>
 <div class="note admonition">
-<p class="admonition-title">Imporante</p>
+<p class="admonition-title">Importante</p>
 <p>Para lanzar un error si la lista está vacía, puede utilizar el siguiente código:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">is_empty</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;IndexError: list index out of range&#39;</span><span class="p">)</span>
@@ -1841,7 +1841,7 @@ Esta función no elimina el elemento de la lista.</p>
 Si la posición no es válida, lanza un error <code class="code docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">list</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code>.
 Esta función no elimina el elemento de la lista.</p>
 <div class="note admonition">
-<p class="admonition-title">Imporante</p>
+<p class="admonition-title">Importante</p>
 <p>Para lanzar un error si la posición no es válida, puede utilizar el siguiente código:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;=</span> <span class="n">size</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;IndexError: list index out of range&#39;</span><span class="p">)</span>
@@ -1918,7 +1918,7 @@ Esta función no elimina el elemento de la lista.</p>
 <p>Elimina el elemento en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code>, la cual debe ser igual o mayor a cero y menor al tamaño de la lista. <code class="code docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">pos</span> <span class="pre">&lt;</span> <span class="pre">size(my_list)</span></code>
 Si la posición no es válida, lanza un error <code class="code docutils literal notranslate"><span class="pre">IndexError:</span> <span class="pre">list</span> <span class="pre">index</span> <span class="pre">out</span> <span class="pre">of</span> <span class="pre">range</span></code>.</p>
 <div class="note admonition">
-<p class="admonition-title">Imporante</p>
+<p class="admonition-title">Importante</p>
 <p>Para lanzar un error si la posición no es válida, puede utilizar el siguiente código:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;=</span> <span class="n">size</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;IndexError: list index out of range&#39;</span><span class="p">)</span>
@@ -2136,7 +2136,7 @@ Si la lista está vacía, lanza un error <code class="code docutils literal notr
 <p>Inserta el elemento en la posición <code class="docutils literal notranslate"><span class="pre">pos</span></code>, la cual debe ser igual o mayor a cero y menor o igual al tamaño de la lista. <code class="code docutils literal notranslate"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">pos</span> <span class="pre">&lt;=</span> <span class="pre">size(my_list)</span></code>.
 Se incrementa el tamaño de la lista en 1.</p>
 <div class="note admonition">
-<p class="admonition-title">Imporante</p>
+<p class="admonition-title">Importante</p>
 <p>Para lanzar un error si la posición no es válida, puede utilizar el siguiente código:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">pos</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">pos</span> <span class="o">&gt;</span> <span class="n">size</span><span class="p">(</span><span class="n">my_list</span><span class="p">):</span>
    <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s1">&#39;IndexError: list index out of range&#39;</span><span class="p">)</span>
@@ -2227,7 +2227,7 @@ Se incrementa el tamaño de la lista en 1.</p>
 <dd><p>Función de comparación por defecto a modo de ejemplo.</p>
 <p>Esta función de comparación por defecto compara dos elementos y retorna <code class="docutils literal notranslate"><span class="pre">0</span></code> si son iguales, <code class="docutils literal notranslate"><span class="pre">1</span></code> si el <code class="docutils literal notranslate"><span class="pre">element_1</span></code> es mayor que <code class="docutils literal notranslate"><span class="pre">element_2</span></code> y <code class="docutils literal notranslate"><span class="pre">-1</span></code> si <code class="docutils literal notranslate"><span class="pre">element_1</span></code> es menor que <code class="docutils literal notranslate"><span class="pre">element_2</span></code>.</p>
 <div class="note admonition">
-<p class="admonition-title">Imporante</p>
+<p class="admonition-title">Importante</p>
 <p>Una <code class="docutils literal notranslate"><span class="pre">cmp_function</span></code> es una función de comparación que recibe dos elementos y retorna un valor entero.
 Use esta función como referencia para crear su propia función de comparación donde los criterios de comparación pueden ser definidos dependiendo del tipo de elementos y su contexto.</p>
 </div>
@@ -2265,7 +2265,7 @@ Use esta función como referencia para crear su propia función de comparación 
 <p>Para comparar los elementos, se utiliza la función de comparación <code class="docutils literal notranslate"><span class="pre">cmp_function</span></code>.
 Si el elemento está presente retorna su posición, en caso contrario retorna <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p>
 <div class="note admonition">
-<p class="admonition-title">Imporante</p>
+<p class="admonition-title">Importante</p>
 <p>Una <code class="docutils literal notranslate"><span class="pre">cmp_function</span></code> es una función de comparación que recibe dos elementos y retorna un valor entero. Este valor entero debe ser <code class="docutils literal notranslate"><span class="pre">0</span></code> si los elementos son iguales, <code class="docutils literal notranslate"><span class="pre">1</span></code> si el primer elemento es mayor que el segundo y <code class="docutils literal notranslate"><span class="pre">-1</span></code> en caso contrario.
 Use la función de comparación por defecto <a class="reference internal" href="#default-function-single-linked"><span class="std std-ref">default_function</span></a> como referencia para crear su propia función de comparación.</p>
 </div>

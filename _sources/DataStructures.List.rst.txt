@@ -749,7 +749,7 @@ array\_list.py
 
    Esta función de comparación por defecto compara dos elementos y retorna ``0`` si son iguales, ``1`` si el ``element_1`` es mayor que ``element_2`` y ``-1`` si ``element_1`` es menor que ``element_2``.
 
-   .. admonition:: Imporante
+   .. admonition:: Importante
       :class: note
 
       Una ``cmp_function`` es una función de comparación que recibe dos elementos y retorna un valor entero. 
@@ -782,7 +782,7 @@ array\_list.py
    Para comparar los elementos, se utiliza la función de comparación ``cmp_function``.
    Si el elemento está presente retorna su posición, en caso contrario retorna ``-1``.
 
-   .. admonition:: Imporante
+   .. admonition:: Importante
       :class: note
 
       Una ``cmp_function`` es una función de comparación que recibe dos elementos y retorna un valor entero. Este valor entero debe ser ``0`` si los elementos son iguales, ``1`` si el primer elemento es mayor que el segundo y ``-1`` en caso contrario.
@@ -1320,7 +1320,7 @@ single\_linked\_list.py
    Retorna el primer elemento de la lista. Si la lista está vacía, lanza un error :code:`IndexError: list index out of range`.
    Esta función no elimina el elemento de la lista.
 
-   .. admonition:: Imporante
+   .. admonition:: Importante
       :class: note
 
       Para lanzar un error si la lista está vacía, puede utilizar el siguiente código:
@@ -1384,7 +1384,7 @@ single\_linked\_list.py
    Retorna el último elemento de la lista. Si la lista está vacía, lanza un error :code:`IndexError: list index out of range`.
    Esta función no elimina el elemento de la lista.
 
-   .. admonition:: Imporante
+   .. admonition:: Importante
       :class: note
 
       Para lanzar un error si la lista está vacía, puede utilizar el siguiente código:
@@ -1449,7 +1449,7 @@ single\_linked\_list.py
    Si la posición no es válida, lanza un error :code:`IndexError: list index out of range`.
    Esta función no elimina el elemento de la lista.
 
-   .. admonition:: Imporante
+   .. admonition:: Importante
       :class: note
 
       Para lanzar un error si la posición no es válida, puede utilizar el siguiente código:
@@ -1516,7 +1516,7 @@ single\_linked\_list.py
    Elimina el elemento en la posición ``pos``, la cual debe ser igual o mayor a cero y menor al tamaño de la lista. :code:`0 <= pos < size(my_list)`
    Si la posición no es válida, lanza un error :code:`IndexError: list index out of range`.
 
-   .. admonition:: Imporante
+   .. admonition:: Importante
       :class: note
 
       Para lanzar un error si la posición no es válida, puede utilizar el siguiente código:
@@ -1702,7 +1702,7 @@ single\_linked\_list.py
    Inserta el elemento en la posición ``pos``, la cual debe ser igual o mayor a cero y menor o igual al tamaño de la lista. :code:`0 <= pos <= size(my_list)`.
    Se incrementa el tamaño de la lista en 1.
 
-   .. admonition:: Imporante
+   .. admonition:: Importante
       :class: note
 
       Para lanzar un error si la posición no es válida, puede utilizar el siguiente código:
@@ -1786,7 +1786,7 @@ single\_linked\_list.py
 
    Esta función de comparación por defecto compara dos elementos y retorna ``0`` si son iguales, ``1`` si el ``element_1`` es mayor que ``element_2`` y ``-1`` si ``element_1`` es menor que ``element_2``.
 
-   .. admonition:: Imporante
+   .. admonition:: Importante
       :class: note
 
       Una ``cmp_function`` es una función de comparación que recibe dos elementos y retorna un valor entero. 
@@ -1818,7 +1818,7 @@ single\_linked\_list.py
    Para comparar los elementos, se utiliza la función de comparación ``cmp_function``.
    Si el elemento está presente retorna su posición, en caso contrario retorna ``-1``.
 
-   .. admonition:: Imporante
+   .. admonition:: Importante
       :class: note
 
       Una ``cmp_function`` es una función de comparación que recibe dos elementos y retorna un valor entero. Este valor entero debe ser ``0`` si los elementos son iguales, ``1`` si el primer elemento es mayor que el segundo y ``-1`` en caso contrario.

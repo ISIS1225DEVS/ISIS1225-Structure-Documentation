@@ -2,11 +2,354 @@
 Queue - Colas
 ####################################
 
-queue.py
----------------------------------
+Las colas son una estructura de datos que sigue el principio de FIFO (First In First Out). Es decir, el primer elemento que entra en la cola es el primero en salir. Las colas son útiles para almacenar elementos en un orden específico y recuperarlos en el mismo orden. Las colas se utilizan comúnmente en aplicaciones de procesamiento de datos, como la impresión de documentos, la gestión de tareas y la programación de tareas.
 
-.. automodule:: DataStructures.Queue.queue
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+Como usar la documentación
+#################################################
+
+Para leer la guía de uso de la documentación, por favor diríjase a la sección :ref:`Guía de documentación<guia-doc>`.
+
+queue.py
+#################################################
+
+.. py:function:: new_queue()
+
+   Crea una nueva cola vacía.
+
+   Implementa una pila sobre alguna de las implementaciones de listas. Por ejemplo un :ref:`array_list<array-list>` o una :ref:`single_linked_list<single-linked-list>`
+
+   .. admonition:: Implementación de la pila
+      :class: warning
+
+      La implementación de la cola se realiza sobre una :ref:`array_list<array-list>`. La cola se implementa como una lista array, donde el último elemento de la lista es el último elemento de la cola.
+
+   :return: Una nueva cola vacía.
+   :rtype: :ref:`queue<queue.py>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Queue import queue as queue
+
+         # Crear una nueva cola
+         queue = queue.new_queue()
+         print(queue) # Salida esperada: {'size': 0, 'elements': []}
+
+.. py:function:: enqueue(my_queue, element)
+
+   Agrega un elemento al final de la cola.
+
+   :param my_queue: La cola a la que se le agregará el elemento.
+   :type my_queue: :ref:`queue<queue.py>`
+
+   :param element: El elemento que se agregará a la cola.
+   :type element: any
+
+   :return: La cola con el elemento agregado.
+   :rtype: :ref:`queue<queue.py>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Queue import queue as queue
+
+         # Crear una nueva cola
+         cola = queue.new_queue()
+
+         # Agregar un elemento
+         cola = queue.enqueue(cola, {'name': 'John', 'age': 25})
+         print(cola) # Salida esperada: {'size': 1, 'elements': [{'name': 'John', 'age': 25}]}
+
+   :Test Scenarios:
+      - **Agrega en elemento a la cola vacía**: Se agrega un elemento a una cola vacía.
+      
+         .. code-block:: python
+
+            # App/tests.py
+            from DataStructures.Queue import queue as queue
+
+            # Crear una nueva cola
+            cola = queue.new_queue()
+
+            # Agregar un elemento
+            cola = queue.enqueue(cola, {'name': 'John', 'age': 25})
+            print(cola) 
+            # Salida esperada: {'size': 1, 'elements': [{'name': 'John', 'age': 25}]}
+
+      - **Agrega en elemento a la cola con elementos**: Se agrega un elemento a una cola con elementos.
+
+         .. code-block:: python
+
+            # App/tests.py
+            from DataStructures.Queue import queue as queue
+
+            # Crear una nueva cola
+            cola = queue.new_queue()
+
+            # Agregar un elemento
+            cola = queue.enqueue(cola, {'name': 'John', 'age': 25})
+            cola = queue.enqueue(cola, {'name': 'Jane', 'age': 30})
+            print(cola) 
+            # Salida esperada: 
+            # {'size': 2, 'elements': [{'name': 'John', 'age': 25}, {'name': 'Jane', 'age': 30}]}
+
+.. py:function:: dequeue(my_queue)
+
+   Elimina y retorna el primer elemento de la cola.
+
+   Si la cola está vacía, lanza un error: :code:`EmptyStructureError: queue is empty`.
+
+   .. admonition:: Importante
+      :class: note
+
+      Para lanzar un error si la cola está vacía, puede utilizar el siguiente código:
+
+      .. code-block:: python
+
+         raise Exception('EmptyStructureError: queue is empty')
+
+   :param my_queue: La cola de la que se eliminará el primer elemento.
+   :type my_queue: :ref:`queue<queue.py>`
+
+   :return: Elemento retirado de la cola.
+   :rtype: any
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Queue import queue as queue
+
+         # Crear una nueva cola
+         cola = queue.new_queue()
+
+         # Agregar un elemento
+         cola = queue.enqueue(cola, {'name': 'John', 'age': 25})
+
+         # Eliminar el primer elemento de la cola
+         elemento = queue.dequeue(my_queue)
+         print(elemento) # Salida esperada: {'name': 'John', 'age': 25}
+         print(cola) # Salida esperada: {'size': 0, 'elements': []}
+
+   :Test Scenarios:
+      - **Retornar el primer elemento de una cola vacia**: Se intenta eliminar el primer elemento de una cola vacía.
+
+         .. code-block:: python
+
+            # App/tests.py
+            from DataStructures.Queue import queue as queue
+
+            # Crear una nueva cola
+            cola = queue.new_queue()
+
+            # Eliminar el primer elemento
+            print(queue.dequeue(cola))
+            # Salida esperada: EmptyStructureError: queue is empty
+
+      - **Eliminar el primer elemento de la cola con elementos**: Se elimina el primer elemento de la cola con elementos.
+
+         .. code-block:: python
+
+            # App/tests.py
+            from DataStructures.Queue import queue as queue
+
+            # Crear una nueva cola
+            cola = queue.new_queue()
+
+            # Agregar un elemento
+            cola = queue.enqueue(cola, {'name': 'John', 'age': 25})
+            cola = queue.enqueue(cola, {'name': 'Jane', 'age': 30})
+
+            # Eliminar el primer elemento
+            elemento = queue.dequeue(cola)
+
+            print(elemento)# Salida esperada: {'name': 'John', 'age': 25}
+
+            print(cola) 
+            # Salida esperada: {'size': 1, 'elements': [{'name': 'Jane', 'age': 30}]}
+
+.. py:function:: peek(my_queue)
+
+   Retorna el primer elemento de la cola sin eliminarlo.
+
+   Si la cola está vacía, lanza un error: :code:`EmptyStructureError: queue is empty`.
+
+   .. admonition:: Importante
+      :class: note
+
+      Para lanzar un error si la cola está vacía, puede utilizar el siguiente código:
+
+      .. code-block:: python
+
+         raise Exception('EmptyStructureError: queue is empty')
+
+   :param my_queue: La cola de la que se retornará el primer elemento.
+   :type my_queue: :ref:`queue<queue.py>`
+
+   :return: Primer elemento de la cola.
+   :rtype: any
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Queue import queue as queue
+
+         # Crear una nueva cola
+         cola = queue.new_queue()
+
+         # Agregar un elemento
+         cola = queue.enqueue(cola, {'name': 'John', 'age': 25})
+
+         # Retornar el primer elemento de la cola
+         elemento = queue.peek(my_queue)
+         print(elemento) # Salida esperada: {'name': 'John', 'age': 25}
+         print(cola) # Salida esperada: {'size': 1, 'elements': [{'name': 'John', 'age': 25}]}
+
+   :Test Scenarios:
+      - **Retornar el primer elemento de una cola vacia**: Se intenta retornar el primer elemento de una cola vacía.
+
+         .. code-block:: python
+
+            # App/tests.py
+            from DataStructures.Queue import queue as queue
+
+            # Crear una nueva cola
+            cola = queue.new_queue()
+
+            # Retornar el primer elemento
+            print(queue.peek(cola))
+            # Salida esperada: EmptyStructureError: queue is empty
+
+      - **Retornar el primer elemento de la cola con elementos**: Se retorna el primer elemento de la cola con elementos.
+
+         .. code-block:: python
+
+            # App/tests.py
+            from DataStructures.Queue import queue as queue
+
+            # Crear una nueva cola
+            cola = queue.new_queue()
+
+            # Agregar un elemento
+            cola = queue.enqueue(cola, {'name': 'John', 'age': 25})
+            cola = queue.enqueue(cola, {'name': 'Jane', 'age': 30})
+
+            # Retornar el primer elemento
+            elemento = queue.peek(cola)
+
+            print(elemento)# Salida esperada: {'name': 'John', 'age': 25}
+
+            print(cola)
+            # Salida esperada:
+            # {'size': 2, 'elements': [{'name': 'John', 'age': 25}, {'name': 'Jane', 'age': 30}]}
+
+.. py:function:: is_empty(my_queue)
+
+   Verifica si la cola está vacía.
+
+   :param my_queue: La cola que se verificará si está vacía.
+   :type my_queue: :ref:`queue<queue.py>`
+
+   :return: :code:`True` si la cola está vacía, de lo contrario :code:`False`.
+   :rtype: bool
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Queue import queue as queue
+
+         # Crear una nueva cola
+         cola = queue.new_queue()
+
+         # Verificar si la cola está vacía
+         print(queue.is_empty(cola)) # Salida esperada: True
+
+   :Test Scenarios:
+      - **Validación si la cola está vacía**: Se verifica si la cola está vacía.
+
+         .. code-block:: python
+
+            # App/tests.py
+            from DataStructures.Queue import queue as queue
+
+            # Crear una nueva cola
+            cola = queue.new_queue()
+
+            # Verificar si la cola está vacía
+            print(queue.is_empty(cola)) # Salida esperada: True
+
+      - **Validación si la no cola está vacía**: Se verifica si la cola no está vacía.
+
+         .. code-block:: python
+
+            # App/tests.py
+            from DataStructures.Queue import queue as queue
+
+            # Crear una nueva cola
+            cola = queue.new_queue()
+
+            # Agregar un elemento
+            cola = queue.enqueue(cola, {'name': 'John', 'age': 25})
+
+            # Verificar si la cola está vacía
+            print(queue.is_empty(cola)) # Salida esperada: False
+
+.. py:function:: size(my_queue)
+
+   Retorna el tamaño de la cola.
+
+   :param my_queue: La cola de la que se retornará el tamaño.
+   :type my_queue: :ref:`queue<queue.py>`
+
+   :return: Tamaño de la cola.
+   :rtype: int
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Queue import queue as queue
+
+         # Crear una nueva cola
+         cola = queue.new_queue()
+
+         # Agregar un elemento
+         cola = queue.enqueue(cola, {'name': 'John', 'age': 25})
+
+         # Retornar el tamaño de la cola
+         print(queue.size(cola)) # Salida esperada: 1
+
+   :Test Scenarios:
+      - **Retornar el tamaño de la cola vacía**: Se retorna el tamaño de una cola vacía.
+
+         .. code-block:: python
+
+            # App/tests.py
+            from DataStructures.Queue import queue as queue
+
+            # Crear una nueva cola
+            cola = queue.new_queue()
+
+            # Retornar el tamaño de la cola
+            print(queue.size(cola)) # Salida esperada: 0
+
+      - **Retornar el tamaño de la cola con elementos**: Se retorna el tamaño de una cola con elementos.
+
+         .. code-block:: python
+
+            # App/tests.py
+            from DataStructures.Queue import queue as queue
+
+            # Crear una nueva cola
+            cola = queue.new_queue()
+
+            # Agregar un elemento
+            cola = queue.enqueue(cola, {'name': 'John', 'age': 25})
+            cola = queue.enqueue(cola, {'name': 'Jane', 'age': 30})
+
+            # Retornar el tamaño de la cola
+            print(queue.size(cola)) # Salida esperada: 2
