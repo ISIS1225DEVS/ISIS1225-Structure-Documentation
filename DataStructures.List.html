@@ -106,7 +106,15 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#ordenamientos">Ordenamientos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ordenamientos">Ordenamientos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#default_sort_criteria"><code class="docutils literal notranslate"><span class="pre">default_sort_criteria()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selection_sort"><code class="docutils literal notranslate"><span class="pre">selection_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#insertion_sort"><code class="docutils literal notranslate"><span class="pre">insertion_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shell_sort"><code class="docutils literal notranslate"><span class="pre">shell_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#merge_sort"><code class="docutils literal notranslate"><span class="pre">merge_sort()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quick_sort"><code class="docutils literal notranslate"><span class="pre">quick_sort()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="DataStructures.Stack.html">Stack - Pilas</a></li>
@@ -2587,7 +2595,521 @@ Si la posición no es válida, lanza un error <code class="code docutils literal
 </section>
 <section id="ordenamientos">
 <h2>Ordenamientos<a class="headerlink" href="#ordenamientos" title="Link to this heading"></a></h2>
-<p>Proximamente …</p>
+<div class="error admonition">
+<p class="admonition-title">Importante</p>
+<p>Las funciones de ordenamientos presentadas a continuación deberán ser implementadas tanto en la implementación de arreglos como en la de listas enlazadas simples.</p>
+<p>Por motivos prácticos, los ejemplos y pruebas de estas funciones se realizarán en la implementación de <a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a></p>
+</div>
+<dl class="py function" id="default-sort-criteria">
+<dt class="sig sig-object py" id="default_sort_criteria">
+<span class="sig-name descname"><span class="pre">default_sort_criteria</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">element_1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element_2</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#default_sort_criteria" title="Link to this definition"></a></dt>
+<dd><p>Función de comparación por defecto para ordenar elementos.</p>
+<p>Compara dos elementos y retorna <code class="docutils literal notranslate"><span class="pre">True</span></code> si el primer elemento es mayor que el segundo y <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+<div class="note admonition">
+<p class="admonition-title">Importante</p>
+<p>Una <code class="docutils literal notranslate"><span class="pre">sort_criteria</span></code> es una función de comparación que recibe dos elementos y retorna un valor booleano.
+Use esta función como referencia para crear su propia función de comparación donde los criterios de comparación pueden ser definidos dependiendo del tipo de elementos y su contexto.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>element_1</strong> (<em>any</em>) – Primer elemento a comparar.</p></li>
+<li><p><strong>element_2</strong> (<em>any</em>) – Segundo elemento a comparar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si el primer elemento es mayor que el segundo, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+<dt class="field-even">Code example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">default_sort_criteria</span><span class="p">(</span><span class="n">element_1</span><span class="p">,</span> <span class="n">element_2</span><span class="p">):</span>
+
+   <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">False</span>
+   <span class="k">if</span> <span class="n">element1</span> <span class="o">&lt;</span> <span class="n">element2</span><span class="p">:</span>
+      <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">True</span>
+   <span class="k">return</span> <span class="n">is_sorted</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="selection_sort">
+<span class="sig-name descname"><span class="pre">selection_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#selection_sort" title="Link to this definition"></a></dt>
+<dd><p>Ordena una lista utilizando el algoritmo de ordenamiento <strong>Selecion Sort</strong>.</p>
+<p>Se recorre la lista y se selecciona el elemento más pequeño y se intercambia con el primer elemento.
+Luego se selecciona el segundo elemento más pequeño y se intercambia con el segundo elemento, y así sucesivamente.</p>
+<div class="note admonition">
+<p class="admonition-title">Ayuda</p>
+<p>Una <code class="docutils literal notranslate"><span class="pre">sort_crit</span></code> es una función de comparación que recibe dos elementos y retorna un valor booleano.
+Use la función de criterio de ordenamiento por defecto <a class="reference internal" href="#default-sort-criteria"><span class="std std-ref">default_sort_criteria</span></a> como referencia para crear su propio criterio de ordenamiento.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Nota</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de forma ascendente o descendente.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a> o <a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a>) – Lista a ordenar.</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a> o <a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Crea una lista vacía</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">selection_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>Lista desordenada</strong>: Se ordena una lista desordenada.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista desordenada</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">selection_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Lista ordenada</strong>: Se ordena una lista ordenada.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista ordenada</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">selection_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Lista invertida</strong>: Se ordena una lista invertida.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista invertida</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">selection_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="insertion_sort">
+<span class="sig-name descname"><span class="pre">insertion_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#insertion_sort" title="Link to this definition"></a></dt>
+<dd><p>Ordena una lista utilizando el algoritmo de ordenamiento <strong>Insertion Sort</strong>.</p>
+<p>Se recorre la lista y se inserta cada elemento en su posición correcta.Se repite este proceso hasta que todos los elementos estén ordenados.</p>
+<div class="note admonition">
+<p class="admonition-title">Importante</p>
+<p>Una <code class="docutils literal notranslate"><span class="pre">sort_crit</span></code> es una función de comparación que recibe dos elementos y retorna un valor booleano.
+Use la función de criterio de ordenamiento por defecto <a class="reference internal" href="#default-sort-criteria"><span class="std std-ref">default_sort_criteria</span></a> como referencia para crear su propio criterio de ordenamiento.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Nota</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de forma ascendente o descendente.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a> o <a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a>) – Lista a ordenar.</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a> o <a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Crea una lista vacía</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">insertion_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>Lista desordenada</strong>: Se ordena una lista desordenada.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista desordenada</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">insertion_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Lista ordenada</strong>: Se ordena una lista ordenada.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista ordenada</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">insertion_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Lista invertida</strong>: Se ordena una lista invertida.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista invertida</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">insertion_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shell_sort">
+<span class="sig-name descname"><span class="pre">shell_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#shell_sort" title="Link to this definition"></a></dt>
+<dd><p>Ordena una lista utilizando el algoritmo de ordenamiento <strong>Shell Sort</strong>.</p>
+<p>Se recorre la lista y se ordena los elementos con un gap determinado.
+Se repite el proceso con un gap menor hasta que la lista esté ordenada.</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<div class="note admonition">
+<p class="admonition-title">Importante</p>
+<p>Una <code class="docutils literal notranslate"><span class="pre">sort_crit</span></code> es una función de comparación que recibe dos elementos y retorna un valor booleano.
+Use la función de criterio de ordenamiento por defecto <a class="reference internal" href="#default-sort-criteria"><span class="std std-ref">default_sort_criteria</span></a> como referencia para crear su propio criterio de ordenamiento.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Nota</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de forma ascendente o descendente.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a> o <a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a>) – Lista a ordenar.</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a> o <a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Crea una lista vacía</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">shell_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>Lista desordenada</strong>: Se ordena una lista desordenada.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista desordenada</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">shell_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Lista ordenada</strong>: Se ordena una lista ordenada.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista ordenada</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">shell_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Lista invertida</strong>: Se ordena una lista invertida.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista invertida</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">shell_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="merge_sort">
+<span class="sig-name descname"><span class="pre">merge_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#merge_sort" title="Link to this definition"></a></dt>
+<dd><p>Ordena una lista utilizando el algoritmo recursivo de ordenamiento <strong>Merge Sort</strong>.</p>
+<p>Se divide la lista en dos partes iguales* y se ordenan de forma recursiva.
+Luego se mezclan las dos partes ordenadas.</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<div class="note admonition">
+<p class="admonition-title">Importante</p>
+<p>Una <code class="docutils literal notranslate"><span class="pre">sort_crit</span></code> es una función de comparación que recibe dos elementos y retorna un valor booleano.
+Use la función de criterio de ordenamiento por defecto <a class="reference internal" href="#default-sort-criteria"><span class="std std-ref">default_sort_criteria</span></a> como referencia para crear su propio criterio de ordenamiento.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Nota</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de forma ascendente o descendente.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a> o <a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a>) – Lista a ordenar.</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a> o <a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a></p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Crea una lista vacía</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">merge_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-odd">Test Scenarios<span class="colon">:</span></dt>
+<dd class="field-odd"><ul>
+<li><p><strong>Lista desordenada</strong>: Se ordena una lista desordenada.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista desordenada</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">merge_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Lista ordenada</strong>: Se ordena una lista ordenada.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista ordenada</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">merge_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Lista invertida</strong>: Se ordena una lista invertida.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Función de comparación por defecto</span>
+<span class="n">sort_crit</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">default_sort_criteria</span>
+
+<span class="c1"># Lista invertida</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">merge_sort</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="n">sort_crit</span><span class="p">))</span>
+<span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="quick_sort">
+<span class="sig-name descname"><span class="pre">quick_sort</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort_crit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#quick_sort" title="Link to this definition"></a></dt>
+<dd><p>Ordena una lista utilizando el algoritmo recursivo de ordenamiento <strong>Quick Sort</strong>.</p>
+<p>Se selecciona un elemento como <strong>pivote</strong> y se colocan los elementos menores a la izquierda y los mayores a la derecha de este elemento <strong>pivote</strong>.</p>
+<p>Si la lista es vacía o tiene un solo elemento, se retorna la lista original.</p>
+<div class="note admonition">
+<p class="admonition-title">Importante</p>
+<p>Una <code class="docutils literal notranslate"><span class="pre">sort_crit</span></code> es una función de comparación que recibe dos elementos y retorna un valor booleano.
+Use la función de criterio de ordenamiento por defecto <a class="reference internal" href="#default-sort-criteria"><span class="std std-ref">default_sort_criteria</span></a> como referencia para crear su propio criterio de ordenamiento.</p>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Nota</p>
+<p>Dependiendo de la función de comparación, se ordena la lista de forma ascendente o descendente.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a> o <a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a>) – Lista a ordenar.</p></li>
+<li><p><strong>sort_crit</strong> (<em>function</em>) – Función de comparación.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista ordenada.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#array-list"><span class="std std-ref">array_list</span></a> o <a class="reference internal" href="#single-linked-list"><span class="std std-ref">single_linked_list</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 

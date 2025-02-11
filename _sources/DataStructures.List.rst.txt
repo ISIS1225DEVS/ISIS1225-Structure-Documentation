@@ -2096,4 +2096,475 @@ single\_linked\_list.py
 Ordenamientos
 #################################################
 
-Proximamente ...
+.. admonition:: Importante
+   :class: error
+
+   Las funciones de ordenamientos presentadas a continuación deberán ser implementadas tanto en la implementación de arreglos como en la de listas enlazadas simples.
+   
+   Por motivos prácticos, los ejemplos y pruebas de estas funciones se realizarán en la implementación de :ref:`array_list<array-list>`
+
+.. _default-sort-criteria:
+
+.. py:function:: default_sort_criteria(element_1, element_2)
+
+   Función de comparación por defecto para ordenar elementos.
+
+   Compara dos elementos y retorna ``True`` si el primer elemento es mayor que el segundo y ``False`` en caso contrario.
+
+   .. admonition:: Importante
+      :class: note
+
+      Una ``sort_criteria`` es una función de comparación que recibe dos elementos y retorna un valor booleano.
+      Use esta función como referencia para crear su propia función de comparación donde los criterios de comparación pueden ser definidos dependiendo del tipo de elementos y su contexto.
+
+   :param element_1: Primer elemento a comparar.
+   :type element_1: any
+   :param element_2: Segundo elemento a comparar.
+   :type element_2: any
+
+   :returns: ``True`` si el primer elemento es mayor que el segundo, ``False`` en caso contrario.
+   :rtype: bool
+
+   :Code example:
+
+      .. code-block:: python
+
+         def default_sort_criteria(element_1, element_2):
+  
+            is_sorted = False
+            if element1 < element2:
+               is_sorted = True
+            return is_sorted
+
+.. py:function:: selection_sort(my_list, sort_crit)
+
+   Ordena una lista utilizando el algoritmo de ordenamiento **Selecion Sort**.
+
+   Se recorre la lista y se selecciona el elemento más pequeño y se intercambia con el primer elemento. 
+   Luego se selecciona el segundo elemento más pequeño y se intercambia con el segundo elemento, y así sucesivamente.
+
+   .. admonition:: Ayuda
+         :class: note
+
+         Una ``sort_crit`` es una función de comparación que recibe dos elementos y retorna un valor booleano.
+         Use la función de criterio de ordenamiento por defecto :ref:`default_sort_criteria<default-sort-criteria>` como referencia para crear su propio criterio de ordenamiento.
+
+
+   .. admonition:: Nota
+         :class: warning
+
+         Dependiendo de la función de comparación, se ordena la lista de forma ascendente o descendente.
+
+   :param my_list: Lista a ordenar.
+   :type my_list: :ref:`array_list<array-list>` o :ref:`single_linked_list<single-linked-list>`
+   :param sort_crit: Función de comparación.
+   :type sort_crit: function
+
+   :returns: Lista ordenada.
+   :rtype: :ref:`array_list<array-list>` o :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import array_list as al
+
+         # Función de comparación por defecto
+         sort_crit = al.default_sort_criteria
+
+         # Crea una lista vacía
+         lista = al.new_list()
+         lista = al.add_last(lista, 3)
+         lista = al.add_last(lista, 1)
+         lista = al.add_last(lista, 2)
+         print(al.selection_sort(lista, sort_crit))
+         # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+   :Test Scenarios:
+
+      - **Lista desordenada**: Se ordena una lista desordenada.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista desordenada
+            lista = al.new_list()
+            lista = al.add_last(lista, 3)
+            lista = al.add_last(lista, 1)
+            lista = al.add_last(lista, 2)
+            print(al.selection_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+      - **Lista ordenada**: Se ordena una lista ordenada.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista ordenada
+            lista = al.new_list()
+            lista = al.add_last(lista, 1)
+            lista = al.add_last(lista, 2)
+            lista = al.add_last(lista, 3)
+            print(al.selection_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+      - **Lista invertida**: Se ordena una lista invertida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista invertida
+            lista = al.new_list()
+            lista = al.add_last(lista, 3)
+            lista = al.add_last(lista, 2)
+            lista = al.add_last(lista, 1)
+            print(al.selection_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+.. py:function:: insertion_sort(my_list, sort_crit)
+
+   Ordena una lista utilizando el algoritmo de ordenamiento **Insertion Sort**.
+
+   Se recorre la lista y se inserta cada elemento en su posición correcta.Se repite este proceso hasta que todos los elementos estén ordenados.
+
+   .. admonition:: Importante
+         :class: note
+
+         Una ``sort_crit`` es una función de comparación que recibe dos elementos y retorna un valor booleano.
+         Use la función de criterio de ordenamiento por defecto :ref:`default_sort_criteria<default-sort-criteria>` como referencia para crear su propio criterio de ordenamiento.
+
+   .. admonition:: Nota
+         :class: warning
+
+         Dependiendo de la función de comparación, se ordena la lista de forma ascendente o descendente.
+
+   :param my_list: Lista a ordenar.
+   :type my_list: :ref:`array_list<array-list>` o :ref:`single_linked_list<single-linked-list>`
+   :param sort_crit: Función de comparación.
+   :type sort_crit: function
+
+   :returns: Lista ordenada.
+   :rtype: :ref:`array_list<array-list>` o :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import array_list as al
+
+         # Función de comparación por defecto
+         sort_crit = al.default_sort_criteria
+
+         # Crea una lista vacía
+         lista = al.new_list()
+         lista = al.add_last(lista, 3)
+         lista = al.add_last(lista, 1)
+         lista = al.add_last(lista, 2)
+         print(al.insertion_sort(lista, sort_crit))
+         # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+   :Test Scenarios:
+
+      - **Lista desordenada**: Se ordena una lista desordenada.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista desordenada
+            lista = al.new_list()
+            lista = al.add_last(lista, 3)
+            lista = al.add_last(lista, 1)
+            lista = al.add_last(lista, 2)
+            print(al.insertion_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+      - **Lista ordenada**: Se ordena una lista ordenada.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista ordenada
+            lista = al.new_list()
+            lista = al.add_last(lista, 1)
+            lista = al.add_last(lista, 2)
+            lista = al.add_last(lista, 3)
+            print(al.insertion_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+      - **Lista invertida**: Se ordena una lista invertida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista invertida
+            lista = al.new_list()
+            lista = al.add_last(lista, 3)
+            lista = al.add_last(lista, 2)
+            lista = al.add_last(lista, 1)
+            print(al.insertion_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+.. py:function:: shell_sort(my_list, sort_crit)
+
+   Ordena una lista utilizando el algoritmo de ordenamiento **Shell Sort**.
+
+   Se recorre la lista y se ordena los elementos con un gap determinado.
+   Se repite el proceso con un gap menor hasta que la lista esté ordenada.
+
+   Si la lista es vacía o tiene un solo elemento, se retorna la lista original.
+
+   .. admonition:: Importante
+         :class: note
+
+         Una ``sort_crit`` es una función de comparación que recibe dos elementos y retorna un valor booleano.
+         Use la función de criterio de ordenamiento por defecto :ref:`default_sort_criteria<default-sort-criteria>` como referencia para crear su propio criterio de ordenamiento.
+
+   .. admonition:: Nota
+         :class: warning
+
+         Dependiendo de la función de comparación, se ordena la lista de forma ascendente o descendente.
+
+   :param my_list: Lista a ordenar.
+   :type my_list: :ref:`array_list<array-list>` o :ref:`single_linked_list<single-linked-list>`
+   :param sort_crit: Función de comparación.
+   :type sort_crit: function
+
+   :returns: Lista ordenada.
+   :rtype: :ref:`array_list<array-list>` o :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import array_list as al
+
+         # Función de comparación por defecto
+         sort_crit = al.default_sort_criteria
+
+         # Crea una lista vacía
+         lista = al.new_list()
+         lista = al.add_last(lista, 3)
+         lista = al.add_last(lista, 1)
+         lista = al.add_last(lista, 2)
+         print(al.shell_sort(lista, sort_crit))
+         # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+   :Test Scenarios:
+
+      - **Lista desordenada**: Se ordena una lista desordenada.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista desordenada
+            lista = al.new_list()
+            lista = al.add_last(lista, 3)
+            lista = al.add_last(lista, 1)
+            lista = al.add_last(lista, 2)
+
+            print(al.shell_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+      - **Lista ordenada**: Se ordena una lista ordenada.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista ordenada
+            lista = al.new_list()
+            lista = al.add_last(lista, 1)
+            lista = al.add_last(lista, 2)
+            lista = al.add_last(lista, 3)
+
+            print(al.shell_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+      - **Lista invertida**: Se ordena una lista invertida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista invertida
+            lista = al.new_list()
+            lista = al.add_last(lista, 3)
+            lista = al.add_last(lista, 2)
+            lista = al.add_last(lista, 1)
+
+            print(al.shell_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+.. py:function:: merge_sort(my_list, sort_crit)
+
+   Ordena una lista utilizando el algoritmo recursivo de ordenamiento **Merge Sort**.
+
+   Se divide la lista en dos partes iguales* y se ordenan de forma recursiva.
+   Luego se mezclan las dos partes ordenadas.
+
+   Si la lista es vacía o tiene un solo elemento, se retorna la lista original.
+
+   .. admonition:: Importante
+         :class: note
+
+         Una ``sort_crit`` es una función de comparación que recibe dos elementos y retorna un valor booleano.
+         Use la función de criterio de ordenamiento por defecto :ref:`default_sort_criteria<default-sort-criteria>` como referencia para crear su propio criterio de ordenamiento.
+
+   .. admonition:: Nota
+         :class: warning
+
+         Dependiendo de la función de comparación, se ordena la lista de forma ascendente o descendente.
+
+   :param my_list: Lista a ordenar.
+   :type my_list: :ref:`array_list<array-list>` o :ref:`single_linked_list<single-linked-list>`
+   :param sort_crit: Función de comparación.
+   :type sort_crit: function
+
+   :returns: Lista ordenada.
+   :rtype: :ref:`array_list<array-list>` o :ref:`single_linked_list<single-linked-list>`
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import array_list as al
+
+         # Función de comparación por defecto
+         sort_crit = al.default_sort_criteria
+
+         # Crea una lista vacía
+         lista = al.new_list()
+         lista = al.add_last(lista, 3)
+         lista = al.add_last(lista, 1)
+         lista = al.add_last(lista, 2)
+         print(al.merge_sort(lista, sort_crit))
+         # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+   :Test Scenarios:
+
+      - **Lista desordenada**: Se ordena una lista desordenada.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista desordenada
+            lista = al.new_list()
+            lista = al.add_last(lista, 3)
+            lista = al.add_last(lista, 1)
+            lista = al.add_last(lista, 2)
+
+            print(al.merge_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+      - **Lista ordenada**: Se ordena una lista ordenada.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista ordenada
+            lista = al.new_list()
+            lista = al.add_last(lista, 1)
+            lista = al.add_last(lista, 2)
+            lista = al.add_last(lista, 3)
+
+            print(al.merge_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+      - **Lista invertida**: Se ordena una lista invertida.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.List import array_list as al
+
+            # Función de comparación por defecto
+            sort_crit = al.default_sort_criteria
+
+            # Lista invertida
+            lista = al.new_list()
+            lista = al.add_last(lista, 3)
+            lista = al.add_last(lista, 2)
+            lista = al.add_last(lista, 1)
+
+            print(al.merge_sort(lista, sort_crit))
+            # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+.. py:function:: quick_sort(my_list, sort_crit)
+
+   Ordena una lista utilizando el algoritmo recursivo de ordenamiento **Quick Sort**.
+
+   Se selecciona un elemento como **pivote** y se colocan los elementos menores a la izquierda y los mayores a la derecha de este elemento **pivote**.
+
+   Si la lista es vacía o tiene un solo elemento, se retorna la lista original.
+
+   .. admonition:: Importante
+      :class: note
+
+      Una ``sort_crit`` es una función de comparación que recibe dos elementos y retorna un valor booleano.
+      Use la función de criterio de ordenamiento por defecto :ref:`default_sort_criteria<default-sort-criteria>` como referencia para crear su propio criterio de ordenamiento.
+
+   .. admonition:: Nota
+      :class: warning
+
+      Dependiendo de la función de comparación, se ordena la lista de forma ascendente o descendente.
+
+   :param my_list: Lista a ordenar.
+   :type my_list: :ref:`array_list<array-list>` o :ref:`single_linked_list<single-linked-list>`
+   :param sort_crit: Función de comparación.
+   :type sort_crit: function
+
+   :returns: Lista ordenada.
+   :rtype: :ref:`array_list<array-list>` o :ref:`single_linked_list<single-linked-list>`

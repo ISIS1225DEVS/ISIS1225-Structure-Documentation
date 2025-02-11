@@ -100,6 +100,7 @@
  | <a href="#N"><strong>N</strong></a>
  | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
+ | <a href="#Q"><strong>Q</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
@@ -165,6 +166,8 @@
 </li>
         <li><a href="DataStructures.List.html#default_function">default_function()</a>, <a href="DataStructures.List.html#id13">[1]</a>
 </li>
+        <li><a href="DataStructures.List.html#default_sort_criteria">default_sort_criteria()</a>
+</li>
         <li><a href="DataStructures.List.html#delete_element">delete_element()</a>, <a href="DataStructures.List.html#id9">[1]</a>
 </li>
         <li><a href="DataStructures.Queue.html#dequeue">dequeue()</a>
@@ -181,6 +184,8 @@
 </li>
         <li><a href="DataStructures.List.html#id12">insert_element()</a>, <a href="DataStructures.List.html#insert_element">[1]</a>
 </li>
+        <li><a href="DataStructures.List.html#insertion_sort">insertion_sort()</a>
+</li>
         <li><a href="DataStructures.List.html#id2">is_empty()</a>, <a href="DataStructures.List.html#is_empty">[1]</a>, <a href="DataStructures.Queue.html#is_empty">[2]</a>, <a href="DataStructures.Set.html#is_empty">[3]</a>, <a href="DataStructures.Stack.html#is_empty">[4]</a>
 </li>
         <li><a href="DataStructures.List.html#id14">is_present()</a>, <a href="DataStructures.List.html#is_present">[1]</a>
@@ -188,6 +193,8 @@
         <li><a href="DataStructures.List.html#id7">last_element()</a>, <a href="DataStructures.List.html#last_element">[1]</a>
 </li>
         <li><a href="DataStructures.Set.html#load_set">load_set()</a>
+</li>
+        <li><a href="DataStructures.List.html#merge_sort">merge_sort()</a>
 </li>
         <li><a href="DataStructures.List.html#id1">new_list()</a>, <a href="DataStructures.List.html#new_list">[1]</a>
 </li>
@@ -205,11 +212,17 @@
 </li>
         <li><a href="DataStructures.Stack.html#push">push()</a>
 </li>
+        <li><a href="DataStructures.List.html#quick_sort">quick_sort()</a>
+</li>
         <li><a href="DataStructures.Set.html#remove_element">remove_element()</a>
 </li>
         <li><a href="DataStructures.List.html#id10">remove_first()</a>, <a href="DataStructures.List.html#remove_first">[1]</a>
 </li>
         <li><a href="DataStructures.List.html#id11">remove_last()</a>, <a href="DataStructures.List.html#remove_last">[1]</a>
+</li>
+        <li><a href="DataStructures.List.html#selection_sort">selection_sort()</a>
+</li>
+        <li><a href="DataStructures.List.html#shell_sort">shell_sort()</a>
 </li>
         <li><a href="DataStructures.List.html#id3">size()</a>, <a href="DataStructures.List.html#size">[1]</a>, <a href="DataStructures.Queue.html#size">[2]</a>, <a href="DataStructures.Set.html#size">[3]</a>, <a href="DataStructures.Stack.html#size">[4]</a>
 </li>
@@ -454,6 +467,13 @@
 
       <ul>
         <li><a href="DataStructures.List.html#default_function">built-in function</a>, <a href="DataStructures.List.html#id13">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    default_sort_criteria()
+
+      <ul>
+        <li><a href="DataStructures.List.html#default_sort_criteria">built-in function</a>
 </li>
       </ul></li>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.degree">degree() (in module DataStructures.Graph.adj_list_graph)</a>
@@ -712,6 +732,13 @@
       </ul></li>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.insert_vertex">insert_vertex() (in module DataStructures.Graph.adj_list_graph)</a>
 </li>
+      <li>
+    insertion_sort()
+
+      <ul>
+        <li><a href="DataStructures.List.html#insertion_sort">built-in function</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="DataStructures.Map.html#DataStructures.Map.map_linear_probing.is_available">is_available() (in module DataStructures.Map.map_linear_probing)</a>
@@ -826,6 +853,13 @@
 <h2 id="M">M</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    merge_sort()
+
+      <ul>
+        <li><a href="DataStructures.List.html#merge_sort">built-in function</a>
+</li>
+      </ul></li>
       <li>
     module
 
@@ -1040,6 +1074,19 @@
   </ul></td>
 </tr></table>
 
+<h2 id="Q">Q</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    quick_sort()
+
+      <ul>
+        <li><a href="DataStructures.List.html#quick_sort">built-in function</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
@@ -1140,18 +1187,34 @@
         <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.select_key">(in module DataStructures.Tree.red_black_tree)</a>
 </li>
       </ul></li>
+      <li>
+    selection_sort()
+
+      <ul>
+        <li><a href="DataStructures.List.html#selection_sort">built-in function</a>
+</li>
+      </ul></li>
       <li><a href="DataStructures.Map.html#DataStructures.Map.map_entry.set_key">set_key() (in module DataStructures.Map.map_entry)</a>
 </li>
       <li><a href="DataStructures.Map.html#DataStructures.Map.map_entry.set_value">set_value() (in module DataStructures.Map.map_entry)</a>
 </li>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.edge.set_weight">set_weight() (in module DataStructures.Graph.edge)</a>
 </li>
+      <li>
+    shell_sort()
+
+      <ul>
+        <li><a href="DataStructures.List.html#shell_sort">built-in function</a>
+</li>
+      </ul></li>
       <li><a href="DataStructures.Priority_queue.html#DataStructures.Priority_queue.index_priority_queue.sink">sink() (in module DataStructures.Priority_queue.index_priority_queue)</a>
 
       <ul>
         <li><a href="DataStructures.Priority_queue.html#DataStructures.Priority_queue.priority_queue.sink">(in module DataStructures.Priority_queue.priority_queue)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     size()
 
@@ -1159,8 +1222,6 @@
         <li><a href="DataStructures.List.html#id3">built-in function</a>, <a href="DataStructures.List.html#size">[1]</a>, <a href="DataStructures.Queue.html#size">[2]</a>, <a href="DataStructures.Set.html#size">[3]</a>, <a href="DataStructures.Stack.html#size">[4]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="DataStructures.Map.html#DataStructures.Map.map_linear_probing.size">size() (in module DataStructures.Map.map_linear_probing)</a>
 
       <ul>
