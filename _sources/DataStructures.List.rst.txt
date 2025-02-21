@@ -2109,7 +2109,7 @@ Ordenamientos
 
    Función de comparación por defecto para ordenar elementos.
 
-   Compara dos elementos y retorna ``True`` si el primer elemento es mayor que el segundo y ``False`` en caso contrario.
+   Compara dos elementos y retorna ``True`` si el primer elemento es menor que el segundo y ``False`` en caso contrario.
 
    .. admonition:: Importante
       :class: note
@@ -2122,7 +2122,7 @@ Ordenamientos
    :param element_2: Segundo elemento a comparar.
    :type element_2: any
 
-   :returns: ``True`` si el primer elemento es mayor que el segundo, ``False`` en caso contrario.
+   :returns: ``True`` si el primer elemento es menor que el segundo, ``False`` en caso contrario.
    :rtype: bool
 
    :Code example:
