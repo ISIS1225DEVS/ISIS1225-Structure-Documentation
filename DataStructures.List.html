@@ -2608,7 +2608,7 @@ Si la posición no es válida, lanza un error <code class="code docutils literal
 <div class="note admonition">
 <p class="admonition-title">Importante</p>
 <p>Una <code class="docutils literal notranslate"><span class="pre">sort_criteria</span></code> es una función de comparación que recibe dos elementos y retorna un valor booleano.
-Use esta función como referencia para crear su propia función de comparación donde los criterios de comparación pueden ser definidos dependiendo del tipo de elementos y su contexto.</p>
+Use esta función como referencia para crear su propia función de comparación donde dependiendo de los condicionales se de un orden <strong>ascendente</strong> o <strong>descendente</strong>. Por ejemplo, si se desea ordenar de forma ascendente, se debe retornar <code class="docutils literal notranslate"><span class="pre">True</span></code> si el primer elemento es menor que el segundo y <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario, como se ve en los ejemplos presentados a continuación.</p>
 </div>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2624,14 +2624,32 @@ Use esta función como referencia para crear su propia función de comparación 
 <dd class="field-odd"><p>bool</p>
 </dd>
 <dt class="field-even">Code example<span class="colon">:</span></dt>
-<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">default_sort_criteria</span><span class="p">(</span><span class="n">element_1</span><span class="p">,</span> <span class="n">element_2</span><span class="p">):</span>
+<dd class="field-even"><ul>
+<li><p><strong>Comparación de números</strong>:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">default_sort_criteria</span><span class="p">(</span><span class="n">element_1</span><span class="p">,</span> <span class="n">element_2</span><span class="p">):</span>
 
    <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">False</span>
-   <span class="k">if</span> <span class="n">element1</span> <span class="o">&lt;</span> <span class="n">element2</span><span class="p">:</span>
-      <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="hll">   <span class="k">if</span> <span class="n">element_1</span> <span class="o">&lt;</span> <span class="n">element_2</span><span class="p">:</span>
+</span>      <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">True</span>
    <span class="k">return</span> <span class="n">is_sorted</span>
 </pre></div>
 </div>
+</div></blockquote>
+</li>
+<li><p><strong>Comparación de diccionarios</strong>:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">default_sort_criteria</span><span class="p">(</span><span class="n">element_1</span><span class="p">,</span> <span class="n">element_2</span><span class="p">):</span>
+
+   <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="hll">   <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">element_1</span><span class="p">[</span><span class="s2">&quot;average_rating&quot;</span><span class="p">])</span> <span class="o">&lt;</span> <span class="nb">float</span><span class="p">(</span><span class="n">element2</span><span class="p">[</span><span class="s2">&quot;average_rating&quot;</span><span class="p">]):</span>
+</span>      <span class="n">is_sorted</span> <span class="o">=</span> <span class="kc">True</span>
+   <span class="k">return</span> <span class="n">is_sorted</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
 </dd>
 </dl>
 </dd></dl>

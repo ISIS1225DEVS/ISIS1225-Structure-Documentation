@@ -2115,7 +2115,7 @@ Ordenamientos
       :class: note
 
       Una ``sort_criteria`` es una función de comparación que recibe dos elementos y retorna un valor booleano.
-      Use esta función como referencia para crear su propia función de comparación donde los criterios de comparación pueden ser definidos dependiendo del tipo de elementos y su contexto.
+      Use esta función como referencia para crear su propia función de comparación donde dependiendo de los condicionales se de un orden **ascendente** o **descendente**. Por ejemplo, si se desea ordenar de forma ascendente, se debe retornar ``True`` si el primer elemento es menor que el segundo y ``False`` en caso contrario, como se ve en los ejemplos presentados a continuación.
 
    :param element_1: Primer elemento a comparar.
    :type element_1: any
@@ -2127,14 +2127,31 @@ Ordenamientos
 
    :Code example:
 
-      .. code-block:: python
+      - **Comparación de números**:
 
-         def default_sort_criteria(element_1, element_2):
+         .. code-block:: python
+            :emphasize-lines: 4
+
+            def default_sort_criteria(element_1, element_2):
   
-            is_sorted = False
-            if element1 < element2:
-               is_sorted = True
-            return is_sorted
+               is_sorted = False
+               if element_1 < element_2:
+                  is_sorted = True
+               return is_sorted
+
+      - **Comparación de diccionarios**:
+
+         .. code-block:: python
+            :emphasize-lines: 4
+
+            def default_sort_criteria(element_1, element_2):
+  
+               is_sorted = False
+               if float(element_1["average_rating"]) < float(element2["average_rating"]):
+                  is_sorted = True
+               return is_sorted
+
+
 
 .. py:function:: selection_sort(my_list, sort_crit)
 
