@@ -2,50 +2,3764 @@
 Map - Tablas
 ####################################
 
-***************************************
-Funciones comúnes de tablas
-***************************************
+Las tablas son estructuras de datos que permiten almacenar elementos en pares clave-valor. En esta sección se presentan las implementaciones de tablas que se encuentran en el módulo DataStructures.Map.
 
-map\_functions.py
---------------------------------------
+Como usar la documentación
+#################################################
 
-.. automodule:: DataStructures.Map.map_functions
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+Para leer la guía de uso de la documentación, por favor diríjase a la sección :ref:`Guía de documentación<guia-doc>`.
 
-***************************************
 Elementos
-***************************************
+#################################################
+
+.. _map-entry:
 
 map\_entry.py
---------------------------------------
+-------------------------------------
 
-.. automodule:: DataStructures.Map.map_entry
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+Estructura de una entrada de una tabla. Una entrada de una tabla es un elemento que contiene una llave y un valor.
 
-***************************************
-Implementaciones de tablas
-***************************************
+.. py:function:: new_map_entry(key, value)
+
+   Crea una nueva entrada (de tipo :ref:`map_entry<map-entry>`) de una tabla con una llave y un valor dados.
+
+   La entrada es creada con los siguientes atributos:
+
+   * **key**: Llave de la entrada. Inicializada con el valor de la llave dada ``key``.
+   * **value**: Valor de la entrada. Inicializada con el valor del valor dado ``value``.
+
+   :param key: Llave de la entrada.
+   :type key: any
+   :param value: Valor de la entrada.
+   :type value: any
+
+   :return: Entrada de una tabla.
+   :rtype: :ref:`map_entry<map-entry>`
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_entry as me
+
+         # Crear una nueva entrada de una tabla
+         entry = me.new_map_entry(1, {'name': 'John', 'age': 25})
+         print(entry)
+         # Salida esperada:{'key': 1, 'value': {'name': 'John', 'age': 25}}
+
+.. py:function:: set_key(my_entry, key)
+
+   Establece un valor nuevo a la ``key`` de una entrada recibida.
+
+   :param my_entry: Entrada a modificar.
+   :type my_entry: :ref:`map_entry<map-entry>`
+   :param key: Llave nueva de la entrada.
+   :type key: any
+
+   :return: Entrada con la llave modificada.
+   :rtype: :ref:`map_entry<map-entry>`
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_entry as me
+
+         # Crear una nueva entrada de una tabla
+         entry = me.new_map_entry(1, {'name': 'John', 'age': 25})
+         print(entry)
+         # Salida esperada:{'key': 1, 'value': {'name': 'John', 'age': 25}}
+
+         # Establecer la llave nueva de la entrada
+         entry = me.set_key(entry, "new_key")
+         print(entry)
+         # Salida esperada:{'key': "new_key", 'value': {'name': 'John', 'age': 25}}
+
+.. py:function:: set_value(my_entry, value)
+
+   Establece un valor nuevo al ``value`` de una entrada recibida.
+
+   :param my_entry: Entrada a modificar.
+   :type my_entry: :ref:`map_entry<map-entry>`
+   :param value: Valor nuevo de la entrada.
+   :type value: any
+
+   :return: Entrada con el valor modificado.
+   :rtype: :ref:`map_entry<map-entry>`
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_entry as me
+
+         # Crear una nueva entrada de una tabla
+         entry = me.new_map_entry(1, {'name': 'John', 'age': 25})
+         print(entry)
+         # Salida esperada:{'key': 1, 'value': {'name': 'John', 'age': 25}}
+
+         # Establecer el valor nuevo de la entrada
+         entry = me.set_value(entry, "otra cosa")
+         print(entry)
+         # Salida esperada:{'key': 1, 'value': "otra cosa"}
+
+.. py:function:: get_key(my_entry)
+
+   Obtiene la llave ``key`` de una entrada recibida.
+
+   :param my_entry: Entrada de la cual se desea obtener la llave.
+   :type my_entry: :ref:`map_entry<map-entry>`
+
+   :return: Llave de la entrada.
+   :rtype: any
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_entry as me
+
+         # Crear una nueva entrada de una tabla
+         entry = me.new_map_entry(1, {'name': 'John', 'age': 25})
+         print(entry)
+         # Salida esperada:{'key': 1, 'value': {'name': 'John', 'age': 25}}
+
+         # Obtener la llave de la entrada
+         key = me.get_key(entry)
+         print(key)
+         # Salida esperada:1
+
+.. py:function:: get_value(my_entry)
+
+   Obtiene el valor ``value`` de una entrada recibida.
+
+   :param my_entry: Entrada de la cual se desea obtener el valor.
+   :type my_entry: :ref:`map_entry<map-entry>`
+
+   :return: Valor de la entrada.
+   :rtype: any
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_entry as me
+
+         # Crear una nueva entrada de una tabla
+         entry = me.new_map_entry(1, {'name': 'John', 'age': 25})
+         print(entry)
+         # Salida esperada:{'key': 1, 'value': {'name': 'John', 'age': 25}}
+
+         # Obtener el valor de la entrada
+         value = me.get_value(entry)
+         print(value)
+         # Salida esperada:{'name': 'John', 'age': 25}
+
+
+Funciones comunes de tablas
+#################################################
+
+.. _map-functions:
+
+map\_functions.py
+-------------------------------------
+
+Funciones comunes que se utilizan en las implementaciones de tablas, como las funciones de hash.
+
+.. py:function:: is_prime(n)
+
+   Verifica si el número  ``n`` dado es primo.
+
+   :param n: Número a verificar si es primo.
+   :type n: int
+
+   :return: Verdadero si el número es primo, falso en caso contrario.
+   :rtype: bool
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_functions as mf
+
+         # Verificar si el número 5 es primo
+         print(mf.is_prime(5))
+         # Salida esperada: True
+
+         # Verifica si el número 6 es primo
+         print(mf.is_prime(6))
+         # Salida esperada: False
+
+.. py:function:: next_prime(n)
+
+   Obtiene el siguiente número primo después del número ``n`` dado.
+
+   :param n: Número a partir del cual se desea obtener el siguiente número primo.
+   :type n: int
+
+   :return: Siguiente número primo después de ``n``.
+   :rtype: int
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_functions as mf
+
+         # Obtener el siguiente número primo después de 5
+         print(mf.next_prime(5))
+         # Salida esperada: 7
+
+         # Obtener el siguiente número primo después de 6
+         print(mf.next_prime(6))
+         # Salida esperada: 7
+
+.. py:function:: hash_value(my_table, key)
+
+   Calcula el hash para una llave dada, utitiizando el método:
+
+   MAD: ((a * hash_key + b) % p) % m, donde:
+
+   * ``hash_key`` es el valor de la función nativa de Python ``hash()`` para la llave ``key``.
+   * ``m`` es el tamaño de la tabla.
+   * ``p`` es un número primo mayor a ``m``.
+   * ``a`` y ``b`` son enteros aleatorios entre 0 y p-1. con ``a`` mayor de 0.
+
+   :param my_table: Tabla en la que se desea calcular el hash.
+   :type my_table: :ref:`map_linear_probing<map-linear-probing>` o :ref:`map_separate_chaining<map-separate-chaining>`
+   :param key: Llave para la cual se desea calcular el hash.
+   :type key: any
+
+   :return: Valor del hash para la llave dada. (Que es un índice de la tabla).
+   :rtype: int
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_functions as mf
+         from DataStructures.Map import map_linear_probing as ml
+
+         # Crear una tabla con tamaño 10
+         my_table = ml.new_map_linear_probing(10, 0.5)
+
+         # Calcular el hash para la llave 5
+         print(mf.hash_code(my_table, 5))
+         # Salida esperada: 5
+
+         # Calcular el hash para la llave 6
+         print(mf.hash_code(my_table, 6))
+         # Salida esperada: 6
+
+.. _como-hacer-pruebas-con-tablas:
+
+Como hacer pruebas con tablas
+#################################################
+
+.. admonition:: Importante
+   :class: attention
+
+   Las modifcaciones usadas para hacer pruebas en tablas deben estar definidas **SOLO** para las **PRUEBAS**. Una vez terminadas las pruebas, se deben eliminar las modificaciones para asegurar el buen funcionamiento de la función .
+
+   
+La siguiente modificación se debe hacer en la función ``new_map`` de las implementaciones para asegurar la reproducibilidad de los ejemplos presentados en la documentación. Para esto, se debe modificar la función ``new_map`` de la siguiente manera:
+
+:Default code:
+
+.. code-block:: python
+   :emphasize-lines: 5, 6
+
+   def new_map(num_elements, load_factor, prime=109345121):
+      ...
+
+      # Establecer los valores de scale y shift para asegurar la reproducibilidad de los resultados
+      my_table['scale'] = random.randint(1, prime - 1)
+      my_table['shift'] = random.randint(0, prime - 1)
+      ...
+         return my_table
+
+:Test code:
+
+.. code-block:: python
+   :emphasize-lines: 5, 6
+
+   def new_map(num_elements, load_factor, prime=109345121):
+      ...
+
+      # Establecer los valores de scale y shift para asegurar la reproducibilidad de los resultados
+      my_table['scale'] = 1
+      my_table['shift'] = 0
+      ...
+      return my_table
+
+:Test example:
+
+ - **Prueba sin modificación en scale y shift**:
+
+    .. code-block:: python
+       :emphasize-lines: 10, 11
+
+       # App/logic.py
+       from DataStructures.Map import map_linear_probing as ml
+
+       # Crear una tabla de simbolos con 10 elementos y factor de carga 0.5
+       my_table = ml.new_map(1, 0.5)
+       print(my_table)
+       #  {
+       #     'prime': 109345121,
+       #     'capacity': 3,
+       #     'scale': 6828135,   (ESTE VALOR ES ALEATORIO, PUEDE NO SER EL MISMO QUE EN LA SALIDA)
+       #     'shift': 61638967,  (ESTE VALOR ES ALEATORIO, PUEDE NO SER EL MISMO QUE EN LA SALIDA)
+       #     'table': {
+       #        'size': 3,
+       #        'elements': [
+       #           {
+       #           'key': None,
+       #           'value': None
+       #           },
+       #           {
+       #           'key': None,
+       #           'value': None
+       #           },
+       #           {
+       #           'key': None,
+       #           'value': None
+       #           }
+       #        ]
+       #     },
+       #     'current_factor': 0,
+       #     'limit_factor': 0.5,
+       #     'size': 0
+       #  }
+
+ - **Prueba con modificación en scale y shift**:
+
+   .. code-block:: python
+      :emphasize-lines: 11, 12
+
+      # App/logic.py
+      from DataStructures.Map import map_linear_probing as ml
+
+      # Crear una tabla de simbolos con 10 elementos y factor de carga 0.5
+      my_table = ml.new_map(1, 0.5)
+      print(my_table)
+      # Salida esperada: 
+      #  {
+      #     'prime': 109345121,
+      #     'capacity': 3,
+      #     'scale': 1,   (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+      #     'shift': 0,   (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+      #     'table': {
+      #        'size': 3,
+      #        'elements': [
+      #           {
+      #           'key': None,
+      #           'value': None
+      #           },
+      #           {
+      #           'key': None,
+      #           'value': None
+      #           },
+      #           {
+      #           'key': None,
+      #           'value': None
+      #           }
+      #        ]
+      #     },
+      #     'current_factor': 0,
+      #     'limit_factor': 0.5,
+      #     'size': 0
+      #  }
+
+
+.. admonition:: Importante
+   :class: attention
+
+   Recuerde volver a la implementación original una vez terminadas las pruebas. Si no se hace, la implementación de la tabla no funcionará correctamente.
+
+
+Implementaciones
+#################################################
+
+.. _map-linear-probing:
 
 map\_linear\_probing.py
---------------------------------------
+-------------------------------------
 
-.. automodule:: DataStructures.Map.map_linear_probing
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+.. py:function:: new_map(num_elements, load_factor, prime=109345121)
+
+   Crea una nueva tabla de simbolos (map) sin elementos.
+
+   La tabla de simbolos es creada con los siguientes atributos:
+
+   * **prime**: Número primo usado para calcular el hash. Inicializado con el valor de ``prime`` y en caso de no ser dado, con el valor por defecto de 109345121.
+   * **capacity**: Tamaño de la tabla. Inicializado con el siguiente primo mayor a  ``num_elements``/ ``load_factor``.
+   * **scale**: Número entero aleatorio entre 1 y ``prime``- 1.
+   * **shift**: Número entero aleatorio entre 0 y ``prime``- 1.
+   * **table**: Lista de tamaño ``capacity`` con las entradas de la tabla de tipo :ref:`array_list<array-list>`. Inicializado con una lista donde cada elemento es una :ref:`map_entry<map-entry>` con llave y valor None.
+   * **current_factor**: Factor de carga actual de la tabla. Inicializado en 0.
+   * **limit_factor**: Factor de carga límite de la tabla antes de hacer un rehash. Inicializado con el valor de ``load_factor``.
+   * **size**: Número de elementos en la tabla. Inicializado en 0.
+
+   :param num_elements: Número de elementos que se desean almacenar en la tabla.
+   :type num_elements: int
+   :param load_factor: Factor de carga límite de la tabla antes de hacer un rehash.
+   :type load_factor: float
+   :param prime: Número primo utilizado para el cálculo del hash. Por defecto es 109345121.
+   :type prime: int
+
+   :return: Tabla recien creada.
+   :rtype: :ref:`map_linear_probing<map-linear-probing>`
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_linear_probing as ml
+
+         # Crear una tabla vacía
+         my_table = ml.new_map(5, 0.5)
+         print(my_table)
+         # Salida esperada a continuación
+
+      Salida esperada:
+
+      .. code-block:: console
+
+         {
+            'prime': 109345121,
+            'capacity': 11,
+            'scale': 1,    # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            'shift': 0,    # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            'table': {
+               'size': 11,
+               'elements': [
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  }
+               ]
+            },
+            'current_factor': 0,
+            'limit_factor': 0.5,
+            'size': 0,
+         }
+
+.. py:function:: put(my_map, key, value)
+
+   Agrega una nueva entrada llave-valor a la tabla de hash. Si la llave ya existe en la tabla, se actualiza el ``value`` de la entrada.
+
+   Para agregar un nuevo elemento a la tabla, se realiza el siguiente procedimiento:
+
+   1. Se calcula el hash de la llave, usando la función :func:`hash_value<hash_value>`.
+   2. Se busca la posición en la tabla con la función :func:`find_slot<find_slot>`. Si la posición está ocupada, se busca la siguiente posición disponible.
+   3. Se inserta la entrada en la tabla.
+   4. Se actualiza el ``current_factor`` de la tabla si se agrega un nuevo elemento.
+   5. Si el ``current_factor`` supera el ``limit_factor``, se realiza un :ref:`rehash<linear-probing-rehash>` de la tabla.
+   6. Se retorna la tabla con el nuevo elemento agregado.
+
+   :param my_map: Tabla de simbolos a la cual se desea agregar el elemento.
+   :type my_map: :ref:`map_linear_probing<map-linear-probing>`
+   :param key: Llave del elemento a agregar.
+   :type key: any
+   :param value: Valor del elemento a agregar.
+   :type value: any
+
+   :return: Tabla de simbolos con el nuevo elemento agregado.
+   :rtype: :ref:`map_linear_probing<map-linear-probing>`
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_linear_probing as ml
+
+         # Crear una tabla vacia
+         my_table = ml.new_map(5, 0.5)
+         print(my_table)
+
+         # Salida esperada: 
+         # {
+         #    'prime': 109345121,
+         #    'capacity': 11,
+         #    'scale': 1,    # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+         #    'shift': 0,    # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+         #    'table': {
+         #       'size': 11,
+         #       'elements': [
+         #          {
+         #              'key': None,
+         #              'value': None
+         #          },
+         #          ... (10 elementos más)
+         #       ]
+         #    },
+         #    'current_factor': 0,
+         #    'limit_factor': 0.5,
+         #    'size': 0,
+         # }
+
+         # Agregar un nuevo elemento a la tabla
+         # La llave 1 se encuentra en la posición 1 de la tabla debido al hash de la llave que se modificó para las pruebas.
+
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+         print(my_table)
+         # Salida esperada a continuación
+
+      Salida esperada:
+
+      .. code-block:: console
+         :emphasize-lines: 12-18
+         
+         {
+            'prime': 109345121,
+            'capacity': 11,
+            'scale': 1,    # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            'shift': 0,    # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            'table': {
+               'elements': [
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': 1,
+                     'value': {
+                        'name': 'John',
+                        'age': 25
+                     }
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  ... (8 elementos más)
+               ],
+               'size': 11
+            },
+            'current_factor': 0.09090909090909091,
+            'limit_factor': 0.5,
+            'size': 1
+         }
+
+   :Test Scenarios:
+
+      - **Agrega un elemento a la tabla**: Se agrega un nuevo elemento a una tabla vacía.
+  
+         .. code-block:: python
+            
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            # Crear una tabla de simbolos con 0 elementos y factor de carga 0.5
+            my_table = ml.new_map(5, 0.5)
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            print(my_table) 
+            # Se espera la misma respuesta del example de esta función
+
+      - **Agrega un elemento a la tabla sin colision**: Se agrega un nuevo elemento a una tabla sin colisión.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            print(my_table) # Se espera la misma respuesta del example de esta función
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = ml.put(my_table, 3, {'name': 'Jane', 'age': 22})
+            print(my_table)
+         
+         Salida esperada
+
+         .. code-block:: console
+            :emphasize-lines: 23-29
+
+            {
+               'prime': 109345121,
+               'capacity': 11,
+               'scale': 1,
+               'shift': 0,
+               'table': {
+                  'elements': [
+                     {
+                        'key': None,
+                        'value': None
+                     },
+                     {
+                        'key': 1,
+                        'value': {
+                           'name': 'John',
+                           'age': 25
+                        }
+                     },
+                     {
+                        'key': None,
+                        'value': None
+                     },
+                     {
+                        'key': 3,
+                        'value': {
+                           'name': 'Jane',
+                           'age': 22
+                        }
+                     },
+                     ... (7 elementos más)
+                  ],
+                  'size': 11
+               },
+               'current_factor': 0.18181818181818182,
+               'limit_factor': 0.5,
+               'size': 2
+            }
+
+      - **Agrega un elemento a la tabla con colisión**: Se agrega un nuevo elemento a una tabla con una colisión.
+
+         .. code-block:: python
+               
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            print(my_table) # Se espera la misma respuesta del example de esta función
+
+            # Agregar un nuevo elemento a la tabla con colisión
+            # La llave 12 se encuentra en la posición 1 de la tabla debido al hash de la llave que se modificó para las pruebas.
+            my_table = ml.put(my_table, 12, {'name': 'Jane', 'age': 22})
+            print(my_table)
+            # Salida esperada a continuación
+
+         Salida esperada:
+
+         .. code-block:: console
+            :emphasize-lines: 12-25
+
+            {
+               'prime': 109345121,
+               'capacity': 11,
+               'scale': 1,
+               'shift': 0,
+               'table': {
+                  'elements': [
+                     {
+                        'key': None,
+                        'value': None
+                     },
+                     {
+                        'key': 1,
+                        'value': {
+                           'name': 'John',
+                           'age': 25
+                        }
+                     },
+                     {
+                        'key': 12,
+                        'value': {
+                           'name': 'Jane',
+                           'age': 22
+                        }
+                     },
+                     ... (8 elementos más)
+                  ],
+                  'size': 11
+               },
+               'current_factor': 0.18181818181818182,
+               'limit_factor': 0.5,
+               'size': 2
+            }
+
+.. py:function:: find_slot(my_map, key, hash_value)
+
+   Busca la posición en la tabla donde se debe insertar/encontrar una entrada con una llave dada.
+
+   Utiliza la función de :func:`hash_value<hash_value>` para calcular la posición inicial y busca la siguiente posición disponible si la posición inicial está ocupada.
+
+   Utiliza las funciónes de validación :func:`is_available<is_available>` y comparación :ref:`default_compare<default-function-linear-probing>`.
+
+   :param my_map: Tabla de simbolos en la que se desea buscar la posición.
+   :type my_map: :ref:`map_linear_probing<map-linear-probing>`
+   :param key: Llave de la entrada que se desea buscar.
+   :type key: any
+   :param hash_value: Valor del hash de la llave.
+   :type hash_value: int
+
+   :return: Retorna una tupla con dos valores. El primero indica si la posición está ocupada, ``True`` si se encuentra la key de lo contrario ``False``. El segundo la posición en la tabla de hash donde se encuentra o posición libre para agregarla
+   :rtype: bool, int
+
+   :Code:
+      .. code-block:: python
+
+         from DataStructures.List import array_list as lt
+         from DataStructures.Map import map_entry as me
+
+         def find_slot(my_map, key, hash_value):
+            first_avail = None
+            found = False
+            ocupied = False
+            while not found:
+               if is_available(my_map["table"], hash_value):
+                     if first_avail is None:
+                        first_avail = hash_value
+                     entry = lt.get_element(my_map["table"], hash_value)
+                     if me.get_key(entry) is None:
+                        found = True
+               elif default_compare(key, lt.get_element(my_map["table"], hash_value)) == 0:
+                     first_avail = hash_value
+                     found = True
+                     ocupied = True
+               hash_value = (hash_value + 1) % my_map["capacity"]
+            return ocupied, first_avail
+
+.. py:function:: is_available(table, pos)
+
+   Verifica si la posición ``pos`` en la tabla de simbolos está disponible.
+
+   Se entiende que una posición está disponible si su contenido es igual a None (no se ha usado esa posición) o a ``__EMPTY__`` (la posición fue liberada).
+
+
+   :param table: Tabla de simbolos en la que se desea verificar la disponibilidad de la posición.
+   :type table: :ref:`array_list<array-list>`
+   :param pos: Posición en la tabla de simbolos que se desea verificar.
+   :type pos: int
+
+   :return: ``True`` si la posición está disponible, ``False`` en caso contrario
+   :rtype: bool
+
+   :Code:
+      .. code-block:: python
+
+         from DataStructures.List import array_list as lt
+         from DataStructures.Map import map_entry as me
+
+         def is_available(table, pos):
+
+            entry = lt.get_element(table, pos)
+            if me.get_key(entry) is None or me.get_key(entry) == "__EMPTY__":
+               return True
+            return False
+
+.. _default-function-linear-probing:
+
+.. py:function:: default_compare(key, entry)
+
+   Funcion de comparacion por defecto. Compara la llave ``key`` con la llave de una ``entry`` dada.
+
+   :param key: Llave con la que se desea comparar.
+   :type key: any
+   :param entry: Entrada de la tabla de simbolos con la que se desea comparar.
+   :type entry: :ref:`map_entry<map-entry>`
+
+   :return: **0** si son iguales, **1** si ``key`` > la llave del ``entry``, **-1** si ``key`` < que la llave del  ``entry``
+   :rtype: int
+
+   :Code:
+      .. code-block:: python
+
+         from DataStructures.Map import map_entry as me
+
+         def default_compare(key, entry):
+
+            if key == me.get_key(entry):
+               return 0
+            elif key > me.get_key(entry):
+               return 1
+            return -1
+
+.. py:function:: contains(my_map, key)
+
+   Valida si una llave dada se encuentra en la tabla de simbolos.
+
+   :param my_map: Tabla de simbolos en la que se desea buscar la llave.
+   :type my_map: :ref:`map_linear_probing<map-linear-probing>`
+   :param key: Llave que se desea buscar en la tabla.
+   :type key: any
+
+   :return: ``True`` si la llave se encuentra en la tabla, ``False`` en caso contrario.
+   :rtype: bool
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_linear_probing as ml
+
+         # Crear una tabla vacia
+         my_table = ml.new_map(5, 0.5)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Agregar un nuevo elemento a la tabla
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+         print(my_table)
+         # Salida esperada la misma respuesta de la función put()
+
+         # Verificar si la llave 1 se encuentra en la tabla
+         print(ml.contains(my_table, 1))
+         # Salida esperada: True
+
+         # Verificar si la llave 2 se encuentra en la tabla
+         print(ml.contains(my_table, 2))
+         # Salida esperada: False
+
+.. py:function:: remove(my_map, key)
+
+   Elimina una entrada de la tabla de simbolos asociada a una llave dada.
+
+   :param my_map: Tabla de simbolos de la cual se desea eliminar la entrada.
+   :type my_map: :ref:`map_linear_probing<map-linear-probing>`
+   :param key: Llave de la entrada que se desea eliminar.
+   :type key: any
+
+   :return: Tabla de simbolos sin la entrada asociada a la llave dada.
+   :rtype: :ref:`map_linear_probing<map-linear-probing>`
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_linear_probing as ml
+
+         # Crear una tabla vacia
+         my_table = ml.new_map(5, 0.5)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Agregar un nuevo elemento a la tabla
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+         my_table = ml.put(my_table, 2, {'name': 'Jane', 'age': 22})
+         my_table = ml.put(my_table, 3, {'name': 'Doe', 'age': 30})
+         my_table = ml.put(my_table, 5, {'name': 'Mary', 'age': 20})
+         print(my_table)
+
+         # Salida esperada:
+         # {
+         #    'prime': 109345121,
+         #    'capacity': 11,
+         #    'scale': 1,    # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+         #    'shift': 0,    # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+         #    'table': {
+         #       'elements': [
+         #          {
+         #             'key': None,
+         #             'value': None
+         #          },
+         #          {
+         #             'key': 1,
+         #             'value': {
+         #                'name': 'John',
+         #                'age': 25
+         #             }
+         #          },
+         #          {
+         #             'key': 2,
+         #             'value': {
+         #                'name': 'Jane',
+         #                'age': 22
+         #             }
+         #          },
+         #          {
+         #             'key': 3,
+         #             'value': {
+         #                'name': 'Doe',
+         #                'age': 30
+         #             }
+         #          },
+         #          {
+         #             'key': None,
+         #             'value': None
+         #          },
+         #          {
+         #             'key': 5,
+         #             'value': {
+         #                'name': 'Mary',
+         #                'age': 20
+         #             }
+         #          },
+         #          ... (6 elementos más)
+         #       ],
+         #       'size': 11
+         #    },
+         #    'current_factor': 0.36363636363636365,
+         #    'limit_factor': 0.5,
+         #    'size': 4
+         # }
+
+         # Eliminar la entrada asociada a la llave 1
+         my_table = ml.remove(my_table, 2)
+         print(my_table)
+         # Salida esperada a continuación
+
+      Salida esperada:
+
+      .. code-block:: console
+         :emphasize-lines: 19-22
+
+         {
+            'prime': 109345121,
+            'capacity': 11,
+            'scale': 1,
+            'shift': 0,
+            'table': {
+               'elements': [
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': 1,
+                     'value': {
+                        'name': 'John',
+                        'age': 25
+                     }
+                  },
+                  {
+                     'key': '__EMPTY__',
+                     'value': '__EMPTY__'
+                  },
+                  {
+                     'key': 3,
+                     'value': {
+                        'name': 'Doe',
+                        'age': 30
+                     }
+                  },
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  {
+                     'key': 5,
+                     'value': {
+                        'name': 'Mary',
+                        'age': 20
+                     }
+                  },
+                 ... (6 elementos más)
+               ],
+               'size': 11
+            },
+            'current_factor': 0.2727272727272727,
+            'limit_factor': 0.5,
+            'size': 3
+         }
+
+   :Test Scenarios:
+      
+      - **Elimina por llave existente**: Se elimina un elemento de la tabla.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = ml.put(my_table, 2, {'name': 'Jane', 'age': 22})
+            my_table = ml.put(my_table, 3, {'name': 'Doe', 'age': 30})
+            my_table = ml.put(my_table, 5, {'name': 'Mary', 'age': 20})
+            print(my_table) # Se espera la misma respuesta del example de esta función
+
+            # Eliminar la entrada asociada a la llave 1
+            my_table = ml.remove(my_table, 2)
+            print(my_table)
+            # Se espera la misma respuesta del example de esta función
+      
+      - **Elimina por llave inexistente**: Se intenta eliminar un elemento que no se encuentra en la tabla, retorna la tabla.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = ml.put(my_table, 2, {'name': 'Jane', 'age': 22})
+            my_table = ml.put(my_table, 3, {'name': 'Doe', 'age': 30})
+            my_table = ml.put(my_table, 5, {'name': 'Mary', 'age': 20})
+            print(my_table) # Se espera la misma respuesta del example de esta función
+
+            # Eliminar la entrada asociada a la llave 4
+            my_table = ml.remove(my_table, 4)
+            print(my_table)
+            # Salida esperada a continuación
+
+         Salida esperada:
+
+         .. code-block:: console
+
+            {
+               'prime': 109345121,
+               'capacity': 11,
+               'scale': 1,
+               'shift': 0,
+               'table': {
+                  'elements': [
+                     {
+                        'key': None,
+                        'value': None
+                     },
+                     {
+                        'key': 1,
+                        'value': {
+                           'name': 'John',
+                           'age': 25
+                        }
+                     },
+                     {
+                        'key': 2,
+                        'value': {
+                           'name': 'Jane',
+                           'age': 22
+                        }
+                     },
+                     {
+                        'key': 3,
+                        'value': {
+                           'name': 'Doe',
+                           'age': 30
+                        }
+                     },
+                     {
+                        'key': None,
+                        'value': None
+                     },
+                     {
+                        'key': 5,
+                        'value': {
+                           'name': 'Mary',
+                           'age': 20
+                        }
+                     },
+                     ... (6 elementos más)
+                  ],
+                  'size': 11
+               },
+               'current_factor': 0.36363636363636365,
+               'limit_factor': 0.5,
+               'size': 4
+            }
+
+.. py:function:: get(my_map, key)
+
+   Obtiene el valor asociado a una llave dada en la tabla de simbolos.
+
+   :param my_map: Tabla de simbolos en la que se desea buscar el valor.
+   :type my_map: :ref:`map_linear_probing<map-linear-probing>`
+   :param key: Llave de la cual se desea obtener el valor.
+   :type key: any
+
+   :return: Valor asociado a la llave dada. Si la llave no se encuentra en la tabla, se retorna ``None``.
+   :rtype: any
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_linear_probing as ml
+
+         # Crear una tabla vacia
+         my_table = ml.new_map(5, 0.5)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Agregar un nuevo elemento a la tabla
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+         print(my_table)
+         # Salida esperada la misma respuesta de la función put()
+
+         # Obtener el valor asociado a la llave 1
+         print(ml.get(my_table, 1))
+         # Salida esperada: {'name': 'John', 'age': 25}
+
+         # Obtener el valor asociado a la llave 2
+         print(ml.get(my_table, 2))
+         # Salida esperada: None
+
+   :Test Scenarios:
+
+      - **Buscar por llave existente**: Se obtiene el valor asociado a una llave que se encuentra en la tabla.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            print(my_table) # Se espera la misma respuesta del example de esta función
+
+            # Obtener el valor asociado a la llave 1
+            print(ml.get(my_table, 1))
+            # Salida esperada: {'name': 'John', 'age': 25}
+
+      - **Buscar por llave inexistente**: Se obtiene el valor asociado a una llave que no se encuentra en la tabla.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            print(my_table) # Se espera la misma respuesta del example de esta función
+
+            # Obtener el valor asociado a la llave 2
+            print(ml.get(my_table, 2))
+            # Salida esperada: None
+
+      - **Buscar por llave existente con elementos eliminados**: Se obtiene el valor asociado a una llave que se encuentra en la tabla pero fueron eliminados elementos en el mismo cluster.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla tal que se genere un cluster
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = ml.put(my_table, 12, {'name': 'Jane', 'age': 22})
+            my_table = ml.put(my_table, 23, {'name': 'Doe', 'age': 30})
+            my_table = ml.put(my_table, 34, {'name': 'Mary', 'age': 20})
+            print(my_table)
+
+            # Salida esperada:
+            # {
+            #    'prime': 109345121,
+            #    'capacity': 11,
+            #    'scale': 1,
+            #    'shift': 0,
+            #    'table': {
+            #       'elements': [
+            #          {
+            #             'key': None,
+            #             'value': None
+            #          },
+            #          {
+            #             'key': 1,
+            #             'value': {
+            #                'name': 'John',
+            #                'age': 25
+            #             }
+            #          },
+            #          {
+            #             'key': 12,
+            #             'value': {
+            #                'name': 'Jane',
+            #                'age': 22
+            #             }
+            #          },
+            #          {
+            #             'key': 23,
+            #             'value': {
+            #                'name': 'Doe',
+            #                'age': 30
+            #             }
+            #          },
+            #          {
+            #             'key': 34,
+            #             'value': {
+            #                'name': 'Mary',
+            #                'age': 20
+            #             }
+            #          },
+            #          ... (7 elementos más)
+            #       ],
+            #       'size': 11
+            #    },
+            #    'current_factor': 0.36363636363636365,
+            #    'limit_factor': 0.5,
+            #    'size': 4
+            # }
+
+            # Eliminar la entrada asociada a la llave 12
+            my_table = ml.remove(my_table, 12)
+            print(my_table)
+
+            # Salida esperada:
+            # {
+            #    'prime': 109345121,
+            #    'capacity': 11,
+            #    'scale': 1,
+            #    'shift': 0,
+            #    'table': {
+            #       'elements': [
+            #          {
+            #             'key': None,
+            #             'value': None
+            #          },
+            #          {
+            #             'key': 1,
+            #             'value': {
+            #                'name': 'John',
+            #                'age': 25
+            #             }
+            #          },
+            #          {
+            #             'key': '__EMPTY__',
+            #             'value': '__EMPTY__'
+            #          },
+            #          {
+            #             'key': 23,
+            #             'value': {
+            #                'name': 'Doe',
+            #                'age': 30
+            #             }
+            #          },
+            #          {
+            #             'key': 34,
+            #             'value': {
+            #                'name': 'Mary',
+            #                'age': 20
+            #             }
+            #          },
+            #          ... (7 elementos más)
+            #       ],
+            #       'size': 11
+            #    },
+            #    'current_factor': 0.2727272727272727,
+            #    'limit_factor': 0.5,
+            #    'size': 3
+            # }
+
+            # Obtener el valor asociado a la llave 23
+            print(ml.get(my_table, 23))
+            # Salida esperada: {'name': 'Doe', 'age': 30}
+
+         
+.. py:function:: size(my_map)
+
+   Obtiene la cantidad de elementos en la tabla de simbolos.
+
+   :param my_map: Tabla de simbolos de la cual se desea obtener la cantidad de elementos.
+   :type my_map: :ref:`map_linear_probing<map-linear-probing>`
+
+   :return: Cantidad de elementos en la tabla de simbolos.
+   :rtype: int
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_linear_probing as ml
+
+         # Crear una tabla vacia
+         my_table = ml.new_map(5, 0.5)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Agregar varios elementos a la tabla
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+         my_table = ml.put(my_table, 2, {'name': 'Jane', 'age': 22})
+         my_table = ml.put(my_table, 3, {'name': 'Doe', 'age': 30})
+         my_table = ml.put(my_table, 5, {'name': 'Mary', 'age': 20})
+         print(my_table)
+
+         # Obtener la cantidad de elementos en la tabla
+         print(ml.size(my_table))
+         # Salida esperada: 4
+
+   :Test Scenarios:
+
+      - **Tabla vacía**: Se obtiene la cantidad de elementos en una tabla vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Obtener la cantidad de elementos en la tabla
+            print(ml.size(my_table))
+            # Salida esperada: 0
+
+      - **Tabla con elementos**: Se obtiene la cantidad de elementos en una tabla con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = ml.put(my_table, 2, {'name': 'Jane', 'age': 22})
+            my_table = ml.put(my_table, 3, {'name': 'Doe', 'age': 30})
+            my_table = ml.put(my_table, 5, {'name': 'Mary', 'age': 20})
+
+            # Obtener la cantidad de elementos en la tabla
+            print(ml.size(my_table))
+            # Salida esperada: 4
+
+      - **Tabla con elementos eliminados**: Se obtiene la cantidad de elementos en una tabla con elementos eliminados.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla tal que se genere un cluster
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = ml.put(my_table, 12, {'name': 'Jane', 'age': 22})
+            my_table = ml.put(my_table, 23, {'name': 'Doe', 'age': 30})
+            my_table = ml.put(my_table, 34, {'name': 'Mary', 'age': 20})
+            print(my_table)
+
+            # Eliminar la entrada asociada a las llaves 12 y 34
+            my_table = ml.remove(my_table, 12)
+            my_table = ml.remove(my_table, 34)
+
+            # Obtener la cantidad de elementos en la tabla
+            print(ml.size(my_table))
+            # Salida esperada: 2
+
+.. py:function:: is_empty(my_map)
+
+   Valida si la tabla de simbolos está vacía.
+
+   :param my_map: Tabla de simbolos de la cual se desea verificar si está vacía.
+   :type my_map: :ref:`map_linear_probing<map-linear-probing>`
+
+   :return: ``True`` si la tabla está vacía, ``False`` en caso contrario.
+   :rtype: bool
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_linear_probing as ml
+
+         # Crear una tabla vacia
+         my_table = ml.new_map(5, 0.5)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Verificar si la tabla está vacía
+         print(ml.is_empty(my_table))
+         # Salida esperada: True
+
+   :Test Scenarios:
+
+      - **Tabla vacía**: Se verifica si una tabla vacía está vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Verificar si la tabla está vacía
+            print(ml.is_empty(my_table))
+            # Salida esperada: True
+
+      - **Tabla con elementos**: Se verifica si una tabla con elementos está vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+
+            # Verificar si la tabla está vacía
+            print(ml.is_empty(my_table))
+            # Salida esperada: False
+
+.. py:function:: key_set(my_map)
+
+   Obtiene la lista de llaves de la tabla de simbolos.
+
+   :param my_map: Tabla de simbolos de la cual se desea obtener el conjunto de llaves.
+   :type my_map: :ref:`map_linear_probing<map-linear-probing>`
+
+   :return: Lista de llaves de la tabla de simbolos.
+   :rtype: :ref:`array_list<array-list>`
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_linear_probing as ml
+
+         # Crear una tabla vacia
+         my_table = ml.new_map(5, 0.5)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Agregar varios elementos a la tabla
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+         my_table = ml.put(my_table, 3, {'name': 'Jane', 'age': 22})
+         my_table = ml.put(my_table, 5, {'name': 'Doe', 'age': 30})
+         my_table = ml.put(my_table, 8, {'name': 'Mary', 'age': 20})
+         print(my_table)
+
+         # Obtener el conjunto de llaves de la tabla
+         print(ml.key_set(my_table))
+         # Salida esperada: {'elements': [1, 3, 5, 8], 'size': 4}
+
+   :Test Scenarios:
+
+      - **Tabla vacía**: Se obtiene el conjunto de llaves de una tabla vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Obtener el conjunto de llaves de la tabla
+            print(ml.key_set(my_table))
+            # Salida esperada: {'elements': [ ], 'size': 0}
+
+      - **Tabla con elementos**: Se obtiene el conjunto de llaves de una tabla con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = ml.put(my_table, 3, {'name': 'Jane', 'age': 22})
+            my_table = ml.put(my_table, 5, {'name': 'Doe', 'age': 30})
+            my_table = ml.put(my_table, 8, {'name': 'Mary', 'age': 20})
+
+            # Obtener el conjunto de llaves de la tabla
+            print(ml.key_set(my_table))
+            # Salida esperada: {'elements': [1, 3, 5, 8], 'size': 4}
+
+
+.. py:function:: value_set(my_map)
+
+   Obtiene la lista de valores de la tabla de simbolos.
+
+   :param my_map: Tabla de simbolos de la cual se desea obtener el conjunto de valores.
+   :type my_map: :ref:`map_linear_probing<map-linear-probing>`
+
+   :return: Lista de valores de la tabla de simbolos.
+   :rtype: :ref:`array_list<array-list>`
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_linear_probing as ml
+
+         # Crear una tabla vacia
+         my_table = ml.new_map(5, 0.5)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Agregar varios elementos a la tabla
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+         my_table = ml.put(my_table, 3, {'name': 'Jane', 'age': 22})
+         my_table = ml.put(my_table, 5, {'name': 'Doe', 'age': 30})
+         my_table = ml.put(my_table, 8, {'name': 'Mary', 'age': 20})
+         print(my_table)
+
+         # Obtener el conjunto de valores de la tabla
+         print(ml.value_set(my_table))
+         # Salida esperada:
+         # {
+         #    'elements': [
+         #       {
+         #          'name': 'John',
+         #          'age': 25
+         #       },
+         #       {
+         #          'name': 'Jane',
+         #          'age': 22
+         #       },
+         #       {
+         #          'name': 'Doe',
+         #          'age': 30
+         #       },
+         #       {
+         #          'name': 'Mary',
+         #          'age': 20
+         #       }
+         #    ],
+         #    'size': 4
+         # }
+
+   :Test Scenarios:
+
+      - **Tabla vacía**: Se obtiene el conjunto de valores de una tabla vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Obtener el conjunto de valores de la tabla
+            print(ml.value_set(my_table))
+            # Salida esperada: {'elements': [ ], 'size': 0}
+
+      - **Tabla con elementos**: Se obtiene el conjunto de valores de una tabla con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = ml.put(my_table, 3, {'name': 'Jane', 'age': 22})
+            my_table = ml.put(my_table, 5, {'name': 'Doe', 'age': 30})
+            my_table = ml.put(my_table, 8, {'name': 'Mary', 'age': 20})
+
+            # Obtener el conjunto de valores de la tabla
+            print(ml.value_set(my_table))
+            # Salida esperada:
+            # {
+            #    'elements': [
+            #       {
+            #          'name': 'John',
+            #          'age': 25
+            #       },
+            #       {
+            #          'name': 'Jane',
+            #          'age': 22
+            #       },
+            #       {
+            #          'name': 'Doe',
+            #          'age': 30
+            #       },
+            #       {
+            #          'name': 'Mary',
+            #          'age': 20
+            #       }
+            #    ],
+            #    'size': 4
+            # }
+
+.. _linear-probing-rehash:
+
+.. py:function:: rehash(my_map)
+
+   Realiza un rehash de la tabla de simbolos.
+
+   Para realizar un rehash se debe seguir los siguientes pasos:
+
+   1. Crear una nueva tabla :ref:`map_linear_probing<map-linear-probing>` con ``capacity`` que sea el siguiente primo al doble del ``capacity`` actual.
+   2. Insertar los elementos de la tabla actual en la nueva tabla uno por uno.
+   3. Asignar la nueva tabla a la tabla actual.
+   4. Retornar la tabla nueva.
+
+   :param my_map: Tabla de simbolos de la cual se desea realizar el rehash.
+   :type my_map: :ref:`map_linear_probing<map-linear-probing>`
+
+   :return: Tabla de simbolos con el rehash realizado.
+   :rtype: :ref:`map_linear_probing<map-linear-probing>`
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_linear_probing as ml
+
+         # Crear una tabla vacia
+         my_table = ml.new_map(5, 0.5)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Realizar un rehash de la tabla
+         my_table = ml.rehash(my_table)
+         print(my_table)
+         # Salida esperada a continuación
+      
+      Salida esperada:
+
+      .. code-block:: console
+
+         {
+            'prime': 7,
+            'capacity': 23,
+            'scale': 1,
+            'shift': 0,
+            'table': {
+               'elements': [
+                  {
+                     'key': None,
+                     'value': None
+                  },
+                  ... (22 elementos)
+               ],
+               'size': 23
+            },
+            'current_factor': 0,
+            'limit_factor': 0.5,
+            'size': 0
+         }
+
+   :Test Scenarios:
+
+      - **Rehash de tabla vacía**: Se realiza un rehash de una tabla vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Realizar un rehash de la tabla
+            my_table = ml.rehash(my_table)
+            print(my_table)
+            # Salida esperada a continuación
+
+         Salida esperada:
+
+         .. code-block:: console
+
+            {
+               'prime': 7,
+               'capacity': 23,
+               'scale': 1,
+               'shift': 0,
+               'table': {
+                  'elements': [
+                     {
+                        'key': None,
+                        'value': None
+                     },
+                     ... (22 elementos)
+                  ],
+                  'size': 23
+               },
+               'current_factor': 0,
+               'limit_factor': 0.5,
+               'size': 0
+            }
+      
+      - **Rehash de tabla con elementos**: Se realiza un rehash de una tabla con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = ml.put(my_table, 3, {'name': 'Jane', 'age': 22})
+            my_table = ml.put(my_table, 5, {'name': 'Doe', 'age': 30})
+            my_table = ml.put(my_table, 8, {'name': 'Mary', 'age': 20})
+            print(my_table)
+
+            # Realizar un rehash de la tabla
+            my_table = ml.rehash(my_table)
+            print(my_table)
+            # Salida esperada a continuación
+
+         Salida esperada:
+
+         .. code-block:: console
+
+            {
+               'prime': 7,
+               'capacity': 23,
+               'scale': 1,
+               'shift': 0,
+               'table': {
+                  'elements': [
+                     {
+                        'key': None,
+                        'value': None
+                     },
+                     {
+                        'key': 1,
+                        'value': {
+                           'name': 'John',
+                           'age': 25
+                        }
+                     },
+                     {
+                        'key': 3,
+                        'value': {
+                           'name': 'Jane',
+                           'age': 22
+                        }
+                     },
+                     {
+                        'key': 5,
+                        'value': {
+                           'name': 'Doe',
+                           'age': 30
+                        }
+                     },
+                     {
+                        'key': 8,
+                        'value': {
+                           'name': 'Mary',
+                           'age': 20
+                        }
+                     },
+                     ... (19 elementos más)
+                  ],
+                  'size': 23
+               },
+               'current_factor': 0.17391304347826086,
+               'limit_factor': 0.5,
+               'size': 4
+            }
+
+      - **Rehash de tabla con elementos eliminados**: Se realiza un rehash de una tabla con elementos eliminados.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_linear_probing as ml
+
+            my_table = ml.new_map(5, 0.5)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla tal que se genere un cluster
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = ml.put(my_table, 12, {'name': 'Jane', 'age': 22})
+            my_table = ml.put(my_table, 23, {'name': 'Doe', 'age': 30})
+            my_table = ml.put(my_table, 34, {'name': 'Mary', 'age': 20})
+            print(my_table)
+
+            # Eliminar la entrada asociada a las llaves 12 y 34
+            my_table = ml.remove(my_table, 12)
+            my_table = ml.remove(my_table, 34)
+
+            # Realizar un rehash de la tabla
+            my_table = ml.rehash(my_table)
+            print(my_table)
+            # Salida esperada a continuación
+
+         Salida esperada:
+
+         .. code-block:: console
+
+            {
+               'prime': 7,
+               'capacity': 23,
+               'scale': 1,
+               'shift': 0,
+               'table': {
+                  'elements': [
+                     {
+                        'key': None,
+                        'value': None
+                     },
+                     {
+                        'key': 1,
+                        'value': {
+                           'name': 'John',
+                           'age': 25
+                        }
+                     },
+                     {
+                        'key': 23,
+                        'value': {
+                           'name': 'Doe',
+                           'age': 30
+                        }
+                     },
+                     ... (21 elementos más)
+                  ],
+                  'size': 23
+               },
+               'current_factor': 0.08695652173913043,
+               'limit_factor': 0.5,
+               'size': 2
+            }
+
+
+.. _map-separate-chaining:
 
 map\_separate\_chaining.py
---------------------------------------
+-------------------------------------
 
-.. automodule:: DataStructures.Map.map_separate_chaining
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+.. py:function:: new_map(num_elements, load_factor, prime=109345121)
+
+   Crea una nueva tabla de simbolos (map) sin elementos.
+
+   La tabla de simbolos es creada con los siguientes atributos:
+
+   * **prime**: Número primo usado para calcular el hash. Inicializado con el valor de ``prime`` y en caso de no ser dado, con el valor por defecto de 109345121.
+   * **capacity**: Tamaño de la tabla. Inicializado con el siguiente primo mayor a  ``num_elements``/ ``load_factor``.
+   * **scale**: Número entero aleatorio entre 1 y ``prime``- 1.
+   * **shift**: Número entero aleatorio entre 0 y ``prime``- 1.
+   * **table**: :ref:`array_list<array-list>` de tamaño ``capacity`` inicializada con una :ref:`single_linked_list<single-linked-list>` en cada uno de elementos.
+   * **current_factor**: Factor de carga actual de la tabla. Inicializado en 0.
+   * **limit_factor**: Factor de carga límite de la tabla antes de hacer un rehash. Inicializado con el valor de ``load_factor``.
+   * **size**: Número de elementos en la tabla. Inicializado en 0.
+
+   :param num_elements: Número de elementos que se espera almacenar en la tabla.
+   :type num_elements: int
+   :param load_factor: Factor de carga límite de la tabla antes de hacer un rehash.
+   :type load_factor: float
+   :param prime: Número primo usado para calcular el hash. Por defecto es 109345121.
+   :type prime: int
+
+   :return: Tabla recien creada.
+   :rtype: :ref:`map_separate_chaining<map-separate-chaining>`
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_separate_chaining as msc
+
+         # Crear una tabla vacia
+         my_table = msc.new_map(5, 4)
+         print(my_table)
+         # Salida esperada a continuación
+
+      Salida esperada:
+
+      .. code-block:: console
+
+         {
+            'prime': 109345121,
+            'capacity': 2,
+            'scale': 1, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            'shift': 0, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            'table': {
+               'elements': [
+                  {
+                     'first': None,
+                     'last': None,
+                     'size': 0
+                  },
+                  {
+                     'first': None,
+                     'last': None,
+                     'size': 0
+                  }
+               ],
+               'size': 2
+            },
+            'current_factor': 0,
+            'limit_factor': 4,
+            'size': 0
+         }
+
+.. py:function:: put(my_map, key, value)
+
+   Agrega una nueva entrada llave-valor a la tabla. Si la llave ya existe en la tabla, se actualiza el ``value`` de la entrada.
+
+   Para agregar una nueva entrada se debe seguir los siguientes pasos:
+
+   1. Calcular el hash de la llave, usando la función :func:`hash_value<hash_value>`.
+   2. Se busca la lista en la posición del hash en la tabla.
+   3. Si la llave ya existe en la lista, se actualiza el valor de la entrada.
+   4. Si la llave no existe en la lista, se agrega una nueva entrada al final de la lista.
+   5. Se actualiza el ``current_factor`` de la tabla si se agrega una nueva entrada.
+   6. Si el ``current_factor`` supera el ``limit_factor``, se realiza un :ref:`rehash<separate-chaining-rehash>` de la tabla.
+   7. Se retorna la tabla con la nueva entrada.
+
+   :param my_map: Tabla de simbolos a la cual se desea agregar un nuevo elemento.
+   :type my_map: :ref:`map_separate_chaining<map-separate-chaining>`
+   :param key: Llave del nuevo elemento.
+   :type key: any
+   :param value: Valor del nuevo elemento.
+   :type value: any
+
+   :return: Tabla de simbolos con el nuevo elemento agregado.
+   :rtype: :ref:`map_separate_chaining<map-separate-chaining>`
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_separate_chaining as msc
+
+         # Crear una tabla vacia
+         my_table = msc.new_map(5, 4)
+         print(my_table)
+
+         # Salida esperada:
+         # {
+         #    'prime': 109345121,
+         #    'capacity': 2,
+         #    'scale': 1, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+         #    'shift': 0, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+         #    'table': {
+         #       'elements': [
+         #          {
+         #             'first': None,
+         #             'last': None,
+         #             'size': 0
+         #          },
+         #          {
+         #             'first': None,
+         #             'last': None,
+         #             'size': 0
+         #          }
+         #       ],
+         #       'size': 2
+         #    },
+         #    'current_factor': 0,
+         #    'limit_factor': 4,
+         #    'size': 0
+         # }
+
+         # Agregar un nuevo elemento a la tabla
+         my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+         print(my_table)
+         # Salida esperada a continuación
+
+      Salida esperada:
+
+      .. code-block:: console
+
+         {
+            'prime': 109345121,
+            'capacity': 2,
+            'scale': 1, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            'shift': 0, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            'table': {
+               'elements': [
+                  {
+                     'first': None,
+                     'last': None,
+                     'size': 0
+                  },
+                  {
+                     'first': {
+                        'info': {
+                           'key': 1,
+                           'value': {
+                              'name': 'John',
+                              'age': 25
+                           }
+                        },
+                        'next': None
+                     },
+                     'last': {
+                        'info': {
+                           'key': 1,
+                           'value': {
+                              'name': 'John',
+                              'age': 25
+                           }
+                        },
+                        'next': None
+                     },
+                     'size': 1
+                  }
+               ],
+               'size': 2
+            },
+            'current_factor': 0.5,
+            'limit_factor': 4,
+            'size': 1
+         }
+   
+   :Test Scenarios:
+
+      - **Agregar un nuevo elemento**: Se agrega un nuevo elemento a la tabla.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+            print(my_table)
+            # Salida esperada a continuación
+
+         Salida esperada:
+
+         .. code-block:: console
+
+            {
+               'prime': 109345121,
+               'capacity': 2,
+               'scale': 1, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+               'shift': 0, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+               'table': {
+                  'elements': [
+                     {
+                        'first': None,
+                        'last': None,
+                        'size': 0
+                     },
+                     {
+                        'first': {
+                           'info': {
+                              'key': 1,
+                              'value': {
+                                 'name': 'John',
+                                 'age': 25
+                              }
+                           },
+                           'next': None
+                        },
+                        'last': {
+                           'info': {
+                              'key': 1,
+                              'value': {
+                                 'name': 'John',
+                                 'age': 25
+                              }
+                           },
+                           'next': None
+                        },
+                        'size': 1
+                     }
+                  ],
+                  'size': 2
+               },
+               'current_factor': 0.5,
+               'limit_factor': 4,
+               'size': 1
+            }
+
+      - **Agregar un elemento a la tabla sin colision**: Se agrega un nuevo elemento a la tabla sin colision.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = msc.put(my_table, 2, {'name': 'Jane', 'age': 22})
+            print(my_table)
+            # Salida esperada a continuación
+
+         Salida esperada:
+
+         .. code-block:: console
+
+            {
+               'prime': 109345121,
+               'capacity': 2,
+               'scale': 1, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+               'shift': 0, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+               'table': {
+                  'elements': [
+                     {
+                        'first': {
+                           'info': {
+                              'key': 2,
+                              'value': {
+                                 'name': 'Jane',
+                                 'age': 22
+                              }
+                           },
+                           'next': None
+                        },
+                        'last': {
+                           'info': {
+                              'key': 2,
+                              'value': {
+                                 'name': 'Jane',
+                                 'age': 22
+                              }
+                           },
+                           'next': None
+                        },
+                        'size': 1
+                     },
+                     {
+                        'first': {
+                           'info': {
+                              'key': 1,
+                              'value': {
+                                 'name': 'John',
+                                 'age': 25
+                              }
+                           },
+                           'next': None
+                        },
+                        'last': {
+                           'info': {
+                              'key': 1,
+                              'value': {
+                                 'name': 'John',
+                                 'age': 25
+                              }
+                           },
+                           'next': None
+                        },
+                        'size': 1
+                     }
+                  ],
+                  'size': 2
+               },
+               'current_factor': 1.0,
+               'limit_factor': 4,
+               'size': 2
+            }
+
+      - **Agregar un elemento a la tabla con colision**: Se agrega un nuevo elemento a la tabla con colision.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = msc.put(my_table, 11, {'name': 'Jane', 'age': 22})
+            print(my_table)
+
+            # Salida esperada a continuación
+
+         Salida esperada:
+
+         .. code-block:: console
+
+            {
+               'prime': 109345121,
+               'capacity': 2,
+               'scale': 1, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+               'shift': 0, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+               'table': {
+                  'elements': [
+                     {
+                        'first': None,
+                        'last': None,
+                        'size': 0
+                     },
+                     {
+                        'first': {
+                           'info': {
+                              'key': 1,
+                              'value': {
+                                 'name': 'John',
+                                 'age': 25
+                              }
+                           },
+                           'next': {
+                              'info': {
+                                 'key': 11,
+                                 'value': {
+                                    'name': 'Jane',
+                                    'age': 22
+                                 }
+                              },
+                              'next': None
+                           }
+                        },
+                        'last': {
+                           'info': {
+                              'key': 11,
+                              'value': {
+                                 'name': 'Jane',
+                                 'age': 22
+                              }
+                           },
+                           'next': None
+                        },
+                        'size': 2
+                     }
+                  ],
+                  'size': 2
+               },
+               'current_factor': 1.0,
+               'limit_factor': 4,
+               'size': 2
+            }
+
+.. _default-function-separate-chaining:
+
+.. py:function:: default_compare(key, entry)
+
+   Funcion de comparacion por defecto. Compara la llave ``key`` con la llave de una ``entry`` dada.
+
+   :param key: Llave con la que se desea comparar.
+   :type key: any
+   :param entry: Entrada de la tabla de simbolos con la que se desea comparar.
+   :type entry: :ref:`map_entry<map-entry>`
+
+   :return: **0** si son iguales, **1** si ``key`` > la llave del ``entry``, **-1** si ``key`` < que la llave del  ``entry``
+   :rtype: int
+
+   :Code:
+      .. code-block:: python
+
+         from DataStructures.Map import map_entry as me
+
+         def default_compare(key, element):
+
+            if (key == me.get_key(element)):
+               return 0
+            elif (key > me.get_key(element)):
+               return 1
+            return -1
+
+.. py:function:: contains(my_map, key)
+
+   Verifica si una llave se encuentra en la tabla de simbolos.
+
+   :param my_map: Tabla de simbolos en la cual se desea verificar si la llave se encuentra.
+   :type my_map: :ref:`map_separate_chaining<map-separate-chaining>`
+   :param key: Llave que se desea verificar si se encuentra en la tabla.
+   :type key: any
+
+   :return: ``True`` si la llave se encuentra en la tabla, ``False`` en caso contrario.
+   :rtype: bool
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_separate_chaining as msc
+
+         # Crear una tabla vacia
+         my_table = msc.new_map(5, 4)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Agregar un nuevo elemento a la tabla
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+
+         # Verificar si la llave 1 se encuentra en la tabla
+         print(msc.contains(my_table, 1))
+         # Salida esperada: True
+
+         # Verificar si la llave 2 se encuentra en la tabla
+         print(msc.contains(my_table, 2))
+         # Salida esperada: False
+
+.. py:function:: remove(my_map, key)
+
+   Elimina una entrada de la tabla de simbolos asociada a una llave dada.
+
+   :param my_map: Tabla de simbolos de la cual se desea eliminar una entrada.
+   :type my_map: :ref:`map_separate_chaining<map-separate-chaining>`
+   :param key: Llave de la entrada que se desea eliminar.
+   :type key: any
+
+   :return: Tabla de simbolos con la entrada eliminada.
+   :rtype: :ref:`map_separate_chaining<map-separate-chaining>`
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_separate_chaining as msc
+
+         # Crear una tabla vacia
+         my_table = msc.new_map(5, 4)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Agregar un nuevo elemento a la tabla
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+         print(my_table)
+         # Salida esperada:
+         # {
+         #    'prime': 109345121,
+         #    'capacity': 2,
+         #    'scale': 1, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+         #    'shift': 0, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+         #    'table': {
+         #       'elements': [
+         #          {
+         #             'first': {
+         #                'info': {
+         #                   'key': 2,
+         #                   'value': {
+         #                      'name': 'Jane',
+         #                      'age': 22
+         #                   }
+         #                },
+         #                'next': {
+         #                   'info': {
+         #                      'key': 4,
+         #                      'value': {
+         #                         'name': 'Mary',
+         #                         'age': 20
+         #                      }
+         #                   },
+         #                   'next': None
+         #                }
+         #             },
+         #             'last': {
+         #                'info': {
+         #                   'key': 4,
+         #                   'value': {
+         #                      'name': 'Mary',
+         #                      'age': 20
+         #                   }
+         #                },
+         #                'next': None
+         #             },
+         #             'size': 2
+         #          },
+         #          {
+         #             'first': {
+         #                'info': {
+         #                   'key': 1,
+         #                   'value': {
+         #                      'name': 'John',
+         #                      'age': 25
+         #                   }
+         #                },
+         #                'next': {
+         #                   'info': {
+         #                   'key': 3,
+         #                   'value': {
+         #                      'name': 'Doe',
+         #                      'age': 30
+         #                   }
+         #                   },
+         #                   'next': None
+         #                }
+         #             },
+         #             'last': {
+         #                'info': {
+         #                   'key': 3,
+         #                   'value': {
+         #                      'name': 'Doe',
+         #                      'age': 30
+         #                   }
+         #                },
+         #                'next': None
+         #             },
+         #             'size': 2
+         #          }
+         #       ],
+         #       'size': 2
+         #    },
+         #    'current_factor': 2.0,
+         #    'limit_factor': 4,
+         #    'size': 4
+         # }
+
+         # Eliminar la entrada asociada a la llave 1
+         my_table = msc.remove(my_table, 1)
+         print(my_table)
+         # Salida esperada a continuación
+
+      Salida esperada:
+
+      .. code-block:: console
+
+         {
+            'prime': 109345121,
+            'capacity': 2,
+            'scale': 1, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            'shift': 0, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            'table': {
+               'elements': [
+                  {
+                     'first': {
+                        'info': {
+                           'key': 4,
+                           'value': {
+                              'name': 'Mary',
+                              'age': 20
+                           }
+                        },
+                        'next': None
+                     },
+                     'last': {
+                        'info': {
+                           'key': 4,
+                           'value': {
+                              'name': 'Mary',
+                              'age': 20
+                           }
+                        },
+                        'next': None
+                     },
+                     'size': 1
+                  },
+                  {
+                     'first': {
+                        'info': {
+                           'key': 1,
+                           'value': {
+                              'name': 'John',
+                              'age': 25
+                           }
+                        },
+                        'next': {
+                           'info': {
+                              'key': 3,
+                              'value': {
+                                 'name': 'Doe',
+                                 'age': 30
+                              }
+                           },
+                           'next': None
+                        }
+                     },
+                     'last': {
+                        'info': {
+                           'key': 3,
+                           'value': {
+                              'name': 'Doe',
+                              'age': 30
+                           }
+                        },
+                        'next': None
+                     },
+                     'size': 2
+                  }
+               ],
+               'size': 2
+            },
+            'current_factor': 2.0,
+            'limit_factor': 4,
+            'size': 3
+         }
+
+   :Test Scenarios:
+
+      - **Elimina por llave existente**: Se elimina un elemento de la tabla.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla
+            my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = msc.put(my_table, 2, {'name': 'Jane', 'age': 22})
+            print(my_table)
+            # Salida esperada:
+            # {
+            #    'prime': 109345121,
+            #    'capacity': 2,
+            #    'scale': 1,
+            #    'shift': 0,
+            #    'table': {
+            #       'elements': [
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          },
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          }
+            #       ],
+            #       'size': 2
+            #    },
+            #    'current_factor': 1.0,
+            #    'limit_factor': 4,
+            #    'size': 2
+            # }
+
+            # Eliminar la entrada asociada a la llave 1
+            my_table = msc.remove(my_table, 1)
+            print(my_table)
+            # Salida esperada a continuación
+
+         Salida esperada:
+
+         .. code-block:: console
+
+            {
+               'prime': 109345121,
+               'capacity': 2,
+               'scale': 1,
+               'shift': 0,
+               'table': {
+                  'elements': [
+                     {
+                        'first': None,
+                        'last': None,
+                        'size': 0
+                     },
+                     {
+                        'first': {
+                           'info': {
+                              'key': 1,
+                              'value': {
+                                 'name': 'John',
+                                 'age': 25
+                              }
+                           },
+                           'next': None
+                        },
+                        'last': {
+                           'info': {
+                              'key': 1,
+                              'value': {
+                                 'name': 'John',
+                                 'age': 25
+                              }
+                           },
+                           'next': None
+                        },
+                        'size': 1
+                     }
+                  ],
+                  'size': 2
+               },
+               'current_factor': 1.0,
+               'limit_factor': 4,
+               'size': 1
+            }
+      - **Elimina por llave inexistente**: Se intenta eliminar un elemento de la tabla que no existe.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla
+            my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = msc.put(my_table, 2, {'name': 'Jane', 'age': 22})
+            print(my_table)
+            # Salida esperada:
+            # {
+            #    'prime': 109345121,
+            #    'capacity': 2,
+            #    'scale': 1,
+            #    'shift': 0,
+            #    'table': {
+            #       'elements': [
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          },
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          }
+            #       ],
+            #       '
+            #       'size': 2
+            #    },
+            #    'current_factor': 1.0,
+            #    'limit_factor': 4,
+            #    'size': 2
+            # }
+
+            # Eliminar la entrada asociada a la llave 3
+            my_table = msc.remove(my_table, 3)
+            print(my_table)
+            # Salida esperada a continuación
+
+         Salida esperada:
+
+         .. code-block:: console
+
+            {
+               'prime': 109345121,
+               'capacity': 2,
+               'scale': 1,
+               'shift': 0,
+               'table': {
+                  'elements': [
+                     {
+                        'first': {
+                           'info': {
+                              'key': 2,
+                              'value': {
+                                 'name': 'Jane',
+                                 'age': 22
+                              }
+                           },
+                           'next': None
+                        },
+                        'last': {
+                           'info': {
+                              'key': 2,
+                              'value': {
+                                 'name': 'Jane',
+                                 'age': 22
+                              }
+                           },
+                           'next': None
+                        },
+                        'size': 1
+                     },
+                     {
+                        'first': {
+                           'info': {
+                              'key': 1,
+                              'value': {
+                                 'name': 'John',
+                                 'age': 25
+                              }
+                           },
+                           'next': None
+                        },
+                        'last': {
+                           'info': {
+                              'key': 1,
+                              'value': {
+                                 'name': 'John',
+                                 'age': 25
+                              }
+                           },
+                           'next': None
+                        },
+                        'size': 1
+                     }
+                  ],
+                  'size': 2
+               },
+               'current_factor': 1.0,
+               'limit_factor': 4,
+               'size': 2
+            }
+
+.. py:function:: get(my_map, key)
+
+   Obtiene el valor asociado a una llave en la tabla de simbolos.
+
+   :param my_map: Tabla de simbolos de la cual se desea obtener el valor asociado a una llave.
+   :type my_map: :ref:`map_separate_chaining<map-separate-chaining>`
+   :param key: Llave de la cual se desea obtener el valor asociado.
+   :type key: any
+
+   :return: Valor asociado a la llave en la tabla de simbolos.
+   :rtype: any
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_separate_chaining as msc
+
+         # Crear una tabla vacia
+         my_table = msc.new_map(5, 4)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Agregar un nuevo elemento a la tabla
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+         print(my_table)
+         # Salida esperada:
+         # {
+         #    'prime': 109345121,
+         #    'capacity': 2,
+         #    'scale': 1, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+         #    'shift': 0, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+         #    'table': {
+         #       'elements': [
+         #          {
+         #             'first': None,
+         #             'last': None,
+         #             'size': 0
+         #          },
+         #          {
+         #             'first': {
+         #                'info': {
+         #                   'key': 1,
+         #                   'value': {
+         #                      'name': 'John',
+         #                      'age': 25
+         #                   }
+         #                },
+         #                'next': None
+         #             },
+         #             'last': {
+         #                'info': {
+         #                   'key': 1,
+         #                   'value': {
+         #                      'name': 'John',
+         #                      'age': 25
+         #                   }
+         #                },
+         #                'next': None
+         #             },
+         #             'size': 1
+         #          }
+         #       ],
+         #       'size': 2
+         #    },
+         #    'current_factor': 0.5,
+         #    'limit_factor': 4,
+         #    'size': 1
+         # }
+
+         # Obtener el valor asociado a la llave 1
+         print(msc.get(my_table, 1))
+         # Salida esperada: {'name': 'John', 'age': 25}
+
+         # Obtener el valor asociado a la llave 2
+         print(msc.get(my_table, 2))
+         # Salida esperada: None
+
+   :Test Scenarios:
+      - **Obtener valor por llave existente**: Se obtiene el valor asociado a una llave existente.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla
+            my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = msc.put(my_table, 2, {'name': 'Jane', 'age': 22})
+            print(my_table)
+            # Salida esperada:
+            # {
+            #    'prime': 109345121,
+            #    'capacity': 2,
+            #    'scale': 1,
+            #    'shift': 0,
+            #    'table': {
+            #       'elements': [
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          },
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          }
+            #       ],
+            #       'size': 2
+            #    },
+            #    'current_factor': 1.0,
+            #    'limit_factor': 4,
+            #    'size': 2
+            # }
+
+            # Obtener el valor asociado a la llave 1
+            print(msc.get(my_table, 1))
+            # Salida esperada: {'name': 'John', 'age': 25}
+
+      - **Obtener valor por llave inexistente**: Se intenta obtener el valor asociado a una llave inexistente.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla
+            my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = msc.put(my_table, 2, {'name': 'Jane', 'age': 22})
+            print(my_table)
+            # Salida esperada:
+            # {
+            #    'prime': 109345121,
+            #    'capacity': 2,
+            #    'scale': 1,
+            #    'shift': 0,
+            #    'table': {
+            #       'elements': [
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          },
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          }
+            #       ],
+            #       'size': 2
+            #    },
+            #    'current_factor': 1.0,
+            #    'limit_factor': 4,
+            #    'size': 2
+            # }
+
+            # Obtener el valor asociado a la llave 3
+            print(msc.get(my_table, 3))
+            # Salida esperada: None
+
+.. py:function:: size(my_map)
+   
+      Obtiene la cantidad de elementos en la tabla de simbolos.
+   
+      :param my_map: Tabla de simbolos de la cual se desea obtener la cantidad de elementos.
+      :type my_map: :ref:`map_separate_chaining<map-separate-chaining>`
+   
+      :return: Cantidad de elementos en la tabla de simbolos.
+      :rtype: int
+   
+      :Example:
+   
+         .. admonition:: Importante
+            :class: danger
+   
+            Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+   
+         .. code-block:: python
+   
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+   
+            # Crear una tabla vacia
+            my_table = msc.new_map(5, 4)
+            print(my_table)
+            # Salida esperada la misma respuesta de la función new_map()
+   
+            # Agregar un nuevo elemento a la tabla
+            my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+            print(my_table)
+            # Salida esperada:
+            # {
+            #    'prime': 109345121,
+            #    'capacity': 2,
+            #    'scale': 1, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            #    'shift': 0, # (ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+            #    'table': {
+            #       'elements': [
+            #          {
+            #             'first': None,
+            #             'last': None,
+            #             'size': 0
+            #          },
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          }
+            #       ],
+            #       'size': 2
+            #    },
+            #    'current_factor': 0.5,
+            #    'limit_factor': 4,
+            #    'size': 1
+            # }
+
+            # Obtener la cantidad de elementos en la tabla
+            print(msc.size(my_table))
+            # Salida esperada: 1
+
+      :Test Scenarios:
+         - **Obtener cantidad de elementos en tabla vacia**: Se obtiene la cantidad de elementos en una tabla vacia.
+
+            .. code-block:: python
+
+               # App/logic.py
+               from DataStructures.Map import map_separate_chaining as msc
+
+               my_table = msc.new_map(5, 4)
+               print(my_table) # Se espera la misma respuesta de new_map()
+
+               # Obtener la cantidad de elementos en la tabla
+               print(msc.size(my_table))
+               # Salida esperada: 0
+
+         - **Obtener cantidad de elementos en tabla con elementos**: Se obtiene la cantidad de elementos en una tabla con elementos.
+
+            .. code-block:: python
+
+               # App/logic.py
+               from DataStructures.Map import map_separate_chaining as msc
+
+               my_table = msc.new_map(5, 4)
+               print(my_table) # Se espera la misma respuesta de new_map()
+
+               # Agregar varios elementos a la tabla
+               my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+               my_table = msc.put(my_table, 2, {'name': 'Jane', 'age': 22})
+               print(my_table)
+               # Salida esperada:
+               # {
+               #    'prime': 109345121,
+               #    'capacity': 2,
+               #    'scale': 1,
+               #    'shift': 0,
+               #    'table': {
+               #       'elements': [
+               #          {
+               #             'first': {
+               #                'info': {
+               #                   'key': 2,
+               #                   'value': {
+               #                      'name': 'Jane',
+               #                      'age': 22
+               #                   }
+               #                },
+               #                'next': None
+               #             },
+               #             'last': {
+               #                'info': {
+               #                   'key': 2,
+               #                   'value': {
+               #                      'name': 'Jane',
+               #                      'age': 22
+               #                   }
+               #                },
+               #                'next': None
+               #             },
+               #             'size': 1
+               #          },
+               #          {
+               #             'first': {
+               #                'info': {
+               #                   'key': 1,
+               #                   'value': {
+               #                      'name': 'John',
+               #                      'age': 25
+               #                   }
+               #                },
+               #                'next': None
+               #             },
+               #             'last': {
+               #                'info': {
+               #                   'key': 1,
+               #                   'value': {
+               #                      'name': 'John',
+               #                      'age': 25
+               #                   }
+               #                },
+               #                'next': None
+               #             },
+               #             'size': 1
+               #          }
+               #       ],
+               #       'size': 2
+               #    },
+               #    'current_factor': 1.0,
+               #    'limit_factor': 4,
+               #    'size': 2
+               # }
+
+               # Obtener la cantidad de elementos en la tabla
+               print(msc.size(my_table))
+               # Salida esperada: 2
+
+.. py:function:: is_empty(my_map)
+
+   Verifica si la tabla de simbolos se encuentra vacia.
+
+   :param my_map: Tabla de simbolos de la cual se desea verificar si se encuentra vacia.
+   :type my_map: :ref:`map_separate_chaining<map-separate-chaining>`
+
+   :return: ``True`` si la tabla se encuentra vacia, ``False`` en caso contrario.
+   :rtype: bool
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_separate_chaining as msc
+
+         # Crear una tabla vacia
+         my_table = msc.new_map(5, 4)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Verificar si la tabla está vacía
+         print(ml.is_empty(my_table))
+         # Salida esperada: True
+
+   :Test Scenarios:
+      - **Tabla vacía**: Se verifica si una tabla vacía está vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Verificar si la tabla está vacía
+            print(msc.is_empty(my_table))
+            # Salida esperada: True
+
+      - **Tabla con elementos**: Se verifica si una tabla con elementos está vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar un nuevo elemento a la tabla
+            my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+
+            # Verificar si la tabla está vacía
+            print(msc.is_empty(my_table))
+            # Salida esperada: False
+
+.. py:function:: key_set(my_map)
+
+   Obtiene la lista de llaves de la tabla de simbolos.
+
+   :param my_map: Tabla de simbolos de la cual se desea obtener el conjunto de llaves.
+   :type my_map: :ref:`map_separate_chaining<map-separate-chaining>`
+
+   :return: Lista de llaves de la tabla de simbolos.
+   :rtype: :ref:`array_list<array-list>`
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_separate_chaining as msc
+
+         # Crear una tabla vacia
+         my_table = msc.new_map(5, 4)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Agregar un nuevo elemento a la tabla
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+         print(my_table)
+         # Salida esperada:
+         # {
+         #    'prime': 109345121,
+         #    'capacity': 2,
+         #    'scale': 1,
+         #    'shift': 0,
+         #    'table': {
+         #       'elements': [
+         #          {
+         #             'first': {
+         #                'info': {
+         #                   'key': 2,
+         #                   'value': {
+         #                      'name': 'Jane',
+         #                      'age': 22
+         #                   }
+         #                },
+         #                'next': {
+         #                   'info': {
+         #                   'key': 4,
+         #                   'value': {
+         #                      'name': 'Mary',
+         #                      'age': 20
+         #                   }
+         #                   },
+         #                   'next': None
+         #                }
+         #             },
+         #             'last': {
+         #                'info': {
+         #                   'key': 4,
+         #                   'value': {
+         #                   'name': 'Mary',
+         #                   'age': 20
+         #                   }
+         #                },
+         #                'next': None
+         #             },
+         #             'size': 2
+         #          },
+         #          {
+         #             'first': {
+         #                'info': {
+         #                   'key': 1,
+         #                   'value': {
+         #                   'name': 'John',
+         #                   'age': 25
+         #                   }
+         #                },
+         #                'next': {
+         #                   'info': {
+         #                   'key': 3,
+         #                   'value': {
+         #                      'name': 'Doe',
+         #                      'age': 30
+         #                   }
+         #                   },
+         #                   'next': None
+         #                }
+         #             },
+         #             'last': {
+         #                'info': {
+         #                   'key': 3,
+         #                   'value': {
+         #                   'name': 'Doe',
+         #                   'age': 30
+         #                   }
+         #                },
+         #                'next': None
+         #             },
+         #             'size': 2
+         #          }
+         #       ],
+         #       'size': 2
+         #    },
+         #    'current_factor': 2.0,
+         #    'limit_factor': 4,
+         #    'size': 4
+         # }
+
+         # Obtener la lista de llaves de la tabla
+         print(msc.key_set(my_table))
+         # Salida esperada: {'elements': [2, 4, 1, 3], 'size': 4}
+
+   :Test Scenarios:
+
+      - **Tabla vacía**: Se obtiene la lista de llaves de una tabla vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Obtener la lista de llaves de la tabla
+            print(msc.key_set(my_table))
+            # Salida esperada: {'elements': [], 'size': 0}
+
+      - **Tabla con elementos**: Se obtiene la lista de llaves de una tabla con elementos.
+ 
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla
+            my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = msc.put(my_table, 2, {'name': 'Jane', 'age': 22})
+            print(my_table)
+            # Salida esperada:
+            # {
+            #    'prime': 109345121,
+            #    'capacity': 2,
+            #    'scale': 1,
+            #    'shift': 0,
+            #    'table': {
+            #       'elements': [
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          },
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          }
+            #       ],
+            #       'size': 2
+            #    },
+            #    'current_factor': 1.0,
+            #    'limit_factor': 4,
+            #    'size': 2
+            # }
+
+            # Obtener la lista de llaves de la tabla
+            print(msc.key_set(my_table))
+            # Salida esperada: {'elements': [2, 1], 'size': 2}
+
+.. py:function:: value_set(my_map)
+
+   Obtiene la lista de valores de la tabla de simbolos.
+
+   :param my_map: Tabla de simbolos de la cual se desea obtener el conjunto de valores.
+   :type my_map: :ref:`map_separate_chaining<map-separate-chaining>`
+
+   :return: Lista de valores de la tabla de simbolos.
+   :rtype: :ref:`array_list<array-list>`
+
+   :Example:
+
+      .. admonition:: Importante
+         :class: danger
+
+         Para asegurar obtener los mismos resultados en los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Map import map_separate_chaining as msc
+
+         # Crear una tabla vacia
+         my_table = msc.new_map(5, 4)
+         print(my_table)
+         # Salida esperada la misma respuesta de la función new_map()
+
+         # Agregar un nuevo elemento a la tabla
+         my_table = ml.put(my_table, 1, {'name': 'John', 'age': 25})
+         print(my_table)
+         # Salida esperada:
+         # {
+         #    'prime': 109345121,
+         #    'capacity': 2,
+         #    'scale': 1,
+         #    'shift': 0,
+         #    'table': {
+         #       'elements': [
+         #          {
+         #             'first': None,
+         #             'last': None,
+         #             'size': 0
+         #          },
+         #          {
+         #             'first': {
+         #                'info': {
+         #                   'key': 1,
+         #                   'value': {
+         #                      'name': 'John',
+         #                      'age': 25
+         #                   }
+         #                },
+         #                'next': None
+         #             },
+         #             'last': {
+         #                'info': {
+         #                   'key': 1,
+         #                   'value': {
+         #                      'name': 'John',
+         #                      'age': 25
+         #                   }
+         #                },
+         #
+         #                'next': None
+         #             },
+         #             'size': 1
+         #          }
+         #       ],
+         #       'size': 2
+         #    },
+         #    'current_factor': 0.5,
+         #    'limit_factor': 4,
+         #    'size': 1
+         # }
+
+         # Obtener la lista de valores de la tabla
+         print(msc.value_set(my_table))
+         # Salida esperada: {'elements': [{'name': 'John', 'age': 25}], 'size': 1}
+
+   :Test Scenarios:
+
+      - **Tabla vacía**: Se obtiene la lista de valores de una tabla vacía.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Obtener la lista de valores de la tabla
+            print(msc.value_set(my_table))
+            # Salida esperada: {'elements': [], 'size': 0}
+
+      - **Tabla con elementos**: Se obtiene la lista de valores de una tabla con elementos.
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Map import map_separate_chaining as msc
+
+            my_table = msc.new_map(5, 4)
+            print(my_table) # Se espera la misma respuesta de new_map()
+
+            # Agregar varios elementos a la tabla
+            my_table = msc.put(my_table, 1, {'name': 'John', 'age': 25})
+            my_table = msc.put(my_table, 2, {'name': 'Jane', 'age': 22})
+            print(my_table)
+            # Salida esperada:
+            # {
+            #    'prime': 109345121,
+            #    'capacity': 2,
+            #    'scale': 1,
+            #    'shift': 0,
+            #    'table': {
+            #       'elements': [
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 2,
+            #                   'value': {
+            #                      'name': 'Jane',
+            #                      'age': 22
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          },
+            #          {
+            #             'first': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'last': {
+            #                'info': {
+            #                   'key': 1,
+            #                   'value': {
+            #                      'name': 'John',
+            #                      'age': 25
+            #                   }
+            #                },
+            #                'next': None
+            #             },
+            #             'size': 1
+            #          }
+            #       ],
+            #       'size': 2
+            #    },
+            #    'current_factor': 1.0,
+            #    'limit_factor': 4,
+            #    'size': 2
+            # }
+
+            # Obtener la lista de valores de la tabla
+            print(msc.value_set(my_table))
+            # Salida esperada: {'elements': [{'name': 'Jane', 'age': 22}, {'name': 'John', 'age': 25}], 'size': 2}
+
+.. _separate-chaining-rehash:
+
+.. py:function:: rehash(my_map)
+
+   Realiza un rehashing de la tabla de simbolos.
+
+   Para realizar un rehash se debe seguir los siguientes pasos:
+
+      1. Crear una nueva tabla :ref:`map_separate_chaining<map-separate-chaining>` con ``capacity`` que sea el siguiente primo al doble del ``capacity`` actual.
+      2. Recorrer la tabla actual y reinsertar cada elemento en la nueva tabla.
+      3. Asignar la nueva tabla como la tabla actual.
+      4. Retornar la tabla nueva.
+
+   :param my_map: Tabla de simbolos a la cual se le desea realizar un rehashing.
+   :type my_map: :ref:`map_separate_chaining<map-separate-chaining>`
+
+   :return: Tabla de simbolos con un nuevo tamaño.
+   :rtype: :ref:`map_separate_chaining<map-separate-chaining>`
+
+   
