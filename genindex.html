@@ -18,6 +18,14 @@
         <script src="_static/documentation_options.js?v=d45e8c67"></script>
         <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+        <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+        <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+        <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="#" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -146,8 +154,6 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.balance">balance() (in module DataStructures.Tree.red_black_tree)</a>
-</li>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.bfs.bfs_vertex">bfs_vertex() (in module DataStructures.Graph.bfs)</a>
 </li>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.bfs.breath_first_search">breath_first_search() (in module DataStructures.Graph.bfs)</a>
@@ -162,17 +168,29 @@
 </li>
         <li><a href="DataStructures.List.html#add_last">add_last()</a>, <a href="DataStructures.List.html#id5">[1]</a>
 </li>
+        <li><a href="DataStructures.Tree.html#ceiling">ceiling()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#ceiling_key">ceiling_key()</a>
+</li>
         <li><a href="DataStructures.List.html#change_info">change_info()</a>, <a href="DataStructures.List.html#id15">[1]</a>
 </li>
-        <li><a href="DataStructures.Map.html#contains">contains()</a>, <a href="DataStructures.Map.html#id4">[1]</a>
+        <li><a href="DataStructures.Map.html#contains">contains()</a>, <a href="DataStructures.Map.html#id4">[1]</a>, <a href="DataStructures.Tree.html#contains">[2]</a>
 </li>
-        <li><a href="DataStructures.Map.html#default_compare">default_compare()</a>, <a href="DataStructures.Map.html#id3">[1]</a>
+        <li><a href="DataStructures.Map.html#default_compare">default_compare()</a>, <a href="DataStructures.Map.html#id3">[1]</a>, <a href="DataStructures.Tree.html#default_compare">[2]</a>
 </li>
         <li><a href="DataStructures.List.html#default_function">default_function()</a>, <a href="DataStructures.List.html#id13">[1]</a>
 </li>
         <li><a href="DataStructures.List.html#default_sort_criteria">default_sort_criteria()</a>
 </li>
         <li><a href="DataStructures.List.html#delete_element">delete_element()</a>, <a href="DataStructures.List.html#id9">[1]</a>
+</li>
+        <li><a href="DataStructures.Tree.html#delete_max">delete_max()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#delete_max_tree">delete_max_tree()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#delete_min">delete_min()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#delete_min_tree">delete_min_tree()</a>
 </li>
         <li><a href="DataStructures.Queue.html#dequeue">dequeue()</a>
 </li>
@@ -184,31 +202,55 @@
 </li>
         <li><a href="DataStructures.List.html#first_element">first_element()</a>, <a href="DataStructures.List.html#id6">[1]</a>
 </li>
-        <li><a href="DataStructures.Map.html#get">get()</a>, <a href="DataStructures.Map.html#id6">[1]</a>
+        <li><a href="DataStructures.Tree.html#floor">floor()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#floor_key">floor_key()</a>
+</li>
+        <li><a href="DataStructures.Map.html#get">get()</a>, <a href="DataStructures.Map.html#id6">[1]</a>, <a href="DataStructures.Tree.html#get">[2]</a>
 </li>
         <li><a href="DataStructures.List.html#get_element">get_element()</a>, <a href="DataStructures.List.html#id0">[1]</a>, <a href="DataStructures.List.html#id8">[2]</a>
 </li>
-        <li><a href="DataStructures.Map.html#get_key">get_key()</a>
+        <li><a href="DataStructures.Map.html#get_key">get_key()</a>, <a href="DataStructures.Tree.html#get_key">[1]</a>
+</li>
+        <li><a href="DataStructures.Tree.html#get_max">get_max()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#get_max_node">get_max_node()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#get_min">get_min()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#get_min_node">get_min_node()</a>
 </li>
         <li><a href="DataStructures.List.html#get_next">get_next()</a>
 </li>
-        <li><a href="DataStructures.Map.html#get_value">get_value()</a>
+        <li><a href="DataStructures.Tree.html#get_node">get_node()</a>
+</li>
+        <li><a href="DataStructures.Map.html#get_value">get_value()</a>, <a href="DataStructures.Tree.html#get_value">[1]</a>
 </li>
         <li><a href="DataStructures.Map.html#hash_value">hash_value()</a>
 </li>
+        <li><a href="DataStructures.Tree.html#height">height()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#height_tree">height_tree()</a>
+</li>
         <li><a href="DataStructures.List.html#id12">insert_element()</a>, <a href="DataStructures.List.html#insert_element">[1]</a>
+</li>
+        <li><a href="DataStructures.Tree.html#insert_node">insert_node()</a>
 </li>
         <li><a href="DataStructures.List.html#insertion_sort">insertion_sort()</a>
 </li>
         <li><a href="DataStructures.Map.html#is_available">is_available()</a>
 </li>
-        <li><a href="DataStructures.List.html#id2">is_empty()</a>, <a href="DataStructures.List.html#is_empty">[1]</a>, <a href="DataStructures.Map.html#id8">[2]</a>, <a href="DataStructures.Map.html#is_empty">[3]</a>, <a href="DataStructures.Queue.html#is_empty">[4]</a>, <a href="DataStructures.Set.html#is_empty">[5]</a>, <a href="DataStructures.Stack.html#is_empty">[6]</a>
+        <li><a href="DataStructures.List.html#id2">is_empty()</a>, <a href="DataStructures.List.html#is_empty">[1]</a>, <a href="DataStructures.Map.html#id8">[2]</a>, <a href="DataStructures.Map.html#is_empty">[3]</a>, <a href="DataStructures.Queue.html#is_empty">[4]</a>, <a href="DataStructures.Set.html#is_empty">[5]</a>, <a href="DataStructures.Stack.html#is_empty">[6]</a>, <a href="DataStructures.Tree.html#is_empty">[7]</a>
 </li>
         <li><a href="DataStructures.List.html#id14">is_present()</a>, <a href="DataStructures.List.html#is_present">[1]</a>
 </li>
         <li><a href="DataStructures.Map.html#is_prime">is_prime()</a>
 </li>
-        <li><a href="DataStructures.Map.html#id9">key_set()</a>, <a href="DataStructures.Map.html#key_set">[1]</a>
+        <li><a href="DataStructures.Map.html#id9">key_set()</a>, <a href="DataStructures.Map.html#key_set">[1]</a>, <a href="DataStructures.Tree.html#key_set">[2]</a>
+</li>
+        <li><a href="DataStructures.Tree.html#keys">keys()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#keys_range">keys_range()</a>
 </li>
         <li><a href="DataStructures.List.html#id7">last_element()</a>, <a href="DataStructures.List.html#last_element">[1]</a>
 </li>
@@ -218,9 +260,11 @@
 </li>
         <li><a href="DataStructures.List.html#id1">new_list()</a>, <a href="DataStructures.List.html#new_list">[1]</a>
 </li>
-        <li><a href="DataStructures.Map.html#id0">new_map()</a>, <a href="DataStructures.Map.html#new_map">[1]</a>
+        <li><a href="DataStructures.Map.html#id0">new_map()</a>, <a href="DataStructures.Map.html#new_map">[1]</a>, <a href="DataStructures.Tree.html#new_map">[2]</a>
 </li>
         <li><a href="DataStructures.Map.html#new_map_entry">new_map_entry()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#new_node">new_node()</a>
 </li>
         <li><a href="DataStructures.Queue.html#new_queue">new_queue()</a>
 </li>
@@ -238,19 +282,29 @@
 </li>
         <li><a href="DataStructures.Stack.html#push">push()</a>
 </li>
-        <li><a href="DataStructures.Map.html#id2">put()</a>, <a href="DataStructures.Map.html#put">[1]</a>
+        <li><a href="DataStructures.Map.html#id2">put()</a>, <a href="DataStructures.Map.html#put">[1]</a>, <a href="DataStructures.Tree.html#put">[2]</a>
 </li>
         <li><a href="DataStructures.List.html#quick_sort">quick_sort()</a>
 </li>
+        <li><a href="DataStructures.Tree.html#rank">rank()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#rank_keys">rank_keys()</a>
+</li>
         <li><a href="DataStructures.Map.html#id11">rehash()</a>, <a href="DataStructures.Map.html#rehash">[1]</a>
 </li>
-        <li><a href="DataStructures.Map.html#id5">remove()</a>, <a href="DataStructures.Map.html#remove">[1]</a>
+        <li><a href="DataStructures.Map.html#id5">remove()</a>, <a href="DataStructures.Map.html#remove">[1]</a>, <a href="DataStructures.Tree.html#remove">[2]</a>
 </li>
         <li><a href="DataStructures.Set.html#remove_element">remove_element()</a>
 </li>
         <li><a href="DataStructures.List.html#id10">remove_first()</a>, <a href="DataStructures.List.html#remove_first">[1]</a>
 </li>
         <li><a href="DataStructures.List.html#id11">remove_last()</a>, <a href="DataStructures.List.html#remove_last">[1]</a>
+</li>
+        <li><a href="DataStructures.Tree.html#remove_node">remove_node()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#select">select()</a>
+</li>
+        <li><a href="DataStructures.Tree.html#select_key">select_key()</a>
 </li>
         <li><a href="DataStructures.List.html#selection_sort">selection_sort()</a>
 </li>
@@ -260,13 +314,17 @@
 </li>
         <li><a href="DataStructures.List.html#shell_sort">shell_sort()</a>
 </li>
-        <li><a href="DataStructures.List.html#id3">size()</a>, <a href="DataStructures.List.html#size">[1]</a>, <a href="DataStructures.Map.html#id7">[2]</a>, <a href="DataStructures.Map.html#size">[3]</a>, <a href="DataStructures.Queue.html#size">[4]</a>, <a href="DataStructures.Set.html#size">[5]</a>, <a href="DataStructures.Stack.html#size">[6]</a>
+        <li><a href="DataStructures.List.html#id3">size()</a>, <a href="DataStructures.List.html#size">[1]</a>, <a href="DataStructures.Map.html#id7">[2]</a>, <a href="DataStructures.Map.html#size">[3]</a>, <a href="DataStructures.Queue.html#size">[4]</a>, <a href="DataStructures.Set.html#size">[5]</a>, <a href="DataStructures.Stack.html#size">[6]</a>, <a href="DataStructures.Tree.html#size">[7]</a>
+</li>
+        <li><a href="DataStructures.Tree.html#size_tree">size_tree()</a>
 </li>
         <li><a href="DataStructures.List.html#id17">sub_list()</a>, <a href="DataStructures.List.html#sub_list">[1]</a>
 </li>
         <li><a href="DataStructures.Stack.html#top">top()</a>
 </li>
-        <li><a href="DataStructures.Map.html#id10">value_set()</a>, <a href="DataStructures.Map.html#value_set">[1]</a>
+        <li><a href="DataStructures.Map.html#id10">value_set()</a>, <a href="DataStructures.Map.html#value_set">[1]</a>, <a href="DataStructures.Tree.html#value_set">[2]</a>
+</li>
+        <li><a href="DataStructures.Tree.html#values">values()</a>
 </li>
       </ul></li>
   </ul></td>
@@ -275,20 +333,20 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.ceiling">ceiling() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    ceiling()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.ceiling">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#ceiling">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.ceiling_key">ceiling_key() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    ceiling_key()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.ceiling_key">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#ceiling_key">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.rbt_node.change_color">change_color() (in module DataStructures.Tree.rbt_node)</a>
-</li>
       <li>
     change_info()
 
@@ -316,17 +374,11 @@
     contains()
 
       <ul>
-        <li><a href="DataStructures.Map.html#contains">built-in function</a>, <a href="DataStructures.Map.html#id4">[1]</a>
+        <li><a href="DataStructures.Map.html#contains">built-in function</a>, <a href="DataStructures.Map.html#id4">[1]</a>, <a href="DataStructures.Tree.html#contains">[2]</a>
 </li>
       </ul></li>
       <li><a href="DataStructures.Priority_queue.html#DataStructures.Priority_queue.index_priority_queue.contains">contains() (in module DataStructures.Priority_queue.index_priority_queue)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.contains">(in module DataStructures.Tree.binary_search_tree)</a>
 </li>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.contains">(in module DataStructures.Tree.red_black_tree)</a>
-</li>
-      </ul></li>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.contains_vertex">contains_vertex() (in module DataStructures.Graph.adj_list_graph)</a>
 </li>
   </ul></td>
@@ -427,55 +479,21 @@
 </li>
       </ul></li>
       <li>
-    DataStructures.Tree.binary_search_tree
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#module-DataStructures.Tree.binary_search_tree">module</a>
-</li>
-      </ul></li>
-      <li>
-    DataStructures.Tree.bst_node
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#module-DataStructures.Tree.bst_node">module</a>
-</li>
-      </ul></li>
-      <li>
-    DataStructures.Tree.rbt_node
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#module-DataStructures.Tree.rbt_node">module</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    DataStructures.Tree.red_black_tree
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#module-DataStructures.Tree.red_black_tree">module</a>
-</li>
-      </ul></li>
-      <li>
     DataStructures.Tree.tree_traversal
 
       <ul>
         <li><a href="DataStructures.Tree.html#module-DataStructures.Tree.tree_traversal">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="DataStructures.Priority_queue.html#DataStructures.Priority_queue.index_priority_queue.decrease_key">decrease_key() (in module DataStructures.Priority_queue.index_priority_queue)</a>
 </li>
       <li>
     default_compare()
 
       <ul>
-        <li><a href="DataStructures.Map.html#default_compare">built-in function</a>, <a href="DataStructures.Map.html#id3">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.default_compare">default_compare() (in module DataStructures.Tree.binary_search_tree)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.default_compare">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Map.html#default_compare">built-in function</a>, <a href="DataStructures.Map.html#id3">[1]</a>, <a href="DataStructures.Tree.html#default_compare">[2]</a>
 </li>
       </ul></li>
       <li>
@@ -501,28 +519,32 @@
         <li><a href="DataStructures.List.html#delete_element">built-in function</a>, <a href="DataStructures.List.html#id9">[1]</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.delete_left">delete_left() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    delete_max()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.delete_left">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#delete_max">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.delete_left_tree">delete_left_tree() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    delete_max_tree()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.delete_left_tree">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#delete_max_tree">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.delete_right">delete_right() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    delete_min()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.delete_right">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#delete_min">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.delete_right_tree">delete_right_tree() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    delete_min_tree()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.delete_right_tree">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#delete_min_tree">built-in function</a>
 </li>
       </ul></li>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.dfo.depth_first_order">depth_first_order() (in module DataStructures.Graph.dfo)</a>
@@ -600,22 +622,20 @@
         <li><a href="DataStructures.List.html#first_element">built-in function</a>, <a href="DataStructures.List.html#id6">[1]</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.flip_colors">flip_colors() (in module DataStructures.Tree.red_black_tree)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.flip_node_color">flip_node_color() (in module DataStructures.Tree.red_black_tree)</a>
-</li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.floor">floor() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    floor()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.floor">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#floor">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.floor_key">floor_key() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    floor_key()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.floor_key">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#floor_key">built-in function</a>
 </li>
       </ul></li>
   </ul></td>
@@ -628,13 +648,7 @@
     get()
 
       <ul>
-        <li><a href="DataStructures.Map.html#get">built-in function</a>, <a href="DataStructures.Map.html#id6">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.get">get() (in module DataStructures.Tree.binary_search_tree)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.get">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Map.html#get">built-in function</a>, <a href="DataStructures.Map.html#id6">[1]</a>, <a href="DataStructures.Tree.html#get">[2]</a>
 </li>
       </ul></li>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.get_edge">get_edge() (in module DataStructures.Graph.adj_list_graph)</a>
@@ -656,15 +670,37 @@
     get_key()
 
       <ul>
-        <li><a href="DataStructures.Map.html#get_key">built-in function</a>
+        <li><a href="DataStructures.Map.html#get_key">built-in function</a>, <a href="DataStructures.Tree.html#get_key">[1]</a>
+</li>
+      </ul></li>
+      <li>
+    get_max()
+
+      <ul>
+        <li><a href="DataStructures.Tree.html#get_max">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    get_max_node()
+
+      <ul>
+        <li><a href="DataStructures.Tree.html#get_max_node">built-in function</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.bst_node.get_key">get_key() (in module DataStructures.Tree.bst_node)</a>
+      <li>
+    get_min()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.rbt_node.get_key">(in module DataStructures.Tree.rbt_node)</a>
+        <li><a href="DataStructures.Tree.html#get_min">built-in function</a>
+</li>
+      </ul></li>
+      <li>
+    get_min_node()
+
+      <ul>
+        <li><a href="DataStructures.Tree.html#get_min_node">built-in function</a>
 </li>
       </ul></li>
       <li>
@@ -674,23 +710,18 @@
         <li><a href="DataStructures.List.html#get_next">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.get_node">get_node() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    get_node()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.get_node">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#get_node">built-in function</a>
 </li>
       </ul></li>
       <li>
     get_value()
 
       <ul>
-        <li><a href="DataStructures.Map.html#get_value">built-in function</a>
-</li>
-      </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.bst_node.get_value">get_value() (in module DataStructures.Tree.bst_node)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.rbt_node.get_value">(in module DataStructures.Tree.rbt_node)</a>
+        <li><a href="DataStructures.Map.html#get_value">built-in function</a>, <a href="DataStructures.Tree.html#get_value">[1]</a>
 </li>
       </ul></li>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.get_vertex_information">get_vertex_information() (in module DataStructures.Graph.adj_list_graph)</a>
@@ -718,16 +749,18 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.height">height() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    height()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.height">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#height">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.height_tree">height_tree() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    height_tree()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.height_tree">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#height_tree">built-in function</a>
 </li>
       </ul></li>
   </ul></td>
@@ -763,12 +796,15 @@
         <li><a href="DataStructures.List.html#id12">built-in function</a>, <a href="DataStructures.List.html#insert_element">[1]</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.insert_node">insert_node() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    insert_node()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.insert_node">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#insert_node">built-in function</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.insert_vertex">insert_vertex() (in module DataStructures.Graph.adj_list_graph)</a>
 </li>
       <li>
@@ -778,8 +814,6 @@
         <li><a href="DataStructures.List.html#insertion_sort">built-in function</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     is_available()
 
@@ -791,17 +825,13 @@
     is_empty()
 
       <ul>
-        <li><a href="DataStructures.List.html#id2">built-in function</a>, <a href="DataStructures.List.html#is_empty">[1]</a>, <a href="DataStructures.Map.html#id8">[2]</a>, <a href="DataStructures.Map.html#is_empty">[3]</a>, <a href="DataStructures.Queue.html#is_empty">[4]</a>, <a href="DataStructures.Set.html#is_empty">[5]</a>, <a href="DataStructures.Stack.html#is_empty">[6]</a>
+        <li><a href="DataStructures.List.html#id2">built-in function</a>, <a href="DataStructures.List.html#is_empty">[1]</a>, <a href="DataStructures.Map.html#id8">[2]</a>, <a href="DataStructures.Map.html#is_empty">[3]</a>, <a href="DataStructures.Queue.html#is_empty">[4]</a>, <a href="DataStructures.Set.html#is_empty">[5]</a>, <a href="DataStructures.Stack.html#is_empty">[6]</a>, <a href="DataStructures.Tree.html#is_empty">[7]</a>
 </li>
       </ul></li>
       <li><a href="DataStructures.Priority_queue.html#DataStructures.Priority_queue.index_priority_queue.is_empty">is_empty() (in module DataStructures.Priority_queue.index_priority_queue)</a>
 
       <ul>
         <li><a href="DataStructures.Priority_queue.html#DataStructures.Priority_queue.priority_queue.is_empty">(in module DataStructures.Priority_queue.priority_queue)</a>
-</li>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.is_empty">(in module DataStructures.Tree.binary_search_tree)</a>
-</li>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.is_empty">(in module DataStructures.Tree.red_black_tree)</a>
 </li>
       </ul></li>
       <li>
@@ -818,12 +848,6 @@
         <li><a href="DataStructures.Map.html#is_prime">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.rbt_node.is_red">is_red() (in module DataStructures.Tree.rbt_node)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.is_red">(in module DataStructures.Tree.red_black_tree)</a>
-</li>
-      </ul></li>
   </ul></td>
 </tr></table>
 
@@ -834,33 +858,23 @@
     key_set()
 
       <ul>
-        <li><a href="DataStructures.Map.html#id9">built-in function</a>, <a href="DataStructures.Map.html#key_set">[1]</a>
+        <li><a href="DataStructures.Map.html#id9">built-in function</a>, <a href="DataStructures.Map.html#key_set">[1]</a>, <a href="DataStructures.Tree.html#key_set">[2]</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.key_set">key_set() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    keys()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.key_set">(in module DataStructures.Tree.red_black_tree)</a>
-</li>
-      </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.key_set_tree">key_set_tree() (in module DataStructures.Tree.binary_search_tree)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.key_set_tree">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#keys">built-in function</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.keys">keys() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    keys_range()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.keys">(in module DataStructures.Tree.red_black_tree)</a>
-</li>
-      </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.keys_range">keys_range() (in module DataStructures.Tree.binary_search_tree)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.keys_range">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#keys_range">built-in function</a>
 </li>
       </ul></li>
   </ul></td>
@@ -876,18 +890,8 @@
         <li><a href="DataStructures.List.html#id7">built-in function</a>, <a href="DataStructures.List.html#last_element">[1]</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.left_key">left_key() (in module DataStructures.Tree.binary_search_tree)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.left_key">(in module DataStructures.Tree.red_black_tree)</a>
-</li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.left_key_node">left_key_node() (in module DataStructures.Tree.binary_search_tree)</a>
-</li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.left_key_tree">left_key_tree() (in module DataStructures.Tree.red_black_tree)</a>
-</li>
       <li>
     load_set()
 
@@ -938,23 +942,9 @@
 </li>
         <li><a href="DataStructures.Priority_queue.html#module-DataStructures.Priority_queue.priority_queue">DataStructures.Priority_queue.priority_queue</a>
 </li>
-        <li><a href="DataStructures.Tree.html#module-DataStructures.Tree.binary_search_tree">DataStructures.Tree.binary_search_tree</a>
-</li>
-        <li><a href="DataStructures.Tree.html#module-DataStructures.Tree.bst_node">DataStructures.Tree.bst_node</a>
-</li>
-        <li><a href="DataStructures.Tree.html#module-DataStructures.Tree.rbt_node">DataStructures.Tree.rbt_node</a>
-</li>
-        <li><a href="DataStructures.Tree.html#module-DataStructures.Tree.red_black_tree">DataStructures.Tree.red_black_tree</a>
-</li>
         <li><a href="DataStructures.Tree.html#module-DataStructures.Tree.tree_traversal">DataStructures.Tree.tree_traversal</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.move_red_left">move_red_left() (in module DataStructures.Tree.red_black_tree)</a>
-</li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.move_red_right">move_red_right() (in module DataStructures.Tree.red_black_tree)</a>
-</li>
   </ul></td>
 </tr></table>
 
@@ -986,13 +976,7 @@
     new_map()
 
       <ul>
-        <li><a href="DataStructures.Map.html#id0">built-in function</a>, <a href="DataStructures.Map.html#new_map">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.new_map">new_map() (in module DataStructures.Tree.binary_search_tree)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.new_map">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Map.html#id0">built-in function</a>, <a href="DataStructures.Map.html#new_map">[1]</a>, <a href="DataStructures.Tree.html#new_map">[2]</a>
 </li>
       </ul></li>
       <li>
@@ -1002,14 +986,15 @@
         <li><a href="DataStructures.Map.html#new_map_entry">built-in function</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.bst_node.new_node">new_node() (in module DataStructures.Tree.bst_node)</a>
+      <li>
+    new_node()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.rbt_node.new_node">(in module DataStructures.Tree.rbt_node)</a>
+        <li><a href="DataStructures.Tree.html#new_node">built-in function</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.prim_search.new_prim_search">new_prim_search() (in module DataStructures.Graph.prim_search)</a>
 </li>
       <li>
@@ -1095,10 +1080,10 @@
 </li>
       <li><a href="DataStructures.Tree.html#DataStructures.Tree.tree_traversal.postorder_tree">postorder_tree() (in module DataStructures.Tree.tree_traversal)</a>
 </li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.tree_traversal.preorder">preorder() (in module DataStructures.Tree.tree_traversal)</a>
-</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="DataStructures.Tree.html#DataStructures.Tree.tree_traversal.preorder">preorder() (in module DataStructures.Tree.tree_traversal)</a>
+</li>
       <li><a href="DataStructures.Tree.html#DataStructures.Tree.tree_traversal.preorder_tree">preorder_tree() (in module DataStructures.Tree.tree_traversal)</a>
 </li>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.prim.prim_mst">prim_mst() (in module DataStructures.Graph.prim)</a>
@@ -1120,13 +1105,7 @@
     put()
 
       <ul>
-        <li><a href="DataStructures.Map.html#id2">built-in function</a>, <a href="DataStructures.Map.html#put">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.put">put() (in module DataStructures.Tree.binary_search_tree)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.put">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Map.html#id2">built-in function</a>, <a href="DataStructures.Map.html#put">[1]</a>, <a href="DataStructures.Tree.html#put">[2]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1148,16 +1127,18 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.rank">rank() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    rank()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.rank">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#rank">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.rank_keys">rank_keys() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    rank_keys()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.rank_keys">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#rank_keys">built-in function</a>
 </li>
       </ul></li>
       <li>
@@ -1173,7 +1154,7 @@
     remove()
 
       <ul>
-        <li><a href="DataStructures.Map.html#id5">built-in function</a>, <a href="DataStructures.Map.html#remove">[1]</a>
+        <li><a href="DataStructures.Map.html#id5">built-in function</a>, <a href="DataStructures.Map.html#remove">[1]</a>, <a href="DataStructures.Tree.html#remove">[2]</a>
 </li>
       </ul></li>
       <li><a href="DataStructures.Priority_queue.html#DataStructures.Priority_queue.index_priority_queue.remove">remove() (in module DataStructures.Priority_queue.index_priority_queue)</a>
@@ -1181,11 +1162,9 @@
       <ul>
         <li><a href="DataStructures.Priority_queue.html#DataStructures.Priority_queue.priority_queue.remove">(in module DataStructures.Priority_queue.priority_queue)</a>
 </li>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.remove">(in module DataStructures.Tree.binary_search_tree)</a>
-</li>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.remove">(in module DataStructures.Tree.red_black_tree)</a>
-</li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     remove_element()
 
@@ -1193,8 +1172,6 @@
         <li><a href="DataStructures.Set.html#remove_element">built-in function</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     remove_first()
 
@@ -1202,8 +1179,6 @@
         <li><a href="DataStructures.List.html#id10">built-in function</a>, <a href="DataStructures.List.html#remove_first">[1]</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.remove_key">remove_key() (in module DataStructures.Tree.red_black_tree)</a>
-</li>
       <li>
     remove_last()
 
@@ -1211,23 +1186,14 @@
         <li><a href="DataStructures.List.html#id11">built-in function</a>, <a href="DataStructures.List.html#remove_last">[1]</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.remove_node">remove_node() (in module DataStructures.Tree.binary_search_tree)</a>
-</li>
-      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.remove_vertex">remove_vertex() (in module DataStructures.Graph.adj_list_graph)</a>
-</li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.right_key">right_key() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    remove_node()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.right_key">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#remove_node">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.right_key_node">right_key_node() (in module DataStructures.Tree.binary_search_tree)</a>
-</li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.right_key_tree">right_key_tree() (in module DataStructures.Tree.red_black_tree)</a>
-</li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.rotate_left">rotate_left() (in module DataStructures.Tree.red_black_tree)</a>
-</li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.rotate_right">rotate_right() (in module DataStructures.Tree.red_black_tree)</a>
+      <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.remove_vertex">remove_vertex() (in module DataStructures.Graph.adj_list_graph)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1237,16 +1203,18 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.prim.scan">scan() (in module DataStructures.Graph.prim)</a>
 </li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.select">select() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    select()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.select">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#select">built-in function</a>
 </li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.select_key">select_key() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    select_key()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.select_key">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#select_key">built-in function</a>
 </li>
       </ul></li>
       <li>
@@ -1291,7 +1259,7 @@
     size()
 
       <ul>
-        <li><a href="DataStructures.List.html#id3">built-in function</a>, <a href="DataStructures.List.html#size">[1]</a>, <a href="DataStructures.Map.html#id7">[2]</a>, <a href="DataStructures.Map.html#size">[3]</a>, <a href="DataStructures.Queue.html#size">[4]</a>, <a href="DataStructures.Set.html#size">[5]</a>, <a href="DataStructures.Stack.html#size">[6]</a>
+        <li><a href="DataStructures.List.html#id3">built-in function</a>, <a href="DataStructures.List.html#size">[1]</a>, <a href="DataStructures.Map.html#id7">[2]</a>, <a href="DataStructures.Map.html#size">[3]</a>, <a href="DataStructures.Queue.html#size">[4]</a>, <a href="DataStructures.Set.html#size">[5]</a>, <a href="DataStructures.Stack.html#size">[6]</a>, <a href="DataStructures.Tree.html#size">[7]</a>
 </li>
       </ul></li>
       <li><a href="DataStructures.Priority_queue.html#DataStructures.Priority_queue.index_priority_queue.size">size() (in module DataStructures.Priority_queue.index_priority_queue)</a>
@@ -1299,15 +1267,12 @@
       <ul>
         <li><a href="DataStructures.Priority_queue.html#DataStructures.Priority_queue.priority_queue.size">(in module DataStructures.Priority_queue.priority_queue)</a>
 </li>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.size">(in module DataStructures.Tree.binary_search_tree)</a>
-</li>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.size">(in module DataStructures.Tree.red_black_tree)</a>
-</li>
       </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.size_tree">size_tree() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    size_tree()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.size_tree">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#size_tree">built-in function</a>
 </li>
       </ul></li>
       <li>
@@ -1346,33 +1311,16 @@
     value_set()
 
       <ul>
-        <li><a href="DataStructures.Map.html#id10">built-in function</a>, <a href="DataStructures.Map.html#value_set">[1]</a>
-</li>
-      </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.value_set">value_set() (in module DataStructures.Tree.binary_search_tree)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.value_set">(in module DataStructures.Tree.red_black_tree)</a>
-</li>
-      </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.value_set_tree">value_set_tree() (in module DataStructures.Tree.binary_search_tree)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.value_set_tree">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Map.html#id10">built-in function</a>, <a href="DataStructures.Map.html#value_set">[1]</a>, <a href="DataStructures.Tree.html#value_set">[2]</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.values">values() (in module DataStructures.Tree.binary_search_tree)</a>
+      <li>
+    values()
 
       <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.values">(in module DataStructures.Tree.red_black_tree)</a>
-</li>
-      </ul></li>
-      <li><a href="DataStructures.Tree.html#DataStructures.Tree.binary_search_tree.values_range">values_range() (in module DataStructures.Tree.binary_search_tree)</a>
-
-      <ul>
-        <li><a href="DataStructures.Tree.html#DataStructures.Tree.red_black_tree.values_range">(in module DataStructures.Tree.red_black_tree)</a>
+        <li><a href="DataStructures.Tree.html#values">built-in function</a>
 </li>
       </ul></li>
       <li><a href="DataStructures.Graph.html#DataStructures.Graph.adj_list_graph.vertices">vertices() (in module DataStructures.Graph.adj_list_graph)</a>

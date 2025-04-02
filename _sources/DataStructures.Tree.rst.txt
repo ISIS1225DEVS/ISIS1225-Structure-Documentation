@@ -2,53 +2,883 @@
 Order Map - Árboles
 ####################################
 
-***************************************
+Como usar la documentación
+#################################################
+
+Para leer la guía de uso de la documentación, por favor diríjase a la sección :ref:`Guía de documentación<guia-doc>`.
+
 Elementos
-***************************************
+#################################################
+
+.. _bst-node:
 
 bst\_node.py
 ------------------------------------
 
-.. automodule:: DataStructures.Tree.bst_node
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+Estructura que contiene la información a guardar en una ``nodo`` de un árbol binario
 
-rbt\_node.py
-------------------------------------
+.. py:function:: new_node(key, value)
 
-.. automodule:: DataStructures.Tree.rbt_node
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+   Crea una nueva entrada (de tipo :ref:`bst_node<bst-node>`) de un árbol binario con una llave y un valor dados.
+   
+   El nodo es creado con los siguientes atributos:
 
-***************************************
-Implementaciones de árboles
-***************************************
+   - :attr:`key`: llave del nodo
+   - :attr:`value`: valor del nodo
+   - :attr:`size`: tamaño del subárbol (inicialmente 1)
+   - :attr:`left`: hijo izquierdo del nodo (inicialmente ``None``)
+   - :attr:`right`: hijo derecho del nodo (inicialmente ``None``)
+
+   :param key: llave del nodo
+   :type key: any
+   :param value: valor del nodo
+   :type value: any
+
+   :return: nodo creado
+   :rtype: :ref:`bst_node<bst-node>`
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Tree import bst_node as bn
+
+         # Crea una nueva entrada (nodo) de un árbol binario
+         node = bn.new_node(1, "uno")
+         print(node)
+         # Salida esperada: 
+         # { "key": 1, "value": "uno", "size": 1, "left": None, "right": None }
+
+.. py:function:: get_value(my_node)
+
+   Obtiene el valor ``value`` de un nodo recibido.
+
+   :param my_node: nodo del cual se quiere obtener el valor
+   :type my_node: :ref:`bst_node<bst-node>`
+
+   :return: valor del nodo
+   :rtype: any
+
+   :Example:
+      
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Tree import bst_node as bn
+
+         # Crea una nueva entrada (nodo) de un árbol binario
+         node = bn.new_node(1, "uno")
+         print(node)
+         # Salida esperada:
+         # { "key": 1, "value": "uno", "size": 1, "left": None, "right": None }
+
+         # Obtiene el valor del nodo
+         value = bn.get_value(node)
+         print(value)
+         # Salida esperada:
+         # "uno"
+
+.. py:function:: get_key(my_node)
+
+   Obtiene la llave ``key`` de un nodo recibido.
+
+   :param my_node: nodo del cual se quiere obtener la llave
+   :type my_node: :ref:`bst_node<bst-node>`
+
+   :return: llave del nodo
+   :rtype: any
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Tree import bst_node as bn
+
+         # Crea una nueva entrada (nodo) de un árbol binario
+         node = bn.new_node(1, "uno")
+         print(node)
+         # Salida esperada:
+         # { "key": 1, "value": "uno", "size": 1, "left": None, "right": None }
+
+         # Obtiene la llave del nodo
+         key = bn.get_key(node)
+         print(key)
+         # Salida esperada:
+         # 1
+
+.. rbt\_node.py
+.. ------------------------------------
+
+.. .. automodule:: DataStructures.Tree.rbt_node
+..    :members:
+..    :undoc-members:
+..    :show-inheritance:
+..    :member-order: bysource
+
+Implementaciones
+#################################################
+.. _binary-search-tree:
 
 binary\_search\_tree.py
 -----------------------------------------------
 
-.. automodule:: DataStructures.Tree.binary_search_tree
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+.. py:function:: new_map()
 
-red\_black\_tree.py
--------------------------------------------
+   Crea una nueva tabla de simbolos (map) ordenada basada en un árbol binario de búsqueda (BST).
 
-.. automodule:: DataStructures.Tree.red_black_tree
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+   La tabla de simbolos es creada con los siguientes atributos:
 
-***************************************
+   - :attr:`root`: raiz del árbol (inicialmente ``None``)
+
+   :return: tabla de simbolos creada
+   :rtype: :ref:`binary_search_tree<binary-search-tree>`
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Tree import binary_search_tree as bst
+
+         # Crea un arbol vacío
+         map = bst.new_map()
+         print(map)
+         # Salida esperada: { "root": None }
+
+.. _bst-put:
+
+.. py:function:: put(my_bst, key, value)
+
+   Agrega un nuevo nodo llave-valor a un árbol binario de búsqueda (BST).
+   Si la llave ya existe, se actualiza el ``value`` del nodo.
+
+   Esta función llama a la función :ref:`insert_node<bst-insert-node>` para agregar el nodo en la posición correcta del árbol de manera recursiva.
+
+   :param my_bst: árbol binario de búsqueda donde se quiere agregar el nodo
+   :type my_bst: :ref:`binary_search_tree<binary-search-tree>`
+   :param key: llave del nodo
+   :type key: any
+   :param value: valor del nodo
+   :type value: any
+
+   :return: árbol binario de búsqueda actualizado
+   :rtype: :ref:`binary_search_tree<binary-search-tree>`
+
+   :Example:
+
+         .. code-block:: python
+   
+            # App/logic.py
+            from DataStructures.Tree import binary_search_tree as bst
+   
+            # Crea un arbol vacío
+            map = bst.new_map()
+            print(map)
+            # Salida esperada: { "root": None }
+   
+            # Agrega un nuevo nodo al árbol
+            map = bst.put(map, 1, "uno")
+            print(map)
+            # Salida esperada: 
+            # { 
+            #     "root": { 
+            #        "key": 1, 
+            #        "value": "uno", 
+            #        "size": 1, 
+            #        "left": None, 
+            #        "right": None 
+            #     } 
+            # }
+
+   :Test Scenarios:
+
+      - **Agrega un nuevo nodo a un árbol vacío**
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Tree import binary_search_tree as bst
+
+            # Crea un arbol vacío
+            map = bst.new_map()
+            print(map)
+            # Salida esperada: { "root": None }
+
+            # Agrega un nuevo nodo al árbol
+            map = bst.put(map, 1, "uno")
+            print(map)
+            # Salida esperada: 
+            # { 
+            #     "root": { 
+            #        "key": 1, 
+            #        "value": "uno", 
+            #        "size": 1, 
+            #        "left": None, 
+            #        "right": None 
+            #     } 
+            # }
+
+      - **Agrega un nuevo nodo a un árbol no vacío**
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Tree import binary_search_tree as bst
+
+            # Crea un arbol vacío
+            map = bst.new_map()
+            print(map)
+            # Salida esperada: { "root": None }
+
+            # Agrega un nuevo nodo al árbol
+            map = bst.put(map, 2, "dos")
+            
+            # Agrega otro nodo al árbol
+            map = bst.put(map, 1, "uno")
+            
+            print(map)
+            # Salida esperada: 
+            # { 
+            #     "root": { 
+            #        "key": 2, 
+            #        "value": "dos", 
+            #        "size": 2, 
+            #        "left": { 
+            #           "key": 1, 
+            #           "value": "uno", 
+            #           "size": 1, 
+            #           "left": None, 
+            #           "right": None 
+            #        }, 
+            #        "right": None 
+            #     }
+            # }
+
+      - **Agregar un nodo con una llave ya existente**
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Tree import binary_search_tree as bst
+
+            # Crea un arbol vacío
+            map = bst.new_map()
+            print(map)
+            # Salida esperada: { "root": None }
+
+            # Agrega un nuevo nodo al árbol
+            map = bst.put(map, 2, "dos")
+            
+            # Agrega otro nodo al árbol
+            map = bst.put(map, 1, "uno")
+            
+            # Agrega otro nodo al árbol con una llave ya existente
+            map = bst.put(map, 1, "uno modificado")
+            
+            print(map)
+            # Salida esperada: 
+            # { 
+            #     "root": { 
+            #        "key": 2, 
+            #        "value": "dos", 
+            #        "size": 2, 
+            #        "left": { 
+            #           "key": 1, 
+            #           "value": "uno modificado", 
+            #           "size": 1, 
+            #           "left": None, 
+            #           "right": None 
+            #        }, 
+            #        "right": None 
+            #     }
+            # }
+
+
+
+.. _bst-insert-node:
+
+.. py:function:: insert_node(root, key, value)
+
+   Inserta un nuevo nodo llave-valor en el árbol binario de búsqueda (BST) de manera recursiva.
+
+   Esta función es llamada por la función :ref:`put<bst-put>`.
+
+   :param root: raiz del árbol donde se quiere agregar el nodo
+   :type root: :ref:`bst_node<bst-node>`
+   :param key: llave del nodo
+   :type key: any
+   :param value: valor del nodo
+   :type value: any
+
+   :return: raiz del árbol binario de búsqueda actualizado
+   :rtype: :ref:`bst_node<bst-node>`
+
+.. _bst-get:
+
+.. py:function:: get(my_bst, key)
+
+   Busca un nodo en el árbol binario de búsqueda (BST) y devuelve su valor.
+
+   Esta función llama a la función :ref:`get_node<bst-get-node>` para buscar el nodo en el árbol de manera recursiva.
+
+   :param my_bst: árbol binario de búsqueda donde se quiere buscar el nodo
+   :type my_bst: :ref:`binary_search_tree<binary-search-tree>`
+   :param key: llave del nodo a buscar
+   :type key: any
+
+   :return: valor del nodo encontrado o ``None`` si no se encuentra
+   :rtype: any
+
+   :Example:
+
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.Tree import binary_search_tree as bst
+
+         # Crea un arbol vacío
+         map = bst.new_map()
+         print(map)
+         # Salida esperada: { "root": None }
+
+         # Agrega un nuevo nodo al árbol
+         map = bst.put(map, 1, "uno")
+         print(map)
+         # Salida esperada: 
+         # { 
+         #     "root": { 
+         #        "key": 1, 
+         #        "value": "uno", 
+         #        "size": 1, 
+         #        "left": None, 
+         #        "right": None 
+         #     } 
+         # }
+
+   :Test Scenarios:
+
+      - **Busca un nodo en un árbol vacío**
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Tree import binary_search_tree as bst
+
+            # Crea un arbol vacío
+            map = bst.new_map()
+            print(map)
+            # Salida esperada: { "root": None }
+
+            # Busca un nodo en el árbol vacío
+            value = bst.get(map, 1)
+            print(value)
+            # Salida esperada: None
+
+      - **Busca un nodo en un árbol no vacío - llave existente**
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Tree import binary_search_tree as bst
+
+            # Crea un arbol vacío
+            map = bst.new_map()
+            print(map)
+            # Salida esperada: { "root": None }
+
+            # Agrega un nuevo nodo al árbol
+            map = bst.put(map, 2, "dos")
+            map = bst.put(map, 1, "uno")
+            map = bst.put(map, 3, "tres")
+            
+            # Busca un nodo en el árbol no vacío
+            value = bst.get(map, 2)
+            print(value)
+            # Salida esperada: "dos"
+
+      - **Busca un nodo en un árbol no vacío - llave no existente**
+
+         .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Tree import binary_search_tree as bst
+
+            # Crea un arbol vacío
+            map = bst.new_map()
+            print(map)
+            # Salida esperada: { "root": None }
+
+            # Agrega un nuevo nodo al árbol
+            map = bst.put(map, 2, "dos")
+            map = bst.put(map, 1, "uno")
+            map = bst.put(map, 3, "tres")
+            
+            # Busca un nodo en el árbol no vacío
+            value = bst.get(map, 4)
+            print(value)
+            # Salida esperada: None
+            # (No existe el nodo con llave 4)
+
+.. _bst-get-node:
+
+.. py:function:: get_node(root, key)
+
+   Busca un nodo en el árbol binario de búsqueda (BST) de manera recursiva.
+
+   Esta función es llamada por la función :ref:`get<bst-get>`.
+
+   :param root: raiz del árbol donde se quiere buscar el nodo
+   :type root: :ref:`bst_node<bst-node>`
+   :param key: llave del nodo a buscar
+   :type key: any
+
+   :return: nodo encontrado o ``None`` si no se encuentra
+   :rtype: :ref:`bst_node<bst-node>`
+
+.. py:function:: remove(my_bst, key)
+
+   Elimina la pareja llave-valor que coincida con``key``.
+
+   Usa la función ``remove_node()`` para eliminar la pareja
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+   :param key: La llave asociada a la pareja a eliminar
+   :type key: any
+
+   :returns: El arbol sin la pareja key-value
+   :rtype: binary_search_tree
+
+.. py:function:: remove_node(root, key)
+
+   Elimina la pareja llave-valor que coincida con``key``.
+
+   Es usada en la función ``remove()``
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+   :param key: La llave asociada a la pareja a eliminar
+   :type key: any
+
+   :returns: El arbol sin la pareja key-value
+   :rtype: bst_node
+
+.. py:function:: contains(my_bst, key)
+
+   Informa si la llave key se encuentra en la tabla de hash.
+
+   Usa la función ``get()`` para buscar la llave en el arbol
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+   :param key: La llave a buscar
+   :type key: any
+
+   :returns: ``True`` si la llave está presente, ``False`` en caso contrario
+   :rtype: bool
+
+.. py:function:: size(my_bst)
+
+   Retorna el número de entradas en la tabla de simbolos
+
+   Usa la función ``size_tree()`` para contar el número de elementos
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+
+   :returns: El número de elementos en la tabla
+   :rtype: int
+
+.. py:function:: size_tree(root)
+
+   Retornar el número de entradas en la a partir del nodo root
+
+   Es usada en la función ``size()``
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+
+   :returns: El número de elementos en la tabla
+   :rtype: int
+
+.. py:function:: is_empty(my_bst)
+
+   Informa si la tabla de simbolos se encuentra vacia.
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+
+   :returns: ``True`` si la tabla es vacía, ``False`` en caso contrario
+   :rtype: bool
+
+.. py:function:: key_set(my_bst)
+
+   Retorna una lista con todas las llaves de la tabla.
+
+   Usa la función ``key_set_tree()`` para construir la lista de llaves
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+
+   :returns: Una lista con todas las llaves de la tabla
+   :rtype: single_linked_list
+
+.. py:function:: value_set(my_bst)
+   
+   Retorna una lista con los valores de la tabla.
+
+   Usa la función ``value_set_tree()`` para construir la lista de valores
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+
+   :returns: Una lista con todos los valores de la tabla
+   :rtype: single_linked_list
+
+.. py:function:: get_min(my_bst)
+
+   Retorna la llave mas pequeña de la tabla de simbolos
+
+   Usa la función ``get_min_node()`` para encontrar la llave más a la izquierda
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+
+   :returns: La llave más a la izquierda
+   :rtype: any
+
+.. py:function:: get_min_node(root)
+
+   Retorna la llave mas pequeña de la tabla de simbolos
+
+   Es usada en la función ``get_min()``
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+
+   :returns: La llave más a la izquierda
+   :rtype: any
+
+.. py:function:: get_max(my_bst)
+
+   Retorna la llave mas grande de la tabla de simbolos
+
+   Usa la función ``get_max_node()`` para encontrar la llave más grande de del arbol
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+
+   :returns: La llave más a la derecha
+   :rtype: any
+
+.. py:function:: get_max_node(root)
+
+   Retorna la llave mas grande de la tabla de simbolos
+
+   Es usada en la función ``get_max()``
+   Usa la función ``get_max_node()`` para encontrar la llave más grande
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+
+   :returns: La llave más a la derecha
+   :rtype: any
+
+.. py:function:: delete_min(my_bst)
+   
+   Encuentra y remueve la llave mas pequeña de la tabla de simbolos y su valor asociado.
+
+   Usa la función ``delete_min_tree()`` para eliminar la llave más pequeña
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+
+   :returns: El arbol de búsqueda sin la llave más pequeña
+   :rtype: binary_search_tree
+
+.. py:function:: delete_min_tree(root)
+
+   Encuentra y remueve la llave mas pequeña de la tabla de simbolos y su valor asociado
+
+   Es usada en la función ``delete_min()``
+   Usa la función ``delete_min_tree()`` para eliminar la llave más pequeña
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+
+   :returns: Retorna la raiz del arbol sin la llave más pequeña
+   :rtype: bst_node
+
+.. py:function::  delete_max(my_bst)
+
+   Encuentra y remueve la llave mas grande de la tabla de simbolos y su valor asociado.
+
+   Usa la función ``delete_max_tree()`` para eliminar la llave más grande
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+
+   :returns: El arbol de búsqueda sin la llave más grande
+   :rtype: binary_search_tree
+
+.. py:function:: delete_max_tree(root)
+
+   Encuentra y remueve la llave mas grande de la tabla de simbolos y su valor asociado.
+
+   Es usada en la función ``delete_max()``
+   Usa la función ``delete_max_tree()`` para eliminar la llave más grande
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+
+   :returns: Retorna la raiz del arbol sin la llave más grande
+   :rtype: bst_node
+
+.. py:function:: floor(my_bst, key)
+
+   Retorna la llave que precede a la llave key en la tabla de simbolos.
+
+   Si la llave existe, retorna la misma llave. Si no existe, retorna la llave predecedente más cercana como si la llave key existiera en la tabla.
+   Por ejemplo, si la tabla contiene las llaves [1, 3, 5, 7, 9] y se busca la llave 6, la función retornará 5.
+
+   Usa la función ``floor_key()`` para encontrar la llave predecesora a key
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+   :param key: La llave de búsqueda
+   :type key: any
+
+   :returns: La llave predecesora a key
+   :rtype: any
+
+.. py:function:: floor_key(root, key)
+
+   Retorna la llave que precede a la llave key en la tabla de simbolos.
+
+   Si la llave existe, retorna la misma llave. Si no existe, retorna la llave predecedente más cercana como si la llave key existiera en la tabla.
+
+   Es usada en la función ``floor()``
+   Usa la función ``floor_key()`` para encontrar la llave predecesora a key
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+   :param key: La llave de búsqueda
+   :type key: any
+
+   :returns: La llave predecesora a key
+   :rtype: any
+
+.. py:function:: ceiling(my_bst, key)
+
+   Retorna la llave que sucede a la llave key en la tabla de simbolos.
+
+   Si la llave existe, retorna la misma llave. Si no existe, retorna la llave sucesora más cercana como si la llave key existiera en la tabla.
+   Por ejemplo, si la tabla contiene las llaves [1, 3, 5, 7, 9] y se busca la llave 6, la función retornará 7.
+
+   Usa la función ``ceiling_key()`` para encontrar la llave sucesora a key
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+   :param key: La llave de búsqueda
+   :type key: any
+
+   :returns: La llave sucesora a key
+   :rtype: any
+
+.. py:function:: ceiling_key(root, key)
+
+   Retorna la llave que sucede a la llave key en la tabla de simbolos.
+
+   Si la llave existe, retorna la misma llave. Si no existe, retorna la llave sucesora más cercana como si la llave key existiera en la tabla.
+   Por ejemplo, si la tabla contiene las llaves [1, 3, 5, 7, 9] y se busca la llave 6, la función retornará 7.
+
+   Es usada en la función ``ceiling()``
+   Usa la función ``ceiling_key()`` para encontrar la llave sucesora a key
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+   :param key: La llave de búsqueda
+   :type key: any
+
+   :returns: La llave sucesora a key
+   :rtype: any
+
+.. py:function:: select(my_bst, pos)
+
+   Retorna la siguiente llave a la k-esima llave de izquierda a derecha de la tabla de simbolos.
+
+   Usa la función ``select_key()`` para encontrar la llave en la posición pos
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+   :param pos: la pos-esima llave de izquierda a derecha
+   :type pos: int
+
+   :returns: La llave en la posición pos
+   :rtype: any
+
+.. py:function:: select_key(root, key)
+
+   Retorna la siguiente llave a la k-esima llave de izquierda a derecha de la tabla de simbolos.
+
+   Es usada en la función ``select()``
+   Usa la función ``select_key()`` para encontrar la llave en la posición pos
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+   :param key: la llave de búsqueda
+   :type key: int
+
+   :returns: La llave en la posición pos
+   :rtype: bst_node
+
+.. py:function:: rank(my_bst, key)
+
+   Retorna el número de llaves en la tabla que son estrictamente predecesoras a key
+   Por ejemplo, si la tabla contiene las llaves [1, 3, 5, 7, 9] y se busca la llave 6, la función retornará 3.
+
+   Usa la función ``rank_keys()`` para encontrar el número de llaves predecesoras a key
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+   :param key: la llave de busqueda
+   :type key: any
+
+   :returns: El número de llaves
+   :rtype: int
+
+.. py:function:: rank_keys(root, key)
+
+   Retorna el número de llaves en la tabla que son estrictamente predecesoras a key
+   Por ejemplo, si la tabla contiene las llaves [1, 3, 5, 7, 9] y se busca la llave 6, la función retornará 3.
+
+   Es usada en la función ``rank()``
+   Usa la función ``rank_keys()`` para encontrar el número de llaves predecesoras a key
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+   :param key: la llave de busqueda
+   :type key: any
+
+   :returns: El número de llaves
+   :rtype: int
+
+
+.. py:function:: height(my_bst)
+
+   Retorna la altura del arbol de busqueda
+
+   Usa la función ``height_tree()`` para encontrar la altura del arbol
+
+   :param my_bst: El arbol de búsqueda
+   :type my_bst: binary_search_tree
+
+   :returns: La altura del arbol
+   :rtype: int
+
+.. py:function:: height_tree(root)
+
+   Retorna la altura del arbol de busqueda
+
+   Es usada en la función ``height()``
+   Usa la función ``height_tree()`` para encontrar la altura del arbol
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+
+   :returns: La altura del arbol
+   :rtype: int
+
+.. py:function:: keys(my_bst, key_initial, key_final)
+
+   Retorna todas las llaves del arbol que se encuentren entre [key_initial, key_final].
+
+
+   Usa la función ``keys_range()`` para encontrar las llaves en el rango especificado
+
+   :param my_bst: La tabla de simbolos
+   :type my_bst: binary_search_tree
+   :param key_initial: limite inferior
+   :type key_initial: any
+   :param key_final: limite superior
+   :type key_final: any
+
+   :returns: Las llaves en el rago especificado
+   :rtype: single_linked_list
+
+.. py:function:: keys_range(root, key_initial, key_final, list_key)
+
+   Retorna todas las llaves del arbol que se encuentren entre [key_initial, key_final].
+
+   Es usada en la función ``keys()``
+   Usa la función ``keys_range()`` para encontrar las llaves en el rango especificado
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+   :param key_initial: limite inferior
+   :type key_initial: any
+   :param key_final: limite superior
+   :type key_final: any
+   :param list_key: La lista de respuesta
+   :type list_key: single_linked_list
+
+   :returns: Las llaves en el rago especificado
+   :rtype: single_linked_list
+
+.. py:function:: values(my_bst, key_initial, key_final)
+
+   Retorna todas los valores del arbol que se encuentren entre [key_initial, key_final]
+
+   Usa la función ``values_range()`` para encontrar los valores en el rango especificado
+
+   :param my_bst: La tabla de simbolos
+   :type my_bst: binary_search_tree
+   :param key_initial: limite inferior
+   :type key_initial: any
+   :param key_final: limite superior
+   :type key_final: any
+
+   :returns: Las llaves en el rago especificado
+   :rtype: single_linked_list
+
+.. py:function:: default_compare(key, element)
+
+   Función de comparación por defecto. Compara una llave con la llave de un elemento llave-valor.
+
+   :param key: Llave a comparar
+   :type key: any
+   :param element: ``entry`` a comparar
+   :type element: bst_node
+
+   :return: **0** si son iguales, **1** si ``key`` > la llave del ``element``, **-1** si ``key`` < que la llave del  ``element``
+   :rtype: int
+
+   :Code:
+      .. code-block:: python
+
+         from DataStructures.Tree import bst_node as bst_node
+
+         def default_compare(key, element):
+            if key == bst_node.get_key(element):
+               return 0
+            elif key > bst_node.get_key(element):
+               return 1
+            return -1
+
+.. red\_black\_tree.py
+.. -------------------------------------------
+
+.. .. automodule:: DataStructures.Tree.red_black_tree
+..    :members:
+..    :undoc-members:
+..    :show-inheritance:
+..    :member-order: bysource
+
+
 Algoritmos de recorrido
-***************************************
+#################################################
 
 tree\_traversal.py
 ------------------------------------------
@@ -58,3 +888,68 @@ tree\_traversal.py
    :undoc-members:
    :show-inheritance:
    :member-order: bysource
+
+.. .. mermaid::
+
+..    graph TD;
+..       classDef circle fill:#3498db,stroke:#fff,stroke-width:3px,rx:50px,ry:50px;
+      
+..       8:::circle -->|left| 3:::circle;
+..       8:::circle -->|right| 10:::circle;
+..       3:::circle -->|left| 1:::circle;
+..       3:::circle -->|right| 6:::circle;
+..       6:::circle -->|left| 4:::circle;
+..       6:::circle -->|right| 7:::circle;
+..       10:::circle -->|left| 11:::circle;
+..       10:::circle -->|right| 14:::circle;
+..       14:::circle -->|left| 13:::circle;
+
+.. .. mermaid::
+
+..    graph TD;
+..       classDef circle fill:#3498db,stroke:#fff,stroke-width:3px,rx:50px,ry:50px;
+..       classDef empty fill:#ccc,stroke:#fff,stroke-width:3px,rx:50px,ry:50px;
+
+..       8:::circle -->|left| 3:::circle;
+..       8:::circle -->|right| 10:::circle;
+..       3:::circle -->|left| 1:::circle;
+..       3:::circle -->|right| 6:::circle;
+..       6:::circle -->|left| 4:::circle;
+..       6:::circle -->|right| 7:::circle;
+..       10:::circle -->|left| None:::empty;
+
+..       10:::circle -->|right| 14:::circle;
+..       14:::circle -->|left| 13:::circle;
+
+..       4:::circle -->|" " | x2:::empty;
+..       7:::circle -->|" " | x3:::empty;
+..       13:::circle -->|" " | x4:::empty;
+
+..       class None,x2,x3,x4 empty;
+      
+
+.. .. jsonschema::
+
+         ..    {
+         ..       "$schema": "This field is ignored for now. Perhaps use it to indicate schema version in display?",
+         ..       "title": "Test data set 1: **Simple type**",
+         ..       "id": "http://this.better.be.a.regular.domain",
+         ..       "description": "These data sets exercise `JSON Schema <http://json-schema.org>`_ constructions and show how they are rendered.\n\nNote that it is possible to embed reStructuredText elements in strings.",
+         ..       "type": "string",
+         ..       "minLength": 10,
+         ..       "maxLength": 100,
+         ..       "pattern": "^[A-Z]+$"
+         ..    }
+
+         .. .. raw:: html
+
+         ..    <div id="json"></div>
+         ..    <script src="_static/json-viewer.js"></script>
+         ..    <style>
+         ..       pre { background: #f4f4f4; padding: 10px; border-radius: 5px; }
+         ..       .string { color: green; }
+         ..       .number { color: darkorange; }
+         ..       .boolean { color: blue; }
+         ..       .null { color: magenta; }
+               
+         ..    </style>

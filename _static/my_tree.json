@@ -1,0 +1,13 @@
+{
+    "root": {
+        "key": 1,
+        "value": {
+            "name": "John",
+            "age": 25
+        },
+        "size": 1,
+        "left": null,
+        "right": null,
+        "type": "BST"
+    }
+}
