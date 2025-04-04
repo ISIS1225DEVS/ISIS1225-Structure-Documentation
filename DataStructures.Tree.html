@@ -103,6 +103,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#keys"><code class="docutils literal notranslate"><span class="pre">keys()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#keys_range"><code class="docutils literal notranslate"><span class="pre">keys_range()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#values"><code class="docutils literal notranslate"><span class="pre">values()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#values_range"><code class="docutils literal notranslate"><span class="pre">values_range()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#default_compare"><code class="docutils literal notranslate"><span class="pre">default_compare()</span></code></a></li>
 </ul>
 </li>
@@ -1193,6 +1194,30 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">key
 <li><p><strong>my_bst</strong> (<em>binary_search_tree</em>) – La tabla de simbolos</p></li>
 <li><p><strong>key_initial</strong> (<em>any</em>) – limite inferior</p></li>
 <li><p><strong>key_final</strong> (<em>any</em>) – limite superior</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Las llaves en el rago especificado</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>single_linked_list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="values_range">
+<span class="sig-name descname"><span class="pre">values_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#values_range" title="Link to this definition"></a></dt>
+<dd><p>Retorna todas los valores del arbol que se encuentren entre [key_initial, key_final]</p>
+<p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">values()</span></code>
+Usa la función <code class="docutils literal notranslate"><span class="pre">values_range()</span></code> para encontrar los valores en el rango especificado</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>root</strong> (<em>bst_node</em>) – La raiz del arbol a examinar</p></li>
+<li><p><strong>key_lo</strong> (<em>any</em>) – limite inferior</p></li>
+<li><p><strong>key_hi</strong> (<em>any</em>) – limite superior</p></li>
+<li><p><strong>list_values</strong> (<em>single_linked_list</em>) – La lista de respuesta</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>

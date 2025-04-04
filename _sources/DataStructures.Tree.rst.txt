@@ -843,6 +843,25 @@ binary\_search\_tree.py
    :returns: Las llaves en el rago especificado
    :rtype: single_linked_list
 
+.. py:function:: values_range(root, key_initial, key_final, list_value)
+
+   Retorna todas los valores del arbol que se encuentren entre [key_initial, key_final]
+
+   Es usada en la función ``values()``
+   Usa la función ``values_range()`` para encontrar los valores en el rango especificado
+
+   :param root: La raiz del arbol a examinar
+   :type root: bst_node
+   :param key_lo: limite inferior
+   :type key_lo: any
+   :param key_hi: limite superior
+   :type key_hi: any
+   :param list_values: La lista de respuesta
+   :type list_values: single_linked_list
+
+   :returns: Las llaves en el rago especificado
+   :rtype: single_linked_list
+
 .. py:function:: default_compare(key, element)
 
    Función de comparación por defecto. Compara una llave con la llave de un elemento llave-valor.
