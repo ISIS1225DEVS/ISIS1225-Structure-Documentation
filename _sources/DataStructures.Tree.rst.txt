@@ -108,14 +108,38 @@ Estructura que contiene la información a guardar en una ``nodo`` de un árbol b
          # Salida esperada:
          # 1
 
-.. rbt\_node.py
-.. ------------------------------------
+.. _rbt-node:
 
-.. .. automodule:: DataStructures.Tree.rbt_node
-..    :members:
-..    :undoc-members:
-..    :show-inheritance:
-..    :member-order: bysource
+rbt\_node.py
+------------------------------------
+
+.. .. py:function:: new_node(key, value)
+
+..    Crea una nueva entrada (de tipo :ref:`rbt_node<rbt-node>`) de un árbol rojo negro con una llave y un valor dados.
+
+..    El nodo es creado con los siguientes atributos:
+
+..    - :attr:`key`: llave del nodo
+..    - :attr:`value`: valor del nodo
+..    - :attr:`size`: tamaño del subárbol (inicialmente 1)
+..    - :attr:`parent`: Padre del nodo (inivialmente ``None``)
+..    - :attr:`left`: hijo izquierdo del nodo (inicialmente ``None``)
+..    - :attr:`right`: hijo derecho del nodo (inicialmente ``None``)
+..    - :attr:`color`:
+
+..    Esta función se utiliza para inicializar un nuevo nodo en un árbol rojo-negro (Red-Black Tree).
+..    El nodo creado contendrá los valores especificados y se ajustará a las propiedades del árbol
+..    rojo-negro, como el balanceo y la coloración.
+
+..    :return: Una nueva instancia de un nodo de árbol rojo-negro.
+..    :rtype: rbt_node
+
+.. automodule:: DataStructures.Tree.rbt_node
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
 
 Implementaciones
 #################################################
@@ -886,14 +910,16 @@ binary\_search\_tree.py
                return 1
             return -1
 
-.. red\_black\_tree.py
-.. -------------------------------------------
 
-.. .. automodule:: DataStructures.Tree.red_black_tree
-..    :members:
-..    :undoc-members:
-..    :show-inheritance:
-..    :member-order: bysource
+
+red\_black\_tree.py
+-----------------------------------------------
+
+.. automodule:: DataStructures.Tree.red_black_tree
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
 
 
 Algoritmos de recorrido
