@@ -1,0 +1,72 @@
+:Example:
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Priority_queue import priority_queue as pq
+
+        # Crea una nueva cola de prioridad
+        queue = pq.new_heap(True)
+
+        print(pq.is_empty(priority_queue)) 
+        # Salida esperada: True
+
+:Test Scenarios:
+
+    - **Heap vacío**: Verifica si una cola de prioridad vacía está vacía.
+
+        .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Priority_queue import priority_queue as pq
+
+            # Crea una nueva cola de prioridad
+            queue = pq.new_heap(True)
+
+            print(pq.is_empty(priority_queue)) 
+            # Salida esperada: True
+    
+    - **Heap con elementos**: Verifica si una cola de prioridad con elementos está vacía.
+
+        .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Priority_queue import priority_queue as pq
+
+            # Crea una nueva cola de prioridad
+            queue = pq.new_heap(True)
+            pq.insert(priority_queue, 1, "A")
+            pq.insert(priority_queue, 2, "B")
+            pq.insert(priority_queue, 3, "C")
+
+            print(pq.is_empty(priority_queue)) 
+            # Salida esperada: False
+
+    - **Heap después de eliminar elementos**: Verifica si una cola de prioridad está vacía después de eliminar todos sus elementos.
+
+        .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Priority_queue import priority_queue as pq
+
+            # Crea una nueva cola de prioridad
+            queue = pq.new_heap(True)
+
+            # Valida si la cola de prioridad está vacía
+            print(pq.is_empty(priority_queue))
+            # Salida esperada: True
+
+            pq.insert(priority_queue, 1, "A")
+            pq.insert(priority_queue, 2, "B")
+            pq.insert(priority_queue, 3, "C")
+
+            print(pq.is_empty(priority_queue)) 
+            # Salida esperada: False
+
+            # Elimina todos los elementos
+            pq.remove(priority_queue)
+            pq.remove(priority_queue)
+            pq.remove(priority_queue)
+
+            # Valida si la cola de prioridad está vacía
+            print(pq.is_empty(priority_queue))
+            # Salida esperada: True

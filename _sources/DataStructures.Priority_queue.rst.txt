@@ -2,9 +2,42 @@
 Priority Queue - Colas de prioridad
 ####################################
 
-***************************************
-Implementaciones de Colas de prioridad
-***************************************
+Las colas de prioridad son estructuras de datos que permiten almacenar elementos con una prioridad asociada. Los elementos se extraen de la cola en orden de prioridad, no en el orden en que fueron añadidos. Esto significa que los elementos con mayor prioridad se procesan antes que los de menor prioridad.
+
+Como usar la documentación
+#################################################
+
+Para leer la guía de uso de la documentación, por favor diríjase a la sección :ref:`Guía de documentación<guia-doc>`.
+
+Elementos
+#################################################
+
+.. _priority-queue-entry:
+
+pq\_entry.py
+-----------------------------------------------
+
+.. automodule:: DataStructures.Priority_queue.pq_entry
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+.. .. _index-priority-queue-entry:
+
+.. index\_pq\_entry.py
+.. -----------------------------------------------
+
+.. .. automodule:: DataStructures.Priority_queue.index_pq_entry
+..    :members:
+..    :undoc-members:
+..    :show-inheritance:
+..    :member-order: bysource
+
+Implementaciones
+#################################################
+
+.. _priority-queue:
 
 priority\_queue.py
 --------------------------------------
@@ -15,41 +48,13 @@ priority\_queue.py
    :show-inheritance:
    :member-order: bysource
 
-index\_priority\_queue.py
---------------------------------------
+.. .. _index_priority_queue:
 
-.. automodule:: DataStructures.Priority_queue.index_priority_queue
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
+.. index\_priority\_queue.py
+.. --------------------------------------
 
-.. ####################################
-.. Part -- Number Signs above and below
-.. ####################################
-
-.. .. with overline, for parts
-
-.. ************************************
-.. Chapter -- Asterisks above and below
-.. ************************************
-
-.. with overline, for chapters
-
-.. Title -- Number Signs
-.. #####################
-
-.. Suptitle -- Asterisks
-.. *********************
-
-.. Section -- Equal Signs
-.. ======================
-
-.. Subsection -- Hyphens
-.. ---------------------
-
-.. Subsubsection -- Circumflex
-.. ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. Paragraph -- Double Quotes
-.. """"""""""""""""""""""""""
+.. .. automodule:: DataStructures.Priority_queue.index_priority_queue
+..    :members:
+..    :undoc-members:
+..    :show-inheritance:
+..    :member-order: bysource

@@ -1,0 +1,228 @@
+:Example:
+
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Priority_queue import priority_queue as pq
+
+        # Crea una nueva cola de prioridad
+        queue = pq.new_heap(True)
+        queue = pq.insert(queue, {'name': 'John', 'age': 25}, 25)
+
+        print(queue)
+        # Salida esperada:
+        # {
+        #   'elements': {
+        #     'elements': [
+        #       None,
+        #       {
+        #         'key': 25,
+        #         'value': {
+        #           'name': 'John',
+        #           'age': 25
+        #         }
+        #       }
+        #     ],
+        #     'size': 2
+        #   },
+        #   'size': 1,
+        #   'cmp_function': <functiondefault_compare_lower_value>
+        # }
+
+    .. collapse:: Representación gráfica
+
+        .. container:: centerside
+
+            .. mermaid::
+
+                block-beta
+                    columns 3
+
+                    block:elements
+                        tag["heap (keys):"]
+                        z["-"]
+                        y["25"]
+
+
+                    end
+                    space space
+                    block:pos
+                        tags["position:"]
+                        a["0"]
+                        b["1"]
+
+                    end
+
+                    style elements fill:#fcfcfc,stroke:#fcfcfc
+                    style pos fill:#fcfcfc,stroke:#fcfcfc
+                    style tag fill:#fcfcfc,stroke:#fcfcfc
+                    style tags fill:#fcfcfc,stroke:#fcfcfc
+                    style a fill:#fcfcfc,stroke:#fcfcfc
+                    style b fill:#fcfcfc,stroke:#fcfcfc
+
+            .. mermaid::
+
+                graph TD;
+                    classDef rootnode fill:#fcfcfc,stroke:#fcfcfc;
+                    classDef circle fill:#3498db,stroke:#fff,stroke-width:3px,rx:50px,ry:50px,color:#fff;
+                    classDef empty fill:#ccc,stroke:#fff,stroke-width:3px,rx:50px,ry:50px,color:#fff;
+
+                    root:::rootnode --> 25:::circle;
+
+:Test Scenarios:
+
+    - **Agregar nuevo elemento**: Se agrega un nuevo elemento a la cola de prioridad vacia.
+
+        .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Priority_queue import priority_queue as pq
+
+            # Crea una nueva cola de prioridad
+            queue = pq.new_heap(True)
+            queue = pq.insert(queue, {'name': 'John', 'age': 25}, 25)
+
+            print(queue)
+            # Salida esperada:
+            # {
+            #   'elements': {
+            #     'elements': [
+            #       None,
+            #       {
+            #         'key': 25,
+            #         'value': {
+            #           'name': 'John',
+            #           'age': 25
+            #         }
+            #       }
+            #     ],
+            #     'size': 2
+            #   },
+            #   'size': 1,
+            #   'cmp_function': <functiondefault_compare_lower_value>
+            # }
+
+        .. collapse:: Representación gráfica
+
+            .. container:: centerside
+
+                .. mermaid::
+
+                    block-beta
+                        columns 3
+
+                        block:elements
+                            tag["heap (keys):"]
+                            z["-"]
+                            y["25"]
+
+
+                        end
+                        space space
+                        block:pos
+                            tags["position:"]
+                            a["0"]
+                            b["1"]
+
+                        end
+
+                        style elements fill:#fcfcfc,stroke:#fcfcfc
+                        style pos fill:#fcfcfc,stroke:#fcfcfc
+                        style tag fill:#fcfcfc,stroke:#fcfcfc
+                        style tags fill:#fcfcfc,stroke:#fcfcfc
+                        style a fill:#fcfcfc,stroke:#fcfcfc
+                        style b fill:#fcfcfc,stroke:#fcfcfc
+
+                .. mermaid::
+
+                    graph TD;
+                        classDef rootnode fill:#fcfcfc,stroke:#fcfcfc;
+                        classDef circle fill:#3498db,stroke:#fff,stroke-width:3px,rx:50px,ry:50px,color:#fff;
+                        classDef empty fill:#ccc,stroke:#fff,stroke-width:3px,rx:50px,ry:50px,color:#fff;
+
+                        root:::rootnode --> 25:::circle;
+
+    - **Agregar elemento y organiza la prioridad**: Se agrega un nuevo elemento a la cola de prioridad y se organiza la prioridad.
+
+        .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Priority_queue import priority_queue as pq
+
+            # Crea una nueva cola de prioridad
+            queue = pq.new_heap(True)
+            queue = pq.insert(queue, {'name': 'John', 'age': 25}, 25)
+            queue = pq.insert(queue, {'name': 'Jane', 'age': 30}, 30)
+
+            print(queue)
+            # Salida esperada:
+            # {
+            #   'elements': {
+            #     'elements': [
+            #       None,
+            #       {
+            #         'key': 25,
+            #         'value': {
+            #           'name': 'John',
+            #           'age': 25
+            #         }
+            #       },
+            #       {
+            #         'key': 30,
+            #         'value': {
+            #           'name': 'Jane',
+            #           'age': 30
+            #         }
+            #       }
+            #     ],
+            #     'size': 3
+            #   },
+            #   'size': 2,
+            #   'cmp_function': <functiondefault_compare_lower_value>
+            # }
+
+        .. collapse:: Representación gráfica
+
+            .. container:: centerside
+
+                .. mermaid::
+
+                    block-beta
+                        columns 3
+
+                        block:elements
+                            tag["heap (keys):"]
+                            z["-"]
+                            y["25"]
+                            x["30"]
+
+
+                        end
+                        space space
+                        block:pos
+                            tags["position:"]
+                            a["0"]
+                            b["1"]
+                            c["2"]
+
+                        end
+
+                        style elements fill:#fcfcfc,stroke:#fcfcfc
+                        style pos fill:#fcfcfc,stroke:#fcfcfc
+                        style tag fill:#fcfcfc,stroke:#fcfcfc
+                        style tags fill:#fcfcfc,stroke:#fcfcfc
+                        style a fill:#fcfcfc,stroke:#fcfcfc
+                        style b fill:#fcfcfc,stroke:#fcfcfc
+                        style c fill:#fcfcfc,stroke:#fcfcfc
+
+                .. mermaid::
+
+                    graph TD;
+
+                        classDef rootnode fill:#fcfcfc,stroke:#fcfcfc;
+                        classDef circle fill:#3498db,stroke:#fff,stroke-width:3px,rx:50px,ry:50px,color:#fff;
+                        classDef empty fill:#ccc,stroke:#fff,stroke-width:3px,rx:50px,ry:50px,color:#fff;
+
+                        root:::rootnode --> 25:::circle;
+                        25:::circle -->|left| 30:::circle;
+                    

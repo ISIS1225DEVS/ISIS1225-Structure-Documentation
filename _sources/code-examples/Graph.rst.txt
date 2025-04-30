@@ -1,0 +1,44 @@
+
+.. py:function:: adj_list_graph()  
+
+    Inicia un recorrido Breath First Seacrh (**BFS**) sobre el grafo a partir de un vertice inicial.
+    Crea una estructura de busqueda ``graph_search`` y posteriormente llama a la funcion ``bfs_vertex``.
+
+    :param my_graph: El grafo a recorrer
+    :type my_graph: adj_list_graph
+    :param source: Llave del vertice de inicio del recorrido.
+    :type source: any
+
+    :returns: Una estructura para determinar los vertices conectados a source
+    :rtype: graph_search
+
+    :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import array_list as al
+
+         # Función de comparación por defecto
+         sort_crit = al.default_sort_criteria
+
+         # Crea una lista vacía
+         lista = al.new_list()
+         lista = al.add_last(lista, 3)
+         lista = al.add_last(lista, 1)
+         lista = al.add_last(lista, 2)
+         print(al.merge_sort(lista, sort_crit))
+         # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
+
+
+.. py:function:: adj_list_graph_v2()  
+     
+    Inicia un recorrido Breath First Seacrh (**BFS**) sobre el grafo a partir de un vertice inicial.
+    Crea una estructura de busqueda ``graph_search`` y posteriormente llama a la funcion ``bfs_vertex``.
+
+    :param my_graph: El grafo a recorrer
+    :type my_graph: adj_list_graph
+    :param source: Llave del vertice de inicio del recorrido.
+    :type source: any
+
+    :returns: Una estructura para determinar los vertices conectados a source
+    :rtype: graph_search

@@ -1,0 +1,45 @@
+:Example:
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Priority_queue import priority_queue as pq
+
+        # Crea una nueva cola de prioridad
+        queue = pq.new_heap(True)
+        print(queue)
+        # Salida esperada:
+        # {
+        #     'elements': {
+        #         'elements': [None],
+        #         'size': 1
+        #     },
+        #     'size': 0,
+        #     'cmp_function': <function default_compare_lower_value>
+        # }
+
+    .. collapse:: Representación gráfica
+
+        .. container:: centerside
+
+            .. mermaid::
+
+                block-beta
+                    columns 3
+
+                    block:elements
+                        tag["heap:"]
+                        x["-"]
+
+                    end
+                    space space
+                    block:pos
+                        tags["position:"]
+                        a["0"]
+
+                    end
+
+                    style elements fill:#fcfcfc,stroke:#fcfcfc
+                    style pos fill:#fcfcfc,stroke:#fcfcfc
+                    style tag fill:#fcfcfc,stroke:#fcfcfc
+                    style tags fill:#fcfcfc,stroke:#fcfcfc
+                    style a fill:#fcfcfc,stroke:#fcfcfc

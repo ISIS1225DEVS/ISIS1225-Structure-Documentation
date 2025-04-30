@@ -1,3 +1,25 @@
 .wy-nav-content {
-    max-width: 80% !important;
+  max-width: 80% !important;
+}
+
+div.centerside {
+  width: 100%;
+  padding: 0px 3px 0px 0px;
+  float: left;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+div.leftside {
+  width: 50%;
+  padding: 0px 3px 0px 0px;
+  float: left;
+  align-content: center;
+}
+
+div.rightside {
+  margin-left: 50%;
+  align-content: center;
+  /* float: right; */
 }

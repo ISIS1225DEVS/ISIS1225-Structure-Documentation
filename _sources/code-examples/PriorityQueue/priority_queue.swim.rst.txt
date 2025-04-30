@@ -1,0 +1,160 @@
+:Example:
+
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Priority_queue import priority_queue as pq
+
+        # Crea una nueva cola de prioridad
+        queue = pq.new_heap(True)
+        queue = pq.insert(queue, {'name': 'John', 'age': 32}, 32)
+        queue = pq.insert(queue, {'name': 'Alice', 'age': 47}, 47)
+        queue = pq.insert(queue, {'name': 'Bob', 'age': 18}, 18)
+        queue = pq.insert(queue, {'name': 'Charlie', 'age': 22}, 22)
+        print(queue)
+        # Salida esperada:
+        # {
+        #   'elements': {
+        #     'elements': [
+        #       None,
+        #       {
+        #         'key': 18,
+        #         'value': {
+        #           'name': 'Bob',
+        #           'age': 18
+        #         }
+        #       },
+        #       {
+        #         'key': 22,
+        #         'value': {
+        #           'name': 'Charlie',
+        #           'age': 22
+        #         }
+        #       },
+        #       {
+        #         'key': 32,
+        #         'value': {
+        #           'name': 'John',
+        #           'age': 32
+        #         }
+        #       },
+        #       {
+        #         'key': 47,
+        #         'value': {
+        #           'name': 'Alice',
+        #           'age': 47
+        #         }
+        #       }
+        #     ],
+        #     'size': 5
+        #   },
+        #   'size': 4,
+        #   'cmp_function': <functiondefault_compare_lower_value>
+        # }
+
+        queue = pq.insert(queue, {'name': 'Diana', 'age':11}, 11)
+        print(queue)
+        # Salida esperada:
+        # {
+        #   'elements': {
+        #     'elements': [
+        #       None,
+        #       {
+        #         'key': 11,
+        #         'value': {
+        #           'name': 'Diana',
+        #           'age': 11
+        #         }
+        #       },
+        #       {
+        #         'key': 18,
+        #         'value': {
+        #           'name': 'Bob',
+        #           'age': 18
+        #         }
+        #       },
+        #       {
+        #         'key': 32,
+        #         'value': {
+        #           'name': 'John',
+        #           'age': 32
+        #         }
+        #       },
+        #       {
+        #         'key': 47,
+        #         'value': {
+        #           'name': 'Alice',
+        #           'age': 47
+        #         }
+        #       },
+        #       {
+        #         'key': 22,
+        #         'value': {
+        #           'name': 'Charlie',
+        #           'age': 22
+        #         }
+        #       }
+        #     ],
+        #     'size': 6
+        #   },
+        #   'size': 5,
+        #   'cmp_function': <functiondefault_compare_lower_value>
+        # }
+
+
+    .. collapse:: Representación gráfica
+
+        .. container:: centerside
+
+            .. mermaid::
+
+                block-beta
+                    columns 2
+
+                    block:elements
+                        tag["heap (keys):"]
+                        z["-"]
+                        y["11"]
+                        x["18"]
+                        w["32"]
+                        v["47"]
+                        u["22"]
+
+
+                    end
+                    space space space
+                    block:pos
+                        tags["position:"]
+                        a["0"]
+                        b["1"]
+                        c["2"]
+                        d["3"]
+                        e["4"]
+                        f["5"]
+
+                    end
+
+                    style elements fill:#fcfcfc,stroke:#fcfcfc
+                    style pos fill:#fcfcfc,stroke:#fcfcfc
+                    style tag fill:#fcfcfc,stroke:#fcfcfc
+                    style tags fill:#fcfcfc,stroke:#fcfcfc
+                    style a fill:#fcfcfc,stroke:#fcfcfc
+                    style b fill:#fcfcfc,stroke:#fcfcfc
+                    style c fill:#fcfcfc,stroke:#fcfcfc
+                    style d fill:#fcfcfc,stroke:#fcfcfc
+                    style e fill:#fcfcfc,stroke:#fcfcfc
+                    style f fill:#fcfcfc,stroke:#fcfcfc
+
+            .. mermaid::
+
+                    graph TD;
+
+                        classDef rootnode fill:#fcfcfc,stroke:#fcfcfc;
+                        classDef circle fill:#3498db,stroke:#fff,stroke-width:3px,rx:50px,ry:50px,color:#fff;
+                        classDef empty fill:#ccc,stroke:#fff,stroke-width:3px,rx:50px,ry:50px,color:#fff;
+
+                        root:::rootnode --> 11:::circle;
+                        11:::circle -->|left| 18:::circle;
+                        11:::circle -->|right| 32:::circle;
+                        18:::circle -->|left| 47:::circle;
+                        18:::circle -->|right| 22:::circle;

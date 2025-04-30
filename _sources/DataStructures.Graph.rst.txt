@@ -6,6 +6,8 @@ Graph - Grafos
 Elementos
 ***************************************
 
+.. .. include:: structures/Graph.rst
+
 edge.py
 -------------------------------------
 

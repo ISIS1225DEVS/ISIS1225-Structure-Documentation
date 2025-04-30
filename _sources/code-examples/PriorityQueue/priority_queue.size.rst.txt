@@ -1,0 +1,87 @@
+:Example:
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Priority_queue import priority_queue as pq
+
+        # Crea una nueva cola de prioridad
+        queue = pq.new_heap(True)
+
+        print(pq.size(priority_queue)) 
+        # Salida esperada: 0
+
+:Test Scenarios:
+
+    - **Heap vacío**: Verifica el tamaño de una cola de prioridad vacía.
+
+        .. code-block:: python
+
+            # App/logic.py
+            from DataStructures.Priority_queue import priority_queue as pq
+
+            # Crea una nueva cola de prioridad
+            queue = pq.new_heap(True)
+
+            print(pq.size(priority_queue)) 
+            # Salida esperada: 0
+
+    - **Heap con elementos**: Verifica el tamaño de una cola de prioridad después de agregar elementos.
+
+            .. code-block:: python
+
+                # App/logic.py
+                from DataStructures.Priority_queue import priority_queue as pq
+
+                # Crea una nueva cola de prioridad
+                queue = pq.new_heap(True)
+                pq.insert(priority_queue, 1, "A")
+                pq.insert(priority_queue, 2, "B")
+                pq.insert(priority_queue, 3, "C")
+
+                print(pq.size(priority_queue)) 
+                # Salida esperada: 3
+
+    - **Heap después de eliminar elementos**: Verifica el tamaño de una cola de prioridad después de eliminar algunos elementos.
+
+            .. code-block:: python
+
+                # App/logic.py
+                from DataStructures.Priority_queue import priority_queue as pq
+
+                # Crea una nueva cola de prioridad
+                queue = pq.new_heap(True)
+                pq.insert(priority_queue, 1, "A")
+                pq.insert(priority_queue, 2, "B")
+                pq.insert(priority_queue, 3, "C")
+
+                print(pq.size(priority_queue)) 
+                # Salida esperada: 3
+
+                # Elimina un elemento prioritario
+                pq.remove(priority_queue)
+                print(pq.size(priority_queue))
+                # Salida esperada: 2
+
+    - **Heap después de eliminar todos los elementos**: Verifica el tamaño de una cola de prioridad después de eliminar todos los elementos.
+
+            .. code-block:: python
+
+                # App/logic.py
+                from DataStructures.Priority_queue import priority_queue as pq
+
+                # Crea una nueva cola de prioridad
+                queue = pq.new_heap(True)
+                pq.insert(priority_queue, 1, "A")
+                pq.insert(priority_queue, 2, "B")
+                pq.insert(priority_queue, 3, "C")
+
+                print(pq.size(priority_queue)) 
+                # Salida esperada: 3
+
+                # Elimina todos los elementos
+                pq.remove(priority_queue)
+                pq.remove(priority_queue)
+                pq.remove(priority_queue)
+
+                print(pq.size(priority_queue))
+                # Salida esperada: 0

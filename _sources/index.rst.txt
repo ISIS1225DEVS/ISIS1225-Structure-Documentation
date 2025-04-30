@@ -15,6 +15,7 @@ Para leer la guía de uso de la documentación, por favor diríjase a la secció
 
 .. important:: Recuerden que esta documentación no incluye el código fuente; su tarea es traducir estas descripciones en implementaciones funcionales, aplicando los conceptos aprendidos durante el curso. ¡Buena suerte y mucho éxito en sus proyectos! 🚀
 
+.. TODO agregar disclaimer de uso de la documentación y su modificabilidad
 
 .. toctree::
    :maxdepth: 2
