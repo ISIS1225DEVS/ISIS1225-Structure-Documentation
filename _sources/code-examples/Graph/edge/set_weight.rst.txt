@@ -1,0 +1,15 @@
+:Example:
+
+    .. code-block:: python
+
+        from DataStructures.Graph import edge as E
+
+        # Crear un nuevo arco
+        edge = E.new_edge("A", 5)
+        print(E.weight(edge))
+        # Ssalida esperada: 5
+
+        # Cambiar el peso del arco
+        E.set_weight(edge, 10)
+        print(E.weight(edge))
+        # Salida esperada: 10

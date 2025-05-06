@@ -1,0 +1,110 @@
+:Example:
+
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Graph import vertex as V
+
+        # Crear un nuevo vertice
+        key_u = "KEYU"
+        key_v = "KEYV"
+        key_w = "KEYW"
+        vertex_u = V.new_vertex(key_u, {"nombre": "Vertice U"})
+
+        vertex_u = V.add_adjacent(vertex_u, key_v, 10)
+        print(vertex_u)
+        # Salida esperada:
+        # {
+        #   'key': 'KEYU',
+        #   'value': {
+        #     'nombre': 'Vertice U'
+        #   },
+        #   'adjacents': {
+        #     'prime': 109345121,
+        #     'capacity': 5,
+        #     'scale': 86271125,
+        #     'shift': 104195991,
+        #     'table': {
+        #       'elements': [
+        #         {
+        #           'key': None,
+        #           'value': None
+        #         },
+        #         {
+        #           'key': None,
+        #           'value': None
+        #         },
+        #         {
+        #           'key': None,
+        #           'value': None
+        #         },
+        #         {
+        #           'key': 'KEYV',
+        #           'value': {
+        #             'to': 'KEYV',
+        #             'weight': 10
+        #           }
+        #         },
+        #         {
+        #           'key': None,
+        #           'value': None
+        #         }
+        #       ],
+        #       'size': 5
+        #     },
+        #     'current_factor': 0.2,
+        #     'limit_factor': 0.5,
+        #     'size': 1
+        #   }
+        # }
+        
+        # Agregar otro vertice adyacente
+        vertex_u = V.add_adjacent(vertex_u, key_w, 15)
+        print(vertex_u)
+        # Salida esperada:
+        # {
+        #   'key': 'KEYU',
+        #   'value': {
+        #     'nombre': 'Vertice U'
+        #   },
+        #   'adjacents': {
+        #     'prime': 109345121,
+        #     'capacity': 5,
+        #     'scale': 54639149,
+        #     'shift': 57004010,
+        #     'table': {
+        #       'elements': [
+        #         {
+        #           'key': None,
+        #           'value': None
+        #         },
+        #         {
+        #           'key': 'KEYV',
+        #           'value': {
+        #             'to': 'KEYV',
+        #             'weight': 10
+        #           }
+        #         },
+        #         {
+        #           'key': None,
+        #           'value': None
+        #         },
+        #         {
+        #           'key': None,
+        #           'value': None
+        #         },
+        #         {
+        #           'key': 'KEYW',
+        #           'value': {
+        #             'to': 'KEYW',
+        #             'weight': 15
+        #           }
+        #         }
+        #       ],
+        #       'size': 5
+        #     },
+        #     'current_factor': 0.4,
+        #     'limit_factor': 0.5,
+        #     'size': 2
+        #   }
+        # }

@@ -1,0 +1,51 @@
+.. admonition:: Importante
+    :class: danger
+
+    Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+
+        # Crea un grafo vacio
+        my_graph = G.new_graph(1)
+
+        print(G.order(my_graph))
+        # Salida esperada: 0
+
+:Test Scenario:
+
+    - **Grafo vacio**: Se crea un grafo vacio y se imprime su contenido
+
+        .. code-block:: python
+            :linenos:
+
+            # App/logic.py
+            from DataStructures.Graph import digraph as G
+
+            # Crea un grafo vacio
+            my_graph = G.new_graph(1)
+
+            print(G.order(my_graph))
+            # Salida esperada: 0
+
+    - **Grafo con vertices**: Se crea un grafo con vertices y se imprime su contenido
+
+        .. code-block:: python
+            :linenos:
+
+            # App/logic.py
+            from DataStructures.Graph import digraph as G
+
+            # Crea un grafo vacio
+            my_graph = G.new_graph(1)
+            my_graph = G.insert_vertex(my_graph, "Armenia", {"nombre": "Armenia", "población": 300000})
+            my_graph = G.insert_vertex(my_graph, "Bogotá", {"nombre": "Bogotá", "población": 8000000})
+ 
+            print(G.order(my_graph))
+            # Salida esperada: 2

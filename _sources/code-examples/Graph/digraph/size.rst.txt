@@ -1,0 +1,56 @@
+.. admonition:: Importante
+    :class: danger
+
+    Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+
+        # Crea un grafo vacio
+        my_graph = G.new_graph(1)
+
+        print(G.size(my_graph))
+        # Salida esperada: 0
+
+:Test Scenario:
+
+    - **Grafo vacio**: Se crea un grafo vacio y se imprime su contenido
+
+        .. code-block:: python
+            :linenos:
+
+            # App/logic.py
+            from DataStructures.Graph import digraph as G
+
+            # Crea un grafo vacio
+            my_graph = G.new_graph(1)
+
+            print(G.size(my_graph))
+            # Salida esperada: 0
+
+    - **Grafo con varios**: Se crea un grafo con varios vertices y arcos.
+
+        .. code-block:: python
+            :linenos:
+
+            # App/logic.py
+            from DataStructures.Graph import digraph as G
+
+            # Crea un grafo vacio
+            my_graph = G.new_graph(1)
+            my_graph = G.insert_vertex(my_graph, "Armenia", {"nombre": "Armenia", "población": 300000})
+            my_graph = G.insert_vertex(my_graph, "Bogotá", {"nombre": "Bogotá", "población": 8000000})
+            my_graph = G.insert_vertex(my_graph, "Cali", {"nombre": "Cali", "población": 2000000})
+
+            my_graph = G.add_edge(my_graph, "Armenia", "Bogotá", 100 )
+            my_graph = G.add_edge(my_graph, "Armenia", "Cali", 200)
+            my_graph = G.add_edge(my_graph, "Bogotá", "Cali", 300)
+
+            print(G.size(my_graph))
+            # Salida esperada: 3

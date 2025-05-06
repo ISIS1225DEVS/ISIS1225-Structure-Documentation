@@ -1,0 +1,40 @@
+:Example:
+
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Graph import vertex as V
+
+        # Crear un nuevo vertice
+        vertex = V.new_vertex(1, {"nombre": "A"})
+        print(vertex)
+        # Salida esperada:
+        # {
+        #   'key': 1,
+        #   'value': {
+        #     'nombre': 'A'
+        #   },
+        #   'adjacents': {
+        #     'prime': 109345121,
+        #     'capacity': 2,
+        #     'scale': 96269727,
+        #     'shift': 48310553,
+        #     'table': {
+        #       'elements': [
+        #         {
+        #           'key': None,
+        #           'value': None
+        #         },
+        #         {
+        #           'key': None,
+        #           'value': None
+        #         }
+        #       ],
+        #       'size': 2
+        #     },
+        #     'current_factor': 0,
+        #     'limit_factor': 0.5,
+        #     'size': 0
+        #   }
+        # }
+        # 

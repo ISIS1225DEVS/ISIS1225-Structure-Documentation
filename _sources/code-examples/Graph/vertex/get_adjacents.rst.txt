@@ -1,0 +1,58 @@
+:Example:
+
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Graph import vertex as V
+
+        # Crear un nuevo vertice
+        key_u = 1
+        key_v = 2
+        key_w = 3
+        vertex_u = V.new_vertex(key_u, {"nombre": "Vertice U"})
+
+        V.add_adjacent(key_u, key_v, 10)
+        V.add_adjacent(key_u, key_w, 15)
+
+        print(V.get_adjacents(vertex_u))
+        # Salida esperada:
+        # {
+        #   'prime': 109345121,
+        #   'capacity': 5,
+        #   'scale': 60497948,
+        #   'shift': 74210530,
+        #   'table': {
+        #     'elements': [
+        #       {
+        #         'key': None,
+        #         'value': None
+        #       },
+        #       {
+        #         'key': 'KEYV',
+        #         'value': {
+        #           'to': 'KEYV',
+        #           'weight': 10
+        #         }
+        #       },
+        #       {
+        #         'key': None,
+        #         'value': None
+        #       },
+        #       {
+        #         'key': 'KEYW',
+        #         'value': {
+        #           'to': 'KEYW',
+        #           'weight': 10
+        #         }
+        #       },
+        #       {
+        #         'key': None,
+        #         'value': None
+        #       }
+        #     ],
+        #     'size': 5
+        #   },
+        #   'current_factor': 0.4,
+        #   'limit_factor': 0.5,
+        #   'size': 2
+        # }

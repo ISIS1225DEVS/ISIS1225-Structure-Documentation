@@ -1,0 +1,78 @@
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+
+        # Crea un grafo vacio
+        my_graph = G.new_graph(1)
+
+        # Inserta vertices
+        my_graph = G.insert_vertex(my_graph, "Armenia", {"nombre": "Armenia", "poblacion": 300000})
+        my_graph = G.insert_vertex(my_graph, "Bogota", {"nombre": "Bogota", "poblacion": 8000000})
+        my_graph = G.insert_vertex(my_graph, "Cali", {"nombre": "Cali", "poblacion": 2000000})
+
+        print(G.vertices(my_graph))
+        # Salida esperada:
+
+    .. code-block:: console
+
+        {
+          "elements": [
+            "Cali",
+            "Armenia",
+            "Bogota"
+          ],
+          "size": 3
+        }
+:Test Scenarios:
+
+    - **Grafo sin vertices**: Se crea un grafo vacio y se imprime su contenido
+
+        .. code-block:: python
+            :linenos:
+
+            # App/logic.py
+            from DataStructures.Graph import digraph as G
+
+            # Crea un grafo vacio
+            my_graph = G.new_graph(1)
+
+            print(G.vertices(my_graph))
+            # Salida esperada:
+
+        .. code-block:: console
+
+            {
+              "elements": [],
+              "size": 0
+            }
+    - **Grafo con vertices**: Se crea un grafo con vertices y se imprime su contenido
+
+        .. code-block:: python
+            :linenos:
+
+            # App/logic.py
+            from DataStructures.Graph import digraph as G
+
+            # Crea un grafo vacio
+            my_graph = G.new_graph(1)
+            my_graph = G.insert_vertex(my_graph, "Armenia", {"nombre": "Armenia", "poblacion": 300000})
+            my_graph = G.insert_vertex(my_graph, "Bogota", {"nombre": "Bogota", "poblacion": 8000000})
+            my_graph = G.insert_vertex(my_graph, "Cali", {"nombre": "Cali", "poblacion": 2000000})
+
+            print(G.vertices(my_graph))
+            # Salida esperada:
+
+        .. code-block:: console
+
+            {
+              "elements": [
+                "Cali",
+                "Armenia",
+                "Bogota"
+              ],
+              "size": 3
+            }

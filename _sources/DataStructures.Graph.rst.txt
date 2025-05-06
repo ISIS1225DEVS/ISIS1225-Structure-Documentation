@@ -2,9 +2,26 @@
 Graph - Grafos
 ####################################
 
-***************************************
+Como usar la documentación
+#################################################
+
+Para leer la guía de uso de la documentación, por favor diríjase a la sección :ref:`Guía de documentación<guia-doc>`.
+
 Elementos
-***************************************
+#################################################
+
+.. _graph-vertex:
+
+vertex.py
+-------------------------------------
+
+.. automodule:: DataStructures.Graph.vertex
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+.. _graph-edge:
 
 .. .. include:: structures/Graph.rst
 
@@ -17,62 +34,22 @@ edge.py
    :show-inheritance:
    :member-order: bysource
 
-***************************************
-Elementos de busqueda
-***************************************
+Implementaciones
+#################################################
 
-graph\_search.py
--------------------------------------
+.. _digraph:
 
-.. automodule:: DataStructures.Graph.graph_search
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
-
-dfo\_search.py
--------------------------------------
-
-.. automodule:: DataStructures.Graph.dfo_search
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
-
-prim\_search.py
--------------------------------------
-
-.. automodule:: DataStructures.Graph.prim_search
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
-
-dijsktra\_search.py
--------------------------------------
-
-.. automodule:: DataStructures.Graph.dijsktra_search
-   :members:
-   :undoc-members:
-   :show-inheritance:
-   :member-order: bysource
-
-***************************************
-Implementaciones de grafos
-***************************************
-
-adj\_list\_graph.py
+digraph.py
 --------------------------------------
 
-.. automodule:: DataStructures.Graph.adj_list_graph
+.. automodule:: DataStructures.Graph.digraph
    :members:
    :undoc-members:
    :show-inheritance:
    :member-order: bysource
 
-***************************************
 Algoritmos en grafos
-***************************************
+#################################################
 
 dfs.py
 --------------------------------------
@@ -114,6 +91,37 @@ dijsktra.py
 --------------------------------------
 
 .. automodule:: DataStructures.Graph.dijsktra
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+Estructuras de recorrido
+#################################################
+
+.. _dfo-structure:
+dfo\_structure.py
+-------------------------------------
+
+.. automodule:: DataStructures.Graph.dfo_structure
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+prim\_structure.py
+-------------------------------------
+
+.. automodule:: DataStructures.Graph.prim_structure
+   :members:
+   :undoc-members:
+   :show-inheritance:
+   :member-order: bysource
+
+dijsktra\_structure.py
+-------------------------------------
+
+.. automodule:: DataStructures.Graph.dijsktra_structure
    :members:
    :undoc-members:
    :show-inheritance:

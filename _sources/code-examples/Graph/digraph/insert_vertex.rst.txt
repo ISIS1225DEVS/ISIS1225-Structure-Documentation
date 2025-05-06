@@ -1,0 +1,507 @@
+.. admonition:: Importante
+    :class: danger
+
+    Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+
+        # Crea un grafo vacio
+        my_graph = G.new_graph(1)
+        print(my_graph)
+        # Salida esperada a continuacion:
+
+    .. collapse:: Salida esperada creacion de un grafo vacio:
+
+        .. code-block:: console
+            
+            {
+              'vertices': {
+                'prime': 109345121,
+                'capacity': 3,
+                'scale': 1,
+                'shift': 0,
+                'table': {
+                  'elements': [
+                    {
+                      'key': None,
+                      'value': None
+                    },
+                    {
+                      'key': None,
+                      'value': None
+                    },
+                    {
+                      'key': None,
+                      'value': None
+                    }
+                  ],
+                  'size': 3
+                },
+                'current_factor': 0,
+                'limit_factor': 0.5,
+                'size': 0
+              },
+              'num_edges': 0
+            }
+
+        
+    .. code-block:: python
+        :lineno-start: 8
+
+        # Agrega un vertice al grafo
+        my_graph = G.insert_vertex(my_graph, "Armenia", {"nombre": "Armenia", "población": 300000})
+        print(my_graph)
+        # Salida esperada a continuacion:
+
+    .. collapse:: Salida esperada al agregar un vertice:
+
+        .. code-block:: console
+
+            {
+              'vertices': {
+                'prime': 109345121,
+                'capacity': 3,
+                'scale': 1,
+                'shift': 0,
+                'table': {
+                  'elements': [
+                    {
+                      'key': None,
+                      'value': None
+                    },
+                    {
+                      'key': 'Armenia',
+                      'value': {
+                        'key': 'Armenia',
+                        'value': {
+                          'nombre': 'Armenia',
+                          'población': 300000
+                        },
+                        'adjacents': {
+                          'prime': 109345121,
+                          'capacity': 2,
+                          'scale': 1,
+                          'shift': 0,
+                          'table': {
+                            'elements': [
+                              {
+                                'key': None,
+                                'value': None
+                              },
+                              {
+                                'key': None,
+                                'value': None
+                              }
+                            ],
+                            'size': 2
+                          },
+                          'current_factor': 0,
+                          'limit_factor': 0.5,
+                          'size': 0
+                        }
+                      }
+                    },
+                    {
+                      'key': None,
+                      'value': None
+                    }
+                  ],
+                  'size': 3
+                },
+                'current_factor': 0.3333333333333333,
+                'limit_factor': 0.5,
+                'size': 1
+              },
+              'num_edges': 0
+            }
+
+:Test Scenarios:
+
+    - **Inserta un vertice en un grafo vacio**: Se crea un grafo vacio y se inserta un vertice.
+
+      .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+
+        # Crea un grafo vacio
+        my_graph = G.new_graph(1)
+        print(my_graph)
+        # Salida esperada a continuacion:
+
+      .. collapse:: Salida esperada creacion de un grafo vacio:
+
+          .. code-block:: console
+              
+              {
+                'vertices': {
+                  'prime': 109345121,
+                  'capacity': 3,
+                  'scale': 1,
+                  'shift': 0,
+                  'table': {
+                    'elements': [
+                      {
+                        'key': None,
+                        'value': None
+                      },
+                      {
+                        'key': None,
+                        'value': None
+                      },
+                      {
+                        'key': None,
+                        'value': None
+                      }
+                    ],
+                    'size': 3
+                  },
+                  'current_factor': 0,
+                  'limit_factor': 0.5,
+                  'size': 0
+                },
+                'num_edges': 0
+              }
+
+          
+      .. code-block:: python
+          :lineno-start: 8
+
+          # Agrega un vertice al grafo
+          my_graph = G.insert_vertex(my_graph, "Armenia", {"nombre": "Armenia", "población": 300000})
+          print(my_graph)
+          # Salida esperada a continuacion:
+
+      .. collapse:: Salida esperada al agregar un vertice:
+
+          .. code-block:: console
+
+              {
+                'vertices': {
+                  'prime': 109345121,
+                  'capacity': 3,
+                  'scale': 1,
+                  'shift': 0,
+                  'table': {
+                    'elements': [
+                      {
+                        'key': None,
+                        'value': None
+                      },
+                      {
+                        'key': 'Armenia',
+                        'value': {
+                          'key': 'Armenia',
+                          'value': {
+                            'nombre': 'Armenia',
+                            'población': 300000
+                          },
+                          'adjacents': {
+                            'prime': 109345121,
+                            'capacity': 2,
+                            'scale': 1,
+                            'shift': 0,
+                            'table': {
+                              'elements': [
+                                {
+                                  'key': None,
+                                  'value': None
+                                },
+                                {
+                                  'key': None,
+                                  'value': None
+                                }
+                              ],
+                              'size': 2
+                            },
+                            'current_factor': 0,
+                            'limit_factor': 0.5,
+                            'size': 0
+                          }
+                        }
+                      },
+                      {
+                        'key': None,
+                        'value': None
+                      }
+                    ],
+                    'size': 3
+                  },
+                  'current_factor': 0.3333333333333333,
+                  'limit_factor': 0.5,
+                  'size': 1
+                },
+                'num_edges': 0
+              }
+
+  
+    - **Inserta un vertice en un grafo con varios vertices**: Se crea un grafo con varios vertices y se inserta otro vertice.
+
+      .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+
+        # Crea un grafo vacio
+        my_graph = G.new_graph(1)
+        my_graph = G.insert_vertex(my_graph, "Armenia", {"nombre": "Armenia", "población": 300000})
+        my_graph = G.insert_vertex(my_graph, "Bogotá", {"nombre": "Bogotá", "población": 8000000})
+        print(my_graph)
+        # Salida esperada a continuacion:
+
+      .. collapse:: Salida esperada creacion de un grafo vacio:
+
+          .. code-block:: console
+              
+            {
+              'vertices': {
+                'prime': 109345121,
+                'capacity': 7,
+                'scale': 1,
+                'shift': 0,
+                'table': {
+                  'elements': [
+                    {
+                      'key': None,
+                      'value': None
+                    },
+                    {
+                      'key': None,
+                      'value': None
+                    },
+                    {
+                      'key': None,
+                      'value': None
+                    },
+                    {
+                      'key': 'Armenia',
+                      'value': {
+                        'key': 'Armenia',
+                        'value': {
+                          'nombre': 'Armenia',
+                          'población': 300000
+                        },
+                        'adjacents': {
+                          'prime': 109345121,
+                          'capacity': 2,
+                          'scale': 1,
+                          'shift': 0,
+                          'table': {
+                            'elements': [
+                              {
+                                'key': None,
+                                'value': None
+                              },
+                              {
+                                'key': None,
+                                'value': None
+                              }
+                            ],
+                            'size': 2
+                          },
+                          'current_factor': 0,
+                          'limit_factor': 0.5,
+                          'size': 0
+                        }
+                      }
+                    },
+                    {
+                      'key': None,
+                      'value': None
+                    },
+                    {
+                      'key': 'Bogotá',
+                      'value': {
+                        'key': 'Bogotá',
+                        'value': {
+                          'nombre': 'Bogotá',
+                          'población': 8000000
+                        },
+                        'adjacents': {
+                          'prime': 109345121,
+                          'capacity': 2,
+                          'scale': 1,
+                          'shift': 0,
+                          'table': {
+                            'elements': [
+                              {
+                                'key': None,
+                                'value': None
+                              },
+                              {
+                                'key': None,
+                                'value': None
+                              }
+                            ],
+                            'size': 2
+                          },
+                          'current_factor': 0,
+                          'limit_factor': 0.5,
+                          'size': 0
+                        }
+                      }
+                    },
+                    {
+                      'key': None,
+                      'value': None
+                    }
+                  ],
+                  'size': 7
+                },
+                'current_factor': 0.2857142857142857,
+                'limit_factor': 0.5,
+                'size': 2
+              },
+              'num_edges': 0
+            }
+              
+      .. code-block:: python
+          :lineno-start: 8
+
+          # Agrega un vertice al grafo
+          my_graph = G.insert_vertex(my_graph, "Cali", {"nombre": "Cali", "población": 2000000})
+          print(my_graph)
+          # Salida esperada a continuacion:
+
+      .. collapse:: Salida esperada al agregar un vertice:
+
+          .. code-block:: console
+
+            {
+              'vertices': {
+                'prime': 109345121,
+                'capacity': 7,
+                'scale': 1,
+                'shift': 0,
+                'table': {
+                  'elements': [
+                    {
+                      'key': None,
+                      'value': None
+                    },
+                    {
+                      'key': None,
+                      'value': None
+                    },
+                    {
+                      'key': 'Cali',
+                      'value': {
+                        'key': 'Cali',
+                        'value': {
+                          'nombre': 'Cali',
+                          'población': 2000000
+                        },
+                        'adjacents': {
+                          'prime': 109345121,
+                          'capacity': 2,
+                          'scale': 1,
+                          'shift': 0,
+                          'table': {
+                            'elements': [
+                              {
+                                'key': None,
+                                'value': None
+                              },
+                              {
+                                'key': None,
+                                'value': None
+                              }
+                            ],
+                            'size': 2
+                          },
+                          'current_factor': 0,
+                          'limit_factor': 0.5,
+                          'size': 0
+                        }
+                      }
+                    },
+                    {
+                      'key': None,
+                      'value': None
+                    },
+                    {
+                      'key': 'Armenia',
+                      'value': {
+                        'key': 'Armenia',
+                        'value': {
+                          'nombre': 'Armenia',
+                          'población': 300000
+                        },
+                        'adjacents': {
+                          'prime': 109345121,
+                          'capacity': 2,
+                          'scale': 1,
+                          'shift': 0,
+                          'table': {
+                            'elements': [
+                              {
+                                'key': None,
+                                'value': None
+                              },
+                              {
+                                'key': None,
+                                'value': None
+                              }
+                            ],
+                            'size': 2
+                          },
+                          'current_factor': 0,
+                          'limit_factor': 0.5,
+                          'size': 0
+                        }
+                      }
+                    },
+                    {
+                      'key': 'Bogotá',
+                      'value': {
+                        'key': 'Bogotá',
+                        'value': {
+                          'nombre': 'Bogotá',
+                          'población': 8000000
+                        },
+                        'adjacents': {
+                          'prime': 109345121,
+                          'capacity': 2,
+                          'scale': 1,
+                          'shift': 0,
+                          'table': {
+                            'elements': [
+                              {
+                                'key': None,
+                                'value': None
+                              },
+                              {
+                                'key': None,
+                                'value': None
+                              }
+                            ],
+                            'size': 2
+                          },
+                          'current_factor': 0,
+                          'limit_factor': 0.5,
+                          'size': 0
+                        }
+                      }
+                    },
+                    {
+                      'key': None,
+                      'value': None
+                    }
+                  ],
+                  'size': 7
+                },
+                'current_factor': 0.42857142857142855,
+                'limit_factor': 0.5,
+                'size': 3
+              },
+              'num_edges': 0
+            }

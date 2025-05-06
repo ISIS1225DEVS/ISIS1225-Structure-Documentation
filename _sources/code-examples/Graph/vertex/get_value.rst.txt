@@ -1,0 +1,11 @@
+:Example:
+
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Graph import vertex as V
+
+        # Crear un nuevo vertice
+        vertex = V.new_vertex(1, {"nombre": "A"})
+        print(V.get_value(vertex))
+        # Salida esperada: {'nombre': 'A'}

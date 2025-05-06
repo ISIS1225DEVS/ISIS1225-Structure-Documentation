@@ -1,0 +1,23 @@
+:Example:
+
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Graph import vertex as V
+
+        # Crear un nuevo vertice
+        key_u = "KEYU"
+        key_v = "KEYV"
+        key_w = "KEYW"
+        vertex_u = V.new_vertex(key_u, {"nombre": "Vertice U"})
+
+        V.add_adjacent(vertex_u, key_v, 10)
+        V.add_adjacent(vertex_u, key_w, 15)
+
+        # Obtener el vertice adyacente
+        print(V.get_edge(vertex_u, vertex_v))
+        # Salida esperada: {'to': 'KEYV', 'weight': 10}
+
+        # Obtener el vertice no adyacente
+        print(V.get_edge(vertex_u, "KEYX"))
+        # Salida esperada: None

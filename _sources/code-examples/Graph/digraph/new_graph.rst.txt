@@ -1,0 +1,50 @@
+.. admonition:: Importante
+    :class: danger
+
+    Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+:Example:
+
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+
+        # Crea un grafo vacio
+        my_graph = G.new_graph(1)
+        print(my_graph)
+        # Salida esperada a continuacion:
+
+    Salida esperada:
+    
+    .. code-block:: console
+
+        {
+            'vertices': {
+                'prime': 109345121,
+                'capacity': 3,
+                'scale': 1,
+                'shift': 0,
+                'table': {
+                    'elements': [
+                        {
+                            'key': None,
+                            'value': None
+                        },
+                        {
+                            'key': None,
+                            'value': None
+                        },
+                        {
+                            'key': None,
+                            'value': None
+                        }
+                    ],
+                    'size': 3
+                },
+                'current_factor': 0,
+                'limit_factor': 0.5,
+                'size': 0
+            },
+            'num_edges': 0
+        }

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; DISC - Data Structures 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/68409575?s=200&v=4"/>
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> <link href="../../../_static/style.css" rel="stylesheet" type="text/css"> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            DISC - Data Structures
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contenido auxiliar:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../documentation-guide.html">Guía de documentación</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contenido del curso:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataStructures.Set.html">Set - Conjunto</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataStructures.List.html">List - Listas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataStructures.Stack.html">Stack - Pilas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataStructures.Queue.html">Queue - Colas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataStructures.Map.html">Map - Tablas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataStructures.Tree.html">Order Map - Árboles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataStructures.Priority_queue.html">Priority Queue - Colas de prioridad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../DataStructures.Graph.html">Graph - Grafos</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">DISC - Data Structures</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="danger admonition">
+<p class="admonition-title">Importante</p>
+<p>Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función <code class="docutils literal notranslate"><span class="pre">new_map</span></code> como se indica en la sección <a class="reference internal" href="../../../DataStructures.Map.html#como-hacer-pruebas-con-tablas"><span class="std std-ref">Como hacer pruebas con tablas</span></a>.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># App/logic.py</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="c1"># Crea un grafo vacio</span>
+<span class="linenos">5</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Madrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Madrid&quot;</span><span class="p">,</span> <span class="s2">&quot;pais&quot;</span><span class="p">:</span> <span class="s2">&quot;España&quot;</span><span class="p">})</span>
+<span class="linenos">8</span><span class="nb">print</span><span class="p">(</span><span class="n">my_graph</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">  &quot;vertices&quot;: {</span>
+<span class="go">    &quot;prime&quot;: 109345121,</span>
+<span class="go">    &quot;capacity&quot;: 3,</span>
+<span class="go">    &quot;scale&quot;: 1,</span>
+<span class="go">    &quot;shift&quot;: 0,</span>
+<span class="go">    &quot;table&quot;: {</span>
+<span class="go">      &quot;elements&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">          &quot;key&quot;: null,</span>
+<span class="go">          &quot;value&quot;: null</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">          &quot;key&quot;: &quot;Madrid&quot;,</span>
+<span class="go">          &quot;value&quot;: {</span>
+<span class="go">            &quot;key&quot;: &quot;Madrid&quot;,</span>
+<span class="hll"><span class="go">            &quot;value&quot;: {</span>
+</span><span class="hll"><span class="go">              &quot;nombre&quot;: &quot;Madrid&quot;,</span>
+</span><span class="hll"><span class="go">              &quot;pais&quot;: &quot;España&quot;</span>
+</span><span class="hll"><span class="go">            },</span>
+</span><span class="go">            &quot;adjacents&quot;: {</span>
+<span class="go">              &quot;prime&quot;: 109345121,</span>
+<span class="go">              &quot;capacity&quot;: 2,</span>
+<span class="go">              &quot;scale&quot;: 1,</span>
+<span class="go">              &quot;shift&quot;: 0,</span>
+<span class="go">              &quot;table&quot;: {</span>
+<span class="go">                &quot;elements&quot;: [</span>
+<span class="go">                  {</span>
+<span class="go">                    &quot;key&quot;: null,</span>
+<span class="go">                    &quot;value&quot;: null</span>
+<span class="go">                  },</span>
+<span class="go">                  {</span>
+<span class="go">                    &quot;key&quot;: null,</span>
+<span class="go">                    &quot;value&quot;: null</span>
+<span class="go">                  }</span>
+<span class="go">                ],</span>
+<span class="go">                &quot;size&quot;: 2</span>
+<span class="go">              },</span>
+<span class="go">              &quot;current_factor&quot;: 0,</span>
+<span class="go">              &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">              &quot;size&quot;: 0</span>
+<span class="go">            }</span>
+<span class="go">          }</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">          &quot;key&quot;: null,</span>
+<span class="go">          &quot;value&quot;: null</span>
+<span class="go">        }</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;size&quot;: 3</span>
+<span class="go">    },</span>
+<span class="go">    &quot;current_factor&quot;: 0.3333333333333333,</span>
+<span class="go">    &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">    &quot;size&quot;: 1</span>
+<span class="go">  },</span>
+<span class="go">  &quot;num_edges&quot;: 0</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 9</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">update_vertex_info</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Madrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Madrid&quot;</span><span class="p">,</span> <span class="s2">&quot;pais&quot;</span><span class="p">:</span> <span class="s2">&quot;Colombia&quot;</span><span class="p">})</span>
+<span class="linenos">10</span><span class="c1"># Salida esperada:</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">  &quot;vertices&quot;: {</span>
+<span class="go">    &quot;prime&quot;: 109345121,</span>
+<span class="go">    &quot;capacity&quot;: 3,</span>
+<span class="go">    &quot;scale&quot;: 1,</span>
+<span class="go">    &quot;shift&quot;: 0,</span>
+<span class="go">    &quot;table&quot;: {</span>
+<span class="go">      &quot;elements&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">          &quot;key&quot;: &quot;Madrid&quot;,</span>
+<span class="go">          &quot;value&quot;: {</span>
+<span class="go">            &quot;key&quot;: &quot;Madrid&quot;,</span>
+<span class="hll"><span class="go">            &quot;value&quot;: {</span>
+</span><span class="hll"><span class="go">              &quot;nombre&quot;: &quot;Madrid&quot;,</span>
+</span><span class="hll"><span class="go">              &quot;pais&quot;: &quot;Colombia&quot;</span>
+</span><span class="hll"><span class="go">            },</span>
+</span><span class="go">            &quot;adjacents&quot;: {</span>
+<span class="go">              &quot;prime&quot;: 109345121,</span>
+<span class="go">              &quot;capacity&quot;: 2,</span>
+<span class="go">              &quot;scale&quot;: 1,</span>
+<span class="go">              &quot;shift&quot;: 0,</span>
+<span class="go">              &quot;table&quot;: {</span>
+<span class="go">                &quot;elements&quot;: [</span>
+<span class="go">                  {</span>
+<span class="go">                    &quot;key&quot;: null,</span>
+<span class="go">                    &quot;value&quot;: null</span>
+<span class="go">                  },</span>
+<span class="go">                  {</span>
+<span class="go">                    &quot;key&quot;: null,</span>
+<span class="go">                    &quot;value&quot;: null</span>
+<span class="go">                  }</span>
+<span class="go">                ],</span>
+<span class="go">                &quot;size&quot;: 2</span>
+<span class="go">              },</span>
+<span class="go">              &quot;current_factor&quot;: 0,</span>
+<span class="go">              &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">              &quot;size&quot;: 0</span>
+<span class="go">            }</span>
+<span class="go">          }</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">          &quot;key&quot;: null,</span>
+<span class="go">          &quot;value&quot;: null</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">          &quot;key&quot;: null,</span>
+<span class="go">          &quot;value&quot;: null</span>
+<span class="go">        }</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;size&quot;: 3</span>
+<span class="go">    },</span>
+<span class="go">    &quot;current_factor&quot;: 0.3333333333333333,</span>
+<span class="go">    &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">    &quot;size&quot;: 1</span>
+<span class="go">  },</span>
+<span class="go">  &quot;num_edges&quot;: 0</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</dd>
+<dt class="field-even">Test Scenario<span class="colon">:</span></dt>
+<dd class="field-even"><ul>
+<li><p><strong>Vertice existente:</strong> Actualiza la información de un vértice existente en el grafo.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="c1"># App/logic.py</span>
+<span class="linenos">2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos">3</span>
+<span class="linenos">4</span><span class="c1"># Crea un grafo vacio</span>
+<span class="linenos">5</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos">6</span>
+<span class="linenos">7</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Madrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Madrid&quot;</span><span class="p">,</span> <span class="s2">&quot;pais&quot;</span><span class="p">:</span> <span class="s2">&quot;España&quot;</span><span class="p">})</span>
+<span class="linenos">8</span><span class="nb">print</span><span class="p">(</span><span class="n">my_graph</span><span class="p">)</span>
+<span class="linenos">9</span><span class="c1"># Salida esperada:</span>
+</pre></div>
+</div>
+<details class="summary-salida-esperada">
+<summary>Salida esperada</summary><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">&quot;vertices&quot;: {</span>
+<span class="go">    &quot;prime&quot;: 109345121,</span>
+<span class="go">    &quot;capacity&quot;: 3,</span>
+<span class="go">    &quot;scale&quot;: 1,</span>
+<span class="go">    &quot;shift&quot;: 0,</span>
+<span class="go">    &quot;table&quot;: {</span>
+<span class="go">    &quot;elements&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">        &quot;key&quot;: null,</span>
+<span class="go">        &quot;value&quot;: null</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">        &quot;key&quot;: &quot;Madrid&quot;,</span>
+<span class="go">        &quot;value&quot;: {</span>
+<span class="go">            &quot;key&quot;: &quot;Madrid&quot;,</span>
+<span class="hll"><span class="go">            &quot;value&quot;: {</span>
+</span><span class="hll"><span class="go">            &quot;nombre&quot;: &quot;Madrid&quot;,</span>
+</span><span class="hll"><span class="go">            &quot;pais&quot;: &quot;España&quot;</span>
+</span><span class="hll"><span class="go">            },</span>
+</span><span class="go">            &quot;adjacents&quot;: {</span>
+<span class="go">            &quot;prime&quot;: 109345121,</span>
+<span class="go">            &quot;capacity&quot;: 2,</span>
+<span class="go">            &quot;scale&quot;: 1,</span>
+<span class="go">            &quot;shift&quot;: 0,</span>
+<span class="go">            &quot;table&quot;: {</span>
+<span class="go">                &quot;elements&quot;: [</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;key&quot;: null,</span>
+<span class="go">                    &quot;value&quot;: null</span>
+<span class="go">                },</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;key&quot;: null,</span>
+<span class="go">                    &quot;value&quot;: null</span>
+<span class="go">                }</span>
+<span class="go">                ],</span>
+<span class="go">                &quot;size&quot;: 2</span>
+<span class="go">            },</span>
+<span class="go">            &quot;current_factor&quot;: 0,</span>
+<span class="go">            &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">            &quot;size&quot;: 0</span>
+<span class="go">            }</span>
+<span class="go">        }</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">        &quot;key&quot;: null,</span>
+<span class="go">        &quot;value&quot;: null</span>
+<span class="go">        }</span>
+<span class="go">    ],</span>
+<span class="go">    &quot;size&quot;: 3</span>
+<span class="go">    },</span>
+<span class="go">    &quot;current_factor&quot;: 0.3333333333333333,</span>
+<span class="go">    &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">    &quot;size&quot;: 1</span>
+<span class="go">},</span>
+<span class="go">&quot;num_edges&quot;: 0</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</details><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 9</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">update_vertex_info</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Madrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Madrid&quot;</span><span class="p">,</span> <span class="s2">&quot;pais&quot;</span><span class="p">:</span> <span class="s2">&quot;Colombia&quot;</span><span class="p">})</span>
+<span class="linenos">10</span><span class="c1"># Salida esperada:</span>
+</pre></div>
+</div>
+<details class="summary-salida-esperada-creacion-de-un-grafo-vacio">
+<summary>Salida esperada creacion de un grafo vacio:</summary><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">&quot;vertices&quot;: {</span>
+<span class="go">    &quot;prime&quot;: 109345121,</span>
+<span class="go">    &quot;capacity&quot;: 3,</span>
+<span class="go">    &quot;scale&quot;: 1,</span>
+<span class="go">    &quot;shift&quot;: 0,</span>
+<span class="go">    &quot;table&quot;: {</span>
+<span class="go">    &quot;elements&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">        &quot;key&quot;: &quot;Madrid&quot;,</span>
+<span class="go">        &quot;value&quot;: {</span>
+<span class="go">            &quot;key&quot;: &quot;Madrid&quot;,</span>
+<span class="hll"><span class="go">            &quot;value&quot;: {</span>
+</span><span class="hll"><span class="go">            &quot;nombre&quot;: &quot;Madrid&quot;,</span>
+</span><span class="hll"><span class="go">            &quot;pais&quot;: &quot;Colombia&quot;</span>
+</span><span class="hll"><span class="go">            },</span>
+</span><span class="go">            &quot;adjacents&quot;: {</span>
+<span class="go">            &quot;prime&quot;: 109345121,</span>
+<span class="go">            &quot;capacity&quot;: 2,</span>
+<span class="go">            &quot;scale&quot;: 1,</span>
+<span class="go">            &quot;shift&quot;: 0,</span>
+<span class="go">            &quot;table&quot;: {</span>
+<span class="go">                &quot;elements&quot;: [</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;key&quot;: null,</span>
+<span class="go">                    &quot;value&quot;: null</span>
+<span class="go">                },</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;key&quot;: null,</span>
+<span class="go">                    &quot;value&quot;: null</span>
+<span class="go">                }</span>
+<span class="go">                ],</span>
+<span class="go">                &quot;size&quot;: 2</span>
+<span class="go">            },</span>
+<span class="go">            &quot;current_factor&quot;: 0,</span>
+<span class="go">            &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">            &quot;size&quot;: 0</span>
+<span class="go">            }</span>
+<span class="go">        }</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">        &quot;key&quot;: null,</span>
+<span class="go">        &quot;value&quot;: null</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">        &quot;key&quot;: null,</span>
+<span class="go">        &quot;value&quot;: null</span>
+<span class="go">        }</span>
+<span class="go">    ],</span>
+<span class="go">    &quot;size&quot;: 3</span>
+<span class="go">    },</span>
+<span class="go">    &quot;current_factor&quot;: 0.3333333333333333,</span>
+<span class="go">    &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">    &quot;size&quot;: 1</span>
+<span class="go">},</span>
+<span class="go">&quot;num_edges&quot;: 0</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</details></div></blockquote>
+</li>
+<li><p><strong>Vertice no existente en el grafo:</strong> Intenta actualizar la información de un vértice que no existe en el grafo y verifica que no se produce ningún cambio.</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># App/logic.py</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Crea un grafo vacio</span>
+<span class="linenos"> 5</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Actualiza la información de un vértice que no existe</span>
+<span class="linenos"> 8</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">update_vertex_info</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Madrid&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Madrid&quot;</span><span class="p">,</span> <span class="s2">&quot;pais&quot;</span><span class="p">:</span> <span class="s2">&quot;Colombia&quot;</span><span class="p">})</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="nb">print</span><span class="p">(</span><span class="n">my_graph</span><span class="p">)</span>
+<span class="linenos">11</span><span class="c1"># Salida esperada: None</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Universidad de los Andes.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

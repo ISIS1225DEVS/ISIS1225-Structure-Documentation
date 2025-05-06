@@ -1,0 +1,374 @@
+.. admonition:: Importante
+    :class: important
+
+    Para lanzar error si no se encuentran los vertices, use el siguiente código como referencia:
+
+    .. code-block:: python
+
+        raise Exception("El vertice u no existe")
+
+.. admonition:: Importante
+    :class: danger
+
+    Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+
+        # Crea un grafo vacio
+        my_graph = G.new_graph(1)
+
+        # Inserta vertices
+        my_graph = G.insert_vertex(my_graph, "Armenia", {"nombre": "Armenia", "poblacion": 300000})
+        my_graph = G.insert_vertex(my_graph, "Bogota", {"nombre": "Bogota", "poblacion": 8000000})
+
+        # Inserta un arco
+        my_graph = G.add_edge(my_graph, "Armenia", "Bogota", 100)
+
+        print(my_graph)
+        # Salida esperada:
+    
+    .. code-block:: console
+        :emphasize-lines: 58, 89-93
+
+        {
+          "vertices": {
+            "prime": 109345121,
+            "capacity": 7,
+            "scale": 1,
+            "shift": 0,
+            "table": {
+              "elements": [
+                {
+                  "key": "Bogota",
+                  "value": {
+                    "key": "Bogota",
+                    "value": {
+                      "nombre": "Bogota",
+                      "poblacion": 8000000
+                    },
+                    "adjacents": {
+                      "prime": 109345121,
+                      "capacity": 2,
+                      "scale": 1,
+                      "shift": 0,
+                      "table": {
+                        "elements": [
+                          {
+                            "key": null,
+                            "value": null
+                          },
+                          {
+                            "key": null,
+                            "value": null
+                          }
+                        ],
+                        "size": 2
+                      },
+                      "current_factor": 0,
+                      "limit_factor": 0.5,
+                      "size": 0
+                    }
+                  }
+                },
+                {
+                  "key": null,
+                  "value": null
+                },
+                {
+                  "key": null,
+                  "value": null
+                },
+                {
+                  "key": null,
+                  "value": null
+                },
+                {
+                  "key": null,
+                  "value": null
+                },
+                {
+                  "key": "Armenia",
+                  "value": {
+                    "key": "Armenia",
+                    "value": {
+                      "nombre": "Armenia",
+                      "poblacion": 300000
+                    },
+                    "adjacents": {
+                      "prime": 109345121,
+                      "capacity": 5,
+                      "scale": 1,
+                      "shift": 0,
+                      "table": {
+                        "elements": [
+                          {
+                            "key": null,
+                            "value": null
+                          },
+                          {
+                            "key": null,
+                            "value": null
+                          },
+                          {
+                            "key": null,
+                            "value": null
+                          },
+                          {
+                            "key": null,
+                            "value": null
+                          },
+                          {
+                            "key": "Bogota",
+                            "value": {
+                              "to": "Bogota",
+                              "weight": 100
+                            }
+                          }
+                        ],
+                        "size": 5
+                      },
+                      "current_factor": 0.2,
+                      "limit_factor": 0.5,
+                      "size": 1
+                    }
+                  }
+                },
+                {
+                  "key": null,
+                  "value": null
+                }
+              ],
+              "size": 7
+            },
+            "current_factor": 0.2857142857142857,
+            "limit_factor": 0.5,
+            "size": 2
+          },
+          "num_edges": 1
+        }
+
+:Test Scenario:
+    
+        - **Grafo sin vertices**: Lanza error si no se encuentran los vertices.
+
+            .. code-block:: python
+                :linenos:
+
+                # App/logic.py
+                from DataStructures.Graph import digraph as G
+
+                # Crea un grafo vacio
+                my_graph = G.new_graph(1)
+
+                # Inserta vertices
+                my_graph = G.insert_vertex(my_graph, "Armenia", {
+                                "nombre": "Armenia", "poblacion": 300000})
+                my_graph = G.insert_vertex(
+                    my_graph, "Bogota", {"nombre": "Bogota", "poblacion": 8000000})
+
+                # Inserta un arco
+                my_graph = G.add_edge(my_graph, "A", "B", 100, )
+                # Salida esperada en consola:
+                #   raise Exception("El vertice u no existe")
+                # Exception: El vertice u no existe
+
+        - **Grafo con vertices**: Se crea un grafo con vertices y se le agregan arcos.
+
+            .. code-block:: python
+                :linenos:
+
+                # App/logic.py
+                from DataStructures.Graph import digraph as G
+
+                # Crea un grafo vacio
+                my_graph = G.new_graph(1)
+
+                # Inserta vertices
+                my_graph = G.insert_vertex(my_graph, "Armenia", {"nombre": "Armenia", "poblacion": 300000})
+                my_graph = G.insert_vertex(my_graph, "Bogota", {"nombre": "Bogota", "poblacion": 8000000})
+                my_graph = G.insert_vertex(my_graph, "Cali", {"nombre": "Cali", "poblacion": 2000000})
+
+                # Inserta un arco
+                my_graph = G.add_edge(my_graph, "Armenia", "Bogota", 100)
+                my_graph = G.add_edge(my_graph, "Armenia", "Cali", 200)
+                my_graph = G.add_edge(my_graph, "Bogota", "Cali", 300)
+
+                print(my_graph)
+                # Salida esperada:
+
+            .. collapse:: Respuesta inserción del arco
+
+                .. code-block:: console
+                    :emphasize-lines: 46, 48, 53, 60-66, 71-77, 96, 98,103, 119-124, 161
+                                
+                    {
+                      "vertices": {
+                        "prime": 109345121,
+                        "capacity": 7,
+                        "scale": 1,
+                        "shift": 0,
+                        "table": {
+                          "elements": [
+                            {
+                              "key": "Cali",
+                              "value": {
+                                "key": "Cali",
+                                "value": {
+                                  "nombre": "Cali",
+                                  "poblacion": 2000000
+                                },
+                                "adjacents": {
+                                  "prime": 109345121,
+                                  "capacity": 2,
+                                  "scale": 1,
+                                  "shift": 0,
+                                  "table": {
+                                    "elements": [
+                                      {
+                                        "key": null,
+                                        "value": null
+                                      },
+                                      {
+                                        "key": null,
+                                        "value": null
+                                      }
+                                    ],
+                                    "size": 2
+                                  },
+                                  "current_factor": 0,
+                                  "limit_factor": 0.5,
+                                  "size": 0
+                                }
+                              }
+                            },
+                            {
+                              "key": null,
+                              "value": null
+                            },
+                            {
+                              "key": "Armenia",
+                              "value": {
+                                "key": "Armenia",
+                                "value": {
+                                  "nombre": "Armenia",
+                                  "poblacion": 300000
+                                },
+                                "adjacents": {
+                                  "prime": 109345121,
+                                  "capacity": 5,
+                                  "scale": 1,
+                                  "shift": 0,
+                                  "table": {
+                                    "elements": [
+                                      {
+                                        "key": "Bogota",
+                                        "value": {
+                                          "to": "Bogota",
+                                          "weight": 100
+                                        }
+                                      },
+                                      {
+                                        "key": null,
+                                        "value": null
+                                      },
+                                      {
+                                        "key": "Cali",
+                                        "value": {
+                                          "to": "Cali",
+                                          "weight": 200
+                                        }
+                                      },
+                                      {
+                                        "key": null,
+                                        "value": null
+                                      },
+                                      {
+                                        "key": null,
+                                        "value": null
+                                      }
+                                    ],
+                                    "size": 5
+                                  },
+                                  "current_factor": 0.4,
+                                  "limit_factor": 0.5,
+                                  "size": 2
+                                }
+                              }
+                            },
+                            {
+                              "key": "Bogota",
+                              "value": {
+                                "key": "Bogota",
+                                "value": {
+                                  "nombre": "Bogota",
+                                  "poblacion": 8000000
+                                },
+                                "adjacents": {
+                                  "prime": 109345121,
+                                  "capacity": 5,
+                                  "scale": 1,
+                                  "shift": 0,
+                                  "table": {
+                                    "elements": [
+                                      {
+                                        "key": null,
+                                        "value": null
+                                      },
+                                      {
+                                        "key": null,
+                                        "value": null
+                                      },
+                                      {
+                                        "key": "Cali",
+                                        "value": {
+                                          "to": "Cali",
+                                          "weight": 300
+                                        }
+                                      },
+                                      {
+                                        "key": null,
+                                        "value": null
+                                      },
+                                      {
+                                        "key": null,
+                                        "value": null
+                                      }
+                                    ],
+                                    "size": 5
+                                  },
+                                  "current_factor": 0.2,
+                                  "limit_factor": 0.5,
+                                  "size": 1
+                                }
+                              }
+                            },
+                            {
+                              "key": null,
+                              "value": null
+                            },
+                            {
+                              "key": null,
+                              "value": null
+                            },
+                            {
+                              "key": null,
+                              "value": null
+                            }
+                          ],
+                          "size": 7
+                        },
+                        "current_factor": 0.42857142857142855,
+                        "limit_factor": 0.5,
+                        "size": 3
+                      },
+                      "num_edges": 3
+                    }
+            
+            

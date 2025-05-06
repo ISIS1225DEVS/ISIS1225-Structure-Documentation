@@ -1,0 +1,312 @@
+.. admonition:: Importante
+    :class: danger
+
+    Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+
+        # Crea un grafo vacio
+        my_graph = G.new_graph(1)
+
+        my_graph = G.insert_vertex(my_graph, "Madrid", {"nombre": "Madrid", "pais": "España"})
+        print(my_graph)
+
+    .. code-block:: console
+        :emphasize-lines: 17-20
+
+        {
+          "vertices": {
+            "prime": 109345121,
+            "capacity": 3,
+            "scale": 1,
+            "shift": 0,
+            "table": {
+              "elements": [
+                {
+                  "key": null,
+                  "value": null
+                },
+                {
+                  "key": "Madrid",
+                  "value": {
+                    "key": "Madrid",
+                    "value": {
+                      "nombre": "Madrid",
+                      "pais": "España"
+                    },
+                    "adjacents": {
+                      "prime": 109345121,
+                      "capacity": 2,
+                      "scale": 1,
+                      "shift": 0,
+                      "table": {
+                        "elements": [
+                          {
+                            "key": null,
+                            "value": null
+                          },
+                          {
+                            "key": null,
+                            "value": null
+                          }
+                        ],
+                        "size": 2
+                      },
+                      "current_factor": 0,
+                      "limit_factor": 0.5,
+                      "size": 0
+                    }
+                  }
+                },
+                {
+                  "key": null,
+                  "value": null
+                }
+              ],
+              "size": 3
+            },
+            "current_factor": 0.3333333333333333,
+            "limit_factor": 0.5,
+            "size": 1
+          },
+          "num_edges": 0
+        }
+
+    .. code-block:: python
+        :lineno-start: 9
+
+        my_graph = G.update_vertex_info(my_graph, "Madrid", {"nombre": "Madrid", "pais": "Colombia"})
+        # Salida esperada:
+
+    .. code-block:: console
+        :emphasize-lines: 13-16
+
+        {
+          "vertices": {
+            "prime": 109345121,
+            "capacity": 3,
+            "scale": 1,
+            "shift": 0,
+            "table": {
+              "elements": [
+                {
+                  "key": "Madrid",
+                  "value": {
+                    "key": "Madrid",
+                    "value": {
+                      "nombre": "Madrid",
+                      "pais": "Colombia"
+                    },
+                    "adjacents": {
+                      "prime": 109345121,
+                      "capacity": 2,
+                      "scale": 1,
+                      "shift": 0,
+                      "table": {
+                        "elements": [
+                          {
+                            "key": null,
+                            "value": null
+                          },
+                          {
+                            "key": null,
+                            "value": null
+                          }
+                        ],
+                        "size": 2
+                      },
+                      "current_factor": 0,
+                      "limit_factor": 0.5,
+                      "size": 0
+                    }
+                  }
+                },
+                {
+                  "key": null,
+                  "value": null
+                },
+                {
+                  "key": null,
+                  "value": null
+                }
+              ],
+              "size": 3
+            },
+            "current_factor": 0.3333333333333333,
+            "limit_factor": 0.5,
+            "size": 1
+          },
+          "num_edges": 0
+        }
+
+:Test Scenario:
+
+    - **Vertice existente:** Actualiza la información de un vértice existente en el grafo.
+
+        .. code-block:: python
+            :linenos:
+
+            # App/logic.py
+            from DataStructures.Graph import digraph as G
+
+            # Crea un grafo vacio
+            my_graph = G.new_graph(1)
+
+            my_graph = G.insert_vertex(my_graph, "Madrid", {"nombre": "Madrid", "pais": "España"})
+            print(my_graph)
+            # Salida esperada:
+
+        .. collapse:: Salida esperada
+
+            .. code-block:: console
+                :emphasize-lines: 17-20
+
+                {
+                "vertices": {
+                    "prime": 109345121,
+                    "capacity": 3,
+                    "scale": 1,
+                    "shift": 0,
+                    "table": {
+                    "elements": [
+                        {
+                        "key": null,
+                        "value": null
+                        },
+                        {
+                        "key": "Madrid",
+                        "value": {
+                            "key": "Madrid",
+                            "value": {
+                            "nombre": "Madrid",
+                            "pais": "España"
+                            },
+                            "adjacents": {
+                            "prime": 109345121,
+                            "capacity": 2,
+                            "scale": 1,
+                            "shift": 0,
+                            "table": {
+                                "elements": [
+                                {
+                                    "key": null,
+                                    "value": null
+                                },
+                                {
+                                    "key": null,
+                                    "value": null
+                                }
+                                ],
+                                "size": 2
+                            },
+                            "current_factor": 0,
+                            "limit_factor": 0.5,
+                            "size": 0
+                            }
+                        }
+                        },
+                        {
+                        "key": null,
+                        "value": null
+                        }
+                    ],
+                    "size": 3
+                    },
+                    "current_factor": 0.3333333333333333,
+                    "limit_factor": 0.5,
+                    "size": 1
+                },
+                "num_edges": 0
+                }
+
+        .. code-block:: python
+            :lineno-start: 9
+
+            my_graph = G.update_vertex_info(my_graph, "Madrid", {"nombre": "Madrid", "pais": "Colombia"})
+            # Salida esperada:
+
+        .. collapse:: Salida esperada creacion de un grafo vacio:
+
+            .. code-block:: console
+                :emphasize-lines: 13-16
+
+                {
+                "vertices": {
+                    "prime": 109345121,
+                    "capacity": 3,
+                    "scale": 1,
+                    "shift": 0,
+                    "table": {
+                    "elements": [
+                        {
+                        "key": "Madrid",
+                        "value": {
+                            "key": "Madrid",
+                            "value": {
+                            "nombre": "Madrid",
+                            "pais": "Colombia"
+                            },
+                            "adjacents": {
+                            "prime": 109345121,
+                            "capacity": 2,
+                            "scale": 1,
+                            "shift": 0,
+                            "table": {
+                                "elements": [
+                                {
+                                    "key": null,
+                                    "value": null
+                                },
+                                {
+                                    "key": null,
+                                    "value": null
+                                }
+                                ],
+                                "size": 2
+                            },
+                            "current_factor": 0,
+                            "limit_factor": 0.5,
+                            "size": 0
+                            }
+                        }
+                        },
+                        {
+                        "key": null,
+                        "value": null
+                        },
+                        {
+                        "key": null,
+                        "value": null
+                        }
+                    ],
+                    "size": 3
+                    },
+                    "current_factor": 0.3333333333333333,
+                    "limit_factor": 0.5,
+                    "size": 1
+                },
+                "num_edges": 0
+                }
+    - **Vertice no existente en el grafo:** Intenta actualizar la información de un vértice que no existe en el grafo y verifica que no se produce ningún cambio.
+
+        .. code-block:: python
+            :linenos:
+
+            # App/logic.py
+            from DataStructures.Graph import digraph as G
+
+            # Crea un grafo vacio
+            my_graph = G.new_graph(1)
+
+            # Actualiza la información de un vértice que no existe
+            my_graph = G.update_vertex_info(my_graph, "Madrid", {"nombre": "Madrid", "pais": "Colombia"})
+
+            print(my_graph)
+            # Salida esperada: None
