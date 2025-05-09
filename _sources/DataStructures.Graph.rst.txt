@@ -23,8 +23,6 @@ vertex.py
 
 .. _graph-edge:
 
-.. .. include:: structures/Graph.rst
-
 edge.py
 -------------------------------------
 

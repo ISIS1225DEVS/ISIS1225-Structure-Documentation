@@ -1,0 +1,27 @@
+:Example:
+
+    .. code-block:: python
+        :linenos:
+        
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+
+        # Crea un grafo vacío
+        my_graph = G.new_graph(1)
+
+        # Inserta algunos vértices
+        my_graph = G.insert_vertex(my_graph, "Sincelejo", {"nombre": "Sincelejo", "poblacion": 280000})
+        my_graph = G.insert_vertex(my_graph, "Quibdo", {"nombre": "Quibdo", "poblacion": 130000})
+
+        # Obtener el vértice existente
+        vertex = G.get_vertex(my_graph, "Sincelejo")
+        print(vertex)
+        # Salida esperada (dependiendo de implementación): el objeto vértice o su representación
+        # Por ejemplo: ('Sincelejo', {'nombre': 'Sincelejo', 'poblacion': 280000})
+
+        # Intentar obtener un vértice inexistente
+        try:
+            vertex = G.get_vertex(my_graph, "Mocoa")
+        except Exception as e:
+            print(e)
+        # Salida esperada: El vertice no existe

@@ -1,0 +1,20 @@
+:Example:
+
+    .. code-block:: python
+        :linenos:
+        
+        # App/logic.py
+        
+        from DataStructures.Graph import digraph as G
+
+        # Crea un grafo vacío
+        my_graph = G.new_graph(1)
+
+        # Inserta algunos vértices
+        my_graph = G.insert_vertex(my_graph, "Santa Marta", {"nombre": "Santa Marta", "poblacion": 500000})
+        my_graph = G.insert_vertex(my_graph, "Manizales", {"nombre": "Manizales", "poblacion": 400000})
+
+        # Verifica si existen ciertos vértices
+        print(G.contains_vertex(my_graph, "Santa Marta"))   # Salida esperada: True
+        print(G.contains_vertex(my_graph, "Cucuta"))        # Salida esperada: False
+

@@ -640,9 +640,9 @@ Si no existe el arco, retorna None.</p>
 </dl>
 </dd></dl>
 
-<span class="target" id="graph-edge"></span></section>
+</section>
 <section id="module-DataStructures.Graph.edge">
-<span id="edge-py"></span><h3>edge.py<a class="headerlink" href="#module-DataStructures.Graph.edge" title="Link to this heading"></a></h3>
+<span id="edge-py"></span><span id="graph-edge"></span><h3>edge.py<a class="headerlink" href="#module-DataStructures.Graph.edge" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.edge.new_edge">
 <span class="sig-name descname"><span class="pre">new_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.edge.new_edge" title="Link to this definition"></a></dt>
@@ -2414,6 +2414,29 @@ Si el arco no existe, se retorna <code class="docutils literal notranslate"><spa
 <dd class="field-odd"><p><a class="reference internal" href="#graph-edge"><span class="std std-ref">edge</span></a></p>
 </dd>
 </dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># App/logic.py</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Crea un grafo vacio</span>
+<span class="linenos"> 5</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Inserta vertices</span>
+<span class="linenos"> 8</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Armenia&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Armenia&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">300000</span><span class="p">})</span>
+<span class="linenos"> 9</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogota&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Bogota&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">8000000</span><span class="p">})</span>
+<span class="linenos">10</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2000000</span><span class="p">})</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># Inserta un arco</span>
+<span class="linenos">13</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Armenia&quot;</span><span class="p">,</span> <span class="s2">&quot;Bogota&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Armenia&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Armenia&quot;</span><span class="p">))</span>
+<span class="linenos">17</span><span class="c1"># Salida: 2</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -2442,6 +2465,33 @@ Si el arco no existe, se retorna <code class="docutils literal notranslate"><spa
 <dd class="field-odd"><p>any</p>
 </dd>
 </dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># App/logic.py</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Crea un grafo vacío</span>
+<span class="linenos"> 5</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Inserta vértices con información</span>
+<span class="linenos"> 8</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellin&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Medellin&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2500000</span><span class="p">})</span>
+<span class="linenos"> 9</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">})</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># Obtiene la información de un vértice existente</span>
+<span class="linenos">12</span><span class="n">info</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_vertex_information</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellin&quot;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="nb">print</span><span class="p">(</span><span class="n">info</span><span class="p">)</span>
+<span class="linenos">14</span><span class="c1"># Salida esperada: {&#39;nombre&#39;: &#39;Medellin&#39;, &#39;poblacion&#39;: 2500000}</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1"># Intenta obtener la información de un vértice que no existe</span>
+<span class="linenos">17</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">18</span>    <span class="n">info</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_vertex_information</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">)</span>
+<span class="linenos">19</span><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">20</span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="linenos">21</span><span class="c1"># Salida esperada: El vertice no existe</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -2460,6 +2510,26 @@ Si el arco no existe, se retorna <code class="docutils literal notranslate"><spa
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># App/logic.py</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Crea un grafo vacío</span>
+<span class="linenos"> 6</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1"># Inserta algunos vértices</span>
+<span class="linenos"> 9</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Santa Marta&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Santa Marta&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">500000</span><span class="p">})</span>
+<span class="linenos">10</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Manizales&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Manizales&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">400000</span><span class="p">})</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># Verifica si existen ciertos vértices</span>
+<span class="linenos">13</span><span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">contains_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Santa Marta&quot;</span><span class="p">))</span>   <span class="c1"># Salida esperada: True</span>
+<span class="linenos">14</span><span class="nb">print</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">contains_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cucuta&quot;</span><span class="p">))</span>        <span class="c1"># Salida esperada: False</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -2492,6 +2562,43 @@ Si no tiene vertices adyacentes, se retorna una lista vacia.</p>
 <dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 </dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># App/logic.py</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Crea un grafo vacío</span>
+<span class="linenos"> 5</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Inserta vértices</span>
+<span class="linenos"> 8</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Tunja&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Tunja&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">200000</span><span class="p">})</span>
+<span class="linenos"> 9</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Villavicencio&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Villavicencio&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">300000</span><span class="p">})</span>
+<span class="linenos">10</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Neiva&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Neiva&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">350000</span><span class="p">})</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># Inserta arcos</span>
+<span class="linenos">13</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Tunja&quot;</span><span class="p">,</span> <span class="s2">&quot;Villavicencio&quot;</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Tunja&quot;</span><span class="p">,</span> <span class="s2">&quot;Neiva&quot;</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1"># Consulta de adyacencias</span>
+<span class="linenos">17</span><span class="n">adj</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">adjacents</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Tunja&quot;</span><span class="p">)</span>
+<span class="linenos">18</span><span class="nb">print</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
+<span class="linenos">19</span><span class="c1"># Salida esperada: [&#39;Villavicencio&#39;, &#39;Neiva&#39;]</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="c1"># Consulta de adyacencias para un vértice sin conexiones</span>
+<span class="linenos">22</span><span class="n">adj</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">adjacents</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Neiva&quot;</span><span class="p">)</span>
+<span class="linenos">23</span><span class="nb">print</span><span class="p">(</span><span class="n">adj</span><span class="p">)</span>
+<span class="linenos">24</span><span class="c1"># Salida esperada: []</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span><span class="c1"># Consulta de adyacencias para un vértice inexistente</span>
+<span class="linenos">27</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">28</span>    <span class="n">adj</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">adjacents</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Popayan&quot;</span><span class="p">)</span>
+<span class="linenos">29</span><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">30</span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="linenos">31</span><span class="c1"># Salida esperada: El vertice no existe</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -2522,6 +2629,46 @@ Si no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
 </dd>
 </dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># App/logic.py</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Crea un grafo vacío</span>
+<span class="linenos"> 5</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Inserta vértices</span>
+<span class="linenos"> 8</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Pasto&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Pasto&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">400000</span><span class="p">})</span>
+<span class="linenos"> 9</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Ibague&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Ibague&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">500000</span><span class="p">})</span>
+<span class="linenos">10</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Monteria&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Monteria&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">300000</span><span class="p">})</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="c1"># Inserta arcos</span>
+<span class="linenos">13</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Pasto&quot;</span><span class="p">,</span> <span class="s2">&quot;Ibague&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="linenos">14</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Pasto&quot;</span><span class="p">,</span> <span class="s2">&quot;Monteria&quot;</span><span class="p">,</span> <span class="mi">250</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span><span class="c1"># Consulta de arcos salientes del vértice &#39;Pasto&#39;</span>
+<span class="linenos">17</span><span class="n">edges</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">edges_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Pasto&quot;</span><span class="p">)</span>
+<span class="linenos">18</span><span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">edges</span><span class="p">:</span>
+<span class="linenos">19</span>    <span class="nb">print</span><span class="p">(</span><span class="n">edge</span><span class="p">)</span>
+<span class="linenos">20</span><span class="c1"># Salida esperada (dependiendo de la representación interna, algo como):</span>
+<span class="linenos">21</span><span class="c1"># (&#39;Pasto&#39;, &#39;Ibague&#39;, 120)</span>
+<span class="linenos">22</span><span class="c1"># (&#39;Pasto&#39;, &#39;Monteria&#39;, 250)</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="c1"># Consulta de arcos salientes para un vértice sin conexiones</span>
+<span class="linenos">25</span><span class="n">edges</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">edges_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Ibague&quot;</span><span class="p">)</span>
+<span class="linenos">26</span><span class="nb">print</span><span class="p">(</span><span class="n">edges</span><span class="p">)</span>
+<span class="linenos">27</span><span class="c1"># Salida esperada: []</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="c1"># Consulta de arcos salientes para un vértice inexistente</span>
+<span class="linenos">30</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">31</span>    <span class="n">edges</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">edges_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Leticia&quot;</span><span class="p">)</span>
+<span class="linenos">32</span><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">33</span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="linenos">34</span><span class="c1"># Salida esperada: El vertice no existe</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -2550,6 +2697,34 @@ Si no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dd class="field-odd"><p>vertex</p>
 </dd>
 </dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># App/logic.py</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="c1"># Crea un grafo vacío</span>
+<span class="linenos"> 5</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="c1"># Inserta algunos vértices</span>
+<span class="linenos"> 8</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Sincelejo&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Sincelejo&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">280000</span><span class="p">})</span>
+<span class="linenos"> 9</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Quibdo&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Quibdo&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">130000</span><span class="p">})</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="c1"># Obtener el vértice existente</span>
+<span class="linenos">12</span><span class="n">vertex</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Sincelejo&quot;</span><span class="p">)</span>
+<span class="linenos">13</span><span class="nb">print</span><span class="p">(</span><span class="n">vertex</span><span class="p">)</span>
+<span class="linenos">14</span><span class="c1"># Salida esperada (dependiendo de implementación): el objeto vértice o su representación</span>
+<span class="linenos">15</span><span class="c1"># Por ejemplo: (&#39;Sincelejo&#39;, {&#39;nombre&#39;: &#39;Sincelejo&#39;, &#39;poblacion&#39;: 280000})</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span><span class="c1"># Intentar obtener un vértice inexistente</span>
+<span class="linenos">18</span><span class="k">try</span><span class="p">:</span>
+<span class="linenos">19</span>    <span class="n">vertex</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">get_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Mocoa&quot;</span><span class="p">)</span>
+<span class="linenos">20</span><span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="linenos">21</span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="linenos">22</span><span class="c1"># Salida esperada: El vertice no existe</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -2561,8 +2736,7 @@ Si no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.dfs.dfs">
 <span class="sig-name descname"><span class="pre">dfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.dfs" title="Link to this definition"></a></dt>
-<dd><p>Inicia un recorrido Depth First Search (<strong>DFS</strong>) sobre el grafo a partir de un vertice inicial.
-Crea una estructura de busqueda <code class="docutils literal notranslate"><span class="pre">graph_search</span></code> y posteriormente llama a la funcion <code class="docutils literal notranslate"><span class="pre">dfs_vertex</span></code>.</p>
+<dd><p>Inicia un recorrido Depth First Search (<strong>DFS</strong>) sobre el grafo <code class="docutils literal notranslate"><span class="pre">my_graph</span></code> a partir de un vertice inicial con llave <code class="docutils literal notranslate"><span class="pre">source</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2596,6 +2770,37 @@ Crea una estructura de busqueda <code class="docutils literal notranslate"><span
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>graph_search</p>
+</dd>
+</dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># App/logic.py</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">App.Algorithms</span><span class="w"> </span><span class="kn">import</span> <span class="n">dfs</span> <span class="k">as</span> <span class="n">DFS</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Crear un grafo vacío</span>
+<span class="linenos"> 6</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1"># Insertar vértices</span>
+<span class="linenos"> 9</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogota&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">10</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellin&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">11</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">12</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="c1"># Agregar arcos (dirigidos)</span>
+<span class="linenos">15</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogota&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellin&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">16</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellin&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># Ejecutar DFS desde &quot;Bogota&quot;</span>
+<span class="linenos">20</span><span class="n">dfs_result</span> <span class="o">=</span> <span class="n">DFS</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogota&quot;</span><span class="p">)</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="c1"># Mostrar los resultados del recorrido</span>
+<span class="linenos">23</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Preorden:&quot;</span><span class="p">,</span> <span class="n">dfs_result</span><span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">][</span><span class="s2">&quot;elements&quot;</span><span class="p">])</span>
+<span class="linenos">24</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Postorden:&quot;</span><span class="p">,</span> <span class="n">dfs_result</span><span class="p">[</span><span class="s2">&quot;post&quot;</span><span class="p">][</span><span class="s2">&quot;elements&quot;</span><span class="p">])</span>
+<span class="linenos">25</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reverse postorden (pila):&quot;</span><span class="p">,</span> <span class="n">dfs_result</span><span class="p">[</span><span class="s2">&quot;reversepost&quot;</span><span class="p">][</span><span class="s2">&quot;elements&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
