@@ -22,7 +22,7 @@ stack.py
    .. admonition:: Implementación de la pila
       :class: warning
 
-      La implementación de la pila se realiza sobre una :ref:`linked_list<single-linked-list>`. La pila se implementa como una lista enlazada simple, donde el último elemento de la lista es el tope de la pila.
+      La implementación de la pila se realiza sobre una :ref:`linked_list<single-linked-list>`. La pila se implementa como una lista enlazada simple, donde el primer elemento de la lista es el tope de la pila.
 
    :return: Una nueva pila vacía.
    :rtype: :ref:`stack<stack.py>`
