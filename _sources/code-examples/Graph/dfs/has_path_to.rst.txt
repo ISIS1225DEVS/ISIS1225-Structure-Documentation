@@ -1,0 +1,38 @@
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+        from DataStructures.Graph import dfs as DFS
+
+        # Crear un grafo vacío
+        my_graph = G.new_graph(1)
+
+        # Agregar vértices
+        my_graph = G.insert_vertex(my_graph, "A", {"nombre": "A"})
+        my_graph = G.insert_vertex(my_graph, "B", {"nombre": "B"})
+        my_graph = G.insert_vertex(my_graph, "C", {"nombre": "C"})
+        my_graph = G.insert_vertex(my_graph, "D", {"nombre": "D"})
+
+        # Agregar aristas
+        my_graph = G.add_edge(my_graph, "A", "B", 1)
+        my_graph = G.add_edge(my_graph, "B", "C", 1)
+        my_graph = G.add_edge(my_graph, "C", "D", 1)
+
+        # Realizar DFS desde el vértice A
+        visited_map = DFS.dfs(my_graph, "A")
+
+        # Verificar si existe camino de A a D
+        has_path = DFS.has_path_to("D", visited_map)
+        print(f"¿Existe camino de A a D? {has_path}")  # True
+
+        # Verificar si existe camino de D a A
+        has_path = DFS.has_path_to("A", visited_map)
+        print(f"¿Existe camino de D a A? {has_path}")  # True (porque A es el origen)
+
+        # Verificar si existe camino a un vértice que no existe
+        has_path = DFS.has_path_to("E", visited_map)
+        print(f"¿Existe camino de A a E? {has_path}")  # False
+    

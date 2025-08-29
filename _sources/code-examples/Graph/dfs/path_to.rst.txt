@@ -1,0 +1,48 @@
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+        from DataStructures.Graph import dfs as DFS
+        from DataStructures.Stack import stack as st
+
+        # Crear un grafo vacío
+        my_graph = G.new_graph(1)
+
+        # Agregar vértices
+        my_graph = G.insert_vertex(my_graph, "A", {"nombre": "A"})
+        my_graph = G.insert_vertex(my_graph, "B", {"nombre": "B"})
+        my_graph = G.insert_vertex(my_graph, "C", {"nombre": "C"})
+        my_graph = G.insert_vertex(my_graph, "D", {"nombre": "D"})
+
+        # Agregar aristas
+        my_graph = G.add_edge(my_graph, "A", "B", 1)
+        my_graph = G.add_edge(my_graph, "B", "C", 1)
+        my_graph = G.add_edge(my_graph, "C", "D", 1)
+
+        # Realizar DFS desde el vértice A
+        visited_map = DFS.dfs(my_graph, "A")
+
+        # Obtener el camino de A a D
+        path = DFS.path_to("D", visited_map)
+        if path is not None:
+            print("Camino de A a D:")
+            while not st.is_empty(path):
+                vertex = st.pop(path)
+                print(vertex, end=" -> ")
+            print("Fin")
+        else:
+            print("No existe camino de A a D")
+
+        # Obtener el camino de A a un vértice que no existe
+        path = DFS.path_to("E", visited_map)
+        if path is not None:
+            print("Camino de A a E:")
+            while not st.is_empty(path):
+                vertex = st.pop(path)
+                print(vertex, end=" -> ")
+            print("Fin")
+        else:
+            print("No existe camino de A a E")

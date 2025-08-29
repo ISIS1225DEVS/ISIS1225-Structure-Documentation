@@ -1,0 +1,47 @@
+:Example:
+
+    .. code-block:: python
+        :linenos:
+        
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+        from DataStructures.Graph import bfs as BFS
+        from DataStructures.Map import map_linear_probing as map
+
+        # Crear un grafo vacío
+        my_graph = G.new_graph(1)
+
+        # Insertar vértices
+        my_graph = G.insert_vertex(my_graph, "Bogota", {})
+        my_graph = G.insert_vertex(my_graph, "Medellin", {})
+        my_graph = G.insert_vertex(my_graph, "Cali", {})
+        my_graph = G.insert_vertex(my_graph, "Barranquilla", {})
+
+        # Agregar arcos (dirigidos)
+        my_graph = G.add_edge(my_graph, "Bogota", "Medellin", 1)
+        my_graph = G.add_edge(my_graph, "Medellin", "Cali", 1)
+        my_graph = G.add_edge(my_graph, "Cali", "Barranquilla", 1)
+
+        # Crear el mapa de visitados
+        visited_map = map.new_map(
+            num_elements=G.order(my_graph),
+            load_factor=0.5
+        )
+
+        # Inicializar el vértice origen
+        map.put(visited_map, "Bogota", {
+            "edge_from": None,
+            "dist_to": 0
+        })
+
+        # Ejecutar BFS desde "Bogota"
+        visited_map = BFS.bfs_vertex(my_graph, "Bogota", visited_map)
+
+        # Mostrar los resultados del recorrido
+        print("Vértices visitados desde Bogotá:")
+        vertices = G.vertices(my_graph)
+        for i in range(lt.size(vertices)):
+            vertex = lt.get_element(vertices, i)
+            if map.contains(visited_map, vertex):
+                info = map.get(visited_map, vertex)
+                print(f"{vertex}: distancia {info['dist_to']} desde {info['edge_from']}")
