@@ -21,7 +21,7 @@ queue.py
    .. admonition:: Implementación de la cola
       :class: warning
 
-      La implementación de la cola se realiza sobre una :ref:`single_linked_list<single-linked-list>`. La cola se implementa como una lista array, donde el último elemento de la lista es el último elemento de la cola.
+      La implementación de la cola se realiza sobre una :ref:`single_linked_list<single-linked-list>` donde el último elemento de la lista es el último elemento de la cola.
 
    :return: Una nueva cola vacía.
    :rtype: :ref:`queue<queue.py>`
