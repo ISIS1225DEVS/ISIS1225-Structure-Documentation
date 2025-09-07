@@ -1,0 +1,37 @@
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+        from DataStructures.Graph import dfo as DFO
+
+        # Crear un grafo vacío
+        my_graph = G.new_graph(1)
+
+        # Insertar vértices
+        my_graph = G.insert_vertex(my_graph, "Bogotá", {})
+        my_graph = G.insert_vertex(my_graph, "Medellín", {})
+        my_graph = G.insert_vertex(my_graph, "Cali", {})
+        my_graph = G.insert_vertex(my_graph, "Barranquilla", {})
+        my_graph = G.insert_vertex(my_graph, "Cartagena", {})
+
+        # Agregar arcos dirigidos
+        my_graph = G.add_edge(my_graph, "Bogotá", "Medellín", 1)
+        my_graph = G.add_edge(my_graph, "Medellín", "Cali", 1)
+        my_graph = G.add_edge(my_graph, "Cali", "Barranquilla", 1)
+        my_graph = G.add_edge(my_graph, "Barranquilla", "Cartagena", 1)
+
+        # Ejecutar DFO sobre el grafo
+        dfo_result = DFO.dfo(my_graph)
+
+        # Mostrar resultados
+        print("Preorden:", dfo_result["pre"]["elements"])
+        print("Postorden:", dfo_result["post"]["elements"])
+        print("Reverse postorden (pila):", dfo_result["reversepost"])
+
+        # Salida esperada:
+        # Preorden: ['Cartagena', 'Cali', 'Barranquilla', 'Bogotá', 'Medellín']
+        # Postorden: ['Cartagena', 'Barranquilla', 'Cali', 'Medellín', 'Bogotá']
+        # Reverse postorden (pila): {'first': {'info': 'Cartagena', 'next': {'info': 'Barranquilla', 'next': {'info': 'Cali', 'next': {'info': 'Medellín', 'next': {'info': 'Bogotá', 'next': None}}}}}, 'last': {'info': 'Bogotá', 'next': None}, 'size': 5}

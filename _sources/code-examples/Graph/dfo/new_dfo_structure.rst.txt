@@ -1,0 +1,38 @@
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import dfo_structure as dfo_structure
+
+        def pruebas():
+            estructura = dfo_structure.new_dfo_structure(2)
+            print(estructura)
+
+        # Salida esperada:
+        # {
+        #     'marked': {
+        #         'prime': 109345121,
+        #         'capacity': 5,
+        #         'scale': 14959102,
+        #         'shift': 108263934,
+        #         'table': {
+        #             'elements': [
+        #                 {'key': None, 'value': None},
+        #                 {'key': None, 'value': None},
+        #                 {'key': None, 'value': None},
+        #                 {'key': None, 'value': None},
+        #                 {'key': None, 'value': None}
+        #             ],
+        #             'size': 5
+        #         },
+        #         'current_factor': 0,
+        #         'limit_factor': 0.5,
+        #         'size': 0
+        #     },
+        #     'pre': {'elements': [], 'size': 0},
+        #     'post': {'elements': [], 'size': 0},
+        #     'reversepost': {'first': None, 'last': None, 'size': 0}
+        # }
+

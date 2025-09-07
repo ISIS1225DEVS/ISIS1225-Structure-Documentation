@@ -1,0 +1,42 @@
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+        from DataStructures.Graph import dfo_structure as dfo_structure
+        from DataStructures.Graph import dfo as DFO
+
+        def pruebas():
+            # Crear un grafo vacío
+            my_graph = G.new_graph(1)
+
+            # Insertar vértices
+            my_graph = G.insert_vertex(my_graph, "Tunja", {})
+            my_graph = G.insert_vertex(my_graph, "Medellín", {})
+            my_graph = G.insert_vertex(my_graph, "Neiva", {})
+            my_graph = G.insert_vertex(my_graph, "Villavicencio", {})
+            my_graph = G.insert_vertex(my_graph, "Cali", {})
+
+            # Agregar arcos dirigidos
+            my_graph = G.add_edge(my_graph, "Tunja", "Medellín", 1)
+            my_graph = G.add_edge(my_graph, "Medellín", "Neiva", 1)
+            my_graph = G.add_edge(my_graph, "Neiva", "Villavicencio", 1)
+            my_graph = G.add_edge(my_graph, "Villavicencio", "Cali", 1)
+
+            # Crear la estructura auxiliar de búsqueda
+            aux_structure = dfo_structure.new_dfo_structure(G.order(my_graph))
+
+            # Ejecutar DFS desde "Tunja"
+            result = DFO.dfs_vertex(my_graph, "Tunja", aux_structure)
+
+            # Mostrar resultados
+            print("Preorden:", result["pre"]["elements"])
+            print("Postorden:", result["post"]["elements"])
+            print("Reverse postorden (pila):", result["reversepost"])
+
+        # Salida esperada:
+        # Preorden: ['Tunja', 'Medellín', 'Neiva', 'Villavicencio', 'Cali']
+        # Postorden: ['Cali', 'Villavicencio', 'Neiva', 'Medellín', 'Tunja']
+        # Reverse postorden (pila): {'first': {'info': 'Cali', 'next': {'info': 'Villavicencio', 'next': {'info': 'Neiva', 'next': {'info': 'Medellín', 'next': {'info': 'Tunja', 'next': None}}}}}, 'last': {'info': 'Tunja', 'next': None}, 'size': 5}

@@ -3189,6 +3189,44 @@ Crea una estructura de busqueda <code class="docutils literal notranslate"><span
 <dd class="field-odd"><p><span class="xref std std-ref">dfo_search</span></p>
 </dd>
 </dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># App/logic.py</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">dfo</span> <span class="k">as</span> <span class="n">DFO</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="c1"># Crear un grafo vacío</span>
+<span class="linenos"> 6</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1"># Insertar vértices</span>
+<span class="linenos"> 9</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">10</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">11</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">12</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">13</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="c1"># Agregar arcos dirigidos</span>
+<span class="linenos">16</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">17</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">19</span><span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="c1"># Ejecutar DFO sobre el grafo</span>
+<span class="linenos">22</span><span class="n">dfo_result</span> <span class="o">=</span> <span class="n">DFO</span><span class="o">.</span><span class="n">dfo</span><span class="p">(</span><span class="n">my_graph</span><span class="p">)</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="c1"># Mostrar resultados</span>
+<span class="linenos">25</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Preorden:&quot;</span><span class="p">,</span> <span class="n">dfo_result</span><span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">][</span><span class="s2">&quot;elements&quot;</span><span class="p">])</span>
+<span class="linenos">26</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Postorden:&quot;</span><span class="p">,</span> <span class="n">dfo_result</span><span class="p">[</span><span class="s2">&quot;post&quot;</span><span class="p">][</span><span class="s2">&quot;elements&quot;</span><span class="p">])</span>
+<span class="linenos">27</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reverse postorden (pila):&quot;</span><span class="p">,</span> <span class="n">dfo_result</span><span class="p">[</span><span class="s2">&quot;reversepost&quot;</span><span class="p">])</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span><span class="c1"># Salida esperada:</span>
+<span class="linenos">30</span><span class="c1"># Preorden: [&#39;Cartagena&#39;, &#39;Cali&#39;, &#39;Barranquilla&#39;, &#39;Bogotá&#39;, &#39;Medellín&#39;]</span>
+<span class="linenos">31</span><span class="c1"># Postorden: [&#39;Cartagena&#39;, &#39;Barranquilla&#39;, &#39;Cali&#39;, &#39;Medellín&#39;, &#39;Bogotá&#39;]</span>
+<span class="linenos">32</span><span class="c1"># Reverse postorden (pila): {&#39;first&#39;: {&#39;info&#39;: &#39;Cartagena&#39;, &#39;next&#39;: {&#39;info&#39;: &#39;Barranquilla&#39;, &#39;next&#39;: {&#39;info&#39;: &#39;Cali&#39;, &#39;next&#39;: {&#39;info&#39;: &#39;Medellín&#39;, &#39;next&#39;: {&#39;info&#39;: &#39;Bogotá&#39;, &#39;next&#39;: None}}}}}, &#39;last&#39;: {&#39;info&#39;: &#39;Bogotá&#39;, &#39;next&#39;: None}, &#39;size&#39;: 5}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -3208,6 +3246,49 @@ Crea una estructura de busqueda <code class="docutils literal notranslate"><span
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>dfo_search</p>
+</dd>
+</dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># App/logic.py</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">dfo_structure</span> <span class="k">as</span> <span class="n">dfo_structure</span>
+<span class="linenos"> 4</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">dfo</span> <span class="k">as</span> <span class="n">DFO</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="k">def</span><span class="w"> </span><span class="nf">pruebas</span><span class="p">():</span>
+<span class="linenos"> 7</span>    <span class="c1"># Crear un grafo vacío</span>
+<span class="linenos"> 8</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span>    <span class="c1"># Insertar vértices</span>
+<span class="linenos">11</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Tunja&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">12</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">13</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Neiva&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">14</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Villavicencio&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">15</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>    <span class="c1"># Agregar arcos dirigidos</span>
+<span class="linenos">18</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Tunja&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">19</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Neiva&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Neiva&quot;</span><span class="p">,</span> <span class="s2">&quot;Villavicencio&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">21</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Villavicencio&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">22</span>
+<span class="linenos">23</span>    <span class="c1"># Crear la estructura auxiliar de búsqueda</span>
+<span class="linenos">24</span>    <span class="n">aux_structure</span> <span class="o">=</span> <span class="n">dfo_structure</span><span class="o">.</span><span class="n">new_dfo_structure</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">order</span><span class="p">(</span><span class="n">my_graph</span><span class="p">))</span>
+<span class="linenos">25</span>
+<span class="linenos">26</span>    <span class="c1"># Ejecutar DFS desde &quot;Tunja&quot;</span>
+<span class="linenos">27</span>    <span class="n">result</span> <span class="o">=</span> <span class="n">DFO</span><span class="o">.</span><span class="n">dfs_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Tunja&quot;</span><span class="p">,</span> <span class="n">aux_structure</span><span class="p">)</span>
+<span class="linenos">28</span>
+<span class="linenos">29</span>    <span class="c1"># Mostrar resultados</span>
+<span class="linenos">30</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Preorden:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">][</span><span class="s2">&quot;elements&quot;</span><span class="p">])</span>
+<span class="linenos">31</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Postorden:&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;post&quot;</span><span class="p">][</span><span class="s2">&quot;elements&quot;</span><span class="p">])</span>
+<span class="linenos">32</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reverse postorden (pila):&quot;</span><span class="p">,</span> <span class="n">result</span><span class="p">[</span><span class="s2">&quot;reversepost&quot;</span><span class="p">])</span>
+<span class="linenos">33</span>
+<span class="linenos">34</span><span class="c1"># Salida esperada:</span>
+<span class="linenos">35</span><span class="c1"># Preorden: [&#39;Tunja&#39;, &#39;Medellín&#39;, &#39;Neiva&#39;, &#39;Villavicencio&#39;, &#39;Cali&#39;]</span>
+<span class="linenos">36</span><span class="c1"># Postorden: [&#39;Cali&#39;, &#39;Villavicencio&#39;, &#39;Neiva&#39;, &#39;Medellín&#39;, &#39;Tunja&#39;]</span>
+<span class="linenos">37</span><span class="c1"># Reverse postorden (pila): {&#39;first&#39;: {&#39;info&#39;: &#39;Cali&#39;, &#39;next&#39;: {&#39;info&#39;: &#39;Villavicencio&#39;, &#39;next&#39;: {&#39;info&#39;: &#39;Neiva&#39;, &#39;next&#39;: {&#39;info&#39;: &#39;Medellín&#39;, &#39;next&#39;: {&#39;info&#39;: &#39;Tunja&#39;, &#39;next&#39;: None}}}}}, &#39;last&#39;: {&#39;info&#39;: &#39;Tunja&#39;, &#39;next&#39;: None}, &#39;size&#39;: 5}</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -3238,6 +3319,79 @@ de agregar vertices al arbol de expansion minima, se agregan arcos.</p>
 <dd class="field-odd"><p>prim_search</p>
 </dd>
 </dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">prim</span> <span class="k">as</span> <span class="n">PRIM</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">pruebas</span><span class="p">():</span>
+<span class="linenos"> 5</span>    <span class="c1"># Crear un grafo no dirigido</span>
+<span class="linenos"> 6</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 7</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos"> 8</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos"> 9</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos">12</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>    <span class="c1"># Ejecutar algoritmo de Prim desde &quot;Bogotá&quot;</span>
+<span class="linenos">15</span>    <span class="n">resultado</span> <span class="o">=</span> <span class="n">PRIM</span><span class="o">.</span><span class="n">prim_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
+<span class="linenos">16</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estructura devuelta por prim_mst:&quot;</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span><span class="c1"># Salida esperada (estructura prim_search):</span>
+<span class="linenos">20</span><span class="c1"># {</span>
+<span class="linenos">21</span><span class="c1">#     &#39;source&#39;: &#39;Bogotá&#39;,</span>
+<span class="linenos">22</span><span class="c1">#     &#39;edge_from&#39;: {</span>
+<span class="linenos">23</span><span class="c1">#         &#39;prime&#39;: 109345121,</span>
+<span class="linenos">24</span><span class="c1">#         &#39;capacity&#39;: 7,</span>
+<span class="linenos">25</span><span class="c1">#         &#39;scale&#39;: ...,</span>
+<span class="linenos">26</span><span class="c1">#         &#39;shift&#39;: ...,</span>
+<span class="linenos">27</span><span class="c1">#         &#39;table&#39;: {</span>
+<span class="linenos">28</span><span class="c1">#             &#39;elements&#39;: [</span>
+<span class="linenos">29</span><span class="c1">#                 {&#39;key&#39;: None, &#39;value&#39;: None},</span>
+<span class="linenos">30</span><span class="c1">#                 {&#39;key&#39;: &#39;Cali&#39;, &#39;value&#39;: &#39;Bogotá&#39;},</span>
+<span class="linenos">31</span><span class="c1">#                 {&#39;key&#39;: &#39;Medellín&#39;, &#39;value&#39;: &#39;Bogotá&#39;},</span>
+<span class="linenos">32</span><span class="c1">#                 ...</span>
+<span class="linenos">33</span><span class="c1">#             ],</span>
+<span class="linenos">34</span><span class="c1">#             &#39;size&#39;: 7</span>
+<span class="linenos">35</span><span class="c1">#         },</span>
+<span class="linenos">36</span><span class="c1">#         &#39;size&#39;: 2</span>
+<span class="linenos">37</span><span class="c1">#     },</span>
+<span class="linenos">38</span><span class="c1">#     &#39;dist_to&#39;: {</span>
+<span class="linenos">39</span><span class="c1">#         &#39;table&#39;: {</span>
+<span class="linenos">40</span><span class="c1">#             &#39;elements&#39;: [</span>
+<span class="linenos">41</span><span class="c1">#                 {&#39;key&#39;: &#39;Bogotá&#39;, &#39;value&#39;: 0.0},</span>
+<span class="linenos">42</span><span class="c1">#                 {&#39;key&#39;: &#39;Cali&#39;, &#39;value&#39;: 1},</span>
+<span class="linenos">43</span><span class="c1">#                 {&#39;key&#39;: &#39;Medellín&#39;, &#39;value&#39;: 3},</span>
+<span class="linenos">44</span><span class="c1">#                 ...</span>
+<span class="linenos">45</span><span class="c1">#             ],</span>
+<span class="linenos">46</span><span class="c1">#             &#39;size&#39;: 7</span>
+<span class="linenos">47</span><span class="c1">#         },</span>
+<span class="linenos">48</span><span class="c1">#         &#39;size&#39;: 3</span>
+<span class="linenos">49</span><span class="c1">#     },</span>
+<span class="linenos">50</span><span class="c1">#     &#39;marked&#39;: {</span>
+<span class="linenos">51</span><span class="c1">#         &#39;table&#39;: {</span>
+<span class="linenos">52</span><span class="c1">#             &#39;elements&#39;: [</span>
+<span class="linenos">53</span><span class="c1">#                 {&#39;key&#39;: &#39;Bogotá&#39;, &#39;value&#39;: True},</span>
+<span class="linenos">54</span><span class="c1">#                 {&#39;key&#39;: &#39;Cali&#39;, &#39;value&#39;: True},</span>
+<span class="linenos">55</span><span class="c1">#                 {&#39;key&#39;: &#39;Medellín&#39;, &#39;value&#39;: True},</span>
+<span class="linenos">56</span><span class="c1">#                 ...</span>
+<span class="linenos">57</span><span class="c1">#             ],</span>
+<span class="linenos">58</span><span class="c1">#             &#39;size&#39;: 7</span>
+<span class="linenos">59</span><span class="c1">#         },</span>
+<span class="linenos">60</span><span class="c1">#         &#39;size&#39;: 3</span>
+<span class="linenos">61</span><span class="c1">#     },</span>
+<span class="linenos">62</span><span class="c1">#     &#39;pq&#39;: {</span>
+<span class="linenos">63</span><span class="c1">#         &#39;elements&#39;: {&#39;elements&#39;: [None], &#39;size&#39;: 1},</span>
+<span class="linenos">64</span><span class="c1">#         &#39;size&#39;: 0,</span>
+<span class="linenos">65</span><span class="c1">#         &#39;cmp_function&#39;: &lt;function cmp_function_lower_value at ...&gt;</span>
+<span class="linenos">66</span><span class="c1">#     }</span>
+<span class="linenos">67</span><span class="c1"># }</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -3260,6 +3414,37 @@ de agregar vertices al arbol de expansion minima, se agregan arcos.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>queue</p>
+</dd>
+</dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">prim</span> <span class="k">as</span> <span class="n">PRIM</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="k">def</span><span class="w"> </span><span class="nf">pruebas</span><span class="p">():</span>
+<span class="linenos"> 6</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 7</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos"> 8</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos"> 9</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{})</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos">12</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>    <span class="n">resultado</span> <span class="o">=</span> <span class="n">PRIM</span><span class="o">.</span><span class="n">prim_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
+<span class="linenos">15</span>    <span class="n">mst</span> <span class="o">=</span> <span class="n">PRIM</span><span class="o">.</span><span class="n">edges_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="n">resultado</span><span class="p">)</span>
+<span class="linenos">16</span>
+<span class="linenos">17</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arcos del MST:&quot;</span><span class="p">)</span>
+<span class="linenos">18</span>    <span class="k">while</span> <span class="ow">not</span> <span class="n">queue</span><span class="o">.</span><span class="n">is_empty</span><span class="p">(</span><span class="n">mst</span><span class="p">):</span>
+<span class="linenos">19</span>        <span class="n">arco</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">dequeue</span><span class="p">(</span><span class="n">mst</span><span class="p">)</span>
+<span class="linenos">20</span>        <span class="nb">print</span><span class="p">(</span><span class="n">arco</span><span class="p">)</span>
+<span class="linenos">21</span>
+<span class="linenos">22</span><span class="c1"># Salida esperada:</span>
+<span class="linenos">23</span><span class="c1"># Arcos del MST:</span>
+<span class="linenos">24</span><span class="c1"># {&#39;Medellín&#39;, &#39;Bogotá&#39;}</span>
+<span class="linenos">25</span><span class="c1"># {&#39;Cali&#39;, &#39;Bogotá&#39;}</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -3386,6 +3571,44 @@ vertex: El vertice de destino</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>dfo_search</p>
+</dd>
+</dl>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># App/logic.py</span>
+<span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">dfo_structure</span> <span class="k">as</span> <span class="n">dfo_structure</span>
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">pruebas</span><span class="p">():</span>
+<span class="linenos"> 5</span>    <span class="n">estructura</span> <span class="o">=</span> <span class="n">dfo_structure</span><span class="o">.</span><span class="n">new_dfo_structure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 6</span>    <span class="nb">print</span><span class="p">(</span><span class="n">estructura</span><span class="p">)</span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="c1"># Salida esperada:</span>
+<span class="linenos"> 9</span><span class="c1"># {</span>
+<span class="linenos">10</span><span class="c1">#     &#39;marked&#39;: {</span>
+<span class="linenos">11</span><span class="c1">#         &#39;prime&#39;: 109345121,</span>
+<span class="linenos">12</span><span class="c1">#         &#39;capacity&#39;: 5,</span>
+<span class="linenos">13</span><span class="c1">#         &#39;scale&#39;: 14959102,</span>
+<span class="linenos">14</span><span class="c1">#         &#39;shift&#39;: 108263934,</span>
+<span class="linenos">15</span><span class="c1">#         &#39;table&#39;: {</span>
+<span class="linenos">16</span><span class="c1">#             &#39;elements&#39;: [</span>
+<span class="linenos">17</span><span class="c1">#                 {&#39;key&#39;: None, &#39;value&#39;: None},</span>
+<span class="linenos">18</span><span class="c1">#                 {&#39;key&#39;: None, &#39;value&#39;: None},</span>
+<span class="linenos">19</span><span class="c1">#                 {&#39;key&#39;: None, &#39;value&#39;: None},</span>
+<span class="linenos">20</span><span class="c1">#                 {&#39;key&#39;: None, &#39;value&#39;: None},</span>
+<span class="linenos">21</span><span class="c1">#                 {&#39;key&#39;: None, &#39;value&#39;: None}</span>
+<span class="linenos">22</span><span class="c1">#             ],</span>
+<span class="linenos">23</span><span class="c1">#             &#39;size&#39;: 5</span>
+<span class="linenos">24</span><span class="c1">#         },</span>
+<span class="linenos">25</span><span class="c1">#         &#39;current_factor&#39;: 0,</span>
+<span class="linenos">26</span><span class="c1">#         &#39;limit_factor&#39;: 0.5,</span>
+<span class="linenos">27</span><span class="c1">#         &#39;size&#39;: 0</span>
+<span class="linenos">28</span><span class="c1">#     },</span>
+<span class="linenos">29</span><span class="c1">#     &#39;pre&#39;: {&#39;elements&#39;: [], &#39;size&#39;: 0},</span>
+<span class="linenos">30</span><span class="c1">#     &#39;post&#39;: {&#39;elements&#39;: [], &#39;size&#39;: 0},</span>
+<span class="linenos">31</span><span class="c1">#     &#39;reversepost&#39;: {&#39;first&#39;: None, &#39;last&#39;: None, &#39;size&#39;: 0}</span>
+<span class="linenos">32</span><span class="c1"># }</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>

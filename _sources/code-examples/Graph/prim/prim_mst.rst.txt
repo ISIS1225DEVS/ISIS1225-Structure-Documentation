@@ -1,0 +1,72 @@
+:Example:
+
+    .. code-block:: python
+        :linenos:
+
+        from DataStructures.Graph import digraph as G
+        from DataStructures.Graph import prim as PRIM
+
+        def pruebas():
+            # Crear un grafo no dirigido
+            my_graph = G.new_graph(0)
+            my_graph = G.insert_vertex(my_graph, "Bogotá", {})
+            my_graph = G.insert_vertex(my_graph, "Medellín", {})
+            my_graph = G.insert_vertex(my_graph, "Cali", {})
+
+            my_graph = G.add_edge(my_graph, "Bogotá", "Medellín", 3)
+            my_graph = G.add_edge(my_graph, "Bogotá", "Cali", 1)
+
+            # Ejecutar algoritmo de Prim desde "Bogotá"
+            resultado = PRIM.prim_mst(my_graph, "Bogotá")
+            print("Estructura devuelta por prim_mst:")
+            print(resultado)
+
+        # Salida esperada (estructura prim_search):
+        # {
+        #     'source': 'Bogotá',
+        #     'edge_from': {
+        #         'prime': 109345121,
+        #         'capacity': 7,
+        #         'scale': ...,
+        #         'shift': ...,
+        #         'table': {
+        #             'elements': [
+        #                 {'key': None, 'value': None},
+        #                 {'key': 'Cali', 'value': 'Bogotá'},
+        #                 {'key': 'Medellín', 'value': 'Bogotá'},
+        #                 ...
+        #             ],
+        #             'size': 7
+        #         },
+        #         'size': 2
+        #     },
+        #     'dist_to': {
+        #         'table': {
+        #             'elements': [
+        #                 {'key': 'Bogotá', 'value': 0.0},
+        #                 {'key': 'Cali', 'value': 1},
+        #                 {'key': 'Medellín', 'value': 3},
+        #                 ...
+        #             ],
+        #             'size': 7
+        #         },
+        #         'size': 3
+        #     },
+        #     'marked': {
+        #         'table': {
+        #             'elements': [
+        #                 {'key': 'Bogotá', 'value': True},
+        #                 {'key': 'Cali', 'value': True},
+        #                 {'key': 'Medellín', 'value': True},
+        #                 ...
+        #             ],
+        #             'size': 7
+        #         },
+        #         'size': 3
+        #     },
+        #     'pq': {
+        #         'elements': {'elements': [None], 'size': 1},
+        #         'size': 0,
+        #         'cmp_function': <function cmp_function_lower_value at ...>
+        #     }
+        # }
