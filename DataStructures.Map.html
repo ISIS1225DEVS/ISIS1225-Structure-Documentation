@@ -400,12 +400,13 @@
 <dt class="sig sig-object py" id="hash_value">
 <span class="sig-name descname"><span class="pre">hash_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_table</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#hash_value" title="Link to this definition"></a></dt>
 <dd><p>Calcula el hash para una llave dada, utitiizando el método:</p>
-<p>MAD: ((a * hash_key + b) % p) % m, donde:</p>
+<p>MAD: (abs(a * hash_key + b) % p) % m, donde:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">hash_key</span></code> es el valor de la función nativa de Python <code class="docutils literal notranslate"><span class="pre">hash()</span></code> para la llave <code class="docutils literal notranslate"><span class="pre">key</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">m</span></code> es el tamaño de la tabla.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">p</span></code> es un número primo mayor a <code class="docutils literal notranslate"><span class="pre">m</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> y <code class="docutils literal notranslate"><span class="pre">b</span></code> son enteros aleatorios entre 0 y p-1. con <code class="docutils literal notranslate"><span class="pre">a</span></code> mayor de 0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> es entero aleatorio entre 1 y p-1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code> es entero aleatorio entre 0 y p-1.</p></li>
 </ul>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -426,14 +427,14 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Map</span><span class="w"> </span><span class="kn">import</span> <span class="n">map_linear_probing</span> <span class="k">as</span> <span class="n">ml</span>
 
 <span class="c1"># Crear una tabla con tamaño 10</span>
-<span class="n">my_table</span> <span class="o">=</span> <span class="n">ml</span><span class="o">.</span><span class="n">new_map_linear_probing</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">my_table</span> <span class="o">=</span> <span class="n">ml</span><span class="o">.</span><span class="n">new_map</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 
 <span class="c1"># Calcular el hash para la llave 5</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">hash_code</span><span class="p">(</span><span class="n">my_table</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">hash_value</span><span class="p">(</span><span class="n">my_table</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="c1"># Salida esperada: 5</span>
 
 <span class="c1"># Calcular el hash para la llave 6</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">hash_code</span><span class="p">(</span><span class="n">my_table</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mf</span><span class="o">.</span><span class="n">hash_value</span><span class="p">(</span><span class="n">my_table</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="c1"># Salida esperada: 6</span>
 </pre></div>
 </div>
@@ -571,7 +572,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="new_map">
 <span class="sig-name descname"><span class="pre">new_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num_elements</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_factor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">109345121</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#new_map" title="Link to this definition"></a></dt>
-<dd><p>Crea una nueva tabla de simbolos (map) sin elementos.</p>
+<dd><p>Crea una nueva tabla de hash (map) donde sus entradas llave-valor se inicializan con valores None-None.</p>
 <p>La tabla de simbolos es creada con los siguientes atributos:</p>
 <ul class="simple">
 <li><p><strong>prime</strong>: Número primo usado para calcular el hash. Inicializado con el valor de <code class="docutils literal notranslate"><span class="pre">prime</span></code> y en caso de no ser dado, con el valor por defecto de 109345121.</p></li>
@@ -921,7 +922,7 @@
 <dt class="sig sig-object py" id="find_slot">
 <span class="sig-name descname"><span class="pre">find_slot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hash_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#find_slot" title="Link to this definition"></a></dt>
 <dd><p>Busca la posición en la tabla donde se debe insertar/encontrar una entrada con una llave dada.</p>
-<p>Utiliza la función de <a class="reference internal" href="#hash_value" title="hash_value"><code class="xref py py-func docutils literal notranslate"><span class="pre">hash_value</span></code></a> para calcular la posición inicial y busca la siguiente posición disponible si la posición inicial está ocupada.</p>
+<p>Utiliza el valor <a class="reference internal" href="#hash_value" title="hash_value"><code class="xref py py-func docutils literal notranslate"><span class="pre">hash_value</span></code></a> que tiene la posición inicial donde debería encontrase la key dada (parámetro). Si en esa posición está la key, se informa la posición donde se encontró. Si en esa posición no está la key y esa posición no ha sido ocupada por otra pareja key-value, esa posición puede ser ocupada por la key dada. Si en esa posición no está la key porque otra pareja key-value la ocupó, se debe buscar en la siguiente posición en la tabla.</p>
 <p>Utiliza las funciónes de validación <a class="reference internal" href="#is_available" title="is_available"><code class="xref py py-func docutils literal notranslate"><span class="pre">is_available</span></code></a> y comparación <a class="reference internal" href="#default-function-linear-probing"><span class="std std-ref">default_compare</span></a>.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -932,7 +933,7 @@
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Retorna una tupla con dos valores. El primero indica si la posición está ocupada, <code class="docutils literal notranslate"><span class="pre">True</span></code> si se encuentra la key de lo contrario <code class="docutils literal notranslate"><span class="pre">False</span></code>. El segundo la posición en la tabla de hash donde se encuentra o posición libre para agregarla</p>
+<dd class="field-even"><p>Retorna una tupla con dos valores. El primer valor es <code class="docutils literal notranslate"><span class="pre">True</span></code> si la key se encontró. De lo contrario es <code class="docutils literal notranslate"><span class="pre">False</span></code>. Si el primer valor es <code class="docutils literal notranslate"><span class="pre">True</span></code>, el segundo valor es la posición en la tabla de hash donde la key se encontró. Si el primer valor es <code class="docutils literal notranslate"><span class="pre">False</span></code>, el segundo valor es la posición en la tabla de hash que está disponible para agregar la key.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool, int</p>
@@ -1082,7 +1083,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="remove">
 <span class="sig-name descname"><span class="pre">remove</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_map</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#remove" title="Link to this definition"></a></dt>
-<dd><p>Elimina una entrada de la tabla de simbolos asociada a una llave dada.</p>
+<dd><p>Elimina una entrada llave-valor de la tabla de símbolos asociada a una llave dada. La entrada eliminada debe reemplazarse por la entrada llave-valor <code class="docutils literal notranslate"><span class="pre">&quot;__EMPTY__&quot;,</span> <span class="pre">&quot;__EMPTY__&quot;</span></code></p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
