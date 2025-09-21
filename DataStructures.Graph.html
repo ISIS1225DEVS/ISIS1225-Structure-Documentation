@@ -3471,6 +3471,47 @@ de agregar vertices al arbol de expansion minima, se agregan arcos.</p>
 <dd class="field-odd"><p>float</p>
 </dd>
 </dl>
+<div class="danger admonition">
+<p class="admonition-title">Importante</p>
+<p>Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función <code class="docutils literal notranslate"><span class="pre">new_map</span></code> como se indica en la sección <a class="reference internal" href="DataStructures.Map.html#como-hacer-pruebas-con-tablas"><span class="std std-ref">Como hacer pruebas con tablas</span></a>.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">prim</span> <span class="k">as</span> <span class="n">prim</span>
+
+<span class="c1"># Crear un grafo</span>
+<span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Agregar vértices con su información</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">7400000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2600000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2300000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">1300000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">8866000</span><span class="p">})</span>
+
+<span class="c1"># Agregar aristas con distancias</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">415</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">468</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">412</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">738</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">1020</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+<span class="c1"># Ejecutar algoritmo de Dijkstra desde Bogotá</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">prim</span><span class="o">.</span><span class="n">prim_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
+<span class="n">weight</span> <span class="o">=</span> <span class="n">prim</span><span class="o">.</span><span class="n">weight_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="n">structure</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Peso del MST: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">weight</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Salida esperada:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Peso del MST: 1685</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -3489,6 +3530,102 @@ source: El vertice de inicio</p>
 <dt>Returns:</dt><dd><p>Un nuevo grafo vacío</p>
 </dd>
 <dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+<div class="danger admonition">
+<p class="admonition-title">Importante</p>
+<p>Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función <code class="docutils literal notranslate"><span class="pre">new_map</span></code> como se indica en la sección <a class="reference internal" href="DataStructures.Map.html#como-hacer-pruebas-con-tablas"><span class="std std-ref">Como hacer pruebas con tablas</span></a>.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">dijsktra</span> <span class="k">as</span> <span class="n">dijk</span>
+
+<span class="c1"># Crear un grafo</span>
+<span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Agregar vértices con su información</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">7400000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2600000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2300000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">1300000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">8866000</span><span class="p">})</span>
+
+<span class="c1"># Agregar aristas con distancias</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">415</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">468</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">412</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">738</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">1020</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+<span class="c1"># Ejecutar algoritmo de Dijkstra desde Bogotá</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">dijk</span><span class="o">.</span><span class="n">dijkstra</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Salida esperada:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">    &quot;source&quot;: &quot;Bogotá&quot;,</span>
+<span class="go">    &quot;visited&quot;: {</span>
+<span class="go">        &quot;prime&quot;: 109345121,</span>
+<span class="go">        &quot;capacity&quot;: 13,</span>
+<span class="go">        &quot;scale&quot;: 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
+<span class="go">        &quot;shift&quot;: 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
+<span class="go">        &quot;table&quot;: {</span>
+<span class="go">            &quot;elements&quot;: [</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;key&quot;: &quot;Barranquilla&quot;,</span>
+<span class="go">                    &quot;value&quot;: {&quot;marked&quot;: True, &quot;edge_from&quot;: &quot;Medellín&quot;, &quot;dist_to&quot;: 1153}</span>
+<span class="go">                },</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;key&quot;: &quot;Cali&quot;,</span>
+<span class="go">                    &quot;value&quot;: {&quot;marked&quot;: True, &quot;edge_from&quot;: &quot;Bogotá&quot;, &quot;dist_to&quot;: 468}</span>
+<span class="go">                },</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;key&quot;: &quot;Londres&quot;,</span>
+<span class="go">                    &quot;value&quot;: {&quot;marked&quot;: False, &quot;edge_from&quot;: None, &quot;dist_to&quot;: inf}</span>
+<span class="go">                },</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;key&quot;: &quot;Cartagena&quot;,</span>
+<span class="go">                    &quot;value&quot;: {&quot;marked&quot;: True, &quot;edge_from&quot;: &quot;Barranquilla&quot;, &quot;dist_to&quot;: 1273}</span>
+<span class="go">                },</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;key&quot;: &quot;Medellín&quot;,</span>
+<span class="go">                    &quot;value&quot;: {&quot;marked&quot;: True, &quot;edge_from&quot;: &quot;Bogotá&quot;, &quot;dist_to&quot;: 415}</span>
+<span class="go">                },</span>
+<span class="go">                {</span>
+<span class="go">                    &quot;key&quot;: &quot;Bogotá&quot;,</span>
+<span class="go">                    &quot;value&quot;: {&quot;marked&quot;: True, &quot;edge_from&quot;: None, &quot;dist_to&quot;: 0}</span>
+<span class="go">                }</span>
+<span class="go">            ],</span>
+<span class="go">            &quot;size&quot;: 13</span>
+<span class="go">        },</span>
+<span class="go">        &quot;current_factor&quot;: 0.46153846153846156,</span>
+<span class="go">        &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">        &quot;size&quot;: 6,</span>
+<span class="go">        &quot;type&quot;: &quot;PROBING&quot;,</span>
+<span class="go">    },</span>
+<span class="go">    &quot;pq&quot;: {</span>
+<span class="go">        &quot;elements&quot;: {</span>
+<span class="go">            &quot;elements&quot;: [None],</span>
+<span class="go">            &quot;size&quot;: 1</span>
+<span class="go">        },</span>
+<span class="go">        &quot;size&quot;: 0,</span>
+<span class="go">        &quot;cmp_function&quot;: &lt;function default_compare_lower_value&gt;</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -3510,6 +3647,50 @@ vertex. Infinito si no existe camino</p>
 <dt>Raises:</dt><dd><p>Exception</p>
 </dd>
 </dl>
+<div class="danger admonition">
+<p class="admonition-title">Importante</p>
+<p>Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función <code class="docutils literal notranslate"><span class="pre">new_map</span></code> como se indica en la sección <a class="reference internal" href="DataStructures.Map.html#como-hacer-pruebas-con-tablas"><span class="std std-ref">Como hacer pruebas con tablas</span></a>.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">dijsktra</span> <span class="k">as</span> <span class="n">dijk</span>
+
+<span class="c1"># Crear un grafo</span>
+<span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Agregar vértices con su información</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">7400000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2600000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2300000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">1300000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">8866000</span><span class="p">})</span>
+
+<span class="c1"># Agregar aristas con distancias</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">415</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">468</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">412</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">738</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">1020</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+<span class="c1"># Ejecutar algoritmo de Dijkstra desde Bogotá</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">dijk</span><span class="o">.</span><span class="n">dijkstra</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distancia de Bogotá a Cali: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dijk</span><span class="o">.</span><span class="n">dist_to</span><span class="p">(</span><span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="n">structure</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distancia de Bogotá a Cartagena: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dijk</span><span class="o">.</span><span class="n">dist_to</span><span class="p">(</span><span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="n">structure</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Distancia de Bogotá a Londres: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dijk</span><span class="o">.</span><span class="n">dist_to</span><span class="p">(</span><span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="n">structure</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Salida esperada:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Distancia de Bogotá a Cali: 468</span>
+<span class="go">Distancia de Bogotá a Cartagena: 1273</span>
+<span class="go">Distancia de Bogotá a Londres: inf</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -3528,6 +3709,50 @@ vertex: El vertice de destino</p>
 <dt>Raises:</dt><dd><p>Exception</p>
 </dd>
 </dl>
+<div class="danger admonition">
+<p class="admonition-title">Importante</p>
+<p>Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función <code class="docutils literal notranslate"><span class="pre">new_map</span></code> como se indica en la sección <a class="reference internal" href="DataStructures.Map.html#como-hacer-pruebas-con-tablas"><span class="std std-ref">Como hacer pruebas con tablas</span></a>.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">dijsktra</span> <span class="k">as</span> <span class="n">dijk</span>
+
+<span class="c1"># Crear un grafo</span>
+<span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Agregar vértices con su información</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">7400000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2600000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2300000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">1300000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">8866000</span><span class="p">})</span>
+
+<span class="c1"># Agregar aristas con distancias</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">415</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">468</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">412</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">738</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">1020</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+<span class="c1"># Ejecutar algoritmo de Dijkstra desde Bogotá</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">dijk</span><span class="o">.</span><span class="n">dijkstra</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¿Existe camino entre Bogotá y Medellín?: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dijk</span><span class="o">.</span><span class="n">has_path_to</span><span class="p">(</span><span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="n">structure</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¿Existe camino entre Bogotá y Barranquilla?: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dijk</span><span class="o">.</span><span class="n">has_path_to</span><span class="p">(</span><span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="n">structure</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;¿Existe camino entre Bogotá y Londres?: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dijk</span><span class="o">.</span><span class="n">has_path_to</span><span class="p">(</span><span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="n">structure</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Salida esperada:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">¿Existe camino entre Bogotá y Medellín?: True</span>
+<span class="go">¿Existe camino entre Bogotá y Barranquilla?: True</span>
+<span class="go">¿Existe camino entre Bogotá y Londres?: False</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
@@ -3544,6 +3769,84 @@ vertex: El vertice de destino</p>
 <dt>Returns:</dt><dd><p>Una pila con el camino entre source y vertex</p>
 </dd>
 <dt>Raises:</dt><dd><p>Exception</p>
+</dd>
+</dl>
+<div class="danger admonition">
+<p class="admonition-title">Importante</p>
+<p>Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función <code class="docutils literal notranslate"><span class="pre">new_map</span></code> como se indica en la sección <a class="reference internal" href="DataStructures.Map.html#como-hacer-pruebas-con-tablas"><span class="std std-ref">Como hacer pruebas con tablas</span></a>.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">dijsktra</span> <span class="k">as</span> <span class="n">dijk</span>
+
+<span class="c1"># Crear un grafo</span>
+<span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Agregar vértices con su información</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">7400000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2600000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">2300000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">1300000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">1000000</span><span class="p">})</span>
+<span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Londres&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">8866000</span><span class="p">})</span>
+
+<span class="c1"># Agregar aristas con distancias</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">415</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">468</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">412</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">738</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">1020</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+
+<span class="c1"># Ejecutar algoritmo de Dijkstra desde Bogotá</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">dijk</span><span class="o">.</span><span class="n">dijkstra</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Camino de Bogotá a Cali:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dijk</span><span class="o">.</span><span class="n">path_to</span><span class="p">(</span><span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="n">structure</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Camino de Bogotá a Cartagena:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">dijk</span><span class="o">.</span><span class="n">path_to</span><span class="p">(</span><span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="n">structure</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p>Salida esperada:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Camino de Bogotá a Cali:</span>
+<span class="go">{</span>
+<span class="go">    &quot;first&quot;: {</span>
+<span class="go">        &quot;info&quot;: &quot;Cali&quot;,</span>
+<span class="go">        &quot;next&quot;: {</span>
+<span class="go">            &quot;info&quot;: &quot;Bogotá&quot;,</span>
+<span class="go">            &quot;next&quot;: None</span>
+<span class="go">        }</span>
+<span class="go">    },</span>
+<span class="go">    &quot;last&quot;: {</span>
+<span class="go">        &quot;info&quot;: &quot;Bogotá&quot;,</span>
+<span class="go">        &quot;next&quot;: None</span>
+<span class="go">    },</span>
+<span class="go">    &quot;size&quot;: 2</span>
+<span class="go">}</span>
+<span class="go">Camino de Bogotá a Cartagena:</span>
+<span class="go">{</span>
+<span class="go">    &quot;first&quot;: {</span>
+<span class="go">        &quot;info&quot;: &quot;Cartagena&quot;,</span>
+<span class="go">        &quot;next&quot;: {</span>
+<span class="go">            &quot;info&quot;: &quot;Barranquilla&quot;,</span>
+<span class="go">            &quot;next&quot;: {</span>
+<span class="go">                &quot;info&quot;: &quot;Medellín&quot;,</span>
+<span class="go">                &quot;next&quot;: {</span>
+<span class="go">                    &quot;info&quot;: &quot;Bogotá&quot;,</span>
+<span class="go">                    &quot;next&quot;: None</span>
+<span class="go">                }</span>
+<span class="go">            }</span>
+<span class="go">        }</span>
+<span class="go">    },</span>
+<span class="go">    &quot;last&quot;: {</span>
+<span class="go">        &quot;info&quot;: &quot;Bogotá&quot;,</span>
+<span class="go">        &quot;next&quot;: None</span>
+<span class="go">    },</span>
+<span class="go">    &quot;size&quot;: 4</span>
+<span class="go">}</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
@@ -3634,6 +3937,92 @@ vertex: El vertice de destino</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>prim_search</p>
+</dd>
+</dl>
+<div class="danger admonition">
+<p class="admonition-title">Importante</p>
+<p>Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función <code class="docutils literal notranslate"><span class="pre">new_map</span></code> como se indica en la sección <a class="reference internal" href="DataStructures.Map.html#como-hacer-pruebas-con-tablas"><span class="std std-ref">Como hacer pruebas con tablas</span></a>.</p>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">prim_structure</span> <span class="k">as</span> <span class="n">ps</span>
+
+<span class="c1"># Crea una estructura de Prim vacia</span>
+<span class="n">structure</span> <span class="o">=</span> <span class="n">ps</span><span class="o">.</span><span class="n">new_prim_structure</span><span class="p">(</span><span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">structure</span><span class="p">)</span>
+<span class="c1"># Salida esperada a continuacion:</span>
+</pre></div>
+</div>
+<p>Salida esperada:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">    &quot;source&quot;: &quot;Bogotá&quot;,</span>
+<span class="go">    &quot;edge_from&quot;: {</span>
+<span class="go">        &quot;prime&quot;: 109345121,</span>
+<span class="go">        &quot;capacity&quot;: 3,</span>
+<span class="go">        &quot;scale&quot;: 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
+<span class="go">        &quot;shift&quot;: 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
+<span class="go">        &quot;table&quot;: {</span>
+<span class="go">            &quot;elements&quot;: [</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None}</span>
+<span class="go">            ],</span>
+<span class="go">            &quot;size&quot;: 3</span>
+<span class="go">        },</span>
+<span class="go">        &quot;current_factor&quot;: 0,</span>
+<span class="go">        &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">        &quot;size&quot;: 0,</span>
+<span class="go">        &quot;type&quot;: &quot;PROBING&quot;</span>
+<span class="go">    },</span>
+<span class="go">    &quot;dist_to&quot;: {</span>
+<span class="go">        &quot;prime&quot;: 109345121,</span>
+<span class="go">        &quot;capacity&quot;: 3,</span>
+<span class="go">        &quot;scale&quot;: 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
+<span class="go">        &quot;shift&quot;: 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
+<span class="go">        &quot;table&quot;: {</span>
+<span class="go">            &quot;elements&quot;: [</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None}</span>
+<span class="go">            ],</span>
+<span class="go">            &quot;size&quot;: 3</span>
+<span class="go">        },</span>
+<span class="go">        &quot;current_factor&quot;: 0,</span>
+<span class="go">        &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">        &quot;size&quot;: 0,</span>
+<span class="go">        &quot;type&quot;: &quot;PROBING&quot;</span>
+<span class="go">    },</span>
+<span class="go">    &quot;marked&quot;: {</span>
+<span class="go">        &quot;prime&quot;: 109345121,</span>
+<span class="go">        &quot;capacity&quot;: 3,</span>
+<span class="go">        &quot;scale&quot;: 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
+<span class="go">        &quot;shift&quot;: 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
+<span class="go">        &quot;table&quot;: {</span>
+<span class="go">            &quot;elements&quot;: [</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
+<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None}</span>
+<span class="go">            ],</span>
+<span class="go">            &quot;size&quot;: 3</span>
+<span class="go">        },</span>
+<span class="go">        &quot;current_factor&quot;: 0,</span>
+<span class="go">        &quot;limit_factor&quot;: 0.5,</span>
+<span class="go">        &quot;size&quot;: 0,</span>
+<span class="go">        &quot;type&quot;: &quot;PROBING&quot;</span>
+<span class="go">    },</span>
+<span class="go">    &quot;pq&quot;: {</span>
+<span class="go">        &quot;elements&quot;: {</span>
+<span class="go">            &quot;elements&quot;: [None],</span>
+<span class="go">            &quot;size&quot;: 1</span>
+<span class="go">        },</span>
+<span class="go">        &quot;size&quot;: 0,</span>
+<span class="go">        &quot;cmp_function&quot;: &quot;&quot;</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>

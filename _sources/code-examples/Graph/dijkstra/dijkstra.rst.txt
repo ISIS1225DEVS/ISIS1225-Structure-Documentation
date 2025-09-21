@@ -1,0 +1,97 @@
+.. admonition:: Importante
+    :class: danger
+
+    Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+:Example:
+
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+        from DataStructures.Graph import dijsktra as dijk
+
+        # Crear un grafo
+        my_graph = G.new_graph(1)
+        
+        # Agregar vértices con su información
+        G.insert_vertex(my_graph, "Bogotá", {"nombre": "Bogotá", "poblacion": 7400000})
+        G.insert_vertex(my_graph, "Medellín", {"nombre": "Medellín", "poblacion": 2600000})
+        G.insert_vertex(my_graph, "Cali", {"nombre": "Cali", "poblacion": 2300000})
+        G.insert_vertex(my_graph, "Barranquilla", {"nombre": "Barranquilla", "poblacion": 1300000})
+        G.insert_vertex(my_graph, "Cartagena", {"nombre": "Cartagena", "poblacion": 1000000})
+        G.insert_vertex(my_graph, "Londres", {"nombre": "Londres", "poblacion": 8866000})
+        
+        # Agregar aristas con distancias
+        G.add_edge(my_graph, "Bogotá", "Medellín", 415)
+        G.add_edge(my_graph, "Bogotá", "Cali", 468)
+        G.add_edge(my_graph, "Medellín", "Cali", 412)
+        G.add_edge(my_graph, "Medellín", "Barranquilla", 738)
+        G.add_edge(my_graph, "Cali", "Barranquilla", 1020)
+        G.add_edge(my_graph, "Barranquilla", "Cartagena", 120)
+        
+        # Ejecutar algoritmo de Dijkstra desde Bogotá
+        structure = dijk.dijkstra(my_graph, "Bogotá")
+        print(structure)
+
+    Salida esperada:
+    
+    .. code-block:: console
+
+        {
+            "source": "Bogotá",
+            "visited": {
+                "prime": 109345121,
+                "capacity": 13,
+                "scale": 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+                "shift": 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+                "table": {
+                    "elements": [
+                        {
+                            "key": "Barranquilla",
+                            "value": {"marked": True, "edge_from": "Medellín", "dist_to": 1153}
+                        },
+                        {
+                            "key": "Cali",
+                            "value": {"marked": True, "edge_from": "Bogotá", "dist_to": 468}
+                        },
+                        {"key": None, "value": None},
+                        {
+                            "key": "Londres",
+                            "value": {"marked": False, "edge_from": None, "dist_to": inf}
+                        },
+                        {"key": None, "value": None},
+                        {"key": None, "value": None},
+                        {"key": None, "value": None},
+                        {"key": None, "value": None},
+                        {"key": None, "value": None},
+                        {
+                            "key": "Cartagena",
+                            "value": {"marked": True, "edge_from": "Barranquilla", "dist_to": 1273}
+                        },
+                        {"key": None, "value": None},
+                        {
+                            "key": "Medellín",
+                            "value": {"marked": True, "edge_from": "Bogotá", "dist_to": 415}
+                        },
+                        {
+                            "key": "Bogotá",
+                            "value": {"marked": True, "edge_from": None, "dist_to": 0}
+                        }
+                    ],
+                    "size": 13
+                },
+                "current_factor": 0.46153846153846156,
+                "limit_factor": 0.5,
+                "size": 6,
+                "type": "PROBING",
+            },
+            "pq": {
+                "elements": {
+                    "elements": [None], 
+                    "size": 1
+                }, 
+                "size": 0, 
+                "cmp_function": <function default_compare_lower_value>
+            }
+        }

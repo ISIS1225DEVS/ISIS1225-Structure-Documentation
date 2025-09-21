@@ -1,0 +1,87 @@
+.. admonition:: Importante
+    :class: danger
+
+    Para asegurar obtener los mismos resultados en los mapas de los ejemplos, se debe modificar la función ``new_map`` como se indica en la sección :ref:`Como hacer pruebas con tablas<como-hacer-pruebas-con-tablas>`.
+
+:Example:
+
+    .. code-block:: python
+
+        # App/logic.py
+        from DataStructures.Graph import digraph as G
+        from DataStructures.Graph import prim_structure as ps
+
+        # Crea una estructura de Prim vacia
+        structure = ps.new_prim_structure("Bogotá", 1)
+        print(structure)
+        # Salida esperada a continuacion:
+
+    Salida esperada:
+    
+    .. code-block:: console
+
+        {
+            "source": "Bogotá",
+            "edge_from": {
+                "prime": 109345121,
+                "capacity": 3,
+                "scale": 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+                "shift": 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+                "table": {
+                    "elements": [
+                        {"key": None, "value": None},
+                        {"key": None, "value": None},
+                        {"key": None, "value": None}
+                    ],
+                    "size": 3
+                },
+                "current_factor": 0,
+                "limit_factor": 0.5,
+                "size": 0,
+                "type": "PROBING"
+            },
+            "dist_to": {
+                "prime": 109345121,
+                "capacity": 3,
+                "scale": 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+                "shift": 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+                "table": {
+                    "elements": [
+                        {"key": None, "value": None},
+                        {"key": None, "value": None},
+                        {"key": None, "value": None}
+                    ],
+                    "size": 3
+                },
+                "current_factor": 0,
+                "limit_factor": 0.5,
+                "size": 0,
+                "type": "PROBING"
+            },
+            "marked": {
+                "prime": 109345121,
+                "capacity": 3,
+                "scale": 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+                "shift": 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
+                "table": {
+                    "elements": [
+                        {"key": None, "value": None},
+                        {"key": None, "value": None},
+                        {"key": None, "value": None}
+                    ],
+                    "size": 3
+                },
+                "current_factor": 0,
+                "limit_factor": 0.5,
+                "size": 0,
+                "type": "PROBING"
+            },
+            "pq": {
+                "elements": {
+                    "elements": [None], 
+                    "size": 1
+                }, 
+                "size": 0, 
+                "cmp_function": ""
+            }
+        }
