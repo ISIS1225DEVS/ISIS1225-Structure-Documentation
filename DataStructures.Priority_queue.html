@@ -70,9 +70,9 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l2"><a class="reference internal" href="#elementos">Elementos</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#module-DataStructures.Priority_queue.pq_entry">pq_entry.py</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.pq_entry.new_pq_entry"><code class="docutils literal notranslate"><span class="pre">new_pq_entry()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.pq_entry.set_key"><code class="docutils literal notranslate"><span class="pre">set_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.pq_entry.set_priority"><code class="docutils literal notranslate"><span class="pre">set_priority()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.pq_entry.set_value"><code class="docutils literal notranslate"><span class="pre">set_value()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.pq_entry.get_key"><code class="docutils literal notranslate"><span class="pre">get_key()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.pq_entry.get_priority"><code class="docutils literal notranslate"><span class="pre">get_priority()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.pq_entry.get_value"><code class="docutils literal notranslate"><span class="pre">get_value()</span></code></a></li>
 </ul>
 </li>
@@ -91,6 +91,8 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.get_first_priority"><code class="docutils literal notranslate"><span class="pre">get_first_priority()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.sink"><code class="docutils literal notranslate"><span class="pre">sink()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.improve_priority"><code class="docutils literal notranslate"><span class="pre">improve_priority()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -136,17 +138,17 @@ window.addEventListener("load", () => mermaid.run());
 <span id="pq-entry-py"></span><span id="priority-queue-entry"></span><h3>pq_entry.py<a class="headerlink" href="#module-DataStructures.Priority_queue.pq_entry" title="Link to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Priority_queue.pq_entry.new_pq_entry">
-<span class="sig-name descname"><span class="pre">new_pq_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.pq_entry.new_pq_entry" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">new_pq_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">priority</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.pq_entry.new_pq_entry" title="Link to this definition"></a></dt>
 <dd><p>Crea una nueva entrada (de tipo <a class="reference internal" href="#priority-queue-entry"><span class="std std-ref">pq_entry</span></a>) de una cola de prioridad.</p>
 <p>La entrada es creada con los siguientes atributos:</p>
 <ul class="simple">
-<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">key</span></code>: Llave de la entrada. Inicializada con el valor de la llave dada <code class="docutils literal notranslate"><span class="pre">key</span></code>.</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">priority</span></code>: Prioridad de la entrada. Inicializada con el valor de la prioridad dada <code class="docutils literal notranslate"><span class="pre">priority</span></code>.</p></li>
 <li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code>: Valor de la entrada. Inicializada con el valor del valor dado <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<em>any</em>) – Llave de la entrada.</p></li>
+<li><p><strong>priority</strong> (<em>any</em>) – Prioridad de la entrada.</p></li>
 <li><p><strong>value</strong> (<em>any</em>) – Valor de la entrada.</p></li>
 </ul>
 </dd>
@@ -160,18 +162,18 @@ window.addEventListener("load", () => mermaid.run());
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Priority_queue.pq_entry.set_key">
-<span class="sig-name descname"><span class="pre">set_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.pq_entry.set_key" title="Link to this definition"></a></dt>
-<dd><p>Establece un valor nuevo a la <code class="docutils literal notranslate"><span class="pre">key</span></code> de una entrada recibida.</p>
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.pq_entry.set_priority">
+<span class="sig-name descname"><span class="pre">set_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.pq_entry.set_priority" title="Link to this definition"></a></dt>
+<dd><p>Establece un valor nuevo a la <code class="docutils literal notranslate"><span class="pre">priority</span></code> de una entrada recibida.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>my_entry</strong> (<a class="reference internal" href="#priority-queue-entry"><span class="std std-ref">pq_entry</span></a>) – Entrada a modificar.</p></li>
-<li><p><strong>key</strong> (<em>any</em>) – Llave nueva de la entrada.</p></li>
+<li><p><strong>priority</strong> (<em>any</em>) – Prioridad nueva de la entrada.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Entrada con la llave modificada.</p>
+<dd class="field-even"><p>Entrada con la prioridad modificada.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#priority-queue-entry"><span class="std std-ref">pq_entry</span></a></p>
@@ -200,15 +202,15 @@ window.addEventListener("load", () => mermaid.run());
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Priority_queue.pq_entry.get_key">
-<span class="sig-name descname"><span class="pre">get_key</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.pq_entry.get_key" title="Link to this definition"></a></dt>
-<dd><p>Obtiene la llave <code class="docutils literal notranslate"><span class="pre">key</span></code> de una entrada recibida.</p>
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.pq_entry.get_priority">
+<span class="sig-name descname"><span class="pre">get_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.pq_entry.get_priority" title="Link to this definition"></a></dt>
+<dd><p>Obtiene la prioridad <code class="docutils literal notranslate"><span class="pre">priority</span></code> de una entrada recibida.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>my_entry</strong> (<a class="reference internal" href="#priority-queue-entry"><span class="std std-ref">pq_entry</span></a>) – Entrada a modificar.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Llave de la entrada.</p>
+<dd class="field-even"><p>Prioridad de la entrada.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>any</p>
@@ -313,7 +315,7 @@ Esto es útil para poder utilizar la propiedad de los heaps, donde el padre de u
 <dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.default_compare_higher_value">
 <span class="sig-name descname"><span class="pre">default_compare_higher_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">father_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.default_compare_higher_value" title="Link to this definition"></a></dt>
 <dd><p>Función de comparación por defecto para el heap orientado a mayor.</p>
-<p>Compara la llave <code class="docutils literal notranslate"><span class="pre">key</span></code> de los nodos <code class="docutils literal notranslate"><span class="pre">father_node</span></code> y <code class="docutils literal notranslate"><span class="pre">child_node</span></code>.
+<p>Compara la prioridad <code class="docutils literal notranslate"><span class="pre">priority</span></code> de los nodos <code class="docutils literal notranslate"><span class="pre">father_node</span></code> y <code class="docutils literal notranslate"><span class="pre">child_node</span></code>.
 Si el nodo padre tiene mayor o igual prioridad que el nodo hijo, retorna <code class="docutils literal notranslate"><span class="pre">True</span></code>. En caso contrario, retorna <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -333,7 +335,7 @@ Si el nodo padre tiene mayor o igual prioridad que el nodo hijo, retorna <code c
 <span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Priority_queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">pq_entry</span> <span class="k">as</span> <span class="n">pqe</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">default_compare_higher_value</span><span class="p">(</span><span class="n">father_node</span><span class="p">,</span> <span class="n">child_node</span><span class="p">):</span>
-<span class="hll">    <span class="k">if</span> <span class="n">pqe</span><span class="o">.</span><span class="n">get_key</span><span class="p">(</span><span class="n">father_node</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">pqe</span><span class="o">.</span><span class="n">get_key</span><span class="p">(</span><span class="n">child_node</span><span class="p">):</span>
+<span class="hll">    <span class="k">if</span> <span class="n">pqe</span><span class="o">.</span><span class="n">get_priority</span><span class="p">(</span><span class="n">father_node</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">pqe</span><span class="o">.</span><span class="n">get_priority</span><span class="p">(</span><span class="n">child_node</span><span class="p">):</span>
 </span>        <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
@@ -346,7 +348,7 @@ Si el nodo padre tiene mayor o igual prioridad que el nodo hijo, retorna <code c
 <dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.default_compare_lower_value">
 <span class="sig-name descname"><span class="pre">default_compare_lower_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">father_node</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">child_node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.default_compare_lower_value" title="Link to this definition"></a></dt>
 <dd><p>Función de comparación por defecto para el heap orientado a menor.</p>
-<p>Compara la llave <code class="docutils literal notranslate"><span class="pre">key</span></code> de los nodos <code class="docutils literal notranslate"><span class="pre">father_node</span></code> y <code class="docutils literal notranslate"><span class="pre">child_node</span></code>.
+<p>Compara la prioridad <code class="docutils literal notranslate"><span class="pre">priority</span></code> de los nodos <code class="docutils literal notranslate"><span class="pre">father_node</span></code> y <code class="docutils literal notranslate"><span class="pre">child_node</span></code>.
 Si el nodo padre tiene menor o igual prioridad que el nodo hijo, retorna <code class="docutils literal notranslate"><span class="pre">True</span></code>. En caso contrario, retorna <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -366,7 +368,7 @@ Si el nodo padre tiene menor o igual prioridad que el nodo hijo, retorna <code c
 <span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Priority_queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">pq_entry</span> <span class="k">as</span> <span class="n">pqe</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">default_compare_lower_value</span><span class="p">(</span><span class="n">father_node</span><span class="p">,</span> <span class="n">child_node</span><span class="p">):</span>
-<span class="hll">    <span class="k">if</span> <span class="n">pqe</span><span class="o">.</span><span class="n">get_key</span><span class="p">(</span><span class="n">father_node</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">pqe</span><span class="o">.</span><span class="n">get_key</span><span class="p">(</span><span class="n">child_node</span><span class="p">):</span>
+<span class="hll">    <span class="k">if</span> <span class="n">pqe</span><span class="o">.</span><span class="n">get_priority</span><span class="p">(</span><span class="n">father_node</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">pqe</span><span class="o">.</span><span class="n">get_priority</span><span class="p">(</span><span class="n">child_node</span><span class="p">):</span>
 </span>    <span class="k">return</span> <span class="kc">True</span>
 <span class="k">return</span> <span class="kc">False</span>
 </pre></div>
@@ -404,10 +406,7 @@ si el <code class="docutils literal notranslate"><span class="pre">parent</span>
 <dd class="field-odd"><p>bool</p>
 </dd>
 <dt class="field-even">Code<span class="colon">:</span></dt>
-<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="n">cmp</span> <span class="o">=</span> <span class="n">my_heap</span><span class="p">[</span><span class="s2">&quot;cmp_function&quot;</span><span class="p">](</span><span class="n">parent</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span>
-</span><span class="k">if</span> <span class="n">cmp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="k">return</span> <span class="kc">True</span>
-<span class="k">return</span> <span class="kc">False</span>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">return</span> <span class="n">my_heap</span><span class="p">[</span><span class="s2">&quot;cmp_function&quot;</span><span class="p">](</span><span class="n">parent</span><span class="p">,</span> <span class="n">child</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
@@ -416,9 +415,9 @@ si el <code class="docutils literal notranslate"><span class="pre">parent</span>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.insert">
-<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.insert" title="Link to this definition"></a></dt>
-<dd><p>Agrega una nueva entrada llave-valor al heap. 
-Inserta la llave <code class="docutils literal notranslate"><span class="pre">key</span></code> con prioridad <code class="docutils literal notranslate"><span class="pre">value</span></code> en el heap al final de la lista de elementos y luego se hace <strong>swim</strong> para dejar el elemento en la posición correcta.</p>
+<span class="sig-name descname"><span class="pre">insert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.insert" title="Link to this definition"></a></dt>
+<dd><p>Agrega una nueva entrada prioridad-valor al heap. 
+Inserta la prioridad <code class="docutils literal notranslate"><span class="pre">priority</span></code> con valor <code class="docutils literal notranslate"><span class="pre">value</span></code> en el heap al final de la lista de elementos y luego se hace <strong>swim</strong> para dejar el elemento en la posición correcta.</p>
 <div class="important admonition">
 <p class="admonition-title">Importante</p>
 <p>Esta función usa la función <a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.swim" title="DataStructures.Priority_queue.priority_queue.swim"><code class="xref py py-func docutils literal notranslate"><span class="pre">swim()</span></code></a> para dejar el elemento en la posición correcta.</p>
@@ -427,12 +426,12 @@ Inserta la llave <code class="docutils literal notranslate"><span class="pre">ke
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>my_heap</strong> (<a class="reference internal" href="#priority-queue"><span class="std std-ref">priority_queue</span></a>) – El heap sobre el cual se realiza la operación</p></li>
-<li><p><strong>element</strong> (<em>int</em>) – El valor de la llave</p></li>
-<li><p><strong>key</strong> (<em>any</em>) – La llave a insertar</p></li>
+<li><p><strong>priority</strong> (<em>int</em>) – La prioridad a insertar</p></li>
+<li><p><strong>value</strong> (<em>any</em>) – El valor de la nueva entrada</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El heap con la nueva paraja insertada</p>
+<dd class="field-even"><p>El heap con la nueva entrada insertada</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#priority-queue"><span class="std std-ref">priority_queue</span></a></p>
@@ -445,7 +444,7 @@ Inserta la llave <code class="docutils literal notranslate"><span class="pre">ke
 
 <span class="c1"># Crea una nueva cola de prioridad</span>
 <span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">new_heap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
 <span class="c1"># Salida esperada:</span>
@@ -454,7 +453,7 @@ Inserta la llave <code class="docutils literal notranslate"><span class="pre">ke
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 25,</span>
+<span class="c1">#         &#39;priority&#39;: 25,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 25</span>
@@ -475,7 +474,7 @@ Inserta la llave <code class="docutils literal notranslate"><span class="pre">ke
     columns 3
 
     block:elements
-        tag[&quot;heap (keys):&quot;]
+        tag[&quot;heap (priorities):&quot;]
         z[&quot;-&quot;]
         y[&quot;25&quot;]
 
@@ -513,7 +512,7 @@ Inserta la llave <code class="docutils literal notranslate"><span class="pre">ke
 
 <span class="c1"># Crea una nueva cola de prioridad</span>
 <span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">new_heap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
 <span class="c1"># Salida esperada:</span>
@@ -522,7 +521,7 @@ Inserta la llave <code class="docutils literal notranslate"><span class="pre">ke
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 25,</span>
+<span class="c1">#         &#39;priority&#39;: 25,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 25</span>
@@ -543,7 +542,7 @@ Inserta la llave <code class="docutils literal notranslate"><span class="pre">ke
     columns 3
 
     block:elements
-        tag[&quot;heap (keys):&quot;]
+        tag[&quot;heap (priorities):&quot;]
         z[&quot;-&quot;]
         y[&quot;25&quot;]
 
@@ -580,8 +579,8 @@ Inserta la llave <code class="docutils literal notranslate"><span class="pre">ke
 
 <span class="c1"># Crea una nueva cola de prioridad</span>
 <span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">new_heap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">},</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
 <span class="c1"># Salida esperada:</span>
@@ -590,14 +589,14 @@ Inserta la llave <code class="docutils literal notranslate"><span class="pre">ke
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 25,</span>
+<span class="c1">#         &#39;priority&#39;: 25,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 25</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 30,</span>
+<span class="c1">#         &#39;priority&#39;: 30,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Jane&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 30</span>
@@ -618,7 +617,7 @@ Inserta la llave <code class="docutils literal notranslate"><span class="pre">ke
     columns 3
 
     block:elements
-        tag[&quot;heap (keys):&quot;]
+        tag[&quot;heap (priorities):&quot;]
         z[&quot;-&quot;]
         y[&quot;25&quot;]
         x[&quot;30&quot;]
@@ -683,10 +682,10 @@ Si el elemento tiene mayor prioridad que su padre, se intercambian los elementos
 
 <span class="c1"># Crea una nueva cola de prioridad</span>
 <span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">new_heap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">},</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">47</span><span class="p">},</span> <span class="mi">47</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">},</span> <span class="mi">18</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">},</span> <span class="mi">22</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">47</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
 <span class="c1"># Salida esperada:</span>
 <span class="c1"># {</span>
@@ -694,28 +693,28 @@ Si el elemento tiene mayor prioridad que su padre, se intercambian los elementos
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 18,</span>
+<span class="c1">#         &#39;priority&#39;: 18,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Bob&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 18</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 22,</span>
+<span class="c1">#         &#39;priority&#39;: 22,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Charlie&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 22</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 32,</span>
+<span class="c1">#         &#39;priority&#39;: 32,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 32</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 47,</span>
+<span class="c1">#         &#39;priority&#39;: 47,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Alice&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 47</span>
@@ -728,7 +727,7 @@ Si el elemento tiene mayor prioridad que su padre, se intercambian los elementos
 <span class="c1">#   &#39;cmp_function&#39;: &lt;functiondefault_compare_lower_value&gt;</span>
 <span class="c1"># }</span>
 
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Diana&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">},</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Diana&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
 <span class="c1"># Salida esperada:</span>
 <span class="c1"># {</span>
@@ -736,35 +735,35 @@ Si el elemento tiene mayor prioridad que su padre, se intercambian los elementos
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 11,</span>
+<span class="c1">#         &#39;priority&#39;: 11,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Diana&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 11</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 18,</span>
+<span class="c1">#         &#39;priority&#39;: 18,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Bob&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 18</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 32,</span>
+<span class="c1">#         &#39;priority&#39;: 32,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 32</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 47,</span>
+<span class="c1">#         &#39;priority&#39;: 47,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Alice&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 47</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 22,</span>
+<span class="c1">#         &#39;priority&#39;: 22,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Charlie&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 22</span>
@@ -785,7 +784,7 @@ Si el elemento tiene mayor prioridad que su padre, se intercambian los elementos
     columns 2
 
     block:elements
-        tag[&quot;heap (keys):&quot;]
+        tag[&quot;heap (priorities):&quot;]
         z[&quot;-&quot;]
         y[&quot;11&quot;]
         x[&quot;18&quot;]
@@ -1073,7 +1072,7 @@ Si el heap tiene un tamaño de 0, se considera vacío.</p>
 
 <span class="c1"># Crea una nueva cola de prioridad</span>
 <span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">new_heap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">get_first_priority</span><span class="p">(</span><span class="n">queue</span><span class="p">))</span>
 <span class="c1"># Salida esperada:</span>
 <span class="c1"># {</span>
@@ -1087,7 +1086,7 @@ Si el heap tiene un tamaño de 0, se considera vacío.</p>
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 25,</span>
+<span class="c1">#         &#39;priority&#39;: 25,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 25</span>
@@ -1124,7 +1123,7 @@ Si el heap tiene un tamaño de 0, se considera vacío.</p>
 
 <span class="c1"># Crea una nueva cola de prioridad</span>
 <span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">new_heap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="mi">25</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">get_first_priority</span><span class="p">(</span><span class="n">queue</span><span class="p">))</span>
 <span class="c1"># Salida esperada:</span>
 <span class="c1"># {</span>
@@ -1138,7 +1137,7 @@ Si el heap tiene un tamaño de 0, se considera vacío.</p>
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 25,</span>
+<span class="c1">#         &#39;priority&#39;: 25,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 25</span>
@@ -1161,9 +1160,9 @@ Si el heap tiene un tamaño de 0, se considera vacío.</p>
 
 <span class="c1"># Crea una nueva cola de prioridad</span>
 <span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">new_heap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">47</span><span class="p">},</span> <span class="mi">47</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">},</span> <span class="mi">18</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">47</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pq</span><span class="o">.</span><span class="n">get_first_priority</span><span class="p">(</span><span class="n">queue</span><span class="p">))</span>
 <span class="c1"># Salida esperada:</span>
 <span class="c1"># {</span>
@@ -1176,21 +1175,21 @@ Si el heap tiene un tamaño de 0, se considera vacío.</p>
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 18,</span>
+<span class="c1">#         &#39;priority&#39;: 18,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Bob&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 18</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 47,</span>
+<span class="c1">#         &#39;priority&#39;: 47,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Alice&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 47</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 25,</span>
+<span class="c1">#         &#39;priority&#39;: 25,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 25</span>
@@ -1238,10 +1237,10 @@ Se reemplaza el primer elemento del heap por el último elemento y se hace <stro
 
 <span class="c1"># Crea una nueva cola de prioridad</span>
 <span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">new_heap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">},</span> <span class="mi">25</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">47</span><span class="p">},</span> <span class="mi">47</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">},</span> <span class="mi">18</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">},</span> <span class="mi">22</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">47</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
 <span class="c1"># Salida esperada:</span>
 <span class="c1"># {</span>
@@ -1249,28 +1248,28 @@ Se reemplaza el primer elemento del heap por el último elemento y se hace <stro
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 18,</span>
+<span class="c1">#         &#39;priority&#39;: 18,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Bob&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 18</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 22,</span>
+<span class="c1">#         &#39;priority&#39;: 22,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Charlie&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 22</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 25,</span>
+<span class="c1">#         &#39;priority&#39;: 25,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 25</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 47,</span>
+<span class="c1">#         &#39;priority&#39;: 47,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Alice&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 47</span>
@@ -1298,21 +1297,21 @@ Se reemplaza el primer elemento del heap por el último elemento y se hace <stro
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 22,</span>
+<span class="c1">#         &#39;priority&#39;: 22,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Charlie&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 22</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 47,</span>
+<span class="c1">#         &#39;priority&#39;: 47,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Alice&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 47</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 25,</span>
+<span class="c1">#         &#39;priority&#39;: 25,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 25</span>
@@ -1355,11 +1354,11 @@ Si el elemento tiene menor prioridad que alguno de sus hijos, se intercambian lo
 
 <span class="c1"># Crea una nueva cola de prioridad</span>
 <span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">new_heap</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">},</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">47</span><span class="p">},</span> <span class="mi">47</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">},</span> <span class="mi">18</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">},</span> <span class="mi">22</span><span class="p">)</span>
-<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Diana&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">},</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">47</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">18</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">22</span><span class="p">})</span>
+<span class="n">queue</span> <span class="o">=</span> <span class="n">pq</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">queue</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Diana&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span><span class="mi">11</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">queue</span><span class="p">)</span>
 <span class="c1"># Salida esperada:</span>
 <span class="c1"># {</span>
@@ -1367,35 +1366,35 @@ Si el elemento tiene menor prioridad que alguno de sus hijos, se intercambian lo
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 11,</span>
+<span class="c1">#         &#39;priority&#39;: 11,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Diana&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 11</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 18,</span>
+<span class="c1">#         &#39;priority&#39;: 18,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Bob&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 18</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 32,</span>
+<span class="c1">#         &#39;priority&#39;: 32,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 32</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 47,</span>
+<span class="c1">#         &#39;priority&#39;: 47,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Alice&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 47</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 22,</span>
+<span class="c1">#         &#39;priority&#39;: 22,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Charlie&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 22</span>
@@ -1418,28 +1417,28 @@ Si el elemento tiene menor prioridad que alguno de sus hijos, se intercambian lo
 <span class="c1">#     &#39;elements&#39;: [</span>
 <span class="c1">#       None,</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 18,</span>
+<span class="c1">#         &#39;priority&#39;: 18,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Bob&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 18</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 22,</span>
+<span class="c1">#         &#39;priority&#39;: 22,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Charlie&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 22</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 32,</span>
+<span class="c1">#         &#39;priority&#39;: 32,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;John&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 32</span>
 <span class="c1">#         }</span>
 <span class="c1">#       },</span>
 <span class="c1">#       {</span>
-<span class="c1">#         &#39;key&#39;: 47,</span>
+<span class="c1">#         &#39;priority&#39;: 47,</span>
 <span class="c1">#         &#39;value&#39;: {</span>
 <span class="c1">#           &#39;name&#39;: &#39;Alice&#39;,</span>
 <span class="c1">#           &#39;age&#39;: 47</span>
@@ -1453,6 +1452,48 @@ Si el elemento tiene menor prioridad que alguno de sus hijos, se intercambian lo
 <span class="c1"># }</span>
 </pre></div>
 </div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.contains">
+<span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.contains" title="Link to this definition"></a></dt>
+<dd><p>Busca si ya existe una entrada en el heap cuyo valor sea el value.
+Si existe se retorna True. En caso contrario, False.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<a class="reference internal" href="#priority-queue"><span class="std std-ref">priority_queue</span></a>) – El heap a revisar</p></li>
+<li><p><strong>value</strong> (<em>any</em>) – La parte valor de la entrada del heap que se esta buscando</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True/False.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.improve_priority">
+<span class="sig-name descname"><span class="pre">improve_priority</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">priority</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.improve_priority" title="Link to this definition"></a></dt>
+<dd><p>Mejorar la prioridad de la pq_entry que tenga el value dado. Funciona para MinPQ y MaxPQ.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<a class="reference internal" href="#priority-queue"><span class="std std-ref">priority_queue</span></a>) – El heap a revisar</p></li>
+<li><p><strong>priority</strong> (<em>int</em>) – La nueva prioridad de la pq_entry del heap. Esta prioridad debe ser mejor que la actual.</p></li>
+<li><p><strong>value</strong> (<em>any</em>) – El value de referencia de la pq_entry del heap que se quiere actualizar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El heap con la nueva pq_entry actualizada</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#priority-queue"><span class="std std-ref">priority_queue</span></a></p>
 </dd>
 </dl>
 </dd></dl>

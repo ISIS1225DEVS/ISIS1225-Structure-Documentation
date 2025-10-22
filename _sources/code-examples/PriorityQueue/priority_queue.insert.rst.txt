@@ -7,7 +7,7 @@
 
         # Crea una nueva cola de prioridad
         queue = pq.new_heap(True)
-        queue = pq.insert(queue, {'name': 'John', 'age': 25}, 25)
+        queue = pq.insert(queue, 25, {'name': 'John', 'age': 25})
 
         print(queue)
         # Salida esperada:
@@ -16,7 +16,7 @@
         #     'elements': [
         #       None,
         #       {
-        #         'key': 25,
+        #         'priority': 25,
         #         'value': {
         #           'name': 'John',
         #           'age': 25
@@ -39,7 +39,7 @@
                     columns 3
 
                     block:elements
-                        tag["heap (keys):"]
+                        tag["heap (priorities):"]
                         z["-"]
                         y["25"]
 
@@ -80,7 +80,7 @@
 
             # Crea una nueva cola de prioridad
             queue = pq.new_heap(True)
-            queue = pq.insert(queue, {'name': 'John', 'age': 25}, 25)
+            queue = pq.insert(queue, 25, {'name': 'John', 'age': 25})
 
             print(queue)
             # Salida esperada:
@@ -89,7 +89,7 @@
             #     'elements': [
             #       None,
             #       {
-            #         'key': 25,
+            #         'priority': 25,
             #         'value': {
             #           'name': 'John',
             #           'age': 25
@@ -112,7 +112,7 @@
                         columns 3
 
                         block:elements
-                            tag["heap (keys):"]
+                            tag["heap (priorities):"]
                             z["-"]
                             y["25"]
 
@@ -151,8 +151,8 @@
 
             # Crea una nueva cola de prioridad
             queue = pq.new_heap(True)
-            queue = pq.insert(queue, {'name': 'John', 'age': 25}, 25)
-            queue = pq.insert(queue, {'name': 'Jane', 'age': 30}, 30)
+            queue = pq.insert(queue, 25, {'name': 'John', 'age': 25})
+            queue = pq.insert(queue, 30, {'name': 'Jane', 'age': 30})
 
             print(queue)
             # Salida esperada:
@@ -161,14 +161,14 @@
             #     'elements': [
             #       None,
             #       {
-            #         'key': 25,
+            #         'priority': 25,
             #         'value': {
             #           'name': 'John',
             #           'age': 25
             #         }
             #       },
             #       {
-            #         'key': 30,
+            #         'priority': 30,
             #         'value': {
             #           'name': 'Jane',
             #           'age': 30
@@ -191,7 +191,7 @@
                         columns 3
 
                         block:elements
-                            tag["heap (keys):"]
+                            tag["heap (priorities):"]
                             z["-"]
                             y["25"]
                             x["30"]

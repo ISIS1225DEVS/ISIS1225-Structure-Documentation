@@ -7,10 +7,10 @@
 
         # Crea una nueva cola de prioridad
         queue = pq.new_heap(True)
-        queue = pq.insert(queue, {'name': 'John', 'age': 25}, 25)
-        queue = pq.insert(queue, {'name': 'Alice', 'age': 47}, 47)
-        queue = pq.insert(queue, {'name': 'Bob', 'age': 18}, 18)
-        queue = pq.insert(queue, {'name': 'Charlie', 'age': 22}, 22)
+        queue = pq.insert(queue, 25, {'name': 'John', 'age': 25})
+        queue = pq.insert(queue, 47, {'name': 'Alice', 'age': 47})
+        queue = pq.insert(queue, 18, {'name': 'Bob', 'age': 18})
+        queue = pq.insert(queue, 22, {'name': 'Charlie', 'age': 22})
         print(queue)
         # Salida esperada:
         # {
@@ -18,28 +18,28 @@
         #     'elements': [
         #       None,
         #       {
-        #         'key': 18,
+        #         'priority': 18,
         #         'value': {
         #           'name': 'Bob',
         #           'age': 18
         #         }
         #       },
         #       {
-        #         'key': 22,
+        #         'priority': 22,
         #         'value': {
         #           'name': 'Charlie',
         #           'age': 22
         #         }
         #       },
         #       {
-        #         'key': 25,
+        #         'priority': 25,
         #         'value': {
         #           'name': 'John',
         #           'age': 25
         #         }
         #       },
         #       {
-        #         'key': 47,
+        #         'priority': 47,
         #         'value': {
         #           'name': 'Alice',
         #           'age': 47
@@ -67,21 +67,21 @@
         #     'elements': [
         #       None,
         #       {
-        #         'key': 22,
+        #         'priority': 22,
         #         'value': {
         #           'name': 'Charlie',
         #           'age': 22
         #         }
         #       },
         #       {
-        #         'key': 47,
+        #         'priority': 47,
         #         'value': {
         #           'name': 'Alice',
         #           'age': 47
         #         }
         #       },
         #       {
-        #         'key': 25,
+        #         'priority': 25,
         #         'value': {
         #           'name': 'John',
         #           'age': 25

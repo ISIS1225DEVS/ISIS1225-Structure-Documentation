@@ -7,10 +7,10 @@
 
         # Crea una nueva cola de prioridad
         queue = pq.new_heap(True)
-        queue = pq.insert(queue, {'name': 'John', 'age': 32}, 32)
-        queue = pq.insert(queue, {'name': 'Alice', 'age': 47}, 47)
-        queue = pq.insert(queue, {'name': 'Bob', 'age': 18}, 18)
-        queue = pq.insert(queue, {'name': 'Charlie', 'age': 22}, 22)
+        queue = pq.insert(queue, 32, {'name': 'John', 'age': 32})
+        queue = pq.insert(queue, 47, {'name': 'Alice', 'age': 47})
+        queue = pq.insert(queue, 18, {'name': 'Bob', 'age': 18})
+        queue = pq.insert(queue, 22, {'name': 'Charlie', 'age': 22})
         print(queue)
         # Salida esperada:
         # {
@@ -18,28 +18,28 @@
         #     'elements': [
         #       None,
         #       {
-        #         'key': 18,
+        #         'priority': 18,
         #         'value': {
         #           'name': 'Bob',
         #           'age': 18
         #         }
         #       },
         #       {
-        #         'key': 22,
+        #         'priority': 22,
         #         'value': {
         #           'name': 'Charlie',
         #           'age': 22
         #         }
         #       },
         #       {
-        #         'key': 32,
+        #         'priority': 32,
         #         'value': {
         #           'name': 'John',
         #           'age': 32
         #         }
         #       },
         #       {
-        #         'key': 47,
+        #         'priority': 47,
         #         'value': {
         #           'name': 'Alice',
         #           'age': 47
@@ -52,7 +52,7 @@
         #   'cmp_function': <functiondefault_compare_lower_value>
         # }
 
-        queue = pq.insert(queue, {'name': 'Diana', 'age':11}, 11)
+        queue = pq.insert(queue, 11, {'name': 'Diana', 'age':11})
         print(queue)
         # Salida esperada:
         # {
@@ -60,35 +60,35 @@
         #     'elements': [
         #       None,
         #       {
-        #         'key': 11,
+        #         'priority': 11,
         #         'value': {
         #           'name': 'Diana',
         #           'age': 11
         #         }
         #       },
         #       {
-        #         'key': 18,
+        #         'priority': 18,
         #         'value': {
         #           'name': 'Bob',
         #           'age': 18
         #         }
         #       },
         #       {
-        #         'key': 32,
+        #         'priority': 32,
         #         'value': {
         #           'name': 'John',
         #           'age': 32
         #         }
         #       },
         #       {
-        #         'key': 47,
+        #         'priority': 47,
         #         'value': {
         #           'name': 'Alice',
         #           'age': 47
         #         }
         #       },
         #       {
-        #         'key': 22,
+        #         'priority': 22,
         #         'value': {
         #           'name': 'Charlie',
         #           'age': 22
@@ -112,7 +112,7 @@
                     columns 2
 
                     block:elements
-                        tag["heap (keys):"]
+                        tag["heap (priorities):"]
                         z["-"]
                         y["11"]
                         x["18"]
