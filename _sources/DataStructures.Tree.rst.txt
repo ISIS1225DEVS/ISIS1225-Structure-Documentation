@@ -491,7 +491,7 @@ binary\_search\_tree.py
 
 .. py:function:: contains(my_bst, key)
 
-   Informa si la llave key se encuentra en la tabla de hash.
+   Informa si la llave key se encuentra en la tabla de símbolos.
 
    Usa la función ``get()`` para buscar la llave en el arbol
 

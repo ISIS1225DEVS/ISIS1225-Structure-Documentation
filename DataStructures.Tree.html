@@ -810,7 +810,7 @@ Si la llave ya existe, se actualiza el <code class="docutils literal notranslate
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.rbt_node.contains">
 <span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_bst</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.rbt_node.contains" title="Link to this definition"></a></dt>
-<dd><p>Informa si la llave key se encuentra en la tabla de hash.</p>
+<dd><p>Informa si la llave key se encuentra en la tabla de símbolos.</p>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">get()</span></code> para buscar la llave en el arbol</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1556,7 +1556,7 @@ Usa la funcion <code class="docutils literal notranslate"><span class="pre">remo
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.contains">
 <span class="sig-name descname"><span class="pre">contains</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.contains" title="Link to this definition"></a></dt>
-<dd><p>Informa si la llave key se encuentra en la tabla de hash.</p>
+<dd><p>Informa si la llave key se encuentra en la tabla de símbolos.</p>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">get()</span></code> para buscar la llave en el arbol</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1693,10 +1693,6 @@ Usa la funcion <code class="docutils literal notranslate"><span class="pre">remo
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.get_min">
 <span class="sig-name descname"><span class="pre">get_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.get_min" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la izquierda de la tabla de simbolos</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
-</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">left_key_node()</span></code> para encontrar la llave más a la izquierda</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1715,10 +1711,6 @@ Usa la funcion <code class="docutils literal notranslate"><span class="pre">remo
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.get_min_node">
 <span class="sig-name descname"><span class="pre">get_min_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.get_min_node" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la izquierda de la tabla de simbolos</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
-</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">get_min()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">left_key_tree()</span></code> para encontrar la llave más a la izquierda</p>
 <dl class="field-list simple">
@@ -1738,10 +1730,6 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">lef
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.get_max">
 <span class="sig-name descname"><span class="pre">get_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.get_max" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la derecha de la tabla de simbolos</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
-</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">right_key_node()</span></code> para encontrar la llave más a la derecha del arbol</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1760,10 +1748,6 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">lef
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.get_max_node">
 <span class="sig-name descname"><span class="pre">get_max_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.get_max_node" title="Link to this definition"></a></dt>
 <dd><p>Retorna la llave mas a la derecha de la tabla de simbolos</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
-</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">get_max()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">get_max_node()</span></code> para encontrar la llave más a la derecha</p>
 <dl class="field-list simple">
@@ -1783,10 +1767,6 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">get
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_min">
 <span class="sig-name descname"><span class="pre">delete_min</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_min" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la izauierda de la tabla de simbolos y su valor asociado.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
-</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">delete_min_node()</span></code> para eliminar la llave más a la izquierda</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1805,10 +1785,6 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">get
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_max">
 <span class="sig-name descname"><span class="pre">delete_max</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_max" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la derecha de la tabla de simbolos y su valor asociado.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
-</div>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">delete_max_node()</span></code> para eliminar la llave más a la derecha</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1827,10 +1803,6 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">get
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_max_node">
 <span class="sig-name descname"><span class="pre">delete_max_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_max_node" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la derecha de la tabla de simbolos y su valor asociado.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación, la llave más a la derecha puede ser la menor o la mayor.</p>
-</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">delete_max()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">delete_max_node()</span></code> para eliminar la llave más a la derecha</p>
 <dl class="field-list simple">
@@ -2068,12 +2040,6 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">hei
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.keys">
 <span class="sig-name descname"><span class="pre">keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.keys" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas las llaves del arbol que se encuentren entre [key_initial, key_final].</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
-</div>
-<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
-Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">keys_range()</span></code> para encontrar las llaves en el rango especificado</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2096,12 +2062,6 @@ Si la función de comparación es la función inversa, el rango es [key_final, k
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.values">
 <span class="sig-name descname"><span class="pre">values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_rbt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.values" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas los valores del arbol que se encuentren entre [key_initial, key_final]</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
-</div>
-<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
-Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Usa la función <code class="docutils literal notranslate"><span class="pre">values_range()</span></code> para encontrar los valores en el rango especificado</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2124,12 +2084,6 @@ Si la función de comparación es la función inversa, el rango es [key_final, k
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.values_range">
 <span class="sig-name descname"><span class="pre">values_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.values_range" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas los valores del arbol que se encuentren entre [key_initial, key_final]</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
-</div>
-<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
-Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">values()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">values_range()</span></code> para encontrar los valores en el rango especificado</p>
 <dl class="field-list simple">
@@ -2153,13 +2107,15 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">val
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.rotate_left">
 <span class="sig-name descname"><span class="pre">rotate_left</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.rotate_left" title="Link to this definition"></a></dt>
-<dd><p>Rotación izquierda para compensar dos enlaces rojos consecutivos</p>
+<dd><p>Rota el hijo derecho de un nodo raíz:</p>
+<p>El hijo derecho queda como la nueva raíz, el nodo raíz original como hijo izquierdo de la nueva raíz y el nieto derecho-izquierdo original como el hijo derecho del nodo raíz original.</p>
+<p>Intercambia los colores entre el nodo raíz y su hijo derecho (originales).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_rbt</strong> – Nodo raiz del arbol a rotar</p>
+<dd class="field-odd"><p><strong>node_rbt</strong> – Nodo raíz del árbol a rotar</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El arbol rotado</p>
+<dd class="field-even"><p>La nueva raíz (después de la rotación)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>rbt_node</p>
@@ -2170,13 +2126,15 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">val
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.rotate_right">
 <span class="sig-name descname"><span class="pre">rotate_right</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.rotate_right" title="Link to this definition"></a></dt>
-<dd><p>Rotación a la derecha para compensar un hijo rojo a la derecha</p>
+<dd><p>Rota el hijo izquierdo de un nodo raíz:</p>
+<p>El hijo izquierdo queda como la nueva raíz, el nodo raíz original como hijo derecho de la nueva raíz y el nieto izquierdo-derecho original como el hijo izquierdo del nodo raíz original.</p>
+<p>Intercambia los colores entre el nodo raíz y su hijo izquierdo (originales).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node_rbt</strong> – Nodo raiz del arbol a rotar</p>
+<dd class="field-odd"><p><strong>node_rbt</strong> – Nodo raíz del árbol a rotar</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El arbol rotado</p>
+<dd class="field-even"><p>La nueva raíz (después de la rotación)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>rbt_node</p>
@@ -2221,7 +2179,8 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">val
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.is_red">
 <span class="sig-name descname"><span class="pre">is_red</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node_rbt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.is_red" title="Link to this definition"></a></dt>
-<dd><p>Indica si un nodo del arbol es rojo</p>
+<dd><p>Indica si un nodo del árbol es rojo</p>
+<p>Un nodo es rojo si existe (diferente de None) y su color es RED</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>node_rbt</strong> (<em>rbt_node</em>) – El nodo a examinar</p>
@@ -2257,12 +2216,6 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">val
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.keys_range">
 <span class="sig-name descname"><span class="pre">keys_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_initial</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_final</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_key</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.keys_range" title="Link to this definition"></a></dt>
 <dd><p>Retorna todas las llaves del arbol que se encuentren entre [key_initial, key_final].</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación y del orden de las llaves, el rango puede ser [key_final, key_initial].</p>
-</div>
-<p>Si la función de comparación es la función por defecto, el rango es [key_initial, key_final].
-Si la función de comparación es la función inversa, el rango es [key_final, key_initial].</p>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">keys()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">keys_range()</span></code> para encontrar las llaves en el rango especificado</p>
 <dl class="field-list simple">
@@ -2287,10 +2240,6 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">key
 <dt class="sig sig-object py" id="DataStructures.Tree.red_black_tree.delete_min_node">
 <span class="sig-name descname"><span class="pre">delete_min_node</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.red_black_tree.delete_min_node" title="Link to this definition"></a></dt>
 <dd><p>Encuentra y remueve la llave mas a la izquierda de la tabla de simbolos y su valor asociado</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Dependiendo de la definición de la función de comparación, la llave más a la izquierda puede ser la menor o la mayor.</p>
-</div>
 <p>Es usada en la función <code class="docutils literal notranslate"><span class="pre">delete_min()</span></code>
 Usa la función <code class="docutils literal notranslate"><span class="pre">delete_min_node()</span></code> para eliminar la llave más a la izquierda</p>
 <dl class="field-list simple">
@@ -2383,7 +2332,7 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">del
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.inorder">
 <span class="sig-name descname"><span class="pre">inorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_order_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.inorder" title="Link to this definition"></a></dt>
-<dd><p>Implementa un recorrido inorder de un arbol binario (tanto AVL como BST). El recorrido pasa por los nodos en el siguiente orden: izquierda, raiz, derecha.</p>
+<dd><p>Implementa un recorrido inorder de un arbol binario (tanto RBT como BST). El recorrido pasa por los nodos en el siguiente orden: izquierda, raiz, derecha.</p>
 <p>Usa la funcion <code class="docutils literal notranslate"><span class="pre">inorder_tree()</span></code> para realizar el recorrido.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2401,7 +2350,7 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">del
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.preorder">
 <span class="sig-name descname"><span class="pre">preorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_order_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.preorder" title="Link to this definition"></a></dt>
-<dd><p>Implementa un recorrido preorder de un arbol binario (tanto AVL como BST). El recorrido pasa por los nodos en el siguiente orden: raiz, izquierda, derecha.</p>
+<dd><p>Implementa un recorrido preorder de un arbol binario (tanto RBT como BST). El recorrido pasa por los nodos en el siguiente orden: raiz, izquierda, derecha.</p>
 <p>Usa la funcion <code class="docutils literal notranslate"><span class="pre">preorder_tree()</span></code> para realizar el recorrido.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2419,7 +2368,7 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">del
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.postorder">
 <span class="sig-name descname"><span class="pre">postorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_order_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.postorder" title="Link to this definition"></a></dt>
-<dd><p>Implementa un recorrido postorder de un arbol binario (tanto AVL como BST). El recorrido pasa por los nodos en el siguiente orden: izquierda, derecha, raiz.</p>
+<dd><p>Implementa un recorrido postorder de un arbol binario (tanto RBT como BST). El recorrido pasa por los nodos en el siguiente orden: izquierda, derecha, raiz.</p>
 <p>Usa la funcion <code class="docutils literal notranslate"><span class="pre">postorder_tree()</span></code> para realizar el recorrido.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2437,7 +2386,7 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">del
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.inorder_tree">
 <span class="sig-name descname"><span class="pre">inorder_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.inorder_tree" title="Link to this definition"></a></dt>
-<dd><p>Realiza un recorrido inorder de un arbol binario (tanto AVL como BST). El recorrido pasa por los nodos en el siguiente orden: izquierda, raiz, derecha.</p>
+<dd><p>Realiza un recorrido inorder de un arbol binario (tanto RBT como BST). El recorrido pasa por los nodos en el siguiente orden: izquierda, raiz, derecha.</p>
 <p>Es usada por las funciones <code class="docutils literal notranslate"><span class="pre">inorder()</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2458,7 +2407,7 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">del
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.postorder_tree">
 <span class="sig-name descname"><span class="pre">postorder_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.postorder_tree" title="Link to this definition"></a></dt>
-<dd><p>Realiza un recorrido postorder de un arbol binario (tanto AVL como BST). El recorrido pasa por los nodos en el siguiente orden: izquierda, derecha, raiz.</p>
+<dd><p>Realiza un recorrido postorder de un arbol binario (tanto RBT como BST). El recorrido pasa por los nodos en el siguiente orden: izquierda, derecha, raiz.</p>
 <p>Es usada por las funciones <code class="docutils literal notranslate"><span class="pre">postorder()</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -2479,7 +2428,7 @@ Usa la función <code class="docutils literal notranslate"><span class="pre">del
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Tree.tree_traversal.preorder_tree">
 <span class="sig-name descname"><span class="pre">preorder_tree</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Tree.tree_traversal.preorder_tree" title="Link to this definition"></a></dt>
-<dd><p>Realiza un recorrido preorder de un arbol binario (tanto AVL como BST). El recorrido pasa por los nodos en el siguiente orden: raiz, izquierda, derecha.</p>
+<dd><p>Realiza un recorrido preorder de un arbol binario (tanto RBT como BST). El recorrido pasa por los nodos en el siguiente orden: raiz, izquierda, derecha.</p>
 <p>Es usada por las funciones <code class="docutils literal notranslate"><span class="pre">preorder()</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

@@ -91,6 +91,7 @@ window.addEventListener("load", () => mermaid.run());
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.get_first_priority"><code class="docutils literal notranslate"><span class="pre">get_first_priority()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.remove"><code class="docutils literal notranslate"><span class="pre">remove()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.sink"><code class="docutils literal notranslate"><span class="pre">sink()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.is_present_value"><code class="docutils literal notranslate"><span class="pre">is_present_value()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.contains"><code class="docutils literal notranslate"><span class="pre">contains()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#DataStructures.Priority_queue.priority_queue.improve_priority"><code class="docutils literal notranslate"><span class="pre">improve_priority()</span></code></a></li>
 </ul>
@@ -1452,6 +1453,27 @@ Si el elemento tiene menor prioridad que alguno de sus hijos, se intercambian lo
 <span class="c1"># }</span>
 </pre></div>
 </div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Priority_queue.priority_queue.is_present_value">
+<span class="sig-name descname"><span class="pre">is_present_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_heap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Priority_queue.priority_queue.is_present_value" title="Link to this definition"></a></dt>
+<dd><p>Busca si ya existe una entrada en el heap cuyo valor sea el value.
+Si existe se retorna la posición de la entrada que contiene el value. Si No existe se retorna el valor -1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_heap</strong> (<a class="reference internal" href="#priority-queue"><span class="std std-ref">priority_queue</span></a>) – El heap a revisar</p></li>
+<li><p><strong>value</strong> (<em>any</em>) – La parte valor de la entrada del heap que se esta buscando</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Posición de la entrada si <code class="docutils literal notranslate"><span class="pre">value</span></code> está presente, -1 en caso contrario.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
 </dd>
 </dl>
 </dd></dl>
