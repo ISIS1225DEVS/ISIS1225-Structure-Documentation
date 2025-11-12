@@ -191,17 +191,17 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.vertex.new_vertex">
 <span class="sig-name descname"><span class="pre">new_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.vertex.new_vertex" title="Link to this definition"></a></dt>
-<dd><p>Crea un nuevo vertice con la clave <code class="docutils literal notranslate"><span class="pre">key</span></code> y el valor <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p>
+<dd><p>Crea un nuevo vertice con la llave <code class="docutils literal notranslate"><span class="pre">key</span></code>, el valor <code class="docutils literal notranslate"><span class="pre">value</span></code> y sus adyacentes vacio.</p>
 <p>El vertice es creado con los siguientes atributos:</p>
 <ul class="simple">
 <li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">key</span></code>: Llave del vertice.</p></li>
 <li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">value</span></code>: Valor del vertice.</p></li>
-<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">adjacents</span></code>: Lista de <a class="reference internal" href="#graph-edge"><span class="std std-ref">arcos</span></a> adyacentes al vertice. Implementada como un mapa <a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map_linear_probing</span></a>.</p></li>
+<li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">adjacents</span></code>: Mapa de <a class="reference internal" href="#graph-edge"><span class="std std-ref">arcos</span></a> adyacentes al vertice. Implementada como un mapa <a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map_linear_probing</span></a>.</p></li>
 </ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>key</strong> (<em>any</em>) – Clave del vertice</p></li>
+<li><p><strong>key</strong> (<em>any</em>) – Llave del vertice</p></li>
 <li><p><strong>value</strong> (<em>any</em>) – Valor del vertice</p></li>
 </ul>
 </dd>
@@ -428,20 +428,20 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.vertex.get_edge">
 <span class="sig-name descname"><span class="pre">get_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.vertex.get_edge" title="Link to this definition"></a></dt>
-<dd><p>Retorna el <a class="reference internal" href="#graph-edge"><span class="std std-ref">arco</span></a> adyacente en el vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code> con la clave <code class="docutils literal notranslate"><span class="pre">key_v</span></code>
+<dd><p>Retorna el <a class="reference internal" href="#graph-edge"><span class="std std-ref">edge</span></a> adyacente en el vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code> con la llave <code class="docutils literal notranslate"><span class="pre">key_v</span></code>
 Si no existe el arco, retorna None.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>vertex</strong> (<a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertex</span></a>) – Vértice del cual se quiere obtener un arco adyacente con el vértice <code class="docutils literal notranslate"><span class="pre">key_v</span></code></p></li>
-<li><p><strong>key_v</strong> (<em>any</em>) – Llave del vértice destino del arco que se busca con origel el <code class="docutils literal notranslate"><span class="pre">vertex['key']</span></code></p></li>
+<li><p><strong>key_v</strong> (<em>any</em>) – Llave del vértice destino del arco que se busca con origen el <code class="docutils literal notranslate"><span class="pre">vertex['key']</span></code></p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>El arco entre <code class="docutils literal notranslate"><span class="pre">vertex['key']</span></code> y <code class="docutils literal notranslate"><span class="pre">key_v</span></code>. Valor <code class="docutils literal notranslate"><span class="pre">None</span></code> si no existe.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map_linear_probing</span></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="#graph-edge"><span class="std std-ref">edge</span></a></p>
 </dd>
 </dl>
 <dl class="field-list">
@@ -790,7 +790,7 @@ Si no existe el arco, retorna None.</p>
 <dd><p>Crea un grafo dirigido vacio.</p>
 <p>Se crea un grafo con los siguientes atributos:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#DataStructures.Graph.digraph.vertices" title="DataStructures.Graph.digraph.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a>: Mapa con la lista de <a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertices</span></a> del grafo. Implementada como un mapa <a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map_linear_probing</span></a> con un tamaño inicial de <code class="docutils literal notranslate"><span class="pre">order</span></code>.</p></li>
+<li><p><a class="reference internal" href="#DataStructures.Graph.digraph.vertices" title="DataStructures.Graph.digraph.vertices"><code class="xref py py-attr docutils literal notranslate"><span class="pre">vertices</span></code></a>: Mapa con los <a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertices</span></a> del grafo. Implementada como un mapa <a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map_linear_probing</span></a> con un tamaño inicial de <code class="docutils literal notranslate"><span class="pre">order</span></code>.</p></li>
 <li><p><code class="xref py py-attr docutils literal notranslate"><span class="pre">num_edges</span></code>: Numero de <a class="reference internal" href="#graph-edge"><span class="std std-ref">arcos</span></a> del grafo. Inicializado en 0.</p></li>
 </ul>
 <dl class="field-list simple">
@@ -798,7 +798,7 @@ Si no existe el arco, retorna None.</p>
 <dd class="field-odd"><p><strong>order</strong> (<em>int</em>) – Numero de <a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertices</span></a> inicial del grafo.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Grafo recien creado</p>
+<dd class="field-even"><p>Grafo vacio (sin vertices ni arcos)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a></p>
@@ -859,7 +859,9 @@ Si no existe el arco, retorna None.</p>
 <dt class="sig sig-object py" id="DataStructures.Graph.digraph.insert_vertex">
 <span class="sig-name descname"><span class="pre">insert_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info_u</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.digraph.insert_vertex" title="Link to this definition"></a></dt>
 <dd><p>Agrega un nuevo vertice al grafo <code class="docutils literal notranslate"><span class="pre">my_graph</span></code>.</p>
-<p>Se crea un nuevo vertice con la llave <code class="docutils literal notranslate"><span class="pre">key_u</span></code> y la informacion <code class="docutils literal notranslate"><span class="pre">info_u</span></code>. Posteriomente, el vertice se agrega a la lista de vertices del grafo.</p>
+<p>Se crea un nuevo vertice con la llave <code class="docutils literal notranslate"><span class="pre">key_u</span></code>, la informacion <code class="docutils literal notranslate"><span class="pre">info_u</span></code> y con los adyacentes vacio.
+Posteriomente, el vertice se agrega al mapa de vertices del grafo.
+Nota: Si el vertice existe, se reemplaza toda su informacion.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1364,8 +1366,9 @@ Si no existe el arco, retorna None.</p>
 <dt class="sig sig-object py" id="DataStructures.Graph.digraph.update_vertex_info">
 <span class="sig-name descname"><span class="pre">update_vertex_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_info_u</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.digraph.update_vertex_info" title="Link to this definition"></a></dt>
 <dd><p>Actualiza la información del vertice con llave <code class="docutils literal notranslate"><span class="pre">key_u</span></code> con la nueva información <code class="docutils literal notranslate"><span class="pre">new_info_u</span></code>.</p>
-<p>Se busca el vertice en el grafo y se actualiza su información. Si el vertice no existe, se retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.
-Si el vertice existe, se actualiza la información y se retorna el grafo actualizado.</p>
+<p>Se busca el vertice en el grafo y se actualiza su información. 
+Si el vertice existe, se actualiza su información y se retorna el grafo actualizado.
+Si el vertice no existe, se retorna el grafo sin actualizar.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1375,7 +1378,7 @@ Si el vertice existe, se actualiza la información y se retorna el grafo actuali
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El grafo con la nueva informacion asociada al vertice</p>
+<dd class="field-even"><p>El grafo con la nueva informacion asociada al vertice (si existe)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a></p>
@@ -1687,9 +1690,10 @@ Si el vertice existe, se actualiza la información y se retorna el grafo actuali
 <dt class="sig sig-object py" id="DataStructures.Graph.digraph.remove_vertex">
 <span class="sig-name descname"><span class="pre">remove_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_u</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.digraph.remove_vertex" title="Link to this definition"></a></dt>
 <dd><p>Remueve el vertice con llave <code class="docutils literal notranslate"><span class="pre">key_u</span></code> del grafo <code class="docutils literal notranslate"><span class="pre">my_graph</span></code>.</p>
-<p>Se busca el vertice en el grafo y se elimina de la lista de vertices. Si el vertice no existe, se retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.
+<p>Se busca el vertice en el grafo y se elimina del mapa de vertices.
+Al eliminar un vertice se deben eliminar todos los arcos que salen y llegan al vertice.
 Si el vertice existe, se elimina y se retorna el grafo actualizado.
-Es importante tener en cuenta que al eliminar un vertice, se deben eliminar todos los arcos asociados a ese vertice.</p>
+Si el vertice no existe, se retorna el grafo sin actualizar.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -1709,17 +1713,17 @@ Es importante tener en cuenta que al eliminar un vertice, se deben eliminar todo
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.digraph.add_edge">
 <span class="sig-name descname"><span class="pre">add_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.digraph.add_edge" title="Link to this definition"></a></dt>
-<dd><p>Agrega un arco al grafo <code class="docutils literal notranslate"><span class="pre">my_graph</span></code> entre los vertices con llaves <code class="docutils literal notranslate"><span class="pre">key_u</span></code> y <code class="docutils literal notranslate"><span class="pre">key_v</span></code> con peso <code class="docutils literal notranslate"><span class="pre">weight</span></code>.</p>
+<dd><p>Agrega un arco dirigido al grafo <code class="docutils literal notranslate"><span class="pre">my_graph</span></code> del vertice con llave <code class="docutils literal notranslate"><span class="pre">key_u</span></code> al vertice con llave <code class="docutils literal notranslate"><span class="pre">key_v</span></code> con peso <code class="docutils literal notranslate"><span class="pre">weight</span></code>.</p>
 <p>Se busca el vertice <code class="docutils literal notranslate"><span class="pre">key_u</span></code> en el grafo y se verifica si existe. Si no existe, se lanza una excepcion.
 Se busca el vertice <code class="docutils literal notranslate"><span class="pre">key_v</span></code> en el grafo y se verifica si existe. Si no existe, se lanza una excepcion.
-Si ambos vertices existen, se agrega el arco entre ellos.
+Si ambos vertices existen y el arco NO existe, se agrega el arco de <code class="docutils literal notranslate"><span class="pre">key_u</span></code> a <code class="docutils literal notranslate"><span class="pre">key_v</span></code>.
 Si el arco ya existe, se reemplaza el peso del arco (NO se aceptan arcos paralelos).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>my_graph</strong> (<a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a>) – El grafo sobre el que se ejecuta la operacion</p></li>
-<li><p><strong>key_u</strong> (<em>any</em>) – Vertice de inicio</p></li>
-<li><p><strong>key_v</strong> (<em>any</em>) – Vertice destino</p></li>
+<li><p><strong>key_u</strong> (<em>any</em>) – Llave del vertice de inicio</p></li>
+<li><p><strong>key_v</strong> (<em>any</em>) – Llave del vertice destino</p></li>
 <li><p><strong>weight</strong> (<em>double</em>) – Peso del arco, por defecto 1</p></li>
 </ul>
 </dd>
@@ -1727,7 +1731,17 @@ Si el arco ya existe, se reemplaza el peso del arco (NO se aceptan arcos paralel
 <dd class="field-even"><p>El grafo con el nuevo arco</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a></p>
+<dd class="field-odd"><p><p><a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">class<span class="colon">:</span></dt>
+<dd class="field-odd"><p>important</p>
+</dd>
+</dl>
+<p>Para lanzar error si no se encuentran los vertices, use el siguiente código como referencia:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;El vertice no existe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</p>
 </dd>
 </dl>
 <div class="important admonition">
@@ -2392,29 +2406,32 @@ Si el arco ya existe, se reemplaza el peso del arco (NO se aceptan arcos paralel
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.digraph.get_edge">
 <span class="sig-name descname"><span class="pre">get_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_u</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.digraph.get_edge" title="Link to this definition"></a></dt>
-<dd><p>Retorna el arco asociado a los vertices con llave <code class="docutils literal notranslate"><span class="pre">key_u</span></code> a <code class="docutils literal notranslate"><span class="pre">key_v</span></code>.</p>
+<dd><p>Retorna el arco que conecta al vertice con llave <code class="docutils literal notranslate"><span class="pre">key_u</span></code> con el vertice con llave <code class="docutils literal notranslate"><span class="pre">key_v</span></code>.</p>
 <p>Si el vertice <code class="docutils literal notranslate"><span class="pre">key_u</span></code> no existe, se lanza una excepcion.
 Si el arco no existe, se retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<div class="important admonition">
-<p class="admonition-title">Importante</p>
-<p>Para lanzar error si no se encuentran los vertices, use el siguiente código como referencia:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;El vertice u no existe&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>my_graph</strong> (<a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a>) – El grafo sobre el que se ejecuta la operacion</p></li>
-<li><p><strong>key_u</strong> (<em>any</em>) – Vertice de inicio</p></li>
-<li><p><strong>key_v</strong> (<em>any</em>) – Vertice destino</p></li>
+<li><p><strong>key_u</strong> (<em>any</em>) – Llave del vertice de inicio</p></li>
+<li><p><strong>key_v</strong> (<em>any</em>) – Llave del vertice destino</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>El arco que une los verices key_u a key_v</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#graph-edge"><span class="std std-ref">edge</span></a></p>
+<dd class="field-odd"><p><p><a class="reference internal" href="#graph-edge"><span class="std std-ref">edge</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">class<span class="colon">:</span></dt>
+<dd class="field-odd"><p>important</p>
+</dd>
+</dl>
+<p>Para lanzar error si no se encuentran los vertices, use el siguiente código como referencia:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;El vertice no existe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</p>
 </dd>
 </dl>
 <dl class="field-list">
@@ -2445,15 +2462,8 @@ Si el arco no existe, se retorna <code class="docutils literal notranslate"><spa
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.digraph.get_vertex_information">
 <span class="sig-name descname"><span class="pre">get_vertex_information</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_u</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.digraph.get_vertex_information" title="Link to this definition"></a></dt>
-<dd><p>Retorna la informacion asociada al vertice con llave <code class="docutils literal notranslate"><span class="pre">key_u</span></code></p>
+<dd><p>Retorna la informacion (<code class="docutils literal notranslate"><span class="pre">value</span></code>) asociada al vertice con llave <code class="docutils literal notranslate"><span class="pre">key_u</span></code></p>
 <p>Si el vertice no existe, se lanza una excepcion.</p>
-<div class="important admonition">
-<p class="admonition-title">Importante</p>
-<p>Para lanzar error si no se encuentran los vertices, use el siguiente código como referencia:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;El vertice no existe&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2465,7 +2475,17 @@ Si el arco no existe, se retorna <code class="docutils literal notranslate"><spa
 <dd class="field-even"><p>La informacion asociada al vertice.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>any</p>
+<dd class="field-odd"><p><p>any</p>
+<dl class="field-list simple">
+<dt class="field-odd">class<span class="colon">:</span></dt>
+<dd class="field-odd"><p>important</p>
+</dd>
+</dl>
+<p>Para lanzar error si no se encuentran los vertices, use el siguiente código como referencia:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;El vertice no existe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</p>
 </dd>
 </dl>
 <dl class="field-list">
@@ -2544,13 +2564,6 @@ Si el arco no existe, se retorna <code class="docutils literal notranslate"><spa
 <p>Si el vertice no existe, se lanza una excepcion.
 Si el vertice existe, se retorna una lista con las llaves de los vertices adyacentes.
 Si no tiene vertices adyacentes, se retorna una lista vacia.</p>
-<div class="important admonition">
-<p class="admonition-title">Importante</p>
-<p>Para lanzar error si no se encuentran los vertices, use el siguiente código como referencia:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;El vertice no existe&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2562,7 +2575,17 @@ Si no tiene vertices adyacentes, se retorna una lista vacia.</p>
 <dd class="field-even"><p>La lista de vertices adyacencias. Retorna una lista vacia en caso de que el vertice no exista.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">class<span class="colon">:</span></dt>
+<dd class="field-odd"><p>important</p>
+</dd>
+</dl>
+<p>Para lanzar error si no se encuentran los vertices, use el siguiente código como referencia:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;El vertice no existe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</p>
 </dd>
 </dl>
 <dl class="field-list">
@@ -2611,13 +2634,6 @@ Si no tiene vertices adyacentes, se retorna una lista vacia.</p>
 <p>Si el vertice no existe, se lanza una excepcion.
 Si el vertice existe, se retorna una lista con los arcos asociados a los vertices adyacentes.
 Si no tiene arcos adyacentes, se retorna una lista vacia.</p>
-<div class="important admonition">
-<p class="admonition-title">Importante</p>
-<p>Para lanzar error si no se encuentran los vertices, use el siguiente código como referencia:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;El vertice no existe&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2629,7 +2645,17 @@ Si no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dd class="field-even"><p>La lista de arcos adyacentes. Retorna una lista vacia en caso de que el vertice no exista.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
+<dd class="field-odd"><p><p><a class="reference internal" href="DataStructures.List.html#array-list"><span class="std std-ref">array_list</span></a></p>
+<dl class="field-list simple">
+<dt class="field-odd">class<span class="colon">:</span></dt>
+<dd class="field-odd"><p>important</p>
+</dd>
+</dl>
+<p>Para lanzar error si no se encuentran los vertices, use el siguiente código como referencia:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;El vertice no existe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</p>
 </dd>
 </dl>
 <dl class="field-list">
@@ -2677,27 +2703,20 @@ Si no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.digraph.get_vertex">
 <span class="sig-name descname"><span class="pre">get_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_u</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.digraph.get_vertex" title="Link to this definition"></a></dt>
-<dd><p>Retorna el valor del vertice con llave <code class="docutils literal notranslate"><span class="pre">key_u</span></code>.</p>
-<p>Si el vertice no existe, se lanza una excepcion.</p>
-<div class="important admonition">
-<p class="admonition-title">Importante</p>
-<p>Para lanzar error si no se encuentran los vertices, use el siguiente código como referencia:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;El vertice no existe&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<dd><p>Retorna la informacion completa del vertice con llave <code class="docutils literal notranslate"><span class="pre">key_u</span></code>.</p>
+<p>Si el vertice no existe, se retorna <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo sobre el que se ejecuta la operacion</p></li>
-<li><p><strong>key_u</strong> (<em>any</em>) – Vertice del que se quiere la informacion</p></li>
+<li><p><strong>my_graph</strong> (<a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a>) – El grafo sobre el que se ejecuta la operacion</p></li>
+<li><p><strong>key_u</strong> (<em>any</em>) – Llave del vertice del que se quiere la informacion completa</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>El vertice. Retorna <code class="docutils literal notranslate"><span class="pre">None</span></code> en caso de que el vertice no exista.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>vertex</p>
+<dd class="field-odd"><p><a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertex</span></a></p>
 </dd>
 </dl>
 <dl class="field-list">
