@@ -432,10 +432,13 @@
 Si no existe el arco, retorna None.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>vertex</strong> (<a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertex</span></a>) – Vertice del cual se quiere obtener el mapa de arcos</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertex</strong> (<a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertex</span></a>) – Vértice del cual se quiere obtener un arco adyacente con el vértice <code class="docutils literal notranslate"><span class="pre">key_v</span></code></p></li>
+<li><p><strong>key_v</strong> (<em>any</em>) – Llave del vértice destino del arco que se busca con origel el <code class="docutils literal notranslate"><span class="pre">vertex['key']</span></code></p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Mapa con la lista de arcos adyacentes vertice</p>
+<dd class="field-even"><p>El arco entre <code class="docutils literal notranslate"><span class="pre">vertex['key']</span></code> y <code class="docutils literal notranslate"><span class="pre">key_v</span></code>. Valor <code class="docutils literal notranslate"><span class="pre">None</span></code> si no existe.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map_linear_probing</span></a></p>
@@ -2403,12 +2406,12 @@ Si el arco no existe, se retorna <code class="docutils literal notranslate"><spa
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>my_graph</strong> (<a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a>) – El grafo sobre el que se ejecuta la operacion</p></li>
-<li><p><strong>key_u</strong> (<em>any</em>) – Vértice del cual se quiere obtener un arco adyacente con el vértice <code class="docutils literal notranslate"><span class="pre">key_v</span></code></p></li>
-<li><p><strong>key_v</strong> (<em>any</em>) – Llave del vértice destino del arco que se busca con origen el <code class="docutils literal notranslate"><span class="pre">vertex['key']</span></code></p></li>
+<li><p><strong>key_u</strong> (<em>any</em>) – Vertice de inicio</p></li>
+<li><p><strong>key_v</strong> (<em>any</em>) – Vertice destino</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El arco entre <code class="docutils literal notranslate"><span class="pre">vertex['key']</span></code> y <code class="docutils literal notranslate"><span class="pre">key_v</span></code>. Valor <code class="docutils literal notranslate"><span class="pre">None</span></code> si no existe.</p>
+<dd class="field-even"><p>El arco que une los verices key_u a key_v</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#graph-edge"><span class="std std-ref">edge</span></a></p>
