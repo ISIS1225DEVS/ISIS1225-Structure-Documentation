@@ -473,13 +473,13 @@ Si no existe el arco, retorna None.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.vertex.add_adjacent">
-<span class="sig-name descname"><span class="pre">add_adjacent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.vertex.add_adjacent" title="Link to this definition"></a></dt>
-<dd><p>Agrega un <a class="reference internal" href="#graph-edge"><span class="std std-ref">arco</span></a> al vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code> con el vertice <code class="docutils literal notranslate"><span class="pre">key_vertex</span></code> y el peso <code class="docutils literal notranslate"><span class="pre">weight</span></code></p>
+<span class="sig-name descname"><span class="pre">add_adjacent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">key_to_vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.vertex.add_adjacent" title="Link to this definition"></a></dt>
+<dd><p>Agrega un <a class="reference internal" href="#graph-edge"><span class="std std-ref">arco</span></a> en el vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code> hacia el vertice con llave <code class="docutils literal notranslate"><span class="pre">key_to_vertex</span></code> y peso <code class="docutils literal notranslate"><span class="pre">weight</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>vertex</strong> (<a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertex</span></a>) – Vertice al cual se le quiere agregar el arco</p></li>
-<li><p><strong>key_vertex</strong> (<em>any</em>) – Clave del vertice al cual se le quiere agregar el arco</p></li>
+<li><p><strong>vertex</strong> (<a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertex</span></a>) – Vertice origen del nuevo arco</p></li>
+<li><p><strong>key_to_vertex</strong> (<em>any</em>) – Llave del vertice destino del nuevo arco</p></li>
 <li><p><strong>weight</strong> (<em>double</em>) – Peso del arco</p></li>
 </ul>
 </dd>
@@ -610,10 +610,10 @@ Si no existe el arco, retorna None.</p>
 <dd><p>Retorna el grado del vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>vertex</strong> (<a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertex</span></a>) – Vertice del cual se quiere obtener el grado</p>
+<dd class="field-odd"><p><strong>vertex</strong> (<a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertex</span></a>) – Vertice de consulta</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Grado del vertice</p>
+<dd class="field-even"><p>Grado del vertice (equivale al numero de sus adyacentes)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>int</p>
