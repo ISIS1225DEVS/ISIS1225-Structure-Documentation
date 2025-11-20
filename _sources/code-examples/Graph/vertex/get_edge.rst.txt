@@ -6,18 +6,21 @@
         from DataStructures.Graph import vertex as V
 
         # Crear un nuevo vertice
-        key_u = "KEYU"
-        key_v = "KEYV"
-        key_w = "KEYW"
+        key_u = "KEY_U"
         vertex_u = V.new_vertex(key_u, {"nombre": "Vertice U"})
+
+        # llaves de vertices existentes
+        key_v = "KEY_V"
+        key_w = "KEY_W"
+        key_x = "KEY_X"
 
         V.add_adjacent(vertex_u, key_v, 10)
         V.add_adjacent(vertex_u, key_w, 15)
 
-        # Obtener el vertice adyacente
-        print(V.get_edge(vertex_u, vertex_v))
-        # Salida esperada: {'to': 'KEYV', 'weight': 10}
+        # Obtener el arco con vertice adyacente
+        print(V.get_edge(vertex_u, key_v))
+        # Salida esperada: {'to': 'KEY_V', 'weight': 10}
 
-        # Obtener el vertice no adyacente
-        print(V.get_edge(vertex_u, "KEYX"))
+        # Obtener arco con vertice no adyacente
+        print(V.get_edge(vertex_u, key_x))
         # Salida esperada: None

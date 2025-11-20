@@ -6,13 +6,13 @@
         from DataStructures.Graph import vertex as V
 
         # Crear un nuevo vertice
-        key_u = 1
-        key_v = 2
-        key_w = 3
+        key_u = "KEY_U"
+        key_v = "KEY_V"
+        key_w = "KEY_W"
         vertex_u = V.new_vertex(key_u, {"nombre": "Vertice U"})
 
-        V.add_adjacent(key_u, key_v, 10)
-        V.add_adjacent(key_u, key_w, 15)
+        V.add_adjacent(vertex_u, key_v, 10)
+        V.add_adjacent(vertex_u, key_w, 15)
 
         print(V.get_adjacents(vertex_u))
         # Salida esperada:
@@ -28,9 +28,9 @@
         #         'value': None
         #       },
         #       {
-        #         'key': 'KEYV',
+        #         'key': 'KEY_V',
         #         'value': {
-        #           'to': 'KEYV',
+        #           'to': 'KEY_V',
         #           'weight': 10
         #         }
         #       },
@@ -39,10 +39,10 @@
         #         'value': None
         #       },
         #       {
-        #         'key': 'KEYW',
+        #         'key': 'KEY_W',
         #         'value': {
-        #           'to': 'KEYW',
-        #           'weight': 10
+        #           'to': 'KEY_W',
+        #           'weight': 15
         #         }
         #       },
         #       {
