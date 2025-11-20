@@ -34,7 +34,7 @@
             print(G.size(my_graph))
             # Salida esperada: 0
 
-    - **Grafo con varios**: Se crea un grafo con varios vertices y arcos.
+    - **Grafo con varios vertices y arcos**: Se crea un grafo con varios vertices y arcos.
 
         .. code-block:: python
             :linenos:
