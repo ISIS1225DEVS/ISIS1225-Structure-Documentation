@@ -8,13 +8,15 @@
 
         def pruebas():
             # Crear un grafo no dirigido
-            my_graph = G.new_graph(0)
+            my_graph = G.new_graph(3)
             my_graph = G.insert_vertex(my_graph, "Bogotá", {})
             my_graph = G.insert_vertex(my_graph, "Medellín", {})
             my_graph = G.insert_vertex(my_graph, "Cali", {})
 
             my_graph = G.add_edge(my_graph, "Bogotá", "Medellín", 3)
+            my_graph = G.add_edge(my_graph, "Medellín", "Bogotá", 3)
             my_graph = G.add_edge(my_graph, "Bogotá", "Cali", 1)
+            my_graph = G.add_edge(my_graph, "Cali", "Bogotá", 1)
 
             # Ejecutar algoritmo de Prim desde "Bogotá"
             resultado = PRIM.prim_mst(my_graph, "Bogotá")

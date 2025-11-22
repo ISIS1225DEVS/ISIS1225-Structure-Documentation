@@ -5,26 +5,28 @@
 
         from DataStructures.Graph import digraph as G
         from DataStructures.Graph import prim as PRIM
-        from DataStructures.Queue import queue as queue
+        from DataStructures.List import array_list as lt
 
         def pruebas():
-            my_graph = G.new_graph(0)
+            my_graph = G.new_graph(3)
             my_graph = G.insert_vertex(my_graph, "Bogotá", {})
             my_graph = G.insert_vertex(my_graph, "Medellín", {})
             my_graph = G.insert_vertex(my_graph, "Cali", {})
 
             my_graph = G.add_edge(my_graph, "Bogotá", "Medellín", 3)
+            my_graph = G.add_edge(my_graph, "Medellín", "Bogotá", 3)
             my_graph = G.add_edge(my_graph, "Bogotá", "Cali", 1)
+            my_graph = G.add_edge(my_graph, "Cali", "Bogotá", 1)
 
             resultado = PRIM.prim_mst(my_graph, "Bogotá")
-            mst = PRIM.edges_mst(my_graph, resultado)
+            edges = PRIM.edges_mst(my_graph, resultado)
 
             print("Arcos del MST:")
-            while not queue.is_empty(mst):
-                arco = queue.dequeue(mst)
+            for i in range(lt.size(edges)):
+                arco = lt.get_element(edges, i)
                 print(arco)
 
         # Salida esperada:
         # Arcos del MST:
-        # {'Medellín', 'Bogotá'}
-        # {'Cali', 'Bogotá'}
+        # {'edge_from':'Bogotá', 'to':'Medellín', 'dist_to':3}
+        # {'edge_from':'Bogotá', 'to':'Cali', 'dist_to':1}

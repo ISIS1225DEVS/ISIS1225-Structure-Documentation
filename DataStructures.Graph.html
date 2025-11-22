@@ -3305,11 +3305,11 @@ Crea una estructura de busqueda <code class="docutils literal notranslate"><span
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.prim.prim_mst">
 <span class="sig-name descname"><span class="pre">prim_mst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.prim.prim_mst" title="Link to this definition"></a></dt>
-<dd><p>Implementa el algoritmo de Prim para encontrar el arbol de expansion minima
+<dd><p>Implementa el algoritmo de Prim para encontrar el arbol de expansion minima (MST)
 de un grafo no dirigido. El algoritmo inicia en el vertice con llave source y
-va agregando arcos de menor peso que conecten vertices que no esten en el arbol
-de expansion minima. El algoritmo termina cuando todos los vertices alcanzables estan en el arbol
-de expansion minima. El algoritmo es similar al algoritmo de Dijkstra, pero en lugar
+va agregando arcos de menor peso que conecten vertices que no esten en el MST.
+El algoritmo termina cuando todos los vertices alcanzables estan en el MST. 
+El algoritmo es similar al algoritmo de Dijkstra, pero en lugar
 de agregar vertices al arbol de expansion minima, se agregan arcos de costo minimo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -3319,12 +3319,11 @@ de agregar vertices al arbol de expansion minima, se agregan arcos de costo mini
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Estructura resultante con la información para llegar a cada vertice alcanzable desde el vertice <code class="docutils literal notranslate"><span class="pre">source</span></code> aplicando Prim</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>prim_structure</p>
+<dd class="field-even"><p>Estructura resultante con la información para llegar a cada vertice</p>
 </dd>
 </dl>
+<p>alcanzable desde el vertice <code class="docutils literal notranslate"><span class="pre">source</span></code> aplicando Prim
+:rtype: prim_structure</p>
 <dl class="field-list">
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
@@ -3332,44 +3331,46 @@ de agregar vertices al arbol de expansion minima, se agregan arcos de costo mini
 <span class="linenos"> 3</span>
 <span class="linenos"> 4</span><span class="k">def</span><span class="w"> </span><span class="nf">pruebas</span><span class="p">():</span>
 <span class="linenos"> 5</span>    <span class="c1"># Crear un grafo no dirigido</span>
-<span class="linenos"> 6</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 6</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="linenos"> 7</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="p">{})</span>
 <span class="linenos"> 8</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="p">{})</span>
 <span class="linenos"> 9</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{})</span>
 <span class="linenos">10</span>
 <span class="linenos">11</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="linenos">12</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="linenos">13</span>
-<span class="linenos">14</span>    <span class="c1"># Ejecutar algoritmo de Prim desde &quot;Bogotá&quot;</span>
-<span class="linenos">15</span>    <span class="n">resultado</span> <span class="o">=</span> <span class="n">PRIM</span><span class="o">.</span><span class="n">prim_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
-<span class="linenos">16</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estructura devuelta por prim_mst:&quot;</span><span class="p">)</span>
-<span class="linenos">17</span>    <span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
-<span class="linenos">18</span>
-<span class="linenos">19</span><span class="c1"># Salida esperada (estructura prim_structure):</span>
-<span class="linenos">20</span><span class="c1"># {</span>
-<span class="linenos">21</span><span class="c1">#     &#39;source&#39;: &#39;Bogotá&#39;,</span>
-<span class="linenos">22</span><span class="c1">#     &#39;visited&#39;: {</span>
-<span class="linenos">23</span><span class="c1">#         &#39;prime&#39;: 109345121,</span>
-<span class="linenos">24</span><span class="c1">#         &#39;capacity&#39;: 7,</span>
-<span class="linenos">25</span><span class="c1">#         &#39;scale&#39;: ...,</span>
-<span class="linenos">26</span><span class="c1">#         &#39;shift&#39;: ...,</span>
-<span class="linenos">27</span><span class="c1">#         &#39;table&#39;: {</span>
-<span class="linenos">28</span><span class="c1">#             &#39;elements&#39;: [</span>
-<span class="linenos">29</span><span class="c1">#                 {&#39;key&#39;: &#39;Bogotá&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:0.0, &#39;marked&#39;:True},</span>
-<span class="linenos">30</span><span class="c1">#                 {&#39;key&#39;: &#39;Cali&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:1, &#39;marked&#39;:True},</span>
-<span class="linenos">31</span><span class="c1">#                 {&#39;key&#39;: &#39;Medellín&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:3, &#39;marked&#39;:True},</span>
-<span class="linenos">32</span><span class="c1">#                 ...</span>
-<span class="linenos">33</span><span class="c1">#             ],</span>
-<span class="linenos">34</span><span class="c1">#             &#39;size&#39;: 7</span>
-<span class="linenos">35</span><span class="c1">#         },</span>
-<span class="linenos">36</span><span class="c1">#         &#39;size&#39;: 3</span>
-<span class="linenos">37</span><span class="c1">#     },</span>
-<span class="linenos">38</span><span class="c1">#     &#39;pq&#39;: {</span>
-<span class="linenos">39</span><span class="c1">#         &#39;elements&#39;: {&#39;elements&#39;: [None], &#39;size&#39;: 1},</span>
-<span class="linenos">40</span><span class="c1">#         &#39;size&#39;: 0,</span>
-<span class="linenos">41</span><span class="c1">#         &#39;cmp_function&#39;: &lt;function cmp_function_lower_value at ...&gt;</span>
-<span class="linenos">42</span><span class="c1">#     }</span>
-<span class="linenos">43</span><span class="c1"># }</span>
+<span class="linenos">12</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos">13</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">14</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>    <span class="c1"># Ejecutar algoritmo de Prim desde &quot;Bogotá&quot;</span>
+<span class="linenos">17</span>    <span class="n">resultado</span> <span class="o">=</span> <span class="n">PRIM</span><span class="o">.</span><span class="n">prim_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
+<span class="linenos">18</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estructura devuelta por prim_mst:&quot;</span><span class="p">)</span>
+<span class="linenos">19</span>    <span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="c1"># Salida esperada (estructura prim_structure):</span>
+<span class="linenos">22</span><span class="c1"># {</span>
+<span class="linenos">23</span><span class="c1">#     &#39;source&#39;: &#39;Bogotá&#39;,</span>
+<span class="linenos">24</span><span class="c1">#     &#39;visited&#39;: {</span>
+<span class="linenos">25</span><span class="c1">#         &#39;prime&#39;: 109345121,</span>
+<span class="linenos">26</span><span class="c1">#         &#39;capacity&#39;: 7,</span>
+<span class="linenos">27</span><span class="c1">#         &#39;scale&#39;: ...,</span>
+<span class="linenos">28</span><span class="c1">#         &#39;shift&#39;: ...,</span>
+<span class="linenos">29</span><span class="c1">#         &#39;table&#39;: {</span>
+<span class="linenos">30</span><span class="c1">#             &#39;elements&#39;: [</span>
+<span class="linenos">31</span><span class="c1">#                 {&#39;key&#39;: &#39;Bogotá&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:0.0, &#39;marked&#39;:True},</span>
+<span class="linenos">32</span><span class="c1">#                 {&#39;key&#39;: &#39;Cali&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:1, &#39;marked&#39;:True},</span>
+<span class="linenos">33</span><span class="c1">#                 {&#39;key&#39;: &#39;Medellín&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:3, &#39;marked&#39;:True},</span>
+<span class="linenos">34</span><span class="c1">#                 ...</span>
+<span class="linenos">35</span><span class="c1">#             ],</span>
+<span class="linenos">36</span><span class="c1">#             &#39;size&#39;: 7</span>
+<span class="linenos">37</span><span class="c1">#         },</span>
+<span class="linenos">38</span><span class="c1">#         &#39;size&#39;: 3</span>
+<span class="linenos">39</span><span class="c1">#     },</span>
+<span class="linenos">40</span><span class="c1">#     &#39;pq&#39;: {</span>
+<span class="linenos">41</span><span class="c1">#         &#39;elements&#39;: {&#39;elements&#39;: [None], &#39;size&#39;: 1},</span>
+<span class="linenos">42</span><span class="c1">#         &#39;size&#39;: 0,</span>
+<span class="linenos">43</span><span class="c1">#         &#39;cmp_function&#39;: &lt;function cmp_function_lower_value at ...&gt;</span>
+<span class="linenos">44</span><span class="c1">#     }</span>
+<span class="linenos">45</span><span class="c1"># }</span>
 </pre></div>
 </div>
 </dd>
@@ -3388,7 +3389,7 @@ de agregar vertices al arbol de expansion minima, se agregan arcos de costo mini
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>my_graph</strong> (<em>digraph</em>) – El grafo a examinar</p></li>
-<li><p><strong>search</strong> (<em>prim_structure</em>) – La estructura de busqueda</p></li>
+<li><p><strong>aux_structure</strong> (<em>prim_structure</em>) – La estructura de busqueda resultante</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -3402,29 +3403,31 @@ de agregar vertices al arbol de expansion minima, se agregan arcos de costo mini
 <dt class="field-odd">Example<span class="colon">:</span></dt>
 <dd class="field-odd"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
 <span class="linenos"> 2</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">prim</span> <span class="k">as</span> <span class="n">PRIM</span>
-<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Queue</span><span class="w"> </span><span class="kn">import</span> <span class="n">queue</span> <span class="k">as</span> <span class="n">queue</span>
+<span class="linenos"> 3</span><span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">lt</span>
 <span class="linenos"> 4</span>
 <span class="linenos"> 5</span><span class="k">def</span><span class="w"> </span><span class="nf">pruebas</span><span class="p">():</span>
-<span class="linenos"> 6</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="linenos"> 6</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="linenos"> 7</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="p">{})</span>
 <span class="linenos"> 8</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="p">{})</span>
 <span class="linenos"> 9</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="p">{})</span>
 <span class="linenos">10</span>
 <span class="linenos">11</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="linenos">12</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="linenos">13</span>
-<span class="linenos">14</span>    <span class="n">resultado</span> <span class="o">=</span> <span class="n">PRIM</span><span class="o">.</span><span class="n">prim_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
-<span class="linenos">15</span>    <span class="n">mst</span> <span class="o">=</span> <span class="n">PRIM</span><span class="o">.</span><span class="n">edges_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="n">resultado</span><span class="p">)</span>
-<span class="linenos">16</span>
-<span class="linenos">17</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arcos del MST:&quot;</span><span class="p">)</span>
-<span class="linenos">18</span>    <span class="k">while</span> <span class="ow">not</span> <span class="n">queue</span><span class="o">.</span><span class="n">is_empty</span><span class="p">(</span><span class="n">mst</span><span class="p">):</span>
-<span class="linenos">19</span>        <span class="n">arco</span> <span class="o">=</span> <span class="n">queue</span><span class="o">.</span><span class="n">dequeue</span><span class="p">(</span><span class="n">mst</span><span class="p">)</span>
-<span class="linenos">20</span>        <span class="nb">print</span><span class="p">(</span><span class="n">arco</span><span class="p">)</span>
-<span class="linenos">21</span>
-<span class="linenos">22</span><span class="c1"># Salida esperada:</span>
-<span class="linenos">23</span><span class="c1"># Arcos del MST:</span>
-<span class="linenos">24</span><span class="c1"># {&#39;Medellín&#39;, &#39;Bogotá&#39;}</span>
-<span class="linenos">25</span><span class="c1"># {&#39;Cali&#39;, &#39;Bogotá&#39;}</span>
+<span class="linenos">12</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="linenos">13</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">14</span>    <span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="linenos">15</span>
+<span class="linenos">16</span>    <span class="n">resultado</span> <span class="o">=</span> <span class="n">PRIM</span><span class="o">.</span><span class="n">prim_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
+<span class="linenos">17</span>    <span class="n">edges</span> <span class="o">=</span> <span class="n">PRIM</span><span class="o">.</span><span class="n">edges_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="n">resultado</span><span class="p">)</span>
+<span class="linenos">18</span>
+<span class="linenos">19</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Arcos del MST:&quot;</span><span class="p">)</span>
+<span class="linenos">20</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">lt</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">edges</span><span class="p">)):</span>
+<span class="linenos">21</span>        <span class="n">arco</span> <span class="o">=</span> <span class="n">lt</span><span class="o">.</span><span class="n">get_element</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<span class="linenos">22</span>        <span class="nb">print</span><span class="p">(</span><span class="n">arco</span><span class="p">)</span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="c1"># Salida esperada:</span>
+<span class="linenos">25</span><span class="c1"># Arcos del MST:</span>
+<span class="linenos">26</span><span class="c1"># {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;to&#39;:&#39;Medellín&#39;, &#39;dist_to&#39;:3}</span>
+<span class="linenos">27</span><span class="c1"># {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;to&#39;:&#39;Cali&#39;, &#39;dist_to&#39;:1}</span>
 </pre></div>
 </div>
 </dd>
@@ -3443,11 +3446,11 @@ de agregar vertices al arbol de expansion minima, se agregan arcos de costo mini
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>my_graph</strong> (<em>digraph</em>) – El grafo a examinar</p></li>
-<li><p><strong>search</strong> (<em>prim_structure</em>) – La estructura de busqueda</p></li>
+<li><p><strong>aux_structure</strong> (<em>prim_structure</em>) – La estructura de busqueda resultante</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El peso total del arbol de expansion minima</p>
+<dd class="field-even"><p>El peso total del arbol de expansion minima (MST)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>float</p>
@@ -3463,8 +3466,8 @@ de agregar vertices al arbol de expansion minima, se agregan arcos de costo mini
 <span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">digraph</span> <span class="k">as</span> <span class="n">G</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Graph</span><span class="w"> </span><span class="kn">import</span> <span class="n">prim</span> <span class="k">as</span> <span class="n">prim</span>
 
-<span class="c1"># Crear un grafo</span>
-<span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Crear un grafo No dirigido</span>
+<span class="n">my_graph</span> <span class="o">=</span> <span class="n">G</span><span class="o">.</span><span class="n">new_graph</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="c1"># Agregar vértices con su información</span>
 <span class="n">G</span><span class="o">.</span><span class="n">insert_vertex</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;nombre&quot;</span><span class="p">:</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;poblacion&quot;</span><span class="p">:</span> <span class="mi">7400000</span><span class="p">})</span>
@@ -3476,13 +3479,19 @@ de agregar vertices al arbol de expansion minima, se agregan arcos de costo mini
 
 <span class="c1"># Agregar aristas con distancias</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">415</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">415</span><span class="p">)</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">468</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">,</span> <span class="mi">468</span><span class="p">)</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">412</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">412</span><span class="p">)</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">738</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;Medellín&quot;</span><span class="p">,</span> <span class="mi">738</span><span class="p">)</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">1020</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;Cali&quot;</span><span class="p">,</span> <span class="mi">1020</span><span class="p">)</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Cartagena&quot;</span><span class="p">,</span> <span class="s2">&quot;Barranquilla&quot;</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
 
-<span class="c1"># Ejecutar algoritmo de Dijkstra desde Bogotá</span>
+<span class="c1"># Ejecutar algoritmo de Prim desde Bogotá</span>
 <span class="n">structure</span> <span class="o">=</span> <span class="n">prim</span><span class="o">.</span><span class="n">prim_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogotá&quot;</span><span class="p">)</span>
 <span class="n">weight</span> <span class="o">=</span> <span class="n">prim</span><span class="o">.</span><span class="n">weight_mst</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="n">structure</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;Peso del MST: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">weight</span><span class="p">))</span>
@@ -3905,10 +3914,12 @@ vertex: El vertice de destino</p>
 <dt class="sig sig-object py" id="DataStructures.Graph.prim_structure.new_prim_structure">
 <span class="sig-name descname"><span class="pre">new_prim_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g_order</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.prim_structure.new_prim_structure" title="Link to this definition"></a></dt>
 <dd><p>Crea una estructura de busqueda usada en el algoritmo <strong>prim</strong>.</p>
-<p>Se crea una estructura de busqueda con los siguientes atributos:
-- <strong>source</strong>: Llave del vertice de origen. Se inicializa con el parametro <code class="docutils literal notranslate"><span class="pre">source</span></code>
-- <strong>visited</strong>: Mapa con los vertices visitados. Inicialmente vacia.
-- <strong>pq</strong>: Cola de prioridad con los vertices por visitar. Inicialmente vacia.</p>
+<p>Se crea una estructura de busqueda con los siguientes atributos:</p>
+<ul class="simple">
+<li><p><strong>source</strong>: Llave del vertice de origen. Se inicializa con el parametro <code class="docutils literal notranslate"><span class="pre">source</span></code></p></li>
+<li><p><strong>visited</strong>: Mapa con los vertices visitados. Inicialmente vacia.</p></li>
+<li><p><strong>pq</strong>: Cola de prioridad orientada a menor (Min-PQ) con los vertices por visitar. Inicialmente vacia.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
