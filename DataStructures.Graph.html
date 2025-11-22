@@ -351,7 +351,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.vertex.get_adjacents">
 <span class="sig-name descname"><span class="pre">get_adjacents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.vertex.get_adjacents" title="Link to this definition"></a></dt>
-<dd><p>Retorna el mapa con los arcos:ref:<cite>map_linear_probing&lt;map-linear-probing&gt;</cite> del vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code></p>
+<dd><p>Retorna el mapa con los arcos <a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map_linear_probing</span></a> del vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code></p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>vertex</strong> (<a class="reference internal" href="#graph-vertex"><span class="std std-ref">vertex</span></a>) – Vertice del cual se quiere obtener el mapa de arcos</p>
@@ -3306,23 +3306,23 @@ Crea una estructura de busqueda <code class="docutils literal notranslate"><span
 <dt class="sig sig-object py" id="DataStructures.Graph.prim.prim_mst">
 <span class="sig-name descname"><span class="pre">prim_mst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.prim.prim_mst" title="Link to this definition"></a></dt>
 <dd><p>Implementa el algoritmo de Prim para encontrar el arbol de expansion minima
-de un grafo no dirigido y conexo. El algoritmo inicia en el vertice source y
+de un grafo no dirigido. El algoritmo inicia en el vertice con llave source y
 va agregando arcos de menor peso que conecten vertices que no esten en el arbol
-de expansion minima. El algoritmo termina cuando todos los vertices estan en el arbol
+de expansion minima. El algoritmo termina cuando todos los vertices alcanzables estan en el arbol
 de expansion minima. El algoritmo es similar al algoritmo de Dijkstra, pero en lugar
-de agregar vertices al arbol de expansion minima, se agregan arcos.</p>
+de agregar vertices al arbol de expansion minima, se agregan arcos de costo minimo.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo a examinar</p></li>
-<li><p><strong>source</strong> (<em>any</em>) – El vertice fuente</p></li>
+<li><p><strong>my_graph</strong> (<em>digraph</em>) – El grafo a examinar</p></li>
+<li><p><strong>source</strong> (<em>any</em>) – La llave del vertice inicial</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>La estructura search con los MST</p>
+<dd class="field-even"><p>Estructura resultante con la información para llegar a cada vertice alcanzable desde el vertice <code class="docutils literal notranslate"><span class="pre">source</span></code> aplicando Prim</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>prim_search</p>
+<dd class="field-odd"><p>prim_structure</p>
 </dd>
 </dl>
 <dl class="field-list">
@@ -3345,55 +3345,31 @@ de agregar vertices al arbol de expansion minima, se agregan arcos.</p>
 <span class="linenos">16</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Estructura devuelta por prim_mst:&quot;</span><span class="p">)</span>
 <span class="linenos">17</span>    <span class="nb">print</span><span class="p">(</span><span class="n">resultado</span><span class="p">)</span>
 <span class="linenos">18</span>
-<span class="linenos">19</span><span class="c1"># Salida esperada (estructura prim_search):</span>
+<span class="linenos">19</span><span class="c1"># Salida esperada (estructura prim_structure):</span>
 <span class="linenos">20</span><span class="c1"># {</span>
 <span class="linenos">21</span><span class="c1">#     &#39;source&#39;: &#39;Bogotá&#39;,</span>
-<span class="linenos">22</span><span class="c1">#     &#39;edge_from&#39;: {</span>
+<span class="linenos">22</span><span class="c1">#     &#39;visited&#39;: {</span>
 <span class="linenos">23</span><span class="c1">#         &#39;prime&#39;: 109345121,</span>
 <span class="linenos">24</span><span class="c1">#         &#39;capacity&#39;: 7,</span>
 <span class="linenos">25</span><span class="c1">#         &#39;scale&#39;: ...,</span>
 <span class="linenos">26</span><span class="c1">#         &#39;shift&#39;: ...,</span>
 <span class="linenos">27</span><span class="c1">#         &#39;table&#39;: {</span>
 <span class="linenos">28</span><span class="c1">#             &#39;elements&#39;: [</span>
-<span class="linenos">29</span><span class="c1">#                 {&#39;key&#39;: None, &#39;value&#39;: None},</span>
-<span class="linenos">30</span><span class="c1">#                 {&#39;key&#39;: &#39;Cali&#39;, &#39;value&#39;: &#39;Bogotá&#39;},</span>
-<span class="linenos">31</span><span class="c1">#                 {&#39;key&#39;: &#39;Medellín&#39;, &#39;value&#39;: &#39;Bogotá&#39;},</span>
+<span class="linenos">29</span><span class="c1">#                 {&#39;key&#39;: &#39;Bogotá&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:0.0, &#39;marked&#39;:True},</span>
+<span class="linenos">30</span><span class="c1">#                 {&#39;key&#39;: &#39;Cali&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:1, &#39;marked&#39;:True},</span>
+<span class="linenos">31</span><span class="c1">#                 {&#39;key&#39;: &#39;Medellín&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:3, &#39;marked&#39;:True},</span>
 <span class="linenos">32</span><span class="c1">#                 ...</span>
 <span class="linenos">33</span><span class="c1">#             ],</span>
 <span class="linenos">34</span><span class="c1">#             &#39;size&#39;: 7</span>
 <span class="linenos">35</span><span class="c1">#         },</span>
-<span class="linenos">36</span><span class="c1">#         &#39;size&#39;: 2</span>
+<span class="linenos">36</span><span class="c1">#         &#39;size&#39;: 3</span>
 <span class="linenos">37</span><span class="c1">#     },</span>
-<span class="linenos">38</span><span class="c1">#     &#39;dist_to&#39;: {</span>
-<span class="linenos">39</span><span class="c1">#         &#39;table&#39;: {</span>
-<span class="linenos">40</span><span class="c1">#             &#39;elements&#39;: [</span>
-<span class="linenos">41</span><span class="c1">#                 {&#39;key&#39;: &#39;Bogotá&#39;, &#39;value&#39;: 0.0},</span>
-<span class="linenos">42</span><span class="c1">#                 {&#39;key&#39;: &#39;Cali&#39;, &#39;value&#39;: 1},</span>
-<span class="linenos">43</span><span class="c1">#                 {&#39;key&#39;: &#39;Medellín&#39;, &#39;value&#39;: 3},</span>
-<span class="linenos">44</span><span class="c1">#                 ...</span>
-<span class="linenos">45</span><span class="c1">#             ],</span>
-<span class="linenos">46</span><span class="c1">#             &#39;size&#39;: 7</span>
-<span class="linenos">47</span><span class="c1">#         },</span>
-<span class="linenos">48</span><span class="c1">#         &#39;size&#39;: 3</span>
-<span class="linenos">49</span><span class="c1">#     },</span>
-<span class="linenos">50</span><span class="c1">#     &#39;marked&#39;: {</span>
-<span class="linenos">51</span><span class="c1">#         &#39;table&#39;: {</span>
-<span class="linenos">52</span><span class="c1">#             &#39;elements&#39;: [</span>
-<span class="linenos">53</span><span class="c1">#                 {&#39;key&#39;: &#39;Bogotá&#39;, &#39;value&#39;: True},</span>
-<span class="linenos">54</span><span class="c1">#                 {&#39;key&#39;: &#39;Cali&#39;, &#39;value&#39;: True},</span>
-<span class="linenos">55</span><span class="c1">#                 {&#39;key&#39;: &#39;Medellín&#39;, &#39;value&#39;: True},</span>
-<span class="linenos">56</span><span class="c1">#                 ...</span>
-<span class="linenos">57</span><span class="c1">#             ],</span>
-<span class="linenos">58</span><span class="c1">#             &#39;size&#39;: 7</span>
-<span class="linenos">59</span><span class="c1">#         },</span>
-<span class="linenos">60</span><span class="c1">#         &#39;size&#39;: 3</span>
-<span class="linenos">61</span><span class="c1">#     },</span>
-<span class="linenos">62</span><span class="c1">#     &#39;pq&#39;: {</span>
-<span class="linenos">63</span><span class="c1">#         &#39;elements&#39;: {&#39;elements&#39;: [None], &#39;size&#39;: 1},</span>
-<span class="linenos">64</span><span class="c1">#         &#39;size&#39;: 0,</span>
-<span class="linenos">65</span><span class="c1">#         &#39;cmp_function&#39;: &lt;function cmp_function_lower_value at ...&gt;</span>
-<span class="linenos">66</span><span class="c1">#     }</span>
-<span class="linenos">67</span><span class="c1"># }</span>
+<span class="linenos">38</span><span class="c1">#     &#39;pq&#39;: {</span>
+<span class="linenos">39</span><span class="c1">#         &#39;elements&#39;: {&#39;elements&#39;: [None], &#39;size&#39;: 1},</span>
+<span class="linenos">40</span><span class="c1">#         &#39;size&#39;: 0,</span>
+<span class="linenos">41</span><span class="c1">#         &#39;cmp_function&#39;: &lt;function cmp_function_lower_value at ...&gt;</span>
+<span class="linenos">42</span><span class="c1">#     }</span>
+<span class="linenos">43</span><span class="c1"># }</span>
 </pre></div>
 </div>
 </dd>
@@ -3403,7 +3379,7 @@ de agregar vertices al arbol de expansion minima, se agregan arcos.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.prim.edges_mst">
 <span class="sig-name descname"><span class="pre">edges_mst</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.prim.edges_mst" title="Link to this definition"></a></dt>
-<dd><p>Retorna los arcos del arbol de expansion minima (MST) en una cola en el orden</p>
+<dd><p>Retorna los arcos del arbol de expansion minima (MST) en una lista</p>
 <div class="error admonition">
 <p class="admonition-title">Precondición</p>
 <p>Se debe haber ejecutado previamente la funcion <strong>prim_mst</strong>.</p>
@@ -3411,15 +3387,15 @@ de agregar vertices al arbol de expansion minima, se agregan arcos.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo a examinar</p></li>
-<li><p><strong>search</strong> (<em>prim_search</em>) – La estructura de busqueda</p></li>
+<li><p><strong>my_graph</strong> (<em>digraph</em>) – El grafo a examinar</p></li>
+<li><p><strong>search</strong> (<em>prim_structure</em>) – La estructura de busqueda</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>La cola con los arcos del MST</p>
+<dd class="field-even"><p>La lista con los arcos del MST</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>queue</p>
+<dd class="field-odd"><p>array_list</p>
 </dd>
 </dl>
 <dl class="field-list">
@@ -3466,8 +3442,8 @@ de agregar vertices al arbol de expansion minima, se agregan arcos.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo a examinar</p></li>
-<li><p><strong>search</strong> (<em>prim_search</em>) – La estructura de busqueda</p></li>
+<li><p><strong>my_graph</strong> (<em>digraph</em>) – El grafo a examinar</p></li>
+<li><p><strong>search</strong> (<em>prim_structure</em>) – La estructura de busqueda</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -3929,20 +3905,22 @@ vertex: El vertice de destino</p>
 <dt class="sig sig-object py" id="DataStructures.Graph.prim_structure.new_prim_structure">
 <span class="sig-name descname"><span class="pre">new_prim_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g_order</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.prim_structure.new_prim_structure" title="Link to this definition"></a></dt>
 <dd><p>Crea una estructura de busqueda usada en el algoritmo <strong>prim</strong>.</p>
-<p>Se crea una estructura de busqueda con los siguientes atributos:</p>
-<ul class="simple">
-<li><p><strong>source</strong>: Vertice de inicio del MST.</p></li>
-<li><p><strong>edge_from</strong>: Mapa con los vertices visitados. Se inicializa en <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-<li><p><strong>dist_to</strong>: Mapa con las distancias a los vertices. Se inicializa en <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-<li><p><strong>marked</strong>: Mapa con los vertices visitados. Se inicializa en <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-<li><p><strong>pq</strong>: Cola de prioridad indexada (index_priority_queue). Se inicializa en <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-</ul>
+<p>Se crea una estructura de busqueda con los siguientes atributos:
+- <strong>source</strong>: Llave del vertice de origen. Se inicializa con el parametro <code class="docutils literal notranslate"><span class="pre">source</span></code>
+- <strong>visited</strong>: Mapa con los vertices visitados. Inicialmente vacia.
+- <strong>pq</strong>: Cola de prioridad con los vertices por visitar. Inicialmente vacia.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Estructura de busqueda</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<em>any</em>) – Llave del vertice inicial del recorrido</p></li>
+<li><p><strong>g_order</strong> (<em>int</em>) – Numero de vertices del grafo a recorrer</p></li>
+</ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>prim_search</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Estructura resultante con la información para llegar a cada vertice alcanzable desde el vertice <code class="docutils literal notranslate"><span class="pre">source</span></code> aplicando Prim</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>prim_structure</p>
 </dd>
 </dl>
 <div class="danger admonition">
@@ -3964,43 +3942,7 @@ vertex: El vertice de destino</p>
 <p>Salida esperada:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
 <span class="go">    &quot;source&quot;: &quot;Bogotá&quot;,</span>
-<span class="go">    &quot;edge_from&quot;: {</span>
-<span class="go">        &quot;prime&quot;: 109345121,</span>
-<span class="go">        &quot;capacity&quot;: 3,</span>
-<span class="go">        &quot;scale&quot;: 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
-<span class="go">        &quot;shift&quot;: 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
-<span class="go">        &quot;table&quot;: {</span>
-<span class="go">            &quot;elements&quot;: [</span>
-<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
-<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
-<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None}</span>
-<span class="go">            ],</span>
-<span class="go">            &quot;size&quot;: 3</span>
-<span class="go">        },</span>
-<span class="go">        &quot;current_factor&quot;: 0,</span>
-<span class="go">        &quot;limit_factor&quot;: 0.5,</span>
-<span class="go">        &quot;size&quot;: 0,</span>
-<span class="go">        &quot;type&quot;: &quot;PROBING&quot;</span>
-<span class="go">    },</span>
-<span class="go">    &quot;dist_to&quot;: {</span>
-<span class="go">        &quot;prime&quot;: 109345121,</span>
-<span class="go">        &quot;capacity&quot;: 3,</span>
-<span class="go">        &quot;scale&quot;: 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
-<span class="go">        &quot;shift&quot;: 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
-<span class="go">        &quot;table&quot;: {</span>
-<span class="go">            &quot;elements&quot;: [</span>
-<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
-<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None},</span>
-<span class="go">                {&quot;key&quot;: None, &quot;value&quot;: None}</span>
-<span class="go">            ],</span>
-<span class="go">            &quot;size&quot;: 3</span>
-<span class="go">        },</span>
-<span class="go">        &quot;current_factor&quot;: 0,</span>
-<span class="go">        &quot;limit_factor&quot;: 0.5,</span>
-<span class="go">        &quot;size&quot;: 0,</span>
-<span class="go">        &quot;type&quot;: &quot;PROBING&quot;</span>
-<span class="go">    },</span>
-<span class="go">    &quot;marked&quot;: {</span>
+<span class="go">    &quot;visited&quot;: {</span>
 <span class="go">        &quot;prime&quot;: 109345121,</span>
 <span class="go">        &quot;capacity&quot;: 3,</span>
 <span class="go">        &quot;scale&quot;: 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)</span>
@@ -4024,7 +3966,7 @@ vertex: El vertice de destino</p>
 <span class="go">            &quot;size&quot;: 1</span>
 <span class="go">        },</span>
 <span class="go">        &quot;size&quot;: 0,</span>
-<span class="go">        &quot;cmp_function&quot;: &quot;&quot;</span>
+<span class="go">        &quot;cmp_function&quot;: function default_compare_lower_value</span>
 <span class="go">    }</span>
 <span class="go">}</span>
 </pre></div>
@@ -4040,18 +3982,23 @@ vertex: El vertice de destino</p>
 <dt class="sig sig-object py" id="DataStructures.Graph.dijsktra_structure.new_dijsktra_structure">
 <span class="sig-name descname"><span class="pre">new_dijsktra_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g_order</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dijsktra_structure.new_dijsktra_structure" title="Link to this definition"></a></dt>
 <dd><p>Crea una estructura de busqueda usada en el algoritmo <strong>dijsktra</strong>.</p>
-<p>Se crea una estructura de busqueda con los siguientes atributos:</p>
-<ul class="simple">
-<li><p><strong>source</strong>: Vertice de origen. Se inicializa en <code class="docutils literal notranslate"><span class="pre">source</span></code></p></li>
-<li><p><strong>visited</strong>: Mapa con los vertices visitados. Se inicializa en <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-<li><p><strong>pq</strong>: Cola indexada con los vertices visitados. Se inicializa en <code class="docutils literal notranslate"><span class="pre">None</span></code></p></li>
-</ul>
+<p>Se crea una estructura de busqueda con los siguientes atributos:
+- <strong>source</strong>: Llave del vertice de origen. Se inicializa con el parametro <code class="docutils literal notranslate"><span class="pre">source</span></code>
+- <strong>visited</strong>: Mapa con los vertices visitados. Inicialmente vacia.
+- <strong>pq</strong>: Cola de prioridad con los vertices por visitar. Inicialmente vacia.
+La prioridad corresponde al peso/costo del camino desde el vertice <code class="docutils literal notranslate"><span class="pre">source</span></code> hasta cada vertice alcanzable.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Estructura de busqueda</p>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source</strong> (<em>any</em>) – Llave del vertice inicial del recorrido</p></li>
+<li><p><strong>g_order</strong> (<em>int</em>) – Numero de vertices del grafo a recorrer</p></li>
+</ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>dijsktra_search</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Estructura resultante con la información para llegar a cada vertice alcanzable desde el vertice <code class="docutils literal notranslate"><span class="pre">source</span></code> aplicando Dijkstra</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dijsktra_structure</p>
 </dd>
 </dl>
 </dd></dl>

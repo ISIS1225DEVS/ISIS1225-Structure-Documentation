@@ -21,43 +21,19 @@
             print("Estructura devuelta por prim_mst:")
             print(resultado)
 
-        # Salida esperada (estructura prim_search):
+        # Salida esperada (estructura prim_structure):
         # {
         #     'source': 'Bogotá',
-        #     'edge_from': {
+        #     'visited': {
         #         'prime': 109345121,
         #         'capacity': 7,
         #         'scale': ...,
         #         'shift': ...,
         #         'table': {
         #             'elements': [
-        #                 {'key': None, 'value': None},
-        #                 {'key': 'Cali', 'value': 'Bogotá'},
-        #                 {'key': 'Medellín', 'value': 'Bogotá'},
-        #                 ...
-        #             ],
-        #             'size': 7
-        #         },
-        #         'size': 2
-        #     },
-        #     'dist_to': {
-        #         'table': {
-        #             'elements': [
-        #                 {'key': 'Bogotá', 'value': 0.0},
-        #                 {'key': 'Cali', 'value': 1},
-        #                 {'key': 'Medellín', 'value': 3},
-        #                 ...
-        #             ],
-        #             'size': 7
-        #         },
-        #         'size': 3
-        #     },
-        #     'marked': {
-        #         'table': {
-        #             'elements': [
-        #                 {'key': 'Bogotá', 'value': True},
-        #                 {'key': 'Cali', 'value': True},
-        #                 {'key': 'Medellín', 'value': True},
+        #                 {'key': 'Bogotá', 'value': {'edge_from':'Bogotá', 'dist_to':0.0, 'marked':True},
+        #                 {'key': 'Cali', 'value': {'edge_from':'Bogotá', 'dist_to':1, 'marked':True},
+        #                 {'key': 'Medellín', 'value': {'edge_from':'Bogotá', 'dist_to':3, 'marked':True},
         #                 ...
         #             ],
         #             'size': 7

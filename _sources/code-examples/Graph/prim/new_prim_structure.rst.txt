@@ -22,43 +22,7 @@
 
         {
             "source": "Bogotá",
-            "edge_from": {
-                "prime": 109345121,
-                "capacity": 3,
-                "scale": 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
-                "shift": 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
-                "table": {
-                    "elements": [
-                        {"key": None, "value": None},
-                        {"key": None, "value": None},
-                        {"key": None, "value": None}
-                    ],
-                    "size": 3
-                },
-                "current_factor": 0,
-                "limit_factor": 0.5,
-                "size": 0,
-                "type": "PROBING"
-            },
-            "dist_to": {
-                "prime": 109345121,
-                "capacity": 3,
-                "scale": 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
-                "shift": 0,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
-                "table": {
-                    "elements": [
-                        {"key": None, "value": None},
-                        {"key": None, "value": None},
-                        {"key": None, "value": None}
-                    ],
-                    "size": 3
-                },
-                "current_factor": 0,
-                "limit_factor": 0.5,
-                "size": 0,
-                "type": "PROBING"
-            },
-            "marked": {
+            "visited": {
                 "prime": 109345121,
                 "capacity": 3,
                 "scale": 1,       #(ESTE VALOR QUEDA FIJO POR MODIFICACIÓN DE PRUEBAS)
@@ -82,6 +46,6 @@
                     "size": 1
                 }, 
                 "size": 0, 
-                "cmp_function": ""
+                "cmp_function": function default_compare_lower_value
             }
         }
