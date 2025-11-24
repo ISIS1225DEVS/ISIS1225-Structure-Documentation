@@ -91,15 +91,15 @@ stack.py
             # App/logic.py
             from DataStructures.Stack import stack as st
 
-            # Crear una nueva pila
+            # Crear una nueva pila - implementacion sobre single_linked_list
             stack = st.new_stack()
             stack = st.push(stack, {'name': 'John', 'age': 25})
             stack = st.push(stack, {'name': 'Jane', 'age': 30})
             print(stack)
             # Salida esperada: 
             # {'size': 2, 
-            #  'first': {'info': {'name': 'John', 'age': 25}, 'next': {'info': {'name': 'Jane', 'age': 30}, 'next': None}},
-            #  'last': {'info': {'name': 'Jane', 'age': 30}, 'next': None}
+            #  'first': {'info': {'name': 'Jane', 'age': 30}, 'next': {'info': {'name': 'John', 'age': 25}, 'next': None}},
+            #  'last': {'info': {'info': {'name': 'John', 'age': 25}, 'next': None}
             # }
 
 .. py:function:: pop(my_stack)
@@ -129,7 +129,7 @@ stack.py
          # App/logic.py
          from DataStructures.Stack import stack as st
 
-         # Crear una nueva pila
+         # Crear una nueva pila - implementacion sobre single_linked_list
          stack = st.new_stack()
          stack = st.push(stack, {'name': 'John', 'age': 25})
          stack = st.push(stack, {'name': 'Jane', 'age': 30})
@@ -169,7 +169,7 @@ stack.py
             # App/logic.py
             from DataStructures.Stack import stack as st
 
-            # Crear una nueva pila
+            # Crear una nueva pila - implementacion sobre single_linked_list
             stack = st.new_stack()
             stack = st.push(stack, {'name': 'John', 'age': 25})
             stack = st.push(stack, {'name': 'Jane', 'age': 30})
@@ -254,13 +254,13 @@ stack.py
          # App/logic.py
          from DataStructures.Stack import stack as st
 
-         # Crear una nueva pila
+         # Crear una nueva pila - implementacion sobre single_linked_list
          stack = st.new_stack()
          stack = st.push(stack, {'name': 'John', 'age': 25})
          stack = st.push(stack, {'name': 'Jane', 'age': 30})
          elemento = st.top(stack)
          print(elemento) # Salida esperada: {'name': 'Jane', 'age': 30}
-         print(stack) # Salida esperada: {'size': 2, 'first': {'info': {'name': 'John', 'age': 25}, 'next': {'info': {'name': 'Jane', 'age': 30}, 'next': None}}, 'last': {'info': {'name': 'Jane', 'age': 30}, 'next': None}}
+         print(stack) # Salida esperada: {'size': 2, 'first': {'info': {'name': 'Jane', 'age': 30}, 'next': {'info': {'name': 'John', 'age': 25}, 'next': None}}, 'last': {'info':{'name': 'John', 'age': 25}, 'next': None}}
 
    :Test Scenarios:
 

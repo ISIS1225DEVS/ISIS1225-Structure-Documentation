@@ -3357,7 +3357,7 @@ de agregar vertices al arbol de expansion minima, se agregan arcos de costo mini
 <span class="linenos">28</span><span class="c1">#         &#39;shift&#39;: ...,</span>
 <span class="linenos">29</span><span class="c1">#         &#39;table&#39;: {</span>
 <span class="linenos">30</span><span class="c1">#             &#39;elements&#39;: [</span>
-<span class="linenos">31</span><span class="c1">#                 {&#39;key&#39;: &#39;Bogotá&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:0.0, &#39;marked&#39;:True},</span>
+<span class="linenos">31</span><span class="c1">#                 {&#39;key&#39;: &#39;Bogotá&#39;, &#39;value&#39;: {&#39;edge_from&#39;:None, &#39;dist_to&#39;:0.0, &#39;marked&#39;:True},</span>
 <span class="linenos">32</span><span class="c1">#                 {&#39;key&#39;: &#39;Cali&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:1, &#39;marked&#39;:True},</span>
 <span class="linenos">33</span><span class="c1">#                 {&#39;key&#39;: &#39;Medellín&#39;, &#39;value&#39;: {&#39;edge_from&#39;:&#39;Bogotá&#39;, &#39;dist_to&#39;:3, &#39;marked&#39;:True},</span>
 <span class="linenos">34</span><span class="c1">#                 ...</span>
@@ -3512,16 +3512,19 @@ de agregar vertices al arbol de expansion minima, se agregan arcos de costo mini
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.dijsktra.dijkstra">
 <span class="sig-name descname"><span class="pre">dijkstra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dijsktra.dijkstra" title="Link to this definition"></a></dt>
-<dd><p>Implementa el algoritmo de Dijkstra
-Args:</p>
-<blockquote>
-<div><p>my_graph: El grafo de busqueda
-source: El vertice de inicio</p>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Un nuevo grafo vacío</p>
+<dd><p>Implementa el algoritmo de Dijkstra para encontrar el camino más corto.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_graph</strong> (<em>digraph</em>) – El grafo de busqueda</p></li>
+<li><p><strong>source</strong> (<em>any</em>) – La llave del vertice de inicio</p></li>
+</ul>
 </dd>
-<dt>Raises:</dt><dd><p>Exception</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Estructura resultante con la información para llegar a cada vertice alcanzable desde el vertice <code class="docutils literal notranslate"><span class="pre">source</span></code> aplicando Dijkstra</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dijsktra_structure</p>
 </dd>
 </dl>
 <div class="danger admonition">
@@ -3625,18 +3628,19 @@ source: El vertice de inicio</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.dijsktra.dist_to">
 <span class="sig-name descname"><span class="pre">dist_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dijsktra.dist_to" title="Link to this definition"></a></dt>
-<dd><p>Retorna el costo para llegar del vertice
-source al vertice vertex.
-Args:</p>
-<blockquote>
-<div><p>search: La estructura de busqueda
-vertex: El vertice destino</p>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>El costo total para llegar de source a
-vertex. Infinito si no existe camino</p>
+<dd><p>Retorna el costo para llegar del vertice source al vertice key_v.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key_v</strong> (<em>any</em>) – La llave del vertice destino</p></li>
+<li><p><strong>aux_structure</strong> (<em>dijsktra_structure</em>) – La estructura de busqueda resultante de Dijkstra</p></li>
+</ul>
 </dd>
-<dt>Raises:</dt><dd><p>Exception</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El costo total para llegar de source a vertex. Infinito si no existe camino</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 <div class="danger admonition">
@@ -3688,17 +3692,19 @@ vertex. Infinito si no existe camino</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.dijsktra.has_path_to">
 <span class="sig-name descname"><span class="pre">has_path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dijsktra.has_path_to" title="Link to this definition"></a></dt>
-<dd><p>Indica si hay camino entre source
-y vertex
-Args:</p>
-<blockquote>
-<div><p>search: La estructura de busqueda
-vertex: El vertice de destino</p>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>True si existe camino</p>
+<dd><p>Indica si hay camino entre source y key_v.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key_v</strong> (<em>any</em>) – La llave del vertice de destino</p></li>
+<li><p><strong>aux_structure</strong> (<em>dijsktra_structure</em>) – La estructura de busqueda resultante de Dijkstra</p></li>
+</ul>
 </dd>
-<dt>Raises:</dt><dd><p>Exception</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True si existe camino, False de lo contrario</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 <div class="danger admonition">
@@ -3750,17 +3756,19 @@ vertex: El vertice de destino</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.dijsktra.path_to">
 <span class="sig-name descname"><span class="pre">path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aux_structure</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dijsktra.path_to" title="Link to this definition"></a></dt>
-<dd><p>Retorna el camino entre source y vertex
-en una pila.
-Args:</p>
-<blockquote>
-<div><p>search: La estructura de busqueda
-vertex: El vertice de destino</p>
-</div></blockquote>
-<dl class="simple">
-<dt>Returns:</dt><dd><p>Una pila con el camino entre source y vertex</p>
+<dd><p>Retorna el camino entre source y key_v en una pila.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>key_v</strong> (<em>any</em>) – La llave del vertice de destino</p></li>
+<li><p><strong>aux_structure</strong> (<em>dijsktra_structure</em>) – La estructura de busqueda resultante de Dijkstra</p></li>
+</ul>
 </dd>
-<dt>Raises:</dt><dd><p>Exception</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Una pila con los vertices del camino entre source y vertex</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>stack</p>
 </dd>
 </dl>
 <div class="danger admonition">
@@ -3994,11 +4002,13 @@ vertex: El vertice de destino</p>
 <dt class="sig sig-object py" id="DataStructures.Graph.dijsktra_structure.new_dijsktra_structure">
 <span class="sig-name descname"><span class="pre">new_dijsktra_structure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">g_order</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dijsktra_structure.new_dijsktra_structure" title="Link to this definition"></a></dt>
 <dd><p>Crea una estructura de busqueda usada en el algoritmo <strong>dijsktra</strong>.</p>
-<p>Se crea una estructura de busqueda con los siguientes atributos:
-- <strong>source</strong>: Llave del vertice de origen. Se inicializa con el parametro <code class="docutils literal notranslate"><span class="pre">source</span></code>
-- <strong>visited</strong>: Mapa con los vertices visitados. Inicialmente vacia.
-- <strong>pq</strong>: Cola de prioridad con los vertices por visitar. Inicialmente vacia.
-La prioridad corresponde al peso/costo del camino desde el vertice <code class="docutils literal notranslate"><span class="pre">source</span></code> hasta cada vertice alcanzable.</p>
+<p>Se crea una estructura de busqueda con los siguientes atributos:</p>
+<ul class="simple">
+<li><p><strong>source</strong>: Llave del vertice de origen. Se inicializa con el parametro <code class="docutils literal notranslate"><span class="pre">source</span></code>.</p></li>
+<li><p><strong>visited</strong>: Mapa con los vertices visitados. Inicialmente vacia.</p></li>
+<li><p><strong>pq</strong>: Cola de prioridad orientada a menor (Min-PQ) con los vertices por visitar. Inicialmente vacia.</p></li>
+</ul>
+<p>La prioridad corresponde al peso/costo del camino desde el vertice <code class="docutils literal notranslate"><span class="pre">source</span></code> hasta cada vertice alcanzable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

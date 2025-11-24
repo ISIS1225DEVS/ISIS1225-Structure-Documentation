@@ -194,15 +194,15 @@
 <dt><strong>Agrega un elemento a la pila con elementos:</strong> Se añade un elemento a una pila con elementos.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
 
-<span class="c1"># Crear una nueva pila</span>
+<span class="c1"># Crear una nueva pila - implementacion sobre single_linked_list</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
 <span class="c1"># Salida esperada:</span>
 <span class="c1"># {&#39;size&#39;: 2,</span>
-<span class="c1">#  &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}, &#39;next&#39;: None}},</span>
-<span class="c1">#  &#39;last&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}, &#39;next&#39;: None}</span>
+<span class="c1">#  &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}, &#39;next&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None}},</span>
+<span class="c1">#  &#39;last&#39;: {&#39;info&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None}</span>
 <span class="c1"># }</span>
 </pre></div>
 </div>
@@ -240,7 +240,7 @@
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
 
-<span class="c1"># Crear una nueva pila</span>
+<span class="c1"># Crear una nueva pila - implementacion sobre single_linked_list</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
@@ -284,7 +284,7 @@
 <dt><strong>Eliminar un elemento de la pila con varios elementos:</strong> Se elimina un elemento de una pila con varios elementos.</dt><dd><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
 
-<span class="c1"># Crear una nueva pila</span>
+<span class="c1"># Crear una nueva pila - implementacion sobre single_linked_list</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
@@ -391,13 +391,13 @@
 <dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.Stack</span><span class="w"> </span><span class="kn">import</span> <span class="n">stack</span> <span class="k">as</span> <span class="n">st</span>
 
-<span class="c1"># Crear una nueva pila</span>
+<span class="c1"># Crear una nueva pila - implementacion sobre single_linked_list</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">new_stack</span><span class="p">()</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;John&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">})</span>
 <span class="n">stack</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">push</span><span class="p">(</span><span class="n">stack</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="mi">30</span><span class="p">})</span>
 <span class="n">elemento</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">top</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">elemento</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 2, &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}, &#39;next&#39;: None}}, &#39;last&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}, &#39;next&#39;: None}}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stack</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 2, &#39;first&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;Jane&#39;, &#39;age&#39;: 30}, &#39;next&#39;: {&#39;info&#39;: {&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None}}, &#39;last&#39;: {&#39;info&#39;:{&#39;name&#39;: &#39;John&#39;, &#39;age&#39;: 25}, &#39;next&#39;: None}}</span>
 </pre></div>
 </div>
 </dd>

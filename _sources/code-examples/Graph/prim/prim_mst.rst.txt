@@ -33,7 +33,7 @@
         #         'shift': ...,
         #         'table': {
         #             'elements': [
-        #                 {'key': 'Bogotá', 'value': {'edge_from':'Bogotá', 'dist_to':0.0, 'marked':True},
+        #                 {'key': 'Bogotá', 'value': {'edge_from':None, 'dist_to':0.0, 'marked':True},
         #                 {'key': 'Cali', 'value': {'edge_from':'Bogotá', 'dist_to':1, 'marked':True},
         #                 {'key': 'Medellín', 'value': {'edge_from':'Bogotá', 'dist_to':3, 'marked':True},
         #                 ...
