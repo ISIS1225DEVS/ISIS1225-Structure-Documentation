@@ -27,8 +27,9 @@
         # Mostrar los resultados del recorrido
         print(dfs_result)
 
-    .. code-block:: console
         # Salida esperada:
+
+    .. code-block:: console
 
         {'prime': 109345121, 
         'capacity': 11, 
