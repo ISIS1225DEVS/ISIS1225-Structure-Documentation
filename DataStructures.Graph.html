@@ -2754,7 +2754,7 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dd class="field-even"><p>Una estructura para determinar los vertices conectados a source</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#dfo-structure"><span class="std std-ref">dfo_structure</span></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -2766,16 +2766,16 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>search</strong> (<em>graph_search</em>) – Estructura para almacenar el recorrido</p></li>
-<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo a recorrer</p></li>
+<li><p><strong>my_graph</strong> (<a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a>) – El grafo a recorrer</p></li>
 <li><p><strong>vertex</strong> (<em>any</em>) – Vertice de inicio del recorrido.</p></li>
+<li><p><strong>visited_map</strong> (<a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a>) – Estructura (mapa) que almacena el recorrido y los visitados.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Una estructura para determinar los vertices conectados a source</p>
+<dd class="field-even"><p>El mapa actualizado con los nuevos vertices visitados</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>graph_search</p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a></p>
 </dd>
 </dl>
 <dl class="field-list">
@@ -2814,16 +2814,16 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.dfs.has_path_to">
 <span class="sig-name descname"><span class="pre">has_path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visited_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.has_path_to" title="Link to this definition"></a></dt>
-<dd><p>Indica si existe un camino entre el vertice source y el vertice vertex a partir de una estructura <code class="docutils literal notranslate"><span class="pre">search</span></code>.</p>
+<dd><p>Indica si existe un camino entre el vertice source y el vertice vertex a partir del mapa de recorrido.</p>
 <div class="error admonition">
 <p class="admonition-title">Precondición</p>
-<p>Se debe haber ejecutado previamente la funcion <strong>depth_first_search</strong>.</p>
+<p>Se debe haber ejecutado previamente la funcion <strong>dfs</strong>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>search</strong> (<em>graph_search</em>) – Estructura de recorrido DFS</p></li>
-<li><p><strong>vertex</strong> (<em>any</em>) – Vertice destino</p></li>
+<li><p><strong>key_v</strong> (<em>any</em>) – Llave del vertice destino</p></li>
+<li><p><strong>visited_map</strong> (<a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a>) – Mapa resultante del recorrido DFS</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2876,16 +2876,16 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.dfs.path_to">
 <span class="sig-name descname"><span class="pre">path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visited_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.path_to" title="Link to this definition"></a></dt>
-<dd><p>Retorna el camino entre el vertices <code class="docutils literal notranslate"><span class="pre">source</span></code> y el vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code> a partir de una estructura <code class="docutils literal notranslate"><span class="pre">search</span></code>.</p>
+<dd><p>Retorna el camino entre el vertices <code class="docutils literal notranslate"><span class="pre">source</span></code> y el vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code> a partir del mapa de recorrido.</p>
 <div class="error admonition">
 <p class="admonition-title">Precondición</p>
-<p>Se debe haber ejecutado previamente la funcion <strong>depth_first_search</strong>.</p>
+<p>Se debe haber ejecutado previamente la funcion <strong>dfs</strong>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>search</strong> (<em>graph_search</em>) – La estructura con el recorrido</p></li>
-<li><p><strong>vertex</strong> (<em>any</em>) – Vertice de destingo</p></li>
+<li><p><strong>key_v</strong> (<em>any</em>) – Llave del vertice de destino</p></li>
+<li><p><strong>visited_map</strong> (<a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a>) – Mapa resultante del recorrido DFS</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -2953,19 +2953,19 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dt class="sig sig-object py" id="DataStructures.Graph.bfs.bfs">
 <span class="sig-name descname"><span class="pre">bfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.bfs.bfs" title="Link to this definition"></a></dt>
 <dd><p>Inicia un recorrido Breath First Seacrh (<strong>BFS</strong>) sobre el grafo a partir de un vertice inicial.
-Crea una estructura de busqueda <code class="docutils literal notranslate"><span class="pre">graph_search</span></code> y posteriormente llama a la funcion <code class="docutils literal notranslate"><span class="pre">bfs_vertex</span></code>.</p>
+Crea un mapa de visitados y posteriormente llama a la funcion auxiliar <code class="docutils literal notranslate"><span class="pre">bfs_vertex</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo a recorrer</p></li>
+<li><p><strong>my_graph</strong> (<a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a>) – El grafo a recorrer</p></li>
 <li><p><strong>source</strong> (<em>any</em>) – Llave del vertice de inicio del recorrido.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Una estructura para determinar los vertices conectados a source</p>
+<dd class="field-even"><p>Mapa con la información de los vertices conectados a source (padre y distancia)</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>graph_search</p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a></p>
 </dd>
 </dl>
 <dl class="field-list">
@@ -3013,20 +3013,20 @@ Crea una estructura de busqueda <code class="docutils literal notranslate"><span
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.bfs.bfs_vertex">
 <span class="sig-name descname"><span class="pre">bfs_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visited_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.bfs.bfs_vertex" title="Link to this definition"></a></dt>
-<dd><p>Función auxiliar para calcular un recorrido BFS usada por la función <strong>breath_first_search</strong>.</p>
+<dd><p>Función auxiliar para calcular un recorrido BFS usada por la función <strong>bfs</strong>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>visited_map</strong> (<em>graph_search</em>) – Estructura para almacenar el recorrido</p></li>
-<li><p><strong>my_graph</strong> (<em>adj_list_graph</em>) – El grafo a recorrer</p></li>
+<li><p><strong>my_graph</strong> (<a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a>) – El grafo a recorrer</p></li>
 <li><p><strong>source</strong> (<em>any</em>) – Vertice de inicio del recorrido.</p></li>
+<li><p><strong>visited_map</strong> (<a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a>) – Mapa para almacenar el recorrido</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Una estructura para determinar los vertices conectados a source</p>
+<dd class="field-even"><p>El mapa actualizado con los vertices alcanzables</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>graph_visited_map</p>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a></p>
 </dd>
 </dl>
 <dl class="field-list">
@@ -3082,20 +3082,23 @@ Crea una estructura de busqueda <code class="docutils literal notranslate"><span
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.bfs.has_path_to">
 <span class="sig-name descname"><span class="pre">has_path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visited_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.bfs.has_path_to" title="Link to this definition"></a></dt>
-<dd><p>Indica si existe un camino entre el vertice source y el vertice vertex a partir de una estructura <code class="docutils literal notranslate"><span class="pre">search</span></code>.</p>
+<dd><p>Indica si existe un camino entre el vertice source y el vertice vertex a partir del mapa de recorrido.</p>
 <div class="error admonition">
 <p class="admonition-title">Precondición</p>
-<p>Se debe haber ejecutado previamente la funcion <strong>breath_first_search</strong>.</p>
+<p>Se debe haber ejecutado previamente la funcion <strong>bfs</strong>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>search</strong> (<em>graph_search</em>) – Estructura de recorrido BFS</p></li>
-<li><p><strong>vertex</strong> (<em>any</em>) – Vertice destino</p></li>
+<li><p><strong>key_v</strong> (<em>any</em>) – Llave del vertice destino</p></li>
+<li><p><strong>visited_map</strong> (<a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a>) – Mapa resultante del recorrido BFS</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si existe un camino entre <strong>source</strong> y <strong>vertex</strong>, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3103,16 +3106,16 @@ Crea una estructura de busqueda <code class="docutils literal notranslate"><span
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.bfs.path_to">
 <span class="sig-name descname"><span class="pre">path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visited_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.bfs.path_to" title="Link to this definition"></a></dt>
-<dd><p>Retorna el camino entre el vertices <code class="docutils literal notranslate"><span class="pre">source</span></code> y el vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code> a partir de una estructura de busqueda <code class="docutils literal notranslate"><span class="pre">search</span></code>.</p>
+<dd><p>Retorna el camino entre el vertices <code class="docutils literal notranslate"><span class="pre">source</span></code> y el vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code> a partir del mapa de recorrido.</p>
 <div class="error admonition">
 <p class="admonition-title">Precondición</p>
-<p>Se debe haber ejecutado previamente la funcion <strong>breath_first_search</strong>.</p>
+<p>Se debe haber ejecutado previamente la funcion <strong>bfs</strong>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>search</strong> (<em>graph_search</em>) – Estructura de recorrido BFS</p></li>
-<li><p><strong>vertex</strong> (<em>any</em>) – Vertice destino</p></li>
+<li><p><strong>key_v</strong> (<em>any</em>) – Llave del vertice destino</p></li>
+<li><p><strong>visited_map</strong> (<a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a>) – Mapa resultante del recorrido BFS</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
