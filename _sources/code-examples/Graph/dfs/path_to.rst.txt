@@ -35,6 +35,8 @@
             print("Fin")
         else:
             print("No existe camino de A a D")
+        
+        #salida esperada: Camino de A a D: A -> B -> C -> D -> Fin
 
         # Obtener el camino de A a un vértice que no existe
         path = DFS.path_to("E", visited_map)
@@ -46,3 +48,5 @@
             print("Fin")
         else:
             print("No existe camino de A a E")
+
+        #alida esperada: No existe camino de A a E

@@ -25,6 +25,42 @@
         dfs_result = DFS.dfs(my_graph, "Bogota")
 
         # Mostrar los resultados del recorrido
-        print("Preorden:", dfs_result["pre"]["elements"])
-        print("Postorden:", dfs_result["post"]["elements"])
-        print("Reverse postorden (pila):", dfs_result["reversepost"]["elements"])
+        print(dfs_result)
+
+    .. code-block:: console
+        # Salida esperada:
+
+        {'prime': 109345121, 
+        'capacity': 11, 
+        'scale': 32943225, 
+        'shift': 9869347, 
+        'table': {'elements': [{'key': 'Barranquilla', 
+                                'value': {'marked': True, 
+                                'edge_from': 'Cali'}}, 
+                                {'key': None, 
+                                'value': None}, 
+                                {'key': None, 
+                                'value': None}, 
+                                {'key': None, 
+                                'value': None}, 
+                                {'key': None, 
+                                'value': None}, 
+                                {'key': None, 
+                                'value': None}, 
+                                {'key': None, 
+                                'value': None}, 
+                                {'key': 'Bogota', 
+                                'value': {'marked': True, 
+                                        'edge_from': None}}, 
+                                {'key': 'Cali', 
+                                'value': {'marked': True, 
+                                        'edge_from': 'Medellin'}}, 
+                                {'key': None, 
+                                'value': None}, 
+                                {'key': 'Medellin', 
+                                'value': {'marked': True, 
+                                        'edge_from': 'Bogota'}}], 
+        'size': 11}, 
+        'current_factor': 0.36363636363636365, 
+        'limit_factor': 0.5, 
+        'size': 4}

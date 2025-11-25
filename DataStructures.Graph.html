@@ -2802,9 +2802,7 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <span class="linenos">20</span><span class="n">dfs_result</span> <span class="o">=</span> <span class="n">DFS</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="n">my_graph</span><span class="p">,</span> <span class="s2">&quot;Bogota&quot;</span><span class="p">)</span>
 <span class="linenos">21</span>
 <span class="linenos">22</span><span class="c1"># Mostrar los resultados del recorrido</span>
-<span class="linenos">23</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Preorden:&quot;</span><span class="p">,</span> <span class="n">dfs_result</span><span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">][</span><span class="s2">&quot;elements&quot;</span><span class="p">])</span>
-<span class="linenos">24</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Postorden:&quot;</span><span class="p">,</span> <span class="n">dfs_result</span><span class="p">[</span><span class="s2">&quot;post&quot;</span><span class="p">][</span><span class="s2">&quot;elements&quot;</span><span class="p">])</span>
-<span class="linenos">25</span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reverse postorden (pila):&quot;</span><span class="p">,</span> <span class="n">dfs_result</span><span class="p">[</span><span class="s2">&quot;reversepost&quot;</span><span class="p">][</span><span class="s2">&quot;elements&quot;</span><span class="p">])</span>
+<span class="linenos">23</span><span class="nb">print</span><span class="p">(</span><span class="n">dfs_result</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
@@ -2930,16 +2928,20 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <span class="linenos">31</span><span class="k">else</span><span class="p">:</span>
 <span class="linenos">32</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No existe camino de A a D&quot;</span><span class="p">)</span>
 <span class="linenos">33</span>
-<span class="linenos">34</span><span class="c1"># Obtener el camino de A a un vértice que no existe</span>
-<span class="linenos">35</span><span class="n">path</span> <span class="o">=</span> <span class="n">DFS</span><span class="o">.</span><span class="n">path_to</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="n">visited_map</span><span class="p">)</span>
-<span class="linenos">36</span><span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="linenos">37</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Camino de A a E:&quot;</span><span class="p">)</span>
-<span class="linenos">38</span>    <span class="k">while</span> <span class="ow">not</span> <span class="n">st</span><span class="o">.</span><span class="n">is_empty</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
-<span class="linenos">39</span>        <span class="n">vertex</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="linenos">40</span>        <span class="nb">print</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; -&gt; &quot;</span><span class="p">)</span>
-<span class="linenos">41</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fin&quot;</span><span class="p">)</span>
-<span class="linenos">42</span><span class="k">else</span><span class="p">:</span>
-<span class="linenos">43</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No existe camino de A a E&quot;</span><span class="p">)</span>
+<span class="linenos">34</span><span class="c1">#salida esperada: Camino de A a D: A -&gt; B -&gt; C -&gt; D -&gt; Fin</span>
+<span class="linenos">35</span>
+<span class="linenos">36</span><span class="c1"># Obtener el camino de A a un vértice que no existe</span>
+<span class="linenos">37</span><span class="n">path</span> <span class="o">=</span> <span class="n">DFS</span><span class="o">.</span><span class="n">path_to</span><span class="p">(</span><span class="s2">&quot;E&quot;</span><span class="p">,</span> <span class="n">visited_map</span><span class="p">)</span>
+<span class="linenos">38</span><span class="k">if</span> <span class="n">path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="linenos">39</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Camino de A a E:&quot;</span><span class="p">)</span>
+<span class="linenos">40</span>    <span class="k">while</span> <span class="ow">not</span> <span class="n">st</span><span class="o">.</span><span class="n">is_empty</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span class="linenos">41</span>        <span class="n">vertex</span> <span class="o">=</span> <span class="n">st</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span class="linenos">42</span>        <span class="nb">print</span><span class="p">(</span><span class="n">vertex</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; -&gt; &quot;</span><span class="p">)</span>
+<span class="linenos">43</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fin&quot;</span><span class="p">)</span>
+<span class="linenos">44</span><span class="k">else</span><span class="p">:</span>
+<span class="linenos">45</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No existe camino de A a E&quot;</span><span class="p">)</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span><span class="c1">#alida esperada: No existe camino de A a E</span>
 </pre></div>
 </div>
 </dd>
