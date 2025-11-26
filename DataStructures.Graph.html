@@ -2742,7 +2742,9 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.dfs.dfs">
 <span class="sig-name descname"><span class="pre">dfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.dfs" title="Link to this definition"></a></dt>
-<dd><p>Inicia un recorrido Depth First Search (<strong>DFS</strong>) sobre el grafo <code class="docutils literal notranslate"><span class="pre">my_graph</span></code> a partir de un vertice inicial con llave <code class="docutils literal notranslate"><span class="pre">source</span></code>.</p>
+<dd><p>Inicia un recorrido Depth First Search (<strong>DFS</strong>) sobre el grafo <code class="docutils literal notranslate"><span class="pre">my_graph</span></code> a partir de un vertice inicial con llave <code class="docutils literal notranslate"><span class="pre">source</span></code>.
+Esta es la función máscara para iniciar el recorrido recursivo usando la funcion auxiliar dfs_vertex(…).
+Cada vertice alcanzable se agrega a un mapa con su llave y como valor un diccionarion con la informacion {“marked”, “edge_from”}.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -2752,27 +2754,6 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>Una estructura para determinar los vertices conectados a source</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="DataStructures.Graph.dfs.dfs_vertex">
-<span class="sig-name descname"><span class="pre">dfs_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visited_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.dfs_vertex" title="Link to this definition"></a></dt>
-<dd><p>Funcion auxiliar para calcular un recorrido DFS usada por la funcion <strong>depth_first_search</strong>.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>my_graph</strong> (<a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a>) – El grafo a recorrer</p></li>
-<li><p><strong>vertex</strong> (<em>any</em>) – Vertice de inicio del recorrido.</p></li>
-<li><p><strong>visited_map</strong> (<a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a>) – Estructura (mapa) que almacena el recorrido y los visitados.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>El mapa actualizado con los nuevos vertices visitados</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a></p>
@@ -2848,6 +2829,30 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="DataStructures.Graph.dfs.dfs_vertex">
+<span class="sig-name descname"><span class="pre">dfs_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_graph</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visited_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.dfs_vertex" title="Link to this definition"></a></dt>
+<dd><p>Funcion recursiva que permite obtener un recorrido DFS desde un vertice inicial.
+La funcion aplica a los vertices adyacentes del vertice inicial.
+Esta función es usada por la funcion <strong>depth_first_search</strong>.
+Cada vertice alcanzable se agrega a un mapa con su llave y como valor un diccionarion con la informacion {“marked”, “edge_from”}.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_graph</strong> (<a class="reference internal" href="#digraph"><span class="std std-ref">digraph</span></a>) – El grafo a recorrer</p></li>
+<li><p><strong>vertex</strong> (<em>any</em>) – Llave del vertice de inicio del recorrido.</p></li>
+<li><p><strong>visited_map</strong> (<a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a>) – Mapa que almacena las llaves de los vertices visitados.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>El mapa actualizado con los nuevos vertices visitados</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="DataStructures.Map.html#map-linear-probing"><span class="std std-ref">map</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.dfs.has_path_to">
 <span class="sig-name descname"><span class="pre">has_path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visited_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.has_path_to" title="Link to this definition"></a></dt>
 <dd><p>Indica si existe un camino entre el vertice source y el vertice vertex a partir del mapa de recorrido.</p>
@@ -2863,7 +2868,7 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si existe un camino entre <strong>source</strong> y <strong>vertex</strong>, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario</p>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> si existe un camino entre <strong>source</strong> y <strong>key_v</strong>, <code class="docutils literal notranslate"><span class="pre">False</span></code> en caso contrario</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
@@ -2912,7 +2917,7 @@ Si el vertice no tiene arcos adyacentes, se retorna una lista vacia.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="DataStructures.Graph.dfs.path_to">
 <span class="sig-name descname"><span class="pre">path_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key_v</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">visited_map</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#DataStructures.Graph.dfs.path_to" title="Link to this definition"></a></dt>
-<dd><p>Retorna el camino entre el vertices <code class="docutils literal notranslate"><span class="pre">source</span></code> y el vertice <code class="docutils literal notranslate"><span class="pre">vertex</span></code> a partir del mapa de recorrido.</p>
+<dd><p>Retorna el camino entre los vertices con llaves <code class="docutils literal notranslate"><span class="pre">source</span></code> y <code class="docutils literal notranslate"><span class="pre">key_v</span></code> a partir del mapa de recorrido. Retorna None si No hay camino.</p>
 <div class="error admonition">
 <p class="admonition-title">Precondición</p>
 <p>Se debe haber ejecutado previamente la funcion <strong>dfs</strong>.</p>
