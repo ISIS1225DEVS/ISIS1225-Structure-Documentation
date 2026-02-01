@@ -46,7 +46,7 @@ Estructura de un nodo de lista encadenada. Un nodo de lista encadenada es un ele
          print(nodo) 
          # Salida esperada: {'info': {"nombre": "Juan", "edad": 20}, 'next': None}
 
-.. py:function:: get_element(node)
+.. py:function:: get_info(node)
 
    Retorna la información del nodo.
 
@@ -67,7 +67,7 @@ Estructura de un nodo de lista encadenada. Un nodo de lista encadenada es un ele
          print(nodo) # Salida esperada: {'info': {'nombre': 'Juan', 'edad': 20}, 'next': None}
 
          # Obtiene la información del nodo
-         info = ln.get_element(nodo)
+         info = ln.get_info(nodo)
          print(info) # Salida esperada: {'nombre': 'Juan', 'edad': 20}
 
 .. py:function:: get_next(node)
