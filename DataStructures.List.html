@@ -82,6 +82,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#change_info"><code class="docutils literal notranslate"><span class="pre">change_info()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#exchange"><code class="docutils literal notranslate"><span class="pre">exchange()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sub_list"><code class="docutils literal notranslate"><span class="pre">sub_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adjacents"><code class="docutils literal notranslate"><span class="pre">adjacents()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to_py_list"><code class="docutils literal notranslate"><span class="pre">to_py_list()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#single-linked-list-py">single_linked_list.py</a><ul>
@@ -1371,6 +1373,85 @@ Si la posición inicial no es válida, lanza un error <code class="code docutils
 </div></blockquote>
 </li>
 </ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="adjacents">
+<span class="sig-name descname"><span class="pre">adjacents</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">element</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adjacents" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Retornar</span> <span class="pre">una</span> <span class="pre">lista</span> <span class="pre">Python</span> <span class="pre">con</span> <span class="pre">los</span> <span class="pre">elementos</span> <span class="pre">adyacentes</span> <span class="pre">a</span> <span class="pre">un</span> <span class="pre">elemento</span> <span class="pre">dado</span> <span class="pre">(si</span> <span class="pre">existe)</span></span></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Los</span> <span class="pre">adyacentes</span> <span class="pre">son</span> <span class="pre">el</span> <span class="pre">anterior</span> <span class="pre">(si</span> <span class="pre">existe)</span> <span class="pre">y</span> <span class="pre">el</span> <span class="pre">siguiente</span> <span class="pre">(si</span> <span class="pre">existe)</span> <span class="pre">al</span> <span class="pre">elemento</span> <span class="pre">dado.</span></span></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Si</span> <span class="pre">el</span> <span class="pre">elemento</span> <span class="pre">dado</span> <span class="pre">No</span> <span class="pre">existe,</span> <span class="pre">se</span> <span class="pre">retorna</span> <span class="pre">None.</span></span></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>my_list</strong> (<em>array_list</em>) – La lista a examinar</p></li>
+<li><p><strong>element</strong> (<em>any</em>) – El elemento de referencia para buscar sus adyacentes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista Python con los adyacentes al de referencia (si existe)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>python_list</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Crea una lista vacía</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+
+<span class="c1"># Agrega elementos a la lista</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+
+<span class="c1"># Obtiene la sublista de la lista original</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">adjacents</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># Salida esperada: [1, 3]</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="to_py_list">
+<span class="sig-name descname"><span class="pre">to_py_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">my_list</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#to_py_list" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Retornar</span> <span class="pre">los</span> <span class="pre">elementos</span> <span class="pre">de</span> <span class="pre">la</span> <span class="pre">lista</span> <span class="pre">(en</span> <span class="pre">el</span> <span class="pre">orden</span> <span class="pre">de</span> <span class="pre">aparición)</span> <span class="pre">en</span> <span class="pre">una</span> <span class="pre">lista</span> <span class="pre">Python</span></span></dt>
+<dd><dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>my_list</strong> (<em>array_list</em>) – Array list de referencia</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Lista Python con los elementos en la lista</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>python_list</p>
+</dd>
+<dt class="field-even">Example<span class="colon">:</span></dt>
+<dd class="field-even"><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># App/logic.py</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">DataStructures.List</span><span class="w"> </span><span class="kn">import</span> <span class="n">array_list</span> <span class="k">as</span> <span class="n">al</span>
+
+<span class="c1"># Crea una lista vacía</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">new_list</span><span class="p">()</span>
+
+<span class="c1"># Agrega elementos a la lista</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">lista</span> <span class="o">=</span> <span class="n">al</span><span class="o">.</span><span class="n">add_last</span><span class="p">(</span><span class="n">lista</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lista</span><span class="p">)</span> <span class="c1"># Salida esperada: {&#39;size&#39;: 3, &#39;elements&#39;: [1, 2, 3]}</span>
+
+<span class="c1"># Obtiene la sublista de la lista original</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">al</span><span class="o">.</span><span class="n">to_py_list</span><span class="p">(</span><span class="n">lista</span><span class="p">))</span> <span class="c1"># Salida esperada: [1, 2, 3]</span>
+</pre></div>
+</div>
 </dd>
 </dl>
 </dd></dl>
