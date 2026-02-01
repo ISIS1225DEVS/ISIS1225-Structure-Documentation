@@ -1037,6 +1037,7 @@ array\_list.py
             # Salida esperada: {'size': 2, 'elements': [2, 3]}
 
 .. py:function:: adjacents(my_list, element)
+
    Retornar una lista Python con los elementos adyacentes a un elemento dado (si existe)
    Los adyacentes son el anterior (si existe) y el siguiente (si existe) al elemento dado.
    Si el elemento dado No existe, se retorna None.
@@ -1064,10 +1065,11 @@ array\_list.py
          lista = al.add_last(lista, 3)
          print(lista) # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
 
-         # Obtiene la sublista de la lista original
+         # Obtiene los adyacentes al elemento 2 de la lista original
          print(al.adjacents(lista, 2)) # Salida esperada: [1, 3]
 
 .. py:function:: to_py_list(my_list)
+
    Retornar los elementos de la lista (en el orden de aparición) en una lista Python
     
    :param my_list: Array list de referencia
@@ -1091,7 +1093,7 @@ array\_list.py
          lista = al.add_last(lista, 3)
          print(lista) # Salida esperada: {'size': 3, 'elements': [1, 2, 3]}
 
-         # Obtiene la sublista de la lista original
+         # Obtiene la lista Python de la lista original
          print(al.to_py_list(lista)) # Salida esperada: [1, 2, 3]
 
 .. _single-linked-list:
@@ -2149,6 +2151,68 @@ single\_linked\_list.py
             #           },
             #  'last': {'info': {'name': 'Tres', 'number': 3}, 'next': None}
             # }
+
+.. py:function:: adjacents(my_list, element)
+
+    Retornar una lista Python con el elemento siguiente a un elemento dado (si existe)
+    Si el elemento dado es el ultimo de la lista, No existe ese elemento y se retorna la lista Python vacia.
+    Si el elemento dado No existe, se retorna None.
+
+   :param my_list: La lista a examinar
+   :type my_list: single_linked_list
+   :param element: El elemento de referencia para buscar sus adyacentes
+   :type element: any
+
+   :returns: Lista Python con los adyacentes al de referencia (si existe)
+   :rtype: python_list
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+
+         # Agrega elementos a la lista
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         lista = sll.add_last(lista, {'name': 'Tres', 'number': 3})
+
+         # Obtiene los adyacentes al elemento 2 de la lista original
+         print(sll.adjacents(lista, {'name': 'Dos', 'number': 2})) 
+         # Salida esperada:  {'name': 'Tres', 'number': 3}
+
+.. py:function:: to_py_list(my_list)
+
+   Retornar los elementos de la lista (en el orden de aparición) en una lista Python
+    
+   :param my_list: Lista encadenada simple de referencia
+   :type my_list: single_linked_list
+
+   :returns: Lista Python con los elementos en la lista
+   :rtype: python_list
+
+   :Example:
+      .. code-block:: python
+
+         # App/logic.py
+         from DataStructures.List import single_linked_list as sll
+
+         # Crea una lista vacía
+         lista = sll.new_list()
+
+         # Agrega elementos a la lista
+         lista = sll.add_last(lista, {'name': 'Uno', 'number': 1})
+         lista = sll.add_last(lista, {'name': 'Dos', 'number': 2})
+         lista = sll.add_last(lista, {'name': 'Tres', 'number': 3})
+
+         # Obtiene la lista Python de la lista original
+         print(sll.to_py_list(lista)) 
+         # Salida esperada: [{'name': 'Uno', 'number': 1},
+         #                   {'name': 'Dos', 'number': 2},
+         #                   {'name': 'Tres', 'number': 3}]
 
 Ordenamientos
 #################################################
